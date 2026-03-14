@@ -4,11 +4,28 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "dev": "tinacms dev -c \"astro dev\"",
+    "build": "astro build",
+    "build:admin": "tinacms build",
+    "preview": "astro preview",
     "scrape": "node scripts/scrape-phandc.mjs",
     "spider": "node scripts/scrape-phandc.mjs"
   },
   "dependencies": {
+    "astro": "^5.0.0",
     "cheerio": "^1.0.0",
-    "fast-xml-parser": "^4.3.2"
+    "fast-xml-parser": "^4.3.2",
+    "fs-extra": "^11.3.4",
+    "next-tinacms-cloudinary": "^4.0.0",
+    "tinacms": "^2.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@tinacms/auth": "^1.0.0",
+    "@tinacms/cli": "^2.0.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "tailwindcss": "^4.0.0",
+    "vite": "^6.0.0"
   }
 }

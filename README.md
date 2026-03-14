@@ -1,6 +1,39 @@
 # phc
 
-Content migration tooling for phandc.net. This workspace contains a sitemap-based spider that scrapes the existing WordPress site into a structured format for import into an Astro/Tina site.
+Astro + Tina CMS + Tailwind portfolio site for phandc.net, with tooling to scrape the existing WordPress site into a structured format for content migration.
+
+## Site (Astro + Tina + Tailwind)
+
+The site is a minimal responsive portfolio built with:
+
+- **Astro 5** – static site generator
+- **Tailwind CSS 4** – styling
+- **Tina CMS** – content editing (home and portfolio)
+- **Cloudinary** – optional media storage for Tina (images)
+
+### Commands
+
+```bash
+npm install   # if you see peer dependency errors, use: npm install --legacy-peer-deps
+npm run dev        # Tina + Astro dev server (admin at /admin/index.html)
+npm run build      # Build static site
+npm run preview   # Preview production build
+npm run build:admin  # Build Tina admin UI to admin/
+```
+
+### Cloudinary (optional)
+
+To use Cloudinary for media in Tina:
+
+1. Copy `.env.example` to `.env` and set:
+   - `CLOUDINARY_CLOUD_NAME`
+   - `CLOUDINARY_API_KEY`
+   - `CLOUDINARY_API_SECRET`
+2. For production, deploy the media handler so Tina can upload/list/delete assets. The handler lives in `api/cloudinary/[[...media]].ts` and is intended for **Vercel** (or a Node serverless environment). Deploy with the same env vars. See [Tina Cloudinary docs](https://tina.io/docs/reference/media/external/cloudinary).
+
+Without Cloudinary env or the deployed handler, image fields in Tina may not work in production; local dev can still edit other fields.
+
+---
 
 ## Spider (scrape phandc.net)
 

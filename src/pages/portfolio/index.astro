@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const portfolio = await getCollection('portfolio');
+const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+---
+
+<BaseLayout title="Portfolio">
+  <div class="space-y-8">
+    <h1 class="text-3xl font-bold text-gray-900">Portfolio</h1>
+    <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {sorted.map((entry) => (
+        <li>
+          <a
+            href={`/portfolio/${entry.id}`}
+            class="block overflow-hidden rounded-lg border border-gray-200 bg-white transition hover:border-gray-300 hover:shadow-md"
+          >
+            {entry.data.image && (
+              <img
+                src={typeof entry.data.image === 'object' && 'src' in entry.data.image ? entry.data.image.src : entry.data.image}
+                alt=""
+                class="h-48 w-full object-cover"
+              />
+            )}
+            <div class="p-4">
+              <h2 class="font-semibold text-gray-900">{entry.data.title}</h2>
+              {entry.data.description && (
+                <p class="mt-1 line-clamp-2 text-sm text-gray-600">{entry.data.description}</p>
+              )}
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

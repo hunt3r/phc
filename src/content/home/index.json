@@ -1,0 +1,14 @@
+{
+  "hero": {
+    "tagline": "Welcome to PHC",
+    "subtitle": "Construction and renovation expertise."
+  },
+  "about": {
+    "heading": "About Us",
+    "body": "We deliver quality construction and renovation projects."
+  },
+  "contactCta": {
+    "heading": "Get in Touch",
+    "subtext": "Ready to start your project? Contact us today."
+  }
+}
