@@ -1,0 +1,14 @@
+{
+  "name": "phc",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "scrape": "node scripts/scrape-phandc.mjs",
+    "spider": "node scripts/scrape-phandc.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "fast-xml-parser": "^4.3.2"
+  }
+}

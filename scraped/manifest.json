@@ -1,0 +1,513 @@
+[
+  {
+    "type": "page",
+    "url": "https://phandc.net/",
+    "localPath": "pages/index/",
+    "slug": "index",
+    "lastmod": "2025-05-15T15:52:39+00:00"
+  },
+  {
+    "type": "page",
+    "url": "https://phandc.net/privacy-policy/",
+    "localPath": "pages/privacy-policy/",
+    "slug": "privacy-policy",
+    "lastmod": "2020-09-04T20:27:03+00:00"
+  },
+  {
+    "type": "page",
+    "url": "https://phandc.net/project-sectors/",
+    "localPath": "pages/project-sectors/",
+    "slug": "project-sectors",
+    "lastmod": "2020-09-29T21:04:16+00:00"
+  },
+  {
+    "type": "page",
+    "url": "https://phandc.net/welcome-to-phc/",
+    "localPath": "pages/welcome-to-phc/",
+    "slug": "welcome-to-phc",
+    "lastmod": "2022-09-29T15:00:43+00:00"
+  },
+  {
+    "type": "page",
+    "url": "https://phandc.net/our-services/",
+    "localPath": "pages/our-services/",
+    "slug": "our-services",
+    "lastmod": "2023-03-27T18:07:45+00:00"
+  },
+  {
+    "type": "page",
+    "url": "https://phandc.net/our-portfolio/",
+    "localPath": "pages/our-portfolio/",
+    "slug": "our-portfolio",
+    "lastmod": "2023-05-15T20:46:42+00:00"
+  },
+  {
+    "type": "page",
+    "url": "https://phandc.net/video/",
+    "localPath": "pages/video/",
+    "slug": "video",
+    "lastmod": "2023-05-15T20:53:20+00:00"
+  },
+  {
+    "type": "page",
+    "url": "https://phandc.net/contact-us/",
+    "localPath": "pages/contact-us/",
+    "slug": "contact-us",
+    "lastmod": "2023-11-01T15:22:40+00:00"
+  },
+  {
+    "type": "page",
+    "url": "https://phandc.net/about-us/",
+    "localPath": "pages/about-us/",
+    "slug": "about-us",
+    "lastmod": "2026-02-11T13:23:12+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-abington-jenkintown/",
+    "localPath": "portfolio/wawa-abington-jenkintown/",
+    "slug": "wawa-abington-jenkintown",
+    "lastmod": "2017-02-20T19:48:16+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-upper-moreland/",
+    "localPath": "portfolio/wawa-upper-moreland/",
+    "slug": "wawa-upper-moreland",
+    "lastmod": "2017-02-20T19:50:41+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-gilbertsville-pa/",
+    "localPath": "portfolio/wawa-gilbertsville-pa/",
+    "slug": "wawa-gilbertsville-pa",
+    "lastmod": "2017-02-20T19:51:34+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-hillsborough-tampa-fl/",
+    "localPath": "portfolio/wawa-hillsborough-tampa-fl/",
+    "slug": "wawa-hillsborough-tampa-fl",
+    "lastmod": "2017-02-20T19:52:37+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/tulip-special-care-philadelphia-pa/",
+    "localPath": "portfolio/tulip-special-care-philadelphia-pa/",
+    "slug": "tulip-special-care-philadelphia-pa",
+    "lastmod": "2018-06-22T13:43:18+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-cherry-hill/",
+    "localPath": "portfolio/wawa-cherry-hill/",
+    "slug": "wawa-cherry-hill",
+    "lastmod": "2020-09-11T14:32:29+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-hatfield/",
+    "localPath": "portfolio/wawa-hatfield/",
+    "slug": "wawa-hatfield",
+    "lastmod": "2020-09-11T15:00:58+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-lower-moreland/",
+    "localPath": "portfolio/wawa-lower-moreland/",
+    "slug": "wawa-lower-moreland",
+    "lastmod": "2020-09-11T15:01:13+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/federal-transit-administration-fta/",
+    "localPath": "portfolio/federal-transit-administration-fta/",
+    "slug": "federal-transit-administration-fta",
+    "lastmod": "2020-09-22T17:15:18+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/ussc-group-exton-pa/",
+    "localPath": "portfolio/ussc-group-exton-pa/",
+    "slug": "ussc-group-exton-pa",
+    "lastmod": "2020-09-22T19:20:38+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/the-flats-on-pechin-street-roxborough-philadelphia/",
+    "localPath": "portfolio/the-flats-on-pechin-street-roxborough-philadelphia/",
+    "slug": "the-flats-on-pechin-street-roxborough-philadelphia",
+    "lastmod": "2020-09-22T20:01:10+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/healthcare-overview/",
+    "localPath": "portfolio/healthcare-overview/",
+    "slug": "healthcare-overview",
+    "lastmod": "2020-10-09T19:19:35+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-thorndale-caln-township-pa/",
+    "localPath": "portfolio/wawa-thorndale-caln-township-pa/",
+    "slug": "wawa-thorndale-caln-township-pa",
+    "lastmod": "2020-12-15T18:29:56+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/nemours-dupont-pediatrics-paoli-pa/",
+    "localPath": "portfolio/nemours-dupont-pediatrics-paoli-pa/",
+    "slug": "nemours-dupont-pediatrics-paoli-pa",
+    "lastmod": "2020-12-15T18:35:32+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/6060-ridge-ave-philadelphia-pa/",
+    "localPath": "portfolio/6060-ridge-ave-philadelphia-pa/",
+    "slug": "6060-ridge-ave-philadelphia-pa",
+    "lastmod": "2020-12-15T18:37:03+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/bank-of-america-kennett-square/",
+    "localPath": "portfolio/bank-of-america-kennett-square/",
+    "slug": "bank-of-america-kennett-square",
+    "lastmod": "2020-12-15T18:46:56+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/county-savings-bank-tinicum-pa/",
+    "localPath": "portfolio/county-savings-bank-tinicum-pa/",
+    "slug": "county-savings-bank-tinicum-pa",
+    "lastmod": "2020-12-15T18:48:04+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/cvs-jamison/",
+    "localPath": "portfolio/cvs-jamison/",
+    "slug": "cvs-jamison",
+    "lastmod": "2020-12-15T18:48:47+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/pnc-bank-westtown/",
+    "localPath": "portfolio/pnc-bank-westtown/",
+    "slug": "pnc-bank-westtown",
+    "lastmod": "2020-12-15T18:50:15+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/shops-of-villanova-villanova-pa/",
+    "localPath": "portfolio/shops-of-villanova-villanova-pa/",
+    "slug": "shops-of-villanova-villanova-pa",
+    "lastmod": "2020-12-15T19:00:22+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-retail-bldg-bank-trooper-pa/",
+    "localPath": "portfolio/wawa-retail-bldg-bank-trooper-pa/",
+    "slug": "wawa-retail-bldg-bank-trooper-pa",
+    "lastmod": "2020-12-15T19:23:07+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/whitman-plaza-burlington-coat-factory-ross-dress-for-less/",
+    "localPath": "portfolio/whitman-plaza-burlington-coat-factory-ross-dress-for-less/",
+    "slug": "whitman-plaza-burlington-coat-factory-ross-dress-for-less",
+    "lastmod": "2020-12-15T19:38:26+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/environmental-standards-inc-valley-forge-pa/",
+    "localPath": "portfolio/environmental-standards-inc-valley-forge-pa/",
+    "slug": "environmental-standards-inc-valley-forge-pa",
+    "lastmod": "2021-03-05T15:04:56+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-upper-providence-township-pa/",
+    "localPath": "portfolio/wawa-upper-providence-township-pa/",
+    "slug": "wawa-upper-providence-township-pa",
+    "lastmod": "2021-04-06T14:17:47+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/260-morehall-road-malvern-pa/",
+    "localPath": "portfolio/260-morehall-road-malvern-pa/",
+    "slug": "260-morehall-road-malvern-pa",
+    "lastmod": "2021-04-06T14:18:43+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-upper-providence-township-pa-2-2-2/",
+    "localPath": "portfolio/wawa-upper-providence-township-pa-2-2-2/",
+    "slug": "wawa-upper-providence-township-pa-2-2-2",
+    "lastmod": "2021-04-13T18:57:24+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/a-storage-depot-middletown-de/",
+    "localPath": "portfolio/a-storage-depot-middletown-de/",
+    "slug": "a-storage-depot-middletown-de",
+    "lastmod": "2021-06-01T16:09:02+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/custom-self-storage-development/",
+    "localPath": "portfolio/custom-self-storage-development/",
+    "slug": "custom-self-storage-development",
+    "lastmod": "2021-07-14T19:55:06+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/terrace-street-lofts-manayunk-philadelphia/",
+    "localPath": "portfolio/terrace-street-lofts-manayunk-philadelphia/",
+    "slug": "terrace-street-lofts-manayunk-philadelphia",
+    "lastmod": "2021-07-21T14:52:22+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-and-retail-space-south-philadelphia-pa/",
+    "localPath": "portfolio/wawa-and-retail-space-south-philadelphia-pa/",
+    "slug": "wawa-and-retail-space-south-philadelphia-pa",
+    "lastmod": "2021-08-12T19:11:43+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/chesterbrook-academy-private-preschool/",
+    "localPath": "portfolio/chesterbrook-academy-private-preschool/",
+    "slug": "chesterbrook-academy-private-preschool",
+    "lastmod": "2021-08-13T17:18:41+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/office-overview/",
+    "localPath": "portfolio/office-overview/",
+    "slug": "office-overview",
+    "lastmod": "2021-09-01T17:26:35+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/residential-multi-family-overview/",
+    "localPath": "portfolio/residential-multi-family-overview/",
+    "slug": "residential-multi-family-overview",
+    "lastmod": "2021-09-01T17:36:57+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/storage-depot-west-whiteland-pa-development/",
+    "localPath": "portfolio/storage-depot-west-whiteland-pa-development/",
+    "slug": "storage-depot-west-whiteland-pa-development",
+    "lastmod": "2021-09-01T17:56:29+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/newtown-square-pa-shopping-center/",
+    "localPath": "portfolio/newtown-square-pa-shopping-center/",
+    "slug": "newtown-square-pa-shopping-center",
+    "lastmod": "2021-09-01T18:17:32+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/amc-309-cinemas-renovation/",
+    "localPath": "portfolio/amc-309-cinemas-renovation/",
+    "slug": "amc-309-cinemas-renovation",
+    "lastmod": "2021-09-01T18:18:57+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/sicklerville-retail-shoppes/",
+    "localPath": "portfolio/sicklerville-retail-shoppes/",
+    "slug": "sicklerville-retail-shoppes",
+    "lastmod": "2021-09-01T18:21:22+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/sadsbury-commons-development/",
+    "localPath": "portfolio/sadsbury-commons-development/",
+    "slug": "sadsbury-commons-development",
+    "lastmod": "2021-09-01T18:22:57+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/higher-rock-devlopment-montgomery-twp-pa/",
+    "localPath": "portfolio/higher-rock-devlopment-montgomery-twp-pa/",
+    "slug": "higher-rock-devlopment-montgomery-twp-pa",
+    "lastmod": "2021-09-07T14:02:48+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/shoprite-supermarket-south-brunswick-nj/",
+    "localPath": "portfolio/shoprite-supermarket-south-brunswick-nj/",
+    "slug": "shoprite-supermarket-south-brunswick-nj",
+    "lastmod": "2021-11-05T13:54:14+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/prices-corner-shopping-center-wilmington-de/",
+    "localPath": "portfolio/prices-corner-shopping-center-wilmington-de/",
+    "slug": "prices-corner-shopping-center-wilmington-de",
+    "lastmod": "2022-01-19T20:34:27+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-expansion-maple-shade-nj/",
+    "localPath": "portfolio/wawa-expansion-maple-shade-nj/",
+    "slug": "wawa-expansion-maple-shade-nj",
+    "lastmod": "2022-12-06T20:17:10+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-upper-providence-township-pa-2/",
+    "localPath": "portfolio/wawa-upper-providence-township-pa-2/",
+    "slug": "wawa-upper-providence-township-pa-2",
+    "lastmod": "2023-04-07T16:12:01+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/office-overview-2/",
+    "localPath": "portfolio/office-overview-2/",
+    "slug": "office-overview-2",
+    "lastmod": "2023-05-15T19:14:04+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/government-overview/",
+    "localPath": "portfolio/government-overview/",
+    "slug": "government-overview",
+    "lastmod": "2023-05-16T13:33:15+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/higher-rock-devlopment-montgomery-twp-pa-2/",
+    "localPath": "portfolio/higher-rock-devlopment-montgomery-twp-pa-2/",
+    "slug": "higher-rock-devlopment-montgomery-twp-pa-2",
+    "lastmod": "2023-08-29T19:45:11+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/chestnut-hill-college-sugarloaf-campus/",
+    "localPath": "portfolio/chestnut-hill-college-sugarloaf-campus/",
+    "slug": "chestnut-hill-college-sugarloaf-campus",
+    "lastmod": "2023-09-28T20:49:40+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/cardiology-consultants-of-philadelphia-springfield-pa/",
+    "localPath": "portfolio/cardiology-consultants-of-philadelphia-springfield-pa/",
+    "slug": "cardiology-consultants-of-philadelphia-springfield-pa",
+    "lastmod": "2023-10-26T20:11:55+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-east-norriton-township-pa/",
+    "localPath": "portfolio/wawa-east-norriton-township-pa/",
+    "slug": "wawa-east-norriton-township-pa",
+    "lastmod": "2023-11-14T16:33:45+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/estates-at-saucon-valley-center-valley-pa/",
+    "localPath": "portfolio/estates-at-saucon-valley-center-valley-pa/",
+    "slug": "estates-at-saucon-valley-center-valley-pa",
+    "lastmod": "2023-11-14T19:37:47+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/national-biscuit-co-demo-and-phase-i-redevelopment/",
+    "localPath": "portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/",
+    "slug": "national-biscuit-co-demo-and-phase-i-redevelopment",
+    "lastmod": "2023-11-28T17:35:47+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/national-biscuit-co-phase-ii-redevelopment/",
+    "localPath": "portfolio/national-biscuit-co-phase-ii-redevelopment/",
+    "slug": "national-biscuit-co-phase-ii-redevelopment",
+    "lastmod": "2023-12-04T19:40:48+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/ponds-edge-community-middletown-delaware-county-pa/",
+    "localPath": "portfolio/ponds-edge-community-middletown-delaware-county-pa/",
+    "slug": "ponds-edge-community-middletown-delaware-county-pa",
+    "lastmod": "2023-12-13T03:20:41+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/pa-state-police-barracks-media-pa/",
+    "localPath": "portfolio/pa-state-police-barracks-media-pa/",
+    "slug": "pa-state-police-barracks-media-pa",
+    "lastmod": "2023-12-13T16:17:44+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/the-cottages-at-old-saucon/",
+    "localPath": "portfolio/the-cottages-at-old-saucon/",
+    "slug": "the-cottages-at-old-saucon",
+    "lastmod": "2024-03-26T15:32:44+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-bethlehem-pa/",
+    "localPath": "portfolio/wawa-bethlehem-pa/",
+    "slug": "wawa-bethlehem-pa",
+    "lastmod": "2024-07-23T13:11:10+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/river-pointe-residential-bridgeport-pa/",
+    "localPath": "portfolio/river-pointe-residential-bridgeport-pa/",
+    "slug": "river-pointe-residential-bridgeport-pa",
+    "lastmod": "2025-01-21T21:00:28+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-stroud-township-pa/",
+    "localPath": "portfolio/wawa-stroud-township-pa/",
+    "slug": "wawa-stroud-township-pa",
+    "lastmod": "2025-05-15T15:48:58+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/wawa-west-whiteland-exton-pa/",
+    "localPath": "portfolio/wawa-west-whiteland-exton-pa/",
+    "slug": "wawa-west-whiteland-exton-pa",
+    "lastmod": "2025-05-15T15:49:30+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/doylestown-shopping-center-target-doylestown-pa/",
+    "localPath": "portfolio/doylestown-shopping-center-target-doylestown-pa/",
+    "slug": "doylestown-shopping-center-target-doylestown-pa",
+    "lastmod": "2025-05-16T18:41:02+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/retail-property-development/",
+    "localPath": "portfolio/retail-property-development/",
+    "slug": "retail-property-development",
+    "lastmod": "2025-05-16T18:46:07+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/lidl-us-llc-paramus-new-jersey-2/",
+    "localPath": "portfolio/lidl-us-llc-paramus-new-jersey-2/",
+    "slug": "lidl-us-llc-paramus-new-jersey-2",
+    "lastmod": "2025-05-16T18:47:07+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/lidl-us-llc-paramus-new-jersey/",
+    "localPath": "portfolio/lidl-us-llc-paramus-new-jersey/",
+    "slug": "lidl-us-llc-paramus-new-jersey",
+    "lastmod": "2025-05-16T18:47:40+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/lidl-us-llc-harrisburg-pa-paxton-towne-centre/",
+    "localPath": "portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/",
+    "slug": "lidl-us-llc-harrisburg-pa-paxton-towne-centre",
+    "lastmod": "2025-05-16T18:48:05+00:00"
+  }
+]
