@@ -1,0 +1,98 @@
+---
+import { getImageUrl } from '@/lib/cloudinary';
+
+interface Props {
+  id?: string;
+  size?: 'full' | 'compact';
+  eyebrow?: string;
+  tagline?: string;
+  subtitle?: string;
+  ctaPrimaryText?: string;
+  ctaPrimaryHref?: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryHref?: string;
+  backgroundImage?: string;
+  overlayOpacity?: number;
+  overlayColor?: 'dark' | 'light';
+}
+
+const {
+  id = 'hero',
+  size = 'full',
+  eyebrow,
+  tagline,
+  subtitle,
+  ctaPrimaryText,
+  ctaPrimaryHref,
+  ctaSecondaryText,
+  ctaSecondaryHref,
+  backgroundImage,
+  overlayOpacity = 70,
+  overlayColor = 'dark',
+} = Astro.props;
+
+const backgroundImageUrl = backgroundImage ? getImageUrl(backgroundImage) : undefined;
+const clampedOpacity = Math.min(Math.max(overlayOpacity ?? 70, 0), 100);
+const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
+const hasOverlay = Boolean(backgroundImageUrl);
+const textClass = hasOverlay ? 'text-white' : 'text-gray-900';
+const wrapperClass =
+  size === 'full'
+    ? 'relative min-h-[80vh] flex flex-col justify-center bg-cover bg-center'
+    : 'relative flex flex-col justify-center bg-cover bg-center py-16 md:py-24';
+---
+
+<div
+  id={id}
+  class={`${wrapperClass} w-screen relative left-1/2 -translate-x-1/2`}
+  style={backgroundImageUrl ? `background-image: url(${backgroundImageUrl})` : undefined}
+>
+  {backgroundImageUrl && (
+    <div
+      class="absolute inset-0"
+      style={`background: linear-gradient(to bottom, oklch(${baseColor} / ${clampedOpacity / 100}) 0%, oklch(${baseColor} / 0) 100%)`}
+      aria-hidden="true"
+    />
+  )}
+  <div class="relative flex flex-col justify-center items-center text-center px-4 py-12 md:py-16">
+    <div class="mx-auto max-w-6xl w-full">
+      {eyebrow && (
+        <p class={`text-sm font-medium uppercase tracking-wider ${hasOverlay ? 'text-white/80' : 'text-gray-600'}`}>
+          {eyebrow}
+        </p>
+      )}
+      {tagline && (
+        <h1 class={`mt-2 text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl ${textClass}`}>
+          {tagline}
+        </h1>
+      )}
+      {subtitle && (
+        <p class={`mt-4 text-lg max-w-2xl mx-auto ${hasOverlay ? 'text-white/80' : 'text-gray-600'}`}>
+          {subtitle}
+        </p>
+      )}
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        {ctaPrimaryText && ctaPrimaryHref && (
+          <a
+            href={ctaPrimaryHref}
+            class="inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          >
+            {ctaPrimaryText}
+          </a>
+        )}
+        {ctaSecondaryText && ctaSecondaryHref && (
+          <a
+            href={ctaSecondaryHref}
+            class={`inline-flex items-center justify-center rounded-lg border px-6 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+              hasOverlay
+                ? 'border-white/80 text-white hover:bg-white/10 focus:ring-white'
+                : 'border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-gray-500'
+            }`}
+          >
+            {ctaSecondaryText}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</div>

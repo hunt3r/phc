@@ -1,21 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroPage from '../components/blocks/hero-page.astro';
 import { getEntry } from 'astro:content';
 
 const homeEntry = await getEntry('home', 'index');
 const data = homeEntry?.data;
+const hero = data?.hero;
 ---
 
 <BaseLayout title="Home">
+  <HeroPage
+    size={hero?.size ?? 'full'}
+    eyebrow={hero?.eyebrow}
+    tagline={hero?.tagline ?? 'Welcome to PHC'}
+    subtitle={hero?.subtitle ?? 'Construction and renovation expertise.'}
+    ctaPrimaryText={hero?.ctaPrimaryText}
+    ctaPrimaryHref={hero?.ctaPrimaryHref}
+    ctaSecondaryText={hero?.ctaSecondaryText}
+    ctaSecondaryHref={hero?.ctaSecondaryHref}
+    backgroundImage={typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : undefined}
+    overlayOpacity={hero?.overlayOpacity ?? 70}
+    overlayColor={hero?.overlayColor ?? 'dark'}
+  />
   <article class="space-y-16">
-    <section class="text-center">
-      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-        {data?.hero?.tagline ?? 'Welcome to PHC'}
-      </h1>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-        {data?.hero?.subtitle ?? 'Construction and renovation expertise.'}
-      </p>
-    </section>
 
     {data?.about && (
       <section>

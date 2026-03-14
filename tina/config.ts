@@ -32,8 +32,17 @@ export default defineConfig({
         ui: { allowedActions: { create: false, delete: false } },
         fields: [
           { type: 'object', name: 'hero', label: 'Hero', fields: [
+            { type: 'string', name: 'size', label: 'Size', options: ['full', 'compact'], ui: { component: 'select' } },
+            { type: 'string', name: 'eyebrow', label: 'Eyebrow' },
             { type: 'string', name: 'tagline', label: 'Tagline' },
             { type: 'string', name: 'subtitle', label: 'Subtitle', ui: { component: 'textarea' } },
+            { type: 'string', name: 'ctaPrimaryText', label: 'Primary CTA Text' },
+            { type: 'string', name: 'ctaPrimaryHref', label: 'Primary CTA Link' },
+            { type: 'string', name: 'ctaSecondaryText', label: 'Secondary CTA Text' },
+            { type: 'string', name: 'ctaSecondaryHref', label: 'Secondary CTA Link' },
+            { type: 'image', name: 'backgroundImage', label: 'Background Image' },
+            { type: 'number', name: 'overlayOpacity', label: 'Overlay Opacity (0-100)' },
+            { type: 'string', name: 'overlayColor', label: 'Overlay Color', options: ['dark', 'light'], ui: { component: 'select' } },
           ]},
           { type: 'object', name: 'about', label: 'About', fields: [
             { type: 'string', name: 'heading', label: 'Heading' },

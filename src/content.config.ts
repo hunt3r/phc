@@ -19,8 +19,17 @@ const home = defineCollection({
   schema: z.object({
     hero: z
       .object({
+        size: z.enum(['full', 'compact']).optional(),
+        eyebrow: z.string().optional(),
         tagline: z.string().optional(),
         subtitle: z.string().optional(),
+        ctaPrimaryText: z.string().optional(),
+        ctaPrimaryHref: z.string().optional(),
+        ctaSecondaryText: z.string().optional(),
+        ctaSecondaryHref: z.string().optional(),
+        backgroundImage: z.string().optional(),
+        overlayOpacity: z.number().optional(),
+        overlayColor: z.enum(['dark', 'light']).optional(),
       })
       .optional(),
     about: z

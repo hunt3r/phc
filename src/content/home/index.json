@@ -1,7 +1,14 @@
 {
   "hero": {
+    "size": "full",
     "tagline": "Welcome to PHC",
-    "subtitle": "Construction and renovation expertise."
+    "subtitle": "Construction and renovation expertise.",
+    "ctaPrimaryText": "",
+    "ctaPrimaryHref": "",
+    "ctaSecondaryText": "",
+    "ctaSecondaryHref": "",
+    "overlayOpacity": 70,
+    "overlayColor": "dark"
   },
   "about": {
     "heading": "About Us",
