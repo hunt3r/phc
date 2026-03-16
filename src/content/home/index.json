@@ -10,12 +10,12 @@
     "ctaSecondaryText": "About Us",
     "ctaSecondaryHref": "/about",
     "backgroundImage": "https://res.cloudinary.com/djkpy86pu/image/upload/v1773690427/shivendu-shukla-3yoTPuYR9ZY-unsplash_rpze0g.jpg",
-    "overlayOpacity": 70,
+    "overlayOpacity": 85,
     "overlayColor": "dark"
   },
   "about": {
     "heading": "About Us",
-    "body": "We deliver quality construction and renovation projects."
+    "body": "We provide value to our clients by providing a cost effective solution for their needs in a full range of construction and real estate development services."
   },
   "contactCta": {
     "heading": "Get in Touch",

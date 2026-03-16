@@ -36,7 +36,18 @@ const backgroundImageUrl = backgroundImage ? getImageUrl(backgroundImage, HERO_I
 const clampedOpacity = Math.min(Math.max(overlayOpacity ?? 70, 0), 100);
 const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
 const hasOverlay = Boolean(backgroundImageUrl);
-const textClass = hasOverlay ? 'text-white' : 'text-gray-900 dark:text-gray-100';
+const overlayIsDark = overlayColor === 'dark';
+const textClass = hasOverlay
+  ? (overlayIsDark ? 'text-white' : 'text-gray-900')
+  : 'text-gray-900 dark:text-gray-100';
+const mutedClass = hasOverlay
+  ? (overlayIsDark ? 'text-white/80' : 'text-gray-900/80')
+  : 'text-gray-600 dark:text-gray-400';
+const secondaryBtnClass = hasOverlay
+  ? (overlayIsDark
+      ? 'btn border-2 border-white/80 text-white hover:bg-white/10 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent dark:focus:ring-offset-transparent'
+      : 'btn border-2 border-gray-900/80 text-gray-900 hover:bg-gray-900/10 focus:ring-gray-900 focus:ring-offset-2 focus:ring-offset-transparent dark:focus:ring-offset-transparent')
+  : 'btn btn-secondary';
 const wrapperClass =
   size === 'full'
     ? 'relative min-h-[80vh] flex flex-col justify-center bg-cover bg-center'
@@ -58,7 +69,7 @@ const wrapperClass =
   <div class="relative flex flex-col justify-center items-center text-center px-4 py-12 md:py-16">
     <div class="mx-auto max-w-6xl w-full">
       {eyebrow && (
-        <p class={`text-sm font-medium uppercase tracking-wider ${hasOverlay ? 'text-white/80' : 'text-gray-600 dark:text-gray-400'}`}>
+        <p class={`text-sm font-medium uppercase tracking-wider ${mutedClass}`}>
           {eyebrow}
         </p>
       )}
@@ -68,7 +79,7 @@ const wrapperClass =
         </h1>
       )}
       {subtitle && (
-        <p class={`mt-4 text-lg max-w-2xl mx-auto ${hasOverlay ? 'text-white/80' : 'text-gray-600 dark:text-gray-400'}`}>
+        <p class={`mt-4 text-lg max-w-2xl mx-auto ${mutedClass}`}>
           {subtitle}
         </p>
       )}
@@ -79,13 +90,7 @@ const wrapperClass =
           </a>
         )}
         {ctaSecondaryText && ctaSecondaryHref && (
-          <a
-            href={ctaSecondaryHref}
-            class={hasOverlay
-              ? 'btn border-2 border-white/80 text-white hover:bg-white/10 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent dark:focus:ring-offset-transparent'
-              : 'btn btn-secondary'
-            }
-          >
+          <a href={ctaSecondaryHref} class={secondaryBtnClass}>
             {ctaSecondaryText}
           </a>
         )}

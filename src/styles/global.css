@@ -23,6 +23,8 @@
   /* Font families */
   --font-heading: 'Italian Old Style MT', Georgia, serif;
   --font-body: 'Futura Book', 'Segoe UI', system-ui, sans-serif;
+  /* Hero overlay (oklch L C H, used with oklch(var(--hero-overlay-color) / opacity)) */
+  --hero-overlay-color: 0 0 0;
 }
 
 /* Dark mode semantic overrides (class on html) */
@@ -32,6 +34,7 @@
   --color-text: #f9fafb;
   --color-text-muted: #9ca3af;
   --color-border: #374151;
+  --hero-overlay-color: 0 0 0;
 }
 
 @layer base {
