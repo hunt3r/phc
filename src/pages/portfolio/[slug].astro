@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import PortfolioGallery from '../../components/PortfolioGallery.astro';
+import { getImageUrl } from '@/lib/cloudinary';
 
 export async function getStaticPaths() {
   const portfolio = await getCollection('portfolio');
@@ -10,6 +11,8 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+const heroImageUrl = entry.data.image ? getImageUrl(entry.data.image, { width: 1200, quality: 'auto:eco' }) : undefined;
 
 // Use gallery from frontmatter, or fall back to hero image so the gallery section always shows when we have an image
 const galleryImages =
@@ -58,9 +61,9 @@ const galleryImages =
           ))}
         </div>
       )}
-      {entry.data.image && (
+      {heroImageUrl && (
         <img
-          src={entry.data.image}
+          src={heroImageUrl}
           alt={entry.data.title}
           class="mt-4 w-full rounded-lg object-cover"
         />

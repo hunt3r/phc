@@ -1,45 +1,57 @@
 /**
- * Minimal image URL helper for hero and other assets.
- * Cloudinary URLs or public_ids are returned as delivery URLs; local paths are returned as-is.
- * For transform support (width, quality), add astro-cloudinary later.
+ * Cloudinary delivery URL helper with dynamic compression (f_auto, q_auto:eco).
+ * For Cloudinary URLs we insert transforms; local paths and non-Cloudinary URLs are returned as-is.
  */
 
 const CLOUDINARY_URL_PATTERN =
-  /res\.cloudinary\.com|cloudinary\.com\/.+\/image\/upload/;
+  /^https:\/\/res\.cloudinary\.com\/[^/]+\/image\/upload\//;
 
 export function isCloudinarySrc(src: string | undefined): boolean {
   if (!src?.trim()) return false;
   const s = src.trim();
-  if (s.startsWith('http') && CLOUDINARY_URL_PATTERN.test(s)) return true;
+  if (s.startsWith("http") && CLOUDINARY_URL_PATTERN.test(s)) return true;
   return false;
 }
 
 export interface GetImageUrlOptions {
   width?: number;
-  quality?: string;
+  height?: number;
+  /** Crop mode, e.g. "fill" | "limit" | "scale". Default "limit" for responsive. */
+  crop?: "fill" | "limit" | "scale" | "fit" | "thumb";
+  /** Cloudinary quality: "auto" or "auto:eco" (best compression). Default "auto:eco". */
+  quality?: "auto" | "auto:eco";
 }
 
 /**
- * Returns a delivery URL for the given src.
- * - If src is already a Cloudinary URL, returns it as-is.
- * - If src looks like a Cloudinary public_id and CLOUDINARY_CLOUD_NAME is set, returns upload URL.
- * - Otherwise returns src (e.g. local path like /images/hero.jpg).
+ * Build Cloudinary transform segment: f_auto (best format), q_auto:eco (best compression), optional size.
+ */
+function buildTransform(options: GetImageUrlOptions): string {
+  const parts = ["f_auto", options.quality === "auto" ? "q_auto" : "q_auto:eco"];
+  const crop = options.crop ?? "limit";
+  if (options.width) parts.push(`w_${options.width}`);
+  if (options.height) {
+    parts.push(`c_${crop}`, `h_${options.height}`);
+  } else if (options.width) {
+    parts.push("c_limit");
+  }
+  return parts.join(",");
+}
+
+/**
+ * Returns a delivery URL for the given src with optional transforms.
+ * - Cloudinary URLs: insert f_auto,q_auto:eco (and width/crop) for performant compression.
+ * - Local paths or other URLs: return as-is.
  */
 export function getImageUrl(
   src: string | undefined,
-  _options: GetImageUrlOptions = {}
+  options: GetImageUrlOptions = {}
 ): string {
-  if (!src?.trim()) return '';
+  if (!src?.trim()) return "";
   const s = src.trim();
 
-  if (s.startsWith('http')) return s;
+  if (!isCloudinarySrc(s)) return s;
+  if (s.includes("f_auto") || s.includes("q_auto")) return s;
 
-  const cloudName =
-    typeof import.meta.env !== 'undefined' &&
-    import.meta.env.CLOUDINARY_CLOUD_NAME;
-  if (cloudName && s.length > 0) {
-    return `https://res.cloudinary.com/${cloudName}/image/upload/${s}`;
-  }
-
-  return s;
+  const transform = buildTransform({ quality: "auto:eco", ...options });
+  return s.replace(/\/upload\//, `/upload/${transform}/`);
 }

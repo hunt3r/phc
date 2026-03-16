@@ -31,7 +31,8 @@ const {
   overlayColor = 'dark',
 } = Astro.props;
 
-const backgroundImageUrl = backgroundImage ? getImageUrl(backgroundImage) : undefined;
+const HERO_IMAGE_OPTIONS = { width: 1920, quality: "auto:eco" as const };
+const backgroundImageUrl = backgroundImage ? getImageUrl(backgroundImage, HERO_IMAGE_OPTIONS) : undefined;
 const clampedOpacity = Math.min(Math.max(overlayOpacity ?? 70, 0), 100);
 const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
 const hasOverlay = Boolean(backgroundImageUrl);

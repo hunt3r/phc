@@ -1,4 +1,6 @@
 ---
+import { getImageUrl } from "@/lib/cloudinary";
+
 interface Image {
   src: string
   alt?: string
@@ -14,6 +16,11 @@ const { images, galleryId = "default" } = Astro.props as Props
 const rootId = `portfolio-gallery-${galleryId}`
 const lightboxId = `portfolio-lightbox-${galleryId}`
 const lightboxImageId = `portfolio-lightbox-image-${galleryId}`
+
+const THUMB_OPTIONS = { width: 400, quality: "auto:eco" as const };
+const LIGHTBOX_OPTIONS = { width: 1200, quality: "auto:eco" as const };
+const thumbImages = images.map((img) => ({ src: getImageUrl(img.src, THUMB_OPTIONS), alt: img.alt }));
+const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX_OPTIONS), alt: img.alt }));
 ---
 
 {images && images.length > 0 && (
@@ -22,13 +29,13 @@ const lightboxImageId = `portfolio-lightbox-image-${galleryId}`
     <div
       id={rootId}
       class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
-      data-images={JSON.stringify(images)}
+      data-images={JSON.stringify(lightboxImages)}
       data-gallery-id={galleryId}
     >
-      {images.map((image, index) => (
+      {thumbImages.map((image, index) => (
         <button
           type="button"
-          class="group relative overflow-hidden rounded-lg border border-gray-200 bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          class="group relative overflow-hidden rounded-lg border border-gray-200 bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary dark:border-gray-700 dark:bg-gray-800"
           data-index={index}
         >
           <img

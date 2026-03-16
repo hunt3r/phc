@@ -3,14 +3,14 @@ import { glob } from 'astro/loaders';
 
 const portfolio = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/portfolio' }),
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       title: z.string(),
       description: z.string().optional(),
       location: z.string().optional(),
       client: z.string().optional(),
       date: z.string().optional(),
-      image: image().or(z.string()).optional(),
+      image: z.string().optional(),
       category: z.string().optional(),
       tags: z.array(z.string()).optional(),
       gallery: z

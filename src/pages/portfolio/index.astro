@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { getImageUrl } from '@/lib/cloudinary';
 
 const portfolio = await getCollection('portfolio');
 const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
@@ -18,9 +19,10 @@ const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0
           >
             {entry.data.image && (
               <img
-                src={typeof entry.data.image === 'object' && 'src' in entry.data.image ? entry.data.image.src : entry.data.image}
+                src={getImageUrl(entry.data.image, { width: 480, quality: 'auto:eco' })}
                 alt=""
                 class="h-48 w-full object-cover"
+                loading="lazy"
               />
             )}
             <div class="p-4">
