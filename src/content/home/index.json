@@ -1,12 +1,13 @@
 {
   "hero": {
     "size": "full",
-    "tagline": "Welcome to PHC",
-    "subtitle": "Construction and renovation expertise. Testing",
-    "ctaPrimaryText": "",
-    "ctaPrimaryHref": "",
-    "ctaSecondaryText": "",
-    "ctaSecondaryHref": "",
+    "eyebrow": "Welcome to PHC",
+    "tagline": "LAND DEVELOPMENT SERVICES",
+    "subtitle": "PH&C facilitates Real Estate Development as the tri-state area’s premiere Owner’s Representation, Construction Management, and Fee Development firm.",
+    "ctaPrimaryText": "Portfolio",
+    "ctaPrimaryHref": "/portfolio",
+    "ctaSecondaryText": "About Us",
+    "ctaSecondaryHref": "/About Us",
     "backgroundImage": "https://res.cloudinary.com/djkpy86pu/image/upload/v1773690427/shivendu-shukla-3yoTPuYR9ZY-unsplash_rpze0g.jpg",
     "overlayOpacity": 70,
     "overlayColor": "dark"
