@@ -16,28 +16,29 @@
     "sync:cloudinary": "node --import dotenv/config scripts/sync-assets-to-cloudinary.mjs"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "@tinacms/auth": "^1.0.0",
     "astro": "^5.0.0",
     "cheerio": "^1.0.0",
     "express": "^5.2.1",
-    "next-tinacms-cloudinary": "^4.0.0",
     "fast-xml-parser": "^4.3.2",
     "fs-extra": "^11.3.4",
+    "next-tinacms-cloudinary": "^4.0.0",
     "serverless-http": "^4.0.0",
     "tinacms": "^2.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@tinacms/cli": "^2.0.0",
     "cloudinary": "^2.5.1",
     "concurrently": "^9.1.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "gray-matter": "^4.0.3",
-    "turndown": "^7.2.0",
-    "@tailwindcss/vite": "^4.0.0",
-    "@tinacms/cli": "^2.0.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "tailwindcss": "^4.0.0",
+    "turndown": "^7.2.0",
     "vite": "^6.0.0"
   }
 }

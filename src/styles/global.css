@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 /* Class-based dark mode (toggle adds .dark to html) */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -72,6 +73,36 @@
   }
   a {
     @apply text-primary hover:underline;
+  }
+}
+
+/* Prose: markdown / long-form content (portfolio, etc.) */
+@layer components {
+  .prose-content {
+    @apply prose prose-lg max-w-none;
+    /* Headings: brand serif, clear hierarchy */
+    @apply prose-headings:font-heading prose-headings:tracking-tight;
+    @apply prose-h1:text-3xl prose-h1:font-bold prose-h1:mt-8 prose-h1:mb-4 prose-h1:pb-2 prose-h1:border-b prose-h1:border-gray-200 dark:prose-h1:border-gray-700;
+    @apply prose-h2:text-2xl prose-h2:font-semibold prose-h2:mt-8 prose-h2:mb-3;
+    @apply prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-2;
+    @apply prose-h4:text-lg prose-h4:font-semibold prose-h4:mt-4 prose-h4:mb-2;
+    /* Paragraphs and text */
+    @apply prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-4;
+    @apply prose-lead:text-gray-600 dark:prose-lead:text-gray-400;
+    /* Lists: visible bullets/numbers and spacing */
+    @apply prose-ul:my-4 prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-2;
+    @apply prose-ol:my-4 prose-ol:list-decimal prose-ol:pl-6 prose-ol:space-y-2;
+    @apply prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-li:leading-relaxed;
+    @apply prose-li:marker:text-primary;
+    /* Emphasis */
+    @apply prose-strong:font-semibold prose-strong:text-gray-900 dark:prose-strong:text-gray-100;
+    @apply prose-a:text-primary prose-a:no-underline hover:prose-a:underline;
+    /* Block-level spacing */
+    @apply prose-blockquote:border-l-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-400;
+    @apply prose-hr:border-gray-200 dark:prose-hr:border-gray-700 prose-hr:my-8;
+    /* Dark mode */
+    @apply dark:prose-invert;
+    @apply prose-headings:dark:text-gray-100;
   }
 }
 
