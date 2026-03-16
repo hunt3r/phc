@@ -59,4 +59,45 @@ const home = defineCollection({
   }),
 });
 
-export const collections = { portfolio, home };
+const aboutHeroSchema = z
+  .object({
+    size: z.enum(['full', 'compact']).optional(),
+    eyebrow: z.string().optional(),
+    tagline: z.string().optional(),
+    subtitle: z.string().optional(),
+    ctaPrimaryText: z.string().optional(),
+    ctaPrimaryHref: z.string().optional(),
+    ctaSecondaryText: z.string().optional(),
+    ctaSecondaryHref: z.string().optional(),
+    backgroundImage: z.string().optional(),
+    overlayOpacity: z.number().optional(),
+    overlayColor: z.enum(['dark', 'light']).optional(),
+  })
+  .optional();
+
+const about = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/about' }),
+  schema: () =>
+    z.object({
+      title: z.string(),
+      featuredImage: z.string().optional(),
+      hero: aboutHeroSchema,
+    }),
+});
+
+const staff = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/staff' }),
+  schema: z.object({
+    staff: z.array(
+      z.object({
+        name: z.string(),
+        title: z.string(),
+        bio: z.string(),
+        image: z.string().optional(),
+        inMemoriam: z.string().optional(),
+      })
+    ),
+  }),
+});
+
+export const collections = { portfolio, home, about, staff };

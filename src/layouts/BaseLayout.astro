@@ -51,7 +51,12 @@ import '../styles/global.css';
             <img src="/images/logo-dark.png" alt="PH&C" class="h-10 w-auto hidden dark:block" width="120" height="40" />
           </a>
           <nav class="flex items-center gap-2 md:gap-6" aria-label="Main">
-            <button
+
+            <div class="hidden md:flex md:items-center md:gap-6" data-desktop-nav>
+              <a href="/" class="text-sm font-medium text-primary hover:text-primary/80">Home</a>
+              <a href="/about" class="text-sm font-medium text-primary hover:text-primary/80">About</a>
+              <a href="/portfolio" class="text-sm font-medium text-primary hover:text-primary/80">Portfolio</a>
+            </div>            <button
               type="button"
               class="inline-flex items-center justify-center rounded-lg p-2 text-primary hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/50"
               aria-label="Toggle dark mode"
@@ -75,14 +80,11 @@ import '../styles/global.css';
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
-            <div class="hidden md:flex md:items-center md:gap-6" data-desktop-nav>
-              <a href="/" class="text-sm font-medium text-primary hover:text-primary/80">Home</a>
-              <a href="/portfolio" class="text-sm font-medium text-primary hover:text-primary/80">Portfolio</a>
-            </div>
           </nav>
         </div>
         <div class="hidden border-t border-primary/20 py-2 md:hidden" data-mobile-menu aria-hidden="true">
           <a href="/" class="block px-4 py-2 text-sm text-primary hover:bg-primary/10 dark:hover:bg-primary/20">Home</a>
+          <a href="/about" class="block px-4 py-2 text-sm text-primary hover:bg-primary/10 dark:hover:bg-primary/20">About</a>
           <a href="/portfolio" class="block px-4 py-2 text-sm text-primary hover:bg-primary/10 dark:hover:bg-primary/20">Portfolio</a>
         </div>
       </div>

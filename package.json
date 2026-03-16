@@ -13,6 +13,7 @@
     "scrape": "node scripts/scrape-phandc.mjs",
     "spider": "node scripts/scrape-phandc.mjs",
     "generate:portfolio": "node scripts/generate-portfolio-from-scrape.mjs",
+    "generate:about": "node scripts/generate-about-from-scrape.mjs",
     "sync:cloudinary": "node --import dotenv/config scripts/sync-assets-to-cloudinary.mjs",
     "backfill:category": "node scripts/backfill-category.mjs",
     "backfill:category:dry": "node scripts/backfill-category.mjs --dry-run"

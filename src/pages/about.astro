@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry, render } from 'astro:content';
+import PersonnelCard from '../components/PersonnelCard.astro';
+import HeroPage from '../components/blocks/hero-page.astro';
+
+const entry = await getEntry('about', 'index');
+if (!entry) {
+  throw new Error('About content not found. Run: npm run generate:about');
+}
+const { Content } = await render(entry);
+
+const staffEntry = await getEntry('staff', 'index');
+const staff = staffEntry?.data?.staff ?? [];
+
+const hero = entry.data.hero;
+const heroBackgroundImage = typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : entry.data.featuredImage;
+---
+
+<BaseLayout title={entry.data.title}>
+  <HeroPage
+    id="about-hero"
+    size={hero?.size ?? 'compact'}
+    eyebrow={hero?.eyebrow}
+    tagline={hero?.tagline ?? entry.data.title}
+    subtitle={hero?.subtitle ?? 'Our team, our values, and our commitment to delivering quality construction and development services.'}
+    ctaPrimaryText={hero?.ctaPrimaryText}
+    ctaPrimaryHref={hero?.ctaPrimaryHref}
+    ctaSecondaryText={hero?.ctaSecondaryText}
+    ctaSecondaryHref={hero?.ctaSecondaryHref}
+    backgroundImage={heroBackgroundImage}
+    overlayOpacity={hero?.overlayOpacity ?? 70}
+    overlayColor={hero?.overlayColor ?? 'dark'}
+  />
+  <article class="pt-8 space-y-8">
+    <section class="prose-content prose-img:rounded-lg">
+      <Content />
+    </section>
+
+    <section class="pt-4">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Key Personnel</h2>
+      <div class="grid grid-cols-1 gap-6">
+        {staff.map((member) => (
+          <PersonnelCard
+            name={member.name}
+            title={member.title}
+            bio={member.bio}
+            image={member.image}
+            inMemoriam={member.inMemoriam}
+          />
+        ))}
+      </div>
+    </section>
+  </article>
+</BaseLayout>
