@@ -3,23 +3,7 @@
 /* Class-based dark mode (toggle adds .dark to html) */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Brand fonts from public/fonts */
-@font-face {
-  font-family: 'Italian Old Style MT';
-  src: url('/fonts/Italian Old Style MT Std Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Futura Book';
-  src: url('/fonts/Futura-Book Book.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
+/* Fonts loaded in BaseLayout.astro head for early render */
 @theme {
   /* Primary identity */
   --color-primary: #6a7029;

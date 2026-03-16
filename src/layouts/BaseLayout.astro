@@ -12,6 +12,24 @@ import '../styles/global.css';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="/fonts/Italian Old Style MT Std Regular.otf" as="font" type="font/otf" crossorigin />
+    <link rel="preload" href="/fonts/Futura-Book Book.ttf" as="font" type="font/ttf" crossorigin />
+    <style is:inline>
+      @font-face {
+        font-family: 'Italian Old Style MT';
+        src: url('/fonts/Italian Old Style MT Std Regular.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+      @font-face {
+        font-family: 'Futura Book';
+        src: url('/fonts/Futura-Book Book.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+    </style>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <script is:inline>
@@ -70,7 +88,7 @@ import '../styles/global.css';
       </div>
     </header>
     <main class="flex-1">
-      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-6xl px-4 pt-0 pb-8 sm:px-6 lg:px-8">
         <slot />
       </div>
     </main>

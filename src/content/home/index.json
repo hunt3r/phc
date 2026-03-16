@@ -2,11 +2,12 @@
   "hero": {
     "size": "full",
     "tagline": "Welcome to PHC",
-    "subtitle": "Construction and renovation expertise.",
+    "subtitle": "Construction and renovation expertise. Testing",
     "ctaPrimaryText": "",
     "ctaPrimaryHref": "",
     "ctaSecondaryText": "",
     "ctaSecondaryHref": "",
+    "backgroundImage": "https://res.cloudinary.com/djkpy86pu/image/upload/v1773690427/shivendu-shukla-3yoTPuYR9ZY-unsplash_rpze0g.jpg",
     "overlayOpacity": 70,
     "overlayColor": "dark"
   },

@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:site\"",
-    "dev:api": "node scripts/dev-api.mjs",
+    "dev:api": "cross-env NODE_ENV=development node scripts/dev-api.mjs",
     "dev:site": "tinacms dev -c \"astro dev\"",
     "build": "astro build",
     "build:admin": "tinacms build",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "@tailwindcss/vite": "^4.0.0",
     "@tinacms/cli": "^2.0.0",
