@@ -1,9 +1,24 @@
 import { defineConfig } from 'tinacms';
 
+const branch =
+  process.env.GITHUB_BRANCH ||
+  process.env.VERCEL_GIT_COMMIT_REF ||
+  process.env.HEAD ||
+  'main';
+
 export default defineConfig({
+  branch,
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+  token: process.env.TINA_TOKEN,
   build: {
-    publicFolder: 'public',
     outputFolder: 'admin',
+    publicFolder: 'public',
+  },
+  media: {
+    loadCustomStore: async () => {
+      const pack = await import('next-tinacms-cloudinary');
+      return pack.TinaCloudCloudinaryMediaStore;
+    },
   },
   schema: {
     collections: [
@@ -15,10 +30,25 @@ export default defineConfig({
         fields: [
           { type: 'string', name: 'title', label: 'Title', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
-          { type: 'image', name: 'image', label: 'Image' },
+          { type: 'string', name: 'location', label: 'Location' },
+          { type: 'string', name: 'client', label: 'Client' },
+          { type: 'string', name: 'date', label: 'Date (e.g. 2020)' },
+          { type: 'image', name: 'image', label: 'Hero / cover image', description: 'Upload via Cloudinary' },
+          {
+            type: 'object',
+            name: 'gallery',
+            label: 'Gallery',
+            list: true,
+            description: 'Project gallery images (upload via Cloudinary)',
+            fields: [
+              { type: 'image', name: 'src', label: 'Image' },
+              { type: 'string', name: 'alt', label: 'Alt text' },
+            ],
+          },
           { type: 'string', name: 'category', label: 'Category' },
           { type: 'string', name: 'tags', label: 'Tags', list: true },
-          { type: 'number', name: 'order', label: 'Order', required: true },
+          { type: 'number', name: 'order', label: 'Order' },
+          { type: 'boolean', name: 'featured', label: 'Featured' },
           { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
         ],
         defaultItem: () => ({ order: 0 }),
@@ -55,11 +85,5 @@ export default defineConfig({
         ],
       },
     ],
-  },
-  media: {
-    loadCustomStore: async () => {
-      const pack = await import('next-tinacms-cloudinary');
-      return pack.TinaCloudCloudinaryMediaStore;
-    },
   },
 });

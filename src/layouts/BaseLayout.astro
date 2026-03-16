@@ -16,14 +16,16 @@ import '../styles/global.css';
     <title>{title}</title>
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-900">
-    <header class="sticky top-0 z-50 border-b border-gray-200 bg-white">
+    <header class="sticky top-0 z-50 border-b border-primary/20 bg-white">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
-          <a href="/" class="text-xl font-semibold">PHC</a>
+          <a href="/" class="flex items-center gap-2" aria-label="PHC Home">
+            <img src="/images/logo.png" alt="PHC" class="h-10 w-auto" width="120" height="40" />
+          </a>
           <nav class="flex items-center gap-6" aria-label="Main">
             <button
               type="button"
-              class="inline-flex items-center justify-center rounded-lg p-2 text-gray-600 hover:bg-gray-100 md:hidden"
+              class="inline-flex items-center justify-center rounded-lg p-2 text-primary hover:bg-primary/10 md:hidden"
               aria-label="Toggle menu"
               aria-expanded="false"
               data-mobile-menu-toggle
@@ -33,14 +35,14 @@ import '../styles/global.css';
               </svg>
             </button>
             <div class="hidden md:flex md:items-center md:gap-6" data-desktop-nav>
-              <a href="/" class="text-sm font-medium text-gray-700 hover:text-gray-900">Home</a>
-              <a href="/portfolio" class="text-sm font-medium text-gray-700 hover:text-gray-900">Portfolio</a>
+              <a href="/" class="text-sm font-medium text-primary hover:text-primary/80">Home</a>
+              <a href="/portfolio" class="text-sm font-medium text-primary hover:text-primary/80">Portfolio</a>
             </div>
           </nav>
         </div>
-        <div class="hidden border-t border-gray-200 py-2 md:hidden" data-mobile-menu aria-hidden="true">
-          <a href="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Home</a>
-          <a href="/portfolio" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Portfolio</a>
+        <div class="hidden border-t border-primary/20 py-2 md:hidden" data-mobile-menu aria-hidden="true">
+          <a href="/" class="block px-4 py-2 text-sm text-primary hover:bg-secondary/20">Home</a>
+          <a href="/portfolio" class="block px-4 py-2 text-sm text-primary hover:bg-secondary/20">Portfolio</a>
         </div>
       </div>
     </header>
@@ -49,10 +51,10 @@ import '../styles/global.css';
         <slot />
       </div>
     </main>
-    <footer class="border-t border-gray-200 py-6">
+    <footer class="border-t border-primary/20 py-6">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <p class="text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} PHC. <a href="/portfolio" class="hover:text-gray-700">Portfolio</a>
+        <p class="text-center text-sm text-gray-600">
+          © {new Date().getFullYear()} PHC. <a href="/portfolio" class="text-primary hover:text-secondary">Portfolio</a>
         </p>
       </div>
     </footer>

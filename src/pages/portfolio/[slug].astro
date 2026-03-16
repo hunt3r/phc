@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection, getEntry, render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import PortfolioGallery from '../../components/PortfolioGallery.astro';
 
 export async function getStaticPaths() {
   const portfolio = await getCollection('portfolio');
@@ -9,19 +10,69 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+// Use gallery from frontmatter, or fall back to hero image so the gallery section always shows when we have an image
+const galleryImages =
+  entry.data.gallery && entry.data.gallery.length > 0
+    ? entry.data.gallery
+    : entry.data.image
+      ? [{ src: entry.data.image, alt: entry.data.title ?? '' }]
+      : [];
 ---
 
 <BaseLayout title={entry.data.title}>
-  <article class="space-y-6">
-    <h1 class="text-3xl font-bold">{entry.data.title}</h1>
-    {entry.data.description && <p class="text-lg text-gray-600">{entry.data.description}</p>}
-    {entry.data.image && (
-      <img
-        src={typeof entry.data.image === 'object' && 'src' in entry.data.image ? entry.data.image.src : entry.data.image}
-        alt=""
-        class="rounded-lg"
-      />
+  <article class="space-y-8">
+    <header class="space-y-3">
+      <h1 class="text-3xl font-bold text-gray-900">{entry.data.title}</h1>
+      {entry.data.description && (
+        <p class="text-lg text-gray-600">
+          {entry.data.description}
+        </p>
+      )}
+      <dl class="mt-2 grid gap-4 text-sm text-gray-600 sm:grid-cols-3">
+        {entry.data.location && (
+          <div>
+            <dt class="font-medium text-gray-900">Location</dt>
+            <dd>{entry.data.location}</dd>
+          </div>
+        )}
+        {entry.data.client && (
+          <div>
+            <dt class="font-medium text-gray-900">Client</dt>
+            <dd>{entry.data.client}</dd>
+          </div>
+        )}
+        {entry.data.date && (
+          <div>
+            <dt class="font-medium text-gray-900">Date</dt>
+            <dd>{entry.data.date}</dd>
+          </div>
+        )}
+      </dl>
+      {entry.data.tags && entry.data.tags.length > 0 && (
+        <div class="mt-2 flex flex-wrap gap-2">
+          {entry.data.tags.map((tag: string) => (
+            <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-xs font-medium text-gray-700">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+      {entry.data.image && (
+        <img
+          src={entry.data.image}
+          alt={entry.data.title}
+          class="mt-4 w-full rounded-lg object-cover"
+        />
+      )}
+    </header>
+
+    <section class="prose max-w-none prose-headings:text-gray-900 prose-p:text-gray-700">
+      <Content />
+    </section>
+
+    {galleryImages.length > 0 && (
+      <PortfolioGallery images={galleryImages} galleryId={entry.id} />
     )}
-    <Content />
   </article>
 </BaseLayout>

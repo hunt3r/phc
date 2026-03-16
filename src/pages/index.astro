@@ -1,11 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroPage from '../components/blocks/hero-page.astro';
-import { getEntry } from 'astro:content';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getEntry, getCollection } from 'astro:content';
 
 const homeEntry = await getEntry('home', 'index');
 const data = homeEntry?.data;
 const hero = data?.hero;
+const portfolioEntries = await getCollection('portfolio');
+
+const latestProjects = [...portfolioEntries].sort((a, b) => {
+  const orderA = (a.data as any).order ?? 999;
+  const orderB = (b.data as any).order ?? 999;
+  if (orderA !== orderB) return orderA - orderB;
+  return ((a.data as any).title ?? '').localeCompare((b.data as any).title ?? '');
+}).slice(0, 3);
 ---
 
 <BaseLayout title="Home">
@@ -23,6 +32,32 @@ const hero = data?.hero;
     overlayColor={hero?.overlayColor ?? 'dark'}
   />
   <article class="space-y-16">
+
+    {latestProjects.length > 0 && (
+      <section>
+        <div class="mb-8 text-center">
+          <h2 class="text-2xl font-semibold text-gray-900 sm:text-3xl">
+            Latest projects
+          </h2>
+          <p class="mt-2 text-gray-600">
+            Recent construction and renovation work from the PH&amp;C team.
+          </p>
+        </div>
+        <div class="grid w-full gap-6 grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(260px,1fr))]">
+          {latestProjects.map((entry) => (
+            <ProjectCard
+              title={(entry.data as any).title}
+              description={(entry.data as any).description ?? ''}
+              href={`/portfolio/${entry.id}`}
+              imageSrc={(entry.data as any).image}
+              imageAlt={(entry.data as any).title}
+              tags={Array.isArray((entry.data as any).tags) ? (entry.data as any).tags : ((entry.data as any).category ? [(entry.data as any).category] : [])}
+              date={(entry.data as any).year}
+            />
+          ))}
+        </div>
+      </section>
+    )}
 
     {data?.about && (
       <section>

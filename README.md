@@ -21,17 +21,21 @@ npm run preview   # Preview production build
 npm run build:admin  # Build Tina admin UI to admin/
 ```
 
-### Cloudinary (optional)
+### Cloudinary + Tina (media uploader)
 
-To use Cloudinary for media in Tina:
+Image fields in Tina (portfolio hero image, gallery, home hero background) use the **Cloudinary** media store. Setup matches circuitn:
 
-1. Copy `.env.example` to `.env` and set:
+1. **Env vars** – Copy `.env.example` to `.env` and set:
    - `CLOUDINARY_CLOUD_NAME`
    - `CLOUDINARY_API_KEY`
    - `CLOUDINARY_API_SECRET`
-2. For production, deploy the media handler so Tina can upload/list/delete assets. The handler lives in `api/cloudinary/[[...media]].ts` and is intended for **Vercel** (or a Node serverless environment). Deploy with the same env vars. See [Tina Cloudinary docs](https://tina.io/docs/reference/media/external/cloudinary).
+   Optional for Tina Cloud: `NEXT_PUBLIC_TINA_CLIENT_ID`, `TINA_TOKEN`.
 
-Without Cloudinary env or the deployed handler, image fields in Tina may not work in production; local dev can still edit other fields.
+2. **Media API** – The Tina admin talks to `/api/cloudinary/media` to upload, list, and delete assets. The repo uses the same approach as circuitn:
+   - **Local dev**: Run `npm run dev` (Tina + Astro only). With Tina Cloud configured (clientId + token), the Cloudinary media store uses Tina Cloud; no local API or proxy is required.
+   - **Production**: Deploy to **Netlify**. The Netlify function at `netlify/functions/api.mjs` serves `/api/cloudinary/media`. Set the same Cloudinary env vars in the Netlify dashboard.
+
+To test the media API locally against the Netlify function, run `netlify dev` instead of `npm run dev` so the function runs and proxies `/api/*` to it.
 
 ---
 

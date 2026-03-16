@@ -7,10 +7,22 @@ const portfolio = defineCollection({
     z.object({
       title: z.string(),
       description: z.string().optional(),
-      image: image().optional(),
+      location: z.string().optional(),
+      client: z.string().optional(),
+      date: z.string().optional(),
+      image: image().or(z.string()).optional(),
       category: z.string().optional(),
       tags: z.array(z.string()).optional(),
-      order: z.number(),
+      gallery: z
+        .array(
+          z.object({
+            src: z.string(),
+            alt: z.string().optional(),
+          })
+        )
+        .optional(),
+      order: z.number().optional(),
+      featured: z.boolean().optional(),
     }),
 });
 
