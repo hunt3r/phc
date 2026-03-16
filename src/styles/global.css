@@ -1,17 +1,66 @@
 @import 'tailwindcss';
 
+/* Class-based dark mode (toggle adds .dark to html) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Brand fonts from public/fonts */
+@font-face {
+  font-family: 'Italian Old Style MT';
+  src: url('/fonts/Italian Old Style MT Std Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Book';
+  src: url('/fonts/Futura-Book Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
+  /* Primary identity */
   --color-primary: #6a7029;
-  --color-secondary: #ebcc45;
+  --color-secondary: #d7a900;
+  /* Supporting */
+  --color-brand-burnt: #a33f1f;
+  --color-brand-gray: #988f86;
+  --color-brand-beige: #b4a76c;
+  --color-brand-blue: #003f72;
+  /* Semantic (light mode default) */
+  --color-bg: #ffffff;
+  --color-surface: #f9fafb;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  /* Font families */
+  --font-heading: 'Italian Old Style MT', Georgia, serif;
+  --font-body: 'Futura Book', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Dark mode semantic overrides (class on html) */
+.dark {
+  --color-bg: #111827;
+  --color-surface: #1f2937;
+  --color-text: #f9fafb;
+  --color-text-muted: #9ca3af;
+  --color-border: #374151;
 }
 
 @layer base {
-  /* Reset / normalize base */
   html {
     -webkit-text-size-adjust: 100%;
   }
   body {
     @apply text-base leading-normal antialiased;
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
   }
   h1 {
     @apply text-3xl font-bold tracking-tight sm:text-4xl;
@@ -35,9 +84,28 @@
     @apply text-base;
   }
   small {
-    @apply text-sm text-gray-500;
+    @apply text-sm text-gray-500 dark:text-gray-400;
   }
   a {
     @apply text-primary hover:underline;
+  }
+}
+
+/* Sub-heading: capitalized Futura Book with tracking 50 (0.05em) */
+.subheading {
+  font-family: var(--font-body);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 bg-primary text-white hover:bg-primary/90 focus:ring-primary;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 border-2 border-primary text-primary bg-transparent hover:bg-primary/10 focus:ring-primary;
   }
 }

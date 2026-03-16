@@ -8,13 +8,13 @@ const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0
 
 <BaseLayout title="Portfolio">
   <div class="space-y-8">
-    <h1 class="text-3xl font-bold text-gray-900">Portfolio</h1>
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">Portfolio</h1>
     <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {sorted.map((entry) => (
         <li>
           <a
             href={`/portfolio/${entry.id}`}
-            class="block overflow-hidden rounded-lg border border-gray-200 bg-white transition hover:border-gray-300 hover:shadow-md"
+            class="block overflow-hidden rounded-lg border border-gray-200 bg-white transition hover:border-gray-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800 dark:hover:border-gray-600"
           >
             {entry.data.image && (
               <img
@@ -24,9 +24,9 @@ const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0
               />
             )}
             <div class="p-4">
-              <h2 class="font-semibold text-gray-900">{entry.data.title}</h2>
+              <h2 class="font-semibold text-gray-900 dark:text-gray-100">{entry.data.title}</h2>
               {entry.data.description && (
-                <p class="mt-1 line-clamp-2 text-sm text-gray-600">{entry.data.description}</p>
+                <p class="mt-1 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">{entry.data.description}</p>
               )}
             </div>
           </a>

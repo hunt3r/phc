@@ -14,15 +14,38 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const dark = stored === 'dark' || (!stored && prefersDark);
+        if (dark) document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+      })();
+    </script>
   </head>
-  <body class="min-h-screen flex flex-col bg-white text-gray-900">
-    <header class="sticky top-0 z-50 border-b border-primary/20 bg-white">
+  <body class="min-h-screen flex flex-col bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    <header class="sticky top-0 z-50 border-b border-primary/20 bg-white dark:bg-gray-900">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <a href="/" class="flex items-center gap-2" aria-label="PHC Home">
-            <img src="/images/logo.png" alt="PHC" class="h-10 w-auto" width="120" height="40" />
+            <img src="/images/logo-light.png" alt="PH&C" class="h-10 w-auto dark:hidden" width="120" height="40" />
+            <img src="/images/logo-dark.png" alt="PH&C" class="h-10 w-auto hidden dark:block" width="120" height="40" />
           </a>
-          <nav class="flex items-center gap-6" aria-label="Main">
+          <nav class="flex items-center gap-2 md:gap-6" aria-label="Main">
+            <button
+              type="button"
+              class="inline-flex items-center justify-center rounded-lg p-2 text-primary hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/50"
+              aria-label="Toggle dark mode"
+              data-theme-toggle
+            >
+              <span class="dark:hidden" aria-hidden="true">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+              </span>
+              <span class="hidden dark:inline" aria-hidden="true">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+              </span>
+            </button>
             <button
               type="button"
               class="inline-flex items-center justify-center rounded-lg p-2 text-primary hover:bg-primary/10 md:hidden"
@@ -41,8 +64,8 @@ import '../styles/global.css';
           </nav>
         </div>
         <div class="hidden border-t border-primary/20 py-2 md:hidden" data-mobile-menu aria-hidden="true">
-          <a href="/" class="block px-4 py-2 text-sm text-primary hover:bg-secondary/20">Home</a>
-          <a href="/portfolio" class="block px-4 py-2 text-sm text-primary hover:bg-secondary/20">Portfolio</a>
+          <a href="/" class="block px-4 py-2 text-sm text-primary hover:bg-primary/10 dark:hover:bg-primary/20">Home</a>
+          <a href="/portfolio" class="block px-4 py-2 text-sm text-primary hover:bg-primary/10 dark:hover:bg-primary/20">Portfolio</a>
         </div>
       </div>
     </header>
@@ -51,10 +74,10 @@ import '../styles/global.css';
         <slot />
       </div>
     </main>
-    <footer class="border-t border-primary/20 py-6">
+    <footer class="border-t border-gray-200 dark:border-gray-700 py-6">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <p class="text-center text-sm text-gray-600">
-          © {new Date().getFullYear()} PHC. <a href="/portfolio" class="text-primary hover:text-secondary">Portfolio</a>
+        <p class="text-center text-sm text-gray-600 dark:text-gray-400">
+          © {new Date().getFullYear()} PH&C. <a href="/portfolio" class="text-primary hover:underline">Portfolio</a>
         </p>
       </div>
     </footer>
@@ -65,6 +88,12 @@ import '../styles/global.css';
         if (!menu || !btn) return;
         const open = menu.classList.toggle('hidden');
         btn.setAttribute('aria-expanded', String(!open));
+      });
+
+      document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+        const html = document.documentElement;
+        const isDark = html.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
       });
     </script>
   </body>
