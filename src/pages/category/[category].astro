@@ -29,7 +29,24 @@ const categoryLabel = getCategoryLabel(categorySlug ?? '');
 <BaseLayout title={categoryLabel} description={`Projects in category: ${categoryLabel}.`}>
   <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
     <aside class="shrink-0 lg:w-52">
-      <nav aria-label="Categories" class="sticky top-24 space-y-1">
+      {/* Mobile: dropdown */}
+      <div class="lg:hidden" aria-label="Categories">
+        <label for="portfolio-category-mobile" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Categories:</label>
+        <select
+          id="portfolio-category-mobile"
+          class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-gray-500"
+          data-portfolio-category-select
+        >
+          <option value="/portfolio">All</option>
+          {CATEGORIES.map((c) => (
+            <option value={`/category/${c.slug}`} selected={c.slug === categorySlug}>
+              {c.label}
+            </option>
+          ))}
+        </select>
+      </div>
+      {/* Desktop: sidebar nav */}
+      <nav aria-label="Categories" class="sticky top-24 hidden space-y-1 lg:block">
         <p class="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
           Category
         </p>
@@ -92,4 +109,10 @@ const categoryLabel = getCategoryLabel(categorySlug ?? '');
       )}
     </div>
   </div>
+  <script>
+    document.querySelector('[data-portfolio-category-select]')?.addEventListener('change', (e) => {
+      const target = e.target as HTMLSelectElement;
+      if (target?.value) window.location.href = target.value;
+    });
+  </script>
 </BaseLayout>
