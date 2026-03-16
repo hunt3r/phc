@@ -7,7 +7,7 @@
     "ctaPrimaryText": "Portfolio",
     "ctaPrimaryHref": "/portfolio",
     "ctaSecondaryText": "About Us",
-    "ctaSecondaryHref": "/About Us",
+    "ctaSecondaryHref": "/aboutus",
     "backgroundImage": "https://res.cloudinary.com/djkpy86pu/image/upload/v1773690427/shivendu-shukla-3yoTPuYR9ZY-unsplash_rpze0g.jpg",
     "overlayOpacity": 70,
     "overlayColor": "dark"
