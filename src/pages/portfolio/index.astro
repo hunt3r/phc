@@ -8,7 +8,7 @@ const portfolio = await getCollection('portfolio');
 const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
 
-<BaseLayout title="Portfolio">
+<BaseLayout title="Portfolio" description="Explore our construction and development portfolio.">
   <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
     <aside class="shrink-0 lg:w-52">
       <nav aria-label="Categories" class="sticky top-24 space-y-1">

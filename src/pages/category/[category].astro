@@ -23,9 +23,10 @@ const entries = portfolio.filter((entry) => {
   return cat && slugify(cat) === categorySlug;
 });
 const sorted = entries.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+const categoryLabel = getCategoryLabel(categorySlug ?? '');
 ---
 
-<BaseLayout title={getCategoryLabel(categorySlug ?? '')}>
+<BaseLayout title={categoryLabel} description={`Projects in category: ${categoryLabel}.`}>
   <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
     <aside class="shrink-0 lg:w-52">
       <nav aria-label="Categories" class="sticky top-24 space-y-1">

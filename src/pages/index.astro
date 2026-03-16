@@ -15,9 +15,12 @@ const latestProjects = [...portfolioEntries].sort((a, b) => {
   if (orderA !== orderB) return orderA - orderB;
   return ((a.data as any).title ?? '').localeCompare((b.data as any).title ?? '');
 }).slice(0, 3);
+
+const ogDescription = hero?.subtitle ?? (typeof data?.about?.body === 'string' ? data.about.body.slice(0, 160).trim() : undefined) ?? "PH&C facilitates Real Estate Development as the tri-state area's premiere Owner's Representation, Construction Management, and Fee Development firm.";
+const ogImage = typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : undefined;
 ---
 
-<BaseLayout title="Home">
+<BaseLayout title="Home" description={ogDescription} image={ogImage}>
   <HeroPage
     size={hero?.size ?? 'full'}
     eyebrow={hero?.eyebrow}
