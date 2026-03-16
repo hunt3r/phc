@@ -29,6 +29,7 @@ const portfolio = defineCollection({
 const home = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/home' }),
   schema: z.object({
+    title: z.string().optional(),
     hero: z
       .object({
         size: z.enum(['full', 'compact']).optional(),
@@ -100,4 +101,12 @@ const staff = defineCollection({
   }),
 });
 
-export const collections = { portfolio, home, about, staff };
+const site = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/site' }),
+  schema: z.object({
+    portfolioTitle: z.string().optional(),
+    tagsTitle: z.string().optional(),
+  }),
+});
+
+export const collections = { portfolio, home, about, staff, site };

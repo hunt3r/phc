@@ -20,7 +20,7 @@ const ogDescription = hero?.subtitle ?? (typeof data?.about?.body === 'string' ?
 const ogImage = typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : undefined;
 ---
 
-<BaseLayout title="Home" description={ogDescription} image={ogImage}>
+<BaseLayout title={data?.title ?? 'Home'} description={ogDescription} image={ogImage}>
   <HeroPage
     size={hero?.size ?? 'full'}
     eyebrow={hero?.eyebrow}

@@ -121,6 +121,18 @@ export default defineConfig({
         ],
       },
       {
+        name: 'site',
+        label: 'Site Settings',
+        path: 'src/content/site',
+        match: { include: 'index' },
+        format: 'json',
+        ui: { allowedActions: { create: false, delete: false } },
+        fields: [
+          { type: 'string', name: 'portfolioTitle', label: 'Portfolio Page Title', description: 'Browser & SEO title for the Portfolio index page.' },
+          { type: 'string', name: 'tagsTitle', label: 'Tags Page Title', description: 'Browser & SEO title for the Tags index page.' },
+        ],
+      },
+      {
         name: 'home',
         label: 'Home',
         path: 'src/content/home',
@@ -128,6 +140,7 @@ export default defineConfig({
         format: 'json',
         ui: { allowedActions: { create: false, delete: false } },
         fields: [
+          { type: 'string', name: 'title', label: 'Page Title', description: 'Browser & SEO title for the homepage.' },
           { type: 'object', name: 'hero', label: 'Hero', fields: [
             { type: 'string', name: 'size', label: 'Size', options: ['full', 'compact'], ui: { component: 'select' } },
             { type: 'string', name: 'eyebrow', label: 'Eyebrow' },

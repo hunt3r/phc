@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import { slugify } from '@/lib/slug';
 
 const portfolio = await getCollection('portfolio');
@@ -23,9 +23,12 @@ const tagsWithCounts = Array.from(tagCounts.entries())
     return { slug, label, count };
   })
   .sort((a, b) => b.count - a.count);
+
+const siteEntry = await getEntry('site', 'index');
+const tagsTitle = siteEntry?.data?.tagsTitle ?? 'Tags';
 ---
 
-<BaseLayout title="Tags">
+<BaseLayout title={tagsTitle}>
   <div class="pt-8 space-y-8">
     <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">Tags</h1>
     <p class="text-gray-600 dark:text-gray-400">

@@ -5,9 +5,10 @@ interface Props {
   image?: string;
 }
 
-const { title = 'PHC', description, image } = Astro.props;
+const { title = 'PH&C', description, image } = Astro.props;
 import '../styles/global.css';
 
+const displayTitle = title.startsWith('PH&C - ') || title.startsWith('PH&C – ') ? title : `PH&C - ${title}`;
 const site = import.meta.env.SITE ?? 'https://phandc.net';
 const absoluteImageUrl = image
   ? (image.startsWith('http') ? image : new URL(image, site).href)
@@ -20,13 +21,13 @@ const absoluteImageUrl = image
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {description && <meta name="description" content={description} />}
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={displayTitle} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:image" content={absoluteImageUrl} />
     {description && <meta property="og:description" content={description} />}
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={displayTitle} />
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={absoluteImageUrl} />
     <link rel="preload" href="/fonts/Italian Old Style MT Std Regular.otf" as="font" type="font/otf" crossorigin />
@@ -48,7 +49,7 @@ const absoluteImageUrl = image
       }
     </style>
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{displayTitle}</title>
     <script is:inline>
       (function() {
         const stored = localStorage.getItem('theme');

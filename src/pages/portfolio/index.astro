@@ -1,14 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { CATEGORIES } from '@/data/categories';
 
 const portfolio = await getCollection('portfolio');
 const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+const siteEntry = await getEntry('site', 'index');
+const portfolioTitle = siteEntry?.data?.portfolioTitle ?? 'Portfolio';
 ---
 
-<BaseLayout title="Portfolio" description="Explore our construction and development portfolio.">
+<BaseLayout title={portfolioTitle} description="Explore our construction and development portfolio.">
   <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
     <aside class="shrink-0 lg:w-52">
       <nav aria-label="Categories" class="sticky top-24 space-y-1">
