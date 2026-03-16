@@ -4,7 +4,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "tinacms dev -c \"astro dev\"",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:site\"",
+    "dev:api": "node scripts/dev-api.mjs",
+    "dev:site": "tinacms dev -c \"astro dev\"",
     "build": "astro build",
     "build:admin": "tinacms build",
     "preview": "astro preview",
@@ -23,6 +25,8 @@
     "tinacms": "^2.0.0"
   },
   "devDependencies": {
+    "concurrently": "^9.1.0",
+    "dotenv": "^16.4.5",
     "@tailwindcss/vite": "^4.0.0",
     "@tinacms/cli": "^2.0.0",
     "react-dnd": "^16.0.1",
