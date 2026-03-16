@@ -20,6 +20,7 @@ tags:
   - remediation
   - demolition
 order: 35
+category: Retail
 ---
 **Key Features:**
 

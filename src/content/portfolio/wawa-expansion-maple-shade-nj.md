@@ -17,6 +17,7 @@ tags:
   - retailers
   - remediation
 order: 23
+category: Retail
 ---
 Assisting the Wawa Corporation in fulfilling their expansion plans continued with this store in another key market targeted by Wawa and our developer client. As usual, this Wawa expansion site had numerous redevelopment challenges including environmental remediation, stormwater, vehicular and pedestrian management. As well as accessibility improvements and accommodating neighboring businesses.  All the while controlling costs and budget management.
 

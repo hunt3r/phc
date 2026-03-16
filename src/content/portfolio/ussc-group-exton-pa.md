@@ -19,6 +19,7 @@ gallery:
 tags:
   - office
 order: 55
+category: Office
 ---
 **Key Features:**
 

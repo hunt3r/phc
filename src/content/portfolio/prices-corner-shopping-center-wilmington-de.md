@@ -28,6 +28,7 @@ tags:
   - remediation
   - project-management
 order: 24
+category: Retail
 ---
 Retail shopping center transformations continue as defunct retailers blossom into new opportunities for the latest and greatest companies. This project had a large 2-story Sears building that we transformed into a state-of-the-art [**Target**](https://www.target.com/sl/wilmington-prices-corner/2875) store with space available on the 2nd floor for offices or more retail stores. We performed environmental remediation and demolished an out-parcel Sears Auto Center making way for a **[Chick-Fil-A](https://www.chick-fil-a.com/)** restaurant and [**Chase Bank**](https://www.chase.com/) branch. We also performed a complete façade renewal and parking lot enhancements improving vehicular and pedestrian circulation, as well as accessibility. PH&C oversaw the project’s execution in this open and operating shopping center, while saving the owner costs by value engineering certain design aspect, and prime contracting of various specialty contractors, ultimately revitalizing this shopping center to benefit the local communities.
 

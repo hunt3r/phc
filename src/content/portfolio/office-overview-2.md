@@ -11,5 +11,6 @@ tags:
   - institutional
   - project-management
 order: 21
+category: Office
 ---
 PH&C excels at assisting clients in designing, value engineering and managing the construction of a multitude of projects that institutions will be required to facilitate on their campus. PH&C takes the time to understand our clients core functions and integrates with their team to guide them through their capital program for initial programs through final dedication. PH&C acts as an extension of our clients staff, bringing the expertise they need to successfully complete their projects to improve and/or expand their institutions.

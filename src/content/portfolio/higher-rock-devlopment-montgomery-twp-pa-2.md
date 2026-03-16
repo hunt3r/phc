@@ -22,6 +22,7 @@ tags:
   - multi-family
   - institutional
 order: 19
+category: Retail
 ---
 Development of this former rock quarry and industrial parcel, along the busy commercial corridor of US Route 29 & the PA Turnpike in Malvern, is benefiting the community with retail food, convenience & fuel, health care, banking and a child care & educational institution. This valuable parcel of real estate is adjacent to a large newly built townhome and multi-family residential complex. Development required construction of sizable retaining walls, significant rock excavation, and sophisticated stormwater management features.   
 

@@ -25,6 +25,7 @@ tags:
   - retailers
   - landscaping
 order: 13
+category: Retail
 ---
 [**Nabisco Plaza**](https://www.costar.com/article/192402005/nabisco-plaza-shows-how-a-factory-can-become-a-destination-for-indoor-golf-retail) in Philadelphia, PA is nearing completion in November 2023!
 

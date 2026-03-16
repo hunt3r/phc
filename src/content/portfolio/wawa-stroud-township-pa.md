@@ -22,6 +22,7 @@ tags:
   - government
   - project-management
 order: 7
+category: Retail
 ---
 We continue our assistance in developing Wawa stores, and our newest opened in April 2025. Our work for a developer on their first ever Wawa store included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction.
 

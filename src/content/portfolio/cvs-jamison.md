@@ -11,6 +11,7 @@ gallery:
 tags:
   - retail
 order: 47
+category: Retail
 ---
 **Key Features:**
 

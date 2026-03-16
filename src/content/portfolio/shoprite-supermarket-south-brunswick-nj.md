@@ -36,6 +36,7 @@ tags:
   - landscaping
   - signage
 order: 25
+category: Retail
 ---
 Development of a new state-of-the-art ShopRite Supermarket along the busy US-1 corridor benefitting the local community was a much needed improvement for this area of New Jersey. Modern storm water management features were designed and implemented, as well as a pedestrian trail connection adjacent to this busy intersection providing safe alternatives to driving.
 

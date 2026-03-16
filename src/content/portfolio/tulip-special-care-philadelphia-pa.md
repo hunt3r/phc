@@ -13,6 +13,7 @@ gallery:
 tags:
   - institutional
 order: 60
+category: Institutional
 ---
 **Tulip Special Care is a 60 bed Skilled Nursing Facility specializing in the care of ventilator dependent adults.**
 

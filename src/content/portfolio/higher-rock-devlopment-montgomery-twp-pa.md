@@ -17,6 +17,7 @@ tags:
   - retailers
   - office
 order: 26
+category: Retail
 ---
 Development of this former plant nursery, along the busy commercial corridor of US Route 309 in Montgomery County is benefiting the community with retail food and commercial office space offerings. This valuable parcel of real estate dominates the local landscape and required construction of sizable retaining walls, significant rock excavation, and sophisticated stormwater management features. In addition, the site accommodates a signalized connector road to relieve pressure on the adjacent intersections, and to benefit the flow of traffic for the entire corridor. 
 

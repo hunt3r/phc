@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import PortfolioGallery from '../../components/PortfolioGallery.astro';
 import { getImageUrl } from '@/lib/cloudinary';
+import { slugify } from '@/lib/slug';
+import { getCategoryBySlug } from '@/data/categories';
 
 export async function getStaticPaths() {
   const portfolio = await getCollection('portfolio');
@@ -52,15 +54,28 @@ const galleryImages =
           </div>
         )}
       </dl>
-      {entry.data.tags && entry.data.tags.length > 0 && (
-        <div class="mt-2 flex flex-wrap gap-2">
-          {entry.data.tags.map((tag: string) => (
-            <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200">
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
+      <div class="mt-2 flex flex-wrap items-center gap-2">
+        {entry.data.category && (() => {
+          const catSlug = slugify(entry.data.category!);
+          const cat = getCategoryBySlug(catSlug) ?? { slug: catSlug, label: entry.data.category! };
+          return (
+            <a
+              href={`/category/${cat.slug}`}
+              class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-xs font-medium text-gray-700 transition hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:border-primary dark:hover:bg-primary/10"
+            >
+              {cat.label}
+            </a>
+          );
+        })()}
+        {entry.data.tags && entry.data.tags.length > 0 && entry.data.tags.map((tag: string) => (
+          <a
+            href={`/tags/${slugify(tag)}`}
+            class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-xs font-medium text-gray-700 transition hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:border-primary dark:hover:bg-primary/10"
+          >
+            {tag}
+          </a>
+        ))}
+      </div>
       {heroImageUrl && (
         <img
           src={heroImageUrl}

@@ -10,6 +10,7 @@ tags:
   - retail
   - retailers
 order: 57
+category: Retail
 ---
 **Key Features:**
 

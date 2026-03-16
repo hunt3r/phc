@@ -21,6 +21,7 @@ tags:
   - demolition
   - project-management
 order: 2
+category: Retail
 ---
 Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.
 

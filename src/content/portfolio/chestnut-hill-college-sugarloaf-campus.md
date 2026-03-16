@@ -25,6 +25,7 @@ tags:
   - remediation
   - institutional
 order: 18
+category: Government
 ---
 We competitively bid and were awarded a contract to provide construction management and oversight for the new entrance to their Sugarloaf Campus. A brand new entrance roadway off Germantown Ave., made in alignment with East Hillcrest Ave., was added to make much easier and safer access to this campus. This project also including a paved pedestrian/bicycle trail through the beautiful [Wissahickon Valley Park](https://www.visitphilly.com/things-to-do/attractions/wissahickon-valley-park/) woods connecting to their main campus.
 

@@ -1,39 +1,64 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { getImageUrl } from '@/lib/cloudinary';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { CATEGORIES } from '@/data/categories';
 
 const portfolio = await getCollection('portfolio');
 const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
 
 <BaseLayout title="Portfolio">
-  <div class="pt-8 space-y-8">
-    <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">Portfolio</h1>
-    <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {sorted.map((entry) => (
-        <li>
-          <a
-            href={`/portfolio/${entry.id}`}
-            class="block overflow-hidden rounded-lg border border-gray-200 bg-white transition hover:border-gray-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800 dark:hover:border-gray-600"
-          >
-            {entry.data.image && (
-              <img
-                src={getImageUrl(entry.data.image, { width: 480, quality: 'auto:eco' })}
-                alt=""
-                class="h-48 w-full object-cover"
-                loading="lazy"
-              />
-            )}
-            <div class="p-4">
-              <h2 class="font-semibold text-gray-900 dark:text-gray-100">{entry.data.title}</h2>
-              {entry.data.description && (
-                <p class="mt-1 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">{entry.data.description}</p>
-              )}
-            </div>
-          </a>
-        </li>
-      ))}
-    </ul>
+  <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
+    <aside class="shrink-0 lg:w-52">
+      <nav aria-label="Categories" class="sticky top-24 space-y-1">
+        <p class="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+          Category
+        </p>
+        <ul class="space-y-0.5">
+          <li>
+            <a
+              href="/portfolio"
+              class="block rounded-lg bg-primary/10 px-3 py-2 text-sm font-medium text-primary dark:bg-primary/20"
+            >
+              All
+            </a>
+          </li>
+          {CATEGORIES.map((c) => (
+            <li>
+              <a
+                href={`/category/${c.slug}`}
+                class="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100"
+              >
+                {c.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+    <div class="min-w-0 flex-1 space-y-6">
+      <div>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">Portfolio</h1>
+        <p class="mt-1 text-gray-600 dark:text-gray-400">
+          {sorted.length} project{sorted.length === 1 ? '' : 's'}
+        </p>
+      </div>
+      <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        {sorted.map((entry) => (
+          <li>
+            <ProjectCard
+              title={String((entry.data as { title?: string }).title ?? '')}
+              description={String((entry.data as { description?: string }).description ?? '')}
+              href={`/portfolio/${entry.id}`}
+              imageSrc={(entry.data as { image?: string }).image}
+              imageAlt={String((entry.data as { title?: string }).title ?? '')}
+              tags={Array.isArray((entry.data as { tags?: string[] }).tags) ? (entry.data as { tags?: string[] }).tags ?? [] : []}
+              date={(entry.data as { date?: string }).date}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 </BaseLayout>

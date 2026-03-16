@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { slugify, titleize } from '@/lib/slug';
+
+export async function getStaticPaths() {
+  const portfolio = await getCollection('portfolio');
+  const slugSet = new Set<string>();
+  for (const entry of portfolio) {
+    const tags = entry.data.tags ?? [];
+    for (const tag of tags) {
+      const s = slugify(tag);
+      if (s) slugSet.add(s);
+    }
+  }
+  return Array.from(slugSet).map((tag) => ({ params: { tag }, props: { tag } }));
+}
+
+const { tag: tagSlug } = Astro.params;
+const portfolio = await getCollection('portfolio');
+
+const entries = portfolio.filter((entry) => {
+  const tags = entry.data.tags ?? [];
+  return tags.some((t) => slugify(t) === tagSlug);
+});
+
+const sorted = entries.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+const rawLabel = sorted[0]?.data.tags?.find((t) => slugify(t) === tagSlug) ?? tagSlug ?? 'Tag';
+const tagLabel = titleize(rawLabel);
+---
+
+<BaseLayout title={`Tag: ${tagLabel}`}>
+  <div class="pt-8 space-y-8">
+    <div>
+      <a href="/tags" class="text-sm text-primary hover:underline">← All tags</a>
+      <h1 class="mt-2 text-3xl font-bold text-gray-900 dark:text-gray-100">
+        {tagLabel}
+      </h1>
+      <p class="mt-1 text-gray-600 dark:text-gray-400">
+        {entries.length} project{entries.length === 1 ? '' : 's'}
+      </p>
+    </div>
+    {sorted.length > 0 ? (
+      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {sorted.map((entry) => (
+          <li>
+            <ProjectCard
+              title={String((entry.data as { title?: string }).title ?? '')}
+              description={String((entry.data as { description?: string }).description ?? '')}
+              href={`/portfolio/${entry.id}`}
+              imageSrc={(entry.data as { image?: string }).image}
+              imageAlt={String((entry.data as { title?: string }).title ?? '')}
+              tags={Array.isArray((entry.data as { tags?: string[] }).tags) ? (entry.data as { tags?: string[] }).tags ?? [] : []}
+              date={(entry.data as { date?: string }).date}
+            />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="text-gray-600 dark:text-gray-400">No projects with this tag.</p>
+    )}
+  </div>
+</BaseLayout>

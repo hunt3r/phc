@@ -15,6 +15,7 @@ tags:
   - grant
   - small-business
 order: 20
+category: Government
 ---
 **PH&C has been verified by CVE as a Service Disabled Veteran Owned Small Business (SDVOSB)**
 

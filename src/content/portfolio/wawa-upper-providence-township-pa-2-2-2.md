@@ -20,6 +20,7 @@ tags:
   - demolition
   - project-management
 order: 39
+category: Retail
 ---
 Assisting Wawa Corporation fulfill their expansion plans continues with this store in another key market targeted by Wawa and our developer client. As usual, this site had numerous redevelopment challenges including environmental remediation of multiple structures, demolition of said structures, wet and dry utility issues and relocations, storm water, vehicular and pedestrian management, as well as accessibility improvements and accommodating neighboring businesses during demolition and construction. All the while controlling costs and managing a budget while dealing with architects, engineering firms, numerous government agencies, utilities and contractors from geotechnical and underground investigations thru various construction segments. 
 

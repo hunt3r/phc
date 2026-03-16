@@ -18,6 +18,7 @@ tags:
   - office
   - self-storage
 order: 31
+category: Office
 ---
 This burgeoning suburban area is prime for a Multi-Story Climate Controlled Self Storage facility, A Storage Depot, developed using the latest sustainable stormwater management features, as well as unique construction practices. Stormwater management features were critical at this steep slope location.
 

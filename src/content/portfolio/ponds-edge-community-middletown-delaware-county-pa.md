@@ -23,6 +23,7 @@ tags:
   - government
   - multi-family
 order: 12
+category: Retail
 ---
 Pond’s Edge is a 197 unit townhouse community on approximately 55 acres in Middletown Township, Delaware County. This residential community project has been a great success, allowing our client to move forward with the opening of the final phase of home construction in late 2023 into 2024. 
 

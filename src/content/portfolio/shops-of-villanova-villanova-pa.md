@@ -20,6 +20,7 @@ tags:
   - healthcare
   - institutional
 order: 45
+category: Retail
 ---
 **Key Features:**
 

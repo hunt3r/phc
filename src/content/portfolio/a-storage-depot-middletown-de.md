@@ -17,6 +17,7 @@ gallery:
 tags:
   - self-storage
 order: 38
+category: Self-Storage
 ---
 **Key Features:**
 

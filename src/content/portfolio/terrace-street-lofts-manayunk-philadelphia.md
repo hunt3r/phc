@@ -19,6 +19,7 @@ gallery:
 tags:
   - multi-family
 order: 36
+category: Residential
 ---
 **Key Features:**
 

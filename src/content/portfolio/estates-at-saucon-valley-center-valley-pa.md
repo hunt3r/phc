@@ -19,6 +19,7 @@ gallery:
 tags:
   - multi-family
 order: 15
+category: Residential
 ---
 Continuing our expansion into Residential and Multi-Family community projects, we assisted _**[Tuskes Homes](https://www.tuskeshomes.com/new-homes/pa/center-valley/estates-at-saucon-valley/8935/?gclid=CjwKCAjwrranBhAEEiwAzbhNtUTdLHDZlGtNJ6rX3-KfvJNH7ltnZlPaekyzQ6Ies4TVZi2yl2LhIRoC5XYQAvD_BwE)**_ complete this residential community located in the beautiful Saucon Valley of Pennsylvania.
 

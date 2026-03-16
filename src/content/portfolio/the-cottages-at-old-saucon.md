@@ -17,6 +17,7 @@ gallery:
 tags:
   - multi-family
 order: 10
+category: Residential
 ---
 Continuing our expansion into Residential and Multi-Family community projects, we assisted a team of investors develop this brand new 55+ age-qualified community located in the beautiful Saucon Valley of Pennsylvania.
 

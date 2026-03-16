@@ -19,6 +19,7 @@ gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692362/images/portfolio/260-morehall-road-malvern-pa/2020-09-21-13.14.27-scaled-e1600886504940.jpg'
     alt: '260 Morehall Road - Malvern, PA - image 7'
 order: 40
+category: Uncategorized
 ---
 **Key Features:**
 

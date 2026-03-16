@@ -28,6 +28,7 @@ tags:
   - remediation
   - demolition
 order: 14
+category: Retail
 ---
 Environmental remediation and demolition of the old food production facility are part of a redevelopment and reinvigoration of the parcel. This includes a Wawa convenience store among other retail stores and entertainment establishments benefitting the local community. Environmental clean-up, stormwater management and traffic improvements to Roosevelt Boulevard were key focus points on this site and will also benefit the surrounding community.  The redevelopment project was awarded over $1.3M in funding support via the PA DCED Multimodal Transportation Fund program. 
 

@@ -18,5 +18,6 @@ tags:
   - office
   - remediation
 order: 42
+category: Office
 ---
 [Locations – Valley Forge, PA](https://www.envstd.com/locations-vf/)

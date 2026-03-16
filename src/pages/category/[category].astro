@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { slugify } from '@/lib/slug';
+import { CATEGORIES, getCategoryBySlug, getCategoryLabel } from '@/data/categories';
+
+export async function getStaticPaths() {
+  return CATEGORIES.map((c) => ({ params: { category: c.slug }, props: { categorySlug: c.slug } }));
+}
+
+const { category: categorySlug } = Astro.params;
+const category = getCategoryBySlug(categorySlug ?? '');
+
+if (!category) {
+  return Astro.redirect('/portfolio');
+}
+
+const portfolio = await getCollection('portfolio');
+const entries = portfolio.filter((entry) => {
+  const cat = entry.data.category;
+  if (categorySlug === 'uncategorized') return !cat || slugify(cat) === 'uncategorized';
+  return cat && slugify(cat) === categorySlug;
+});
+const sorted = entries.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+---
+
+<BaseLayout title={getCategoryLabel(categorySlug ?? '')}>
+  <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
+    <aside class="shrink-0 lg:w-52">
+      <nav aria-label="Categories" class="sticky top-24 space-y-1">
+        <p class="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+          Category
+        </p>
+        <ul class="space-y-0.5">
+          <li>
+            <a
+              href="/portfolio"
+              class="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100"
+            >
+              All
+            </a>
+          </li>
+          {CATEGORIES.map((c) => {
+            const isActive = c.slug === categorySlug;
+            return (
+              <li>
+                <a
+                  href={`/category/${c.slug}`}
+                  class={`block rounded-lg px-3 py-2 text-sm font-medium transition ${
+                    isActive
+                      ? 'bg-primary/10 text-primary dark:bg-primary/20'
+                      : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100'
+                  }`}
+                >
+                  {c.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </aside>
+    <div class="min-w-0 flex-1 space-y-6">
+      <div>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+          {category.label}
+        </h1>
+        <p class="mt-1 text-gray-600 dark:text-gray-400">
+          {sorted.length} project{sorted.length === 1 ? '' : 's'}
+        </p>
+      </div>
+      {sorted.length > 0 ? (
+        <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          {sorted.map((entry) => (
+            <li>
+              <ProjectCard
+                title={String((entry.data as { title?: string }).title ?? '')}
+                description={String((entry.data as { description?: string }).description ?? '')}
+                href={`/portfolio/${entry.id}`}
+                imageSrc={(entry.data as { image?: string }).image}
+                imageAlt={String((entry.data as { title?: string }).title ?? '')}
+                tags={Array.isArray((entry.data as { tags?: string[] }).tags) ? (entry.data as { tags?: string[] }).tags ?? [] : []}
+                date={(entry.data as { date?: string }).date}
+              />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="text-gray-600 dark:text-gray-400">No projects in this category yet.</p>
+      )}
+    </div>
+  </div>
+</BaseLayout>

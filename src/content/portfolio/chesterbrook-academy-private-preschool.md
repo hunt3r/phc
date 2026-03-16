@@ -22,6 +22,7 @@ tags:
   - institutional
   - landscaping
 order: 34
+category: Institutional
 ---
 **Turnkey Private Preschool Facility**
 

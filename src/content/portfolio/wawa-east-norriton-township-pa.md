@@ -22,6 +22,7 @@ tags:
   - demolition
   - project-management
 order: 16
+category: Retail
 ---
 We are proud to continue with our assistance in developing another Wawa store in their core market that opened in October 2023. Our work for a commercial real estate developer client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction.
 

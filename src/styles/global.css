@@ -76,8 +76,18 @@
   }
 }
 
-/* Prose: markdown / long-form content (portfolio, etc.) */
+/* Project card tag pills: override base link style so pills stay gray with fill */
 @layer components {
+  .project-card a.tag-pill {
+    text-decoration: none;
+    color: #374151;
+  }
+  .project-card a.tag-pill:hover {
+    text-decoration: none;
+  }
+  .dark .project-card a.tag-pill {
+    color: #d1d5db;
+  }
   .prose-content {
     @apply prose prose-lg max-w-none;
     /* Headings: brand serif, clear hierarchy */

@@ -1,4 +1,5 @@
 import { defineConfig } from 'tinacms';
+import { CATEGORIES } from '../src/data/categories';
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -45,7 +46,14 @@ export default defineConfig({
               { type: 'string', name: 'alt', label: 'Alt text' },
             ],
           },
-          { type: 'string', name: 'category', label: 'Category' },
+          {
+            type: 'string',
+            name: 'category',
+            label: 'Category',
+            description: 'One category per project (used for category nav)',
+            options: CATEGORIES.map((c) => ({ value: c.label, label: c.label })),
+            ui: { component: 'select' },
+          },
           { type: 'string', name: 'tags', label: 'Tags', list: true },
           { type: 'number', name: 'order', label: 'Order' },
           { type: 'boolean', name: 'featured', label: 'Featured' },

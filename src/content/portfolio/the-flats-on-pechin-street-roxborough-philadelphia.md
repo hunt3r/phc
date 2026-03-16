@@ -17,6 +17,7 @@ gallery:
 tags:
   - multi-family
 order: 54
+category: Residential
 ---
 **Key Features:**
 

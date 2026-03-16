@@ -9,5 +9,6 @@ gallery:
 tags:
   - self-storage
 order: 37
+category: Self-Storage
 ---
 A re-imagination of the Self Storage market has led to great demand for Multi-Story Climate Controlled Self Storage.  With a variety of systems and product types, PH&C can guide owners through the numerous design and construction options to provide a custom economical solution to fit the projects specific needs, constraints, and market demands.

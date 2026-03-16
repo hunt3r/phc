@@ -19,6 +19,7 @@ tags:
   - healthcare
   - signage
 order: 17
+category: Healthcare
 ---
 Fit-out for new Medical office space in existing building.
 

@@ -24,6 +24,7 @@ tags:
   - remediation
   - project-management
 order: 5
+category: Retail
 ---
 Retail shopping center transformations continue as defunct retailers blossom into new opportunities for the latest and greatest companies. We assisted our client, the shopping center owner, to consolidate 3 separate spaces and transform them into a state-of-the-art [**Target**](https://www.target.com/sl/doylestown/3453) store that opened it doors for business in July 2024.
 
