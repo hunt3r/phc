@@ -60,14 +60,14 @@ const baseJsonLd = createGraphSchema([
         src: url('/fonts/Italian Old Style MT Std Regular.otf') format('opentype');
         font-weight: normal;
         font-style: normal;
-        font-display: block;
+        font-display: swap;
       }
       @font-face {
         font-family: 'Futura Book';
         src: url('/fonts/Futura-Book Book.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
-        font-display: block;
+        font-display: swap;
       }
     </style>
     <meta name="generator" content={Astro.generator} />
@@ -88,8 +88,8 @@ const baseJsonLd = createGraphSchema([
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <a href="/" class="flex items-center gap-2" aria-label="PHC Home">
-            <img src="/images/logo-light.png" alt="PH&C" class="h-10 w-auto dark:hidden" width="120" height="40" />
-            <img src="/images/logo-dark.png" alt="PH&C" class="h-10 w-auto hidden dark:block" width="120" height="40" />
+            <img src="/images/logo-light.png" alt="PH&C" class="h-10 w-auto dark:hidden" width="1462" height="324" />
+            <img src="/images/logo-dark.png" alt="PH&C" class="h-10 w-auto hidden dark:block" width="1462" height="324" />
           </a>
           <nav class="flex items-center gap-2 md:gap-6" aria-label="Main">
 
@@ -138,7 +138,7 @@ const baseJsonLd = createGraphSchema([
     <footer class="border-t border-gray-200 dark:border-gray-700 py-6">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <p class="text-center text-sm text-gray-600 dark:text-gray-400">
-          © {new Date().getFullYear()} PH&C. <a href="/portfolio" class="text-primary hover:underline">Portfolio</a>
+          © {new Date().getFullYear()} PH&C. <a href="/portfolio" class="text-primary underline underline-offset-2 decoration-1 decoration-current dark:text-gray-200">Portfolio</a>
         </p>
       </div>
     </footer>

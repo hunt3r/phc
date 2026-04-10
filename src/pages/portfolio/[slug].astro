@@ -19,7 +19,11 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
+const HERO_WIDTHS = [640, 960, 1200, 1600];
 const heroImageUrl = entry.data.image ? getImageUrl(entry.data.image, { width: 1200, quality: 'auto:eco' }) : undefined;
+const heroImageSrcSet = entry.data.image
+  ? HERO_WIDTHS.map((width) => `${getImageUrl(entry.data.image, { width, quality: 'auto:eco' })} ${width}w`).join(', ')
+  : undefined;
 
 // Use gallery from frontmatter, or fall back to hero image so the gallery section always shows when we have an image
 const galleryImages =
@@ -106,7 +110,14 @@ const jsonLdNodes = [
       {heroImageUrl && (
         <img
           src={heroImageUrl}
+          srcset={heroImageSrcSet}
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1200px"
           alt={entry.data.title}
+          width="1200"
+          height="900"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
           class="mt-4 w-full rounded-lg object-cover"
         />
       )}

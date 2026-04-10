@@ -55,6 +55,8 @@ const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX
       aria-modal="true"
       aria-label="Image gallery"
       aria-hidden="true"
+      hidden
+      inert
     >
       <div class="relative mx-4 max-h-[90vh] max-w-4xl rounded-lg bg-black/80 p-4 text-white shadow-xl" id={`${lightboxId}-focus-root`} tabindex="-1">
         <button
@@ -148,6 +150,8 @@ const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt || "";
       updateCounter();
+      lightbox.removeAttribute("hidden");
+      lightbox.removeAttribute("inert");
       lightbox.classList.remove("pointer-events-none");
       lightbox.setAttribute("aria-hidden", "false");
       lightbox.classList.add("opacity-100");
@@ -173,6 +177,8 @@ const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX
       lightbox.classList.add("pointer-events-none");
       lightbox.setAttribute("aria-hidden", "true");
       lightbox.classList.remove("opacity-100");
+      lightbox.setAttribute("inert", "");
+      lightbox.setAttribute("hidden", "");
       document.body.style.overflow = "";
       if (keyHandler) document.removeEventListener("keydown", keyHandler);
       keyHandler = null;
@@ -200,15 +206,16 @@ const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX
     lightbox.addEventListener("click", (event) => {
       const target = event.target;
       if (!target) return;
-      if (target.dataset.role === "close") {
+      const control = target.closest("[data-role]");
+      if (control?.dataset.role === "close") {
         closeLightbox();
         return;
       }
-      if (target.dataset.role === "next") {
+      if (control?.dataset.role === "next") {
         showNext(1);
         return;
       }
-      if (target.dataset.role === "prev") {
+      if (control?.dataset.role === "prev") {
         showNext(-1);
         return;
       }

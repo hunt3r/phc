@@ -109,7 +109,7 @@
     @apply prose-li:marker:text-primary;
     /* Emphasis */
     @apply prose-strong:font-semibold prose-strong:text-gray-900 dark:prose-strong:text-gray-100;
-    @apply prose-a:text-primary prose-a:no-underline hover:prose-a:underline;
+    @apply prose-a:text-primary prose-a:underline prose-a:underline-offset-2 hover:prose-a:no-underline dark:prose-a:text-gray-200;
     /* Block-level spacing */
     @apply prose-blockquote:border-l-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-400;
     @apply prose-hr:border-gray-200 dark:prose-hr:border-gray-700 prose-hr:my-8;
