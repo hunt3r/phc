@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getEntry, render } from 'astro:content';
 import PersonnelCard from '../components/PersonnelCard.astro';
 import HeroPage from '../components/blocks/hero-page.astro';
+import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 const entry = await getEntry('about', 'index');
 if (!entry) {
@@ -16,9 +17,16 @@ const staff = staffEntry?.data?.staff ?? [];
 const hero = entry.data.hero;
 const heroBackgroundImage = typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : entry.data.featuredImage;
 const ogDescription = hero?.subtitle ?? 'Our team, our values, and our commitment to delivering quality construction and development services.';
+const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
+const jsonLdNodes = [
+  createBreadcrumbListSchema(site, [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+  ]),
+];
 ---
 
-<BaseLayout title={entry.data.title} description={ogDescription} image={heroBackgroundImage}>
+<BaseLayout title={entry.data.title} description={ogDescription} image={heroBackgroundImage} jsonLdNodes={jsonLdNodes}>
   <HeroPage
     id="about-hero"
     size={hero?.size ?? 'compact'}

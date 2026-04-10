@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, getEntry } from 'astro:content';
 import { slugify } from '@/lib/slug';
+import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 const portfolio = await getCollection('portfolio');
 const tagToSlug = new Map<string, string>();
@@ -26,9 +27,16 @@ const tagsWithCounts = Array.from(tagCounts.entries())
 
 const siteEntry = await getEntry('site', 'index');
 const tagsTitle = siteEntry?.data?.tagsTitle ?? 'Tags';
+const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
+const jsonLdNodes = [
+  createBreadcrumbListSchema(site, [
+    { name: "Home", path: "/" },
+    { name: "Tags", path: "/tags" },
+  ]),
+];
 ---
 
-<BaseLayout title={tagsTitle}>
+<BaseLayout title={tagsTitle} jsonLdNodes={jsonLdNodes}>
   <div class="pt-8 space-y-8">
     <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">Tags</h1>
     <p class="text-gray-600 dark:text-gray-400">

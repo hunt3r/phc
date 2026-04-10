@@ -3,14 +3,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, getEntry } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { CATEGORIES } from '@/data/categories';
+import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 const portfolio = await getCollection('portfolio');
 const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 const siteEntry = await getEntry('site', 'index');
 const portfolioTitle = siteEntry?.data?.portfolioTitle ?? 'Portfolio';
+const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
+const jsonLdNodes = [
+  createBreadcrumbListSchema(site, [
+    { name: "Home", path: "/" },
+    { name: "Portfolio", path: "/portfolio" },
+  ]),
+];
 ---
 
-<BaseLayout title={portfolioTitle} description="Explore our construction and development portfolio.">
+<BaseLayout
+  title={portfolioTitle}
+  description="Explore our construction and development portfolio."
+  jsonLdNodes={jsonLdNodes}
+>
   <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
     <aside class="shrink-0 lg:w-52">
       {/* Mobile: dropdown */}

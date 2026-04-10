@@ -1,18 +1,40 @@
 ---
+import JsonLd from "@/components/seo/JsonLd.astro";
+import {
+  createGraphSchema,
+  createOrganizationSchema,
+  createWebPageSchema,
+  createWebSiteSchema,
+  toAbsoluteUrl,
+} from "@/lib/seo/jsonld";
+
 interface Props {
   title?: string;
   description?: string;
   image?: string;
+  jsonLdNodes?: Record<string, unknown>[];
 }
 
-const { title = 'PH&C', description, image } = Astro.props;
+const { title = "PH&C", description, image, jsonLdNodes = [] } = Astro.props as Props;
 import '../styles/global.css';
 
 const displayTitle = title.startsWith('PH&C - ') || title.startsWith('PH&C – ') ? title : `PH&C - ${title}`;
-const site = import.meta.env.SITE ?? 'https://phandc.net';
+const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
 const absoluteImageUrl = image
-  ? (image.startsWith('http') ? image : new URL(image, site).href)
+  ? toAbsoluteUrl(image, site)
   : new URL('/images/logo-light.png', site).href;
+const baseJsonLd = createGraphSchema([
+  createOrganizationSchema(site),
+  createWebSiteSchema(site),
+  createWebPageSchema({
+    site,
+    url: Astro.url.href,
+    name: displayTitle,
+    description,
+    image: absoluteImageUrl,
+  }),
+  ...jsonLdNodes,
+]);
 ---
 
 <!doctype html>
@@ -50,6 +72,7 @@ const absoluteImageUrl = image
     </style>
     <meta name="generator" content={Astro.generator} />
     <title>{displayTitle}</title>
+    {baseJsonLd && <JsonLd nodes={[baseJsonLd]} />}
     <script is:inline>
       (function() {
         const stored = localStorage.getItem('theme');

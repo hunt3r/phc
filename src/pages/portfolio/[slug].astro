@@ -5,6 +5,11 @@ import PortfolioGallery from '../../components/PortfolioGallery.astro';
 import { getImageUrl } from '@/lib/cloudinary';
 import { slugify } from '@/lib/slug';
 import { getCategoryBySlug } from '@/data/categories';
+import {
+  createBreadcrumbListSchema,
+  createPortfolioCreativeWorkSchema,
+  toAbsoluteUrl,
+} from '@/lib/seo/jsonld';
 
 export async function getStaticPaths() {
   const portfolio = await getCollection('portfolio');
@@ -25,9 +30,29 @@ const galleryImages =
       : [];
 
 const ogDescription = entry.data.description ? entry.data.description.slice(0, 160).trim() : undefined;
+const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
+const pageUrl = Astro.url.href;
+const jsonLdNodes = [
+  createBreadcrumbListSchema(site, [
+    { name: "Home", path: "/" },
+    { name: "Portfolio", path: "/portfolio" },
+    { name: entry.data.title, url: pageUrl },
+  ]),
+  createPortfolioCreativeWorkSchema(site, {
+    url: pageUrl,
+    name: entry.data.title,
+    description: ogDescription,
+    image: entry.data.image ? toAbsoluteUrl(entry.data.image, site) : undefined,
+    category: entry.data.category,
+    date: entry.data.date,
+    location: entry.data.location,
+    client: entry.data.client,
+    tags: entry.data.tags,
+  }),
+];
 ---
 
-<BaseLayout title={entry.data.title} description={ogDescription} image={entry.data.image}>
+<BaseLayout title={entry.data.title} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes}>
   <article class="pt-8 space-y-8">
     <header class="space-y-3">
       <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{entry.data.title}</h1>
