@@ -2,11 +2,11 @@
 title: Government Overview
 description: PH&C works with FTA as a consultant to Booze Allen & Hamilton to provide Project Management Oversite on FTA projects throughout the country.
 location: PH&C
-image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692427/images/portfolio/government-overview/phc_govt.jpg'
+image: /images/portfolio/government-overview/phc_govt.jpg
 gallery:
-  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692427/images/portfolio/government-overview/phc_govt.jpg'
+  - src: /images/portfolio/government-overview/phc_govt.jpg
     alt: Government Overview - image 1
-  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692426/images/portfolio/government-overview/phc-sdvosb-cve-logo.jpg'
+  - src: /images/portfolio/government-overview/phc-sdvosb-cve-logo.jpg
     alt: Government Overview - image 2
 tags:
   - government
@@ -14,8 +14,7 @@ tags:
   - project-management
   - grant
   - small-business
-order: 20
-category: Government
+order: 23
 ---
 **PH&C has been verified by CVE as a Service Disabled Veteran Owned Small Business (SDVOSB)**
 

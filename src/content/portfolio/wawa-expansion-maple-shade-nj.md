@@ -2,22 +2,21 @@
 title: 'Wawa - Maple Shade, NJ'
 description: 'Assisting the Wawa Corporation in fulfilling their expansion plans including redevelopment, remediation, accessibility, management, and more.'
 location: 'Maple Shade, NJ'
-image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692781/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.43.06-scaled.jpg'
+image: /images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.43.06-scaled.jpg
 gallery:
-  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692781/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.43.06-scaled.jpg'
+  - src: /images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.43.06-scaled.jpg
     alt: 'Wawa - Maple Shade, NJ - image 1'
-  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692780/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.42.08-scaled.jpg'
+  - src: /images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.42.08-scaled.jpg
     alt: 'Wawa - Maple Shade, NJ - image 2'
-  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692782/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.44.48-scaled.jpg'
+  - src: /images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.44.48-scaled.jpg
     alt: 'Wawa - Maple Shade, NJ - image 3'
-  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692782/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.46.11-scaled.jpg'
+  - src: /images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.46.11-scaled.jpg
     alt: 'Wawa - Maple Shade, NJ - image 4'
 tags:
   - retail
   - retailers
   - remediation
-order: 23
-category: Retail
+order: 26
 ---
 Assisting the Wawa Corporation in fulfilling their expansion plans continued with this store in another key market targeted by Wawa and our developer client. As usual, this Wawa expansion site had numerous redevelopment challenges including environmental remediation, stormwater, vehicular and pedestrian management. As well as accessibility improvements and accommodating neighboring businesses.  All the while controlling costs and budget management.
 

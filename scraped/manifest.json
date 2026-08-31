@@ -4,7 +4,7 @@
     "url": "https://phandc.net/",
     "localPath": "pages/index/",
     "slug": "index",
-    "lastmod": "2025-05-15T15:52:39+00:00"
+    "lastmod": "2026-06-16T15:02:24+00:00"
   },
   {
     "type": "page",
@@ -60,7 +60,7 @@
     "url": "https://phandc.net/about-us/",
     "localPath": "pages/about-us/",
     "slug": "about-us",
-    "lastmod": "2026-02-11T13:23:12+00:00"
+    "lastmod": "2026-08-05T20:10:09+00:00"
   },
   {
     "type": "post",
@@ -509,5 +509,26 @@
     "localPath": "portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/",
     "slug": "lidl-us-llc-harrisburg-pa-paxton-towne-centre",
     "lastmod": "2025-05-16T18:48:05+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/lidl-us-llc-totowa-new-jersey/",
+    "localPath": "portfolio/lidl-us-llc-totowa-new-jersey/",
+    "slug": "lidl-us-llc-totowa-new-jersey",
+    "lastmod": "2026-06-10T13:49:02+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/lidl-us-llc-yonkers-new-york/",
+    "localPath": "portfolio/lidl-us-llc-yonkers-new-york/",
+    "slug": "lidl-us-llc-yonkers-new-york",
+    "lastmod": "2026-06-11T14:10:44+00:00"
+  },
+  {
+    "type": "post",
+    "url": "https://phandc.net/lidl-us-llc-bear-delaware/",
+    "localPath": "portfolio/lidl-us-llc-bear-delaware/",
+    "slug": "lidl-us-llc-bear-delaware",
+    "lastmod": "2026-06-16T15:00:07+00:00"
   }
 ]

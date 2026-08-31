@@ -3,7 +3,7 @@
  */
 const baseUrl = process.env.BASE_URL || "https://phandc.net";
 const outputDir = process.env.OUTPUT_DIR || "scraped";
-const delayMs = Number(process.env.DELAY_MS) || 800;
+const delayMs = Number(process.env.DELAY_MS) || 300;
 const sitemapUrl =
   process.env.SITEMAP_URL || `${baseUrl.replace(/\/$/, "")}/sitemap_index.xml`;
 
