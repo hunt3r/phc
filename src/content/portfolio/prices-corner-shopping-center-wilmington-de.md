@@ -2,25 +2,25 @@
 title: 'Prices Corner Shopping Center - Wilmington, DE'
 description: We performed environmental remediation and demolished an out-parcel Sears Auto Center making a Chick-Fil-A restaurant and Chase Bank branch. We also performed a complete façade renewal and parking lot enhancements . PH&C oversaw the project’s execution in this open and operating shopping center.
 location: 'Wilmington, DE'
-image: /images/portfolio/prices-corner-shopping-center-wilmington-de/2021-04-13-16.57.54-scaled-e1624381733351.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692501/images/portfolio/prices-corner-shopping-center-wilmington-de/2021-04-13-16.57.54-scaled-e1624381733351.jpg'
 gallery:
-  - src: /images/portfolio/prices-corner-shopping-center-wilmington-de/2021-04-13-16.57.54-scaled-e1624381733351.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692501/images/portfolio/prices-corner-shopping-center-wilmington-de/2021-04-13-16.57.54-scaled-e1624381733351.jpg'
     alt: 'Prices Corner Shopping Center - Wilmington, DE - image 1'
-  - src: /images/portfolio/prices-corner-shopping-center-wilmington-de/2021-05-25-12.46.20-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692502/images/portfolio/prices-corner-shopping-center-wilmington-de/2021-05-25-12.46.20-scaled.jpg'
     alt: 'Prices Corner Shopping Center - Wilmington, DE - image 2'
-  - src: /images/portfolio/prices-corner-shopping-center-wilmington-de/2020-10-23-12.52.22-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692499/images/portfolio/prices-corner-shopping-center-wilmington-de/2020-10-23-12.52.22-scaled.jpg'
     alt: 'Prices Corner Shopping Center - Wilmington, DE - image 3'
-  - src: /images/portfolio/prices-corner-shopping-center-wilmington-de/2020-12-02-08.47.22-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692500/images/portfolio/prices-corner-shopping-center-wilmington-de/2020-12-02-08.47.22-scaled.jpg'
     alt: 'Prices Corner Shopping Center - Wilmington, DE - image 4'
-  - src: /images/portfolio/prices-corner-shopping-center-wilmington-de/2020-10-23-12.49.12-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692498/images/portfolio/prices-corner-shopping-center-wilmington-de/2020-10-23-12.49.12-scaled.jpg'
     alt: 'Prices Corner Shopping Center - Wilmington, DE - image 5'
-  - src: /images/portfolio/prices-corner-shopping-center-wilmington-de/2021-04-13-16.57.54-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692501/images/portfolio/prices-corner-shopping-center-wilmington-de/2021-04-13-16.57.54-scaled.jpg'
     alt: 'Prices Corner Shopping Center - Wilmington, DE - image 6'
-  - src: /images/portfolio/prices-corner-shopping-center-wilmington-de/2020-10-01-09.13.35-scaled-e1624382488409.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692497/images/portfolio/prices-corner-shopping-center-wilmington-de/2020-10-01-09.13.35-scaled-e1624382488409.jpg'
     alt: 'Prices Corner Shopping Center - Wilmington, DE - image 7'
-  - src: /images/portfolio/prices-corner-shopping-center-wilmington-de/2021-06-08-10.43.44-scaled-e1624382452233.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692503/images/portfolio/prices-corner-shopping-center-wilmington-de/2021-06-08-10.43.44-scaled-e1624382452233.jpg'
     alt: 'Prices Corner Shopping Center - Wilmington, DE - image 8'
-  - src: /images/portfolio/prices-corner-shopping-center-wilmington-de/2021-11-22-09.18.04-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692504/images/portfolio/prices-corner-shopping-center-wilmington-de/2021-11-22-09.18.04-scaled.jpg'
     alt: 'Prices Corner Shopping Center - Wilmington, DE - image 9'
 tags:
   - tag: src/content/tags/retail.md

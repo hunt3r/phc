@@ -2,19 +2,19 @@
 title: 'Estates at Saucon Valley - Center Valley, PA'
 description: 'Continuing our expansion into Residential and Multi-Family community projects, we assisted Tuskes Homes complete this residential community located in the beautiful Saucon Valley of Pennsylvania. Located on the same parcel, we also assisted in delivering lots for another community that is being built by Ryan Homes. Key Features: We procured and managed multiple contractors to […]'
 location: 'Center Valley, PA'
-image: /images/portfolio/estates-at-saucon-valley-center-valley-pa/Estates-at-Saucon-Valley-WEBSITE-photo.png
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692424/images/portfolio/estates-at-saucon-valley-center-valley-pa/Estates-at-Saucon-Valley-WEBSITE-photo.png'
 gallery:
-  - src: /images/portfolio/estates-at-saucon-valley-center-valley-pa/Estates-at-Saucon-Valley-WEBSITE-photo.png
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692424/images/portfolio/estates-at-saucon-valley-center-valley-pa/Estates-at-Saucon-Valley-WEBSITE-photo.png'
     alt: 'Estates at Saucon Valley - Center Valley, PA - image 1'
-  - src: /images/portfolio/estates-at-saucon-valley-center-valley-pa/2023-07-20-09.43.34-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692423/images/portfolio/estates-at-saucon-valley-center-valley-pa/2023-07-20-09.43.34-scaled.jpg'
     alt: 'Estates at Saucon Valley - Center Valley, PA - image 2'
-  - src: /images/portfolio/estates-at-saucon-valley-center-valley-pa/2023-06-15-11.32.04-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692420/images/portfolio/estates-at-saucon-valley-center-valley-pa/2023-06-15-11.32.04-scaled.jpg'
     alt: 'Estates at Saucon Valley - Center Valley, PA - image 3'
-  - src: /images/portfolio/estates-at-saucon-valley-center-valley-pa/2023-07-20-09.47.28-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692424/images/portfolio/estates-at-saucon-valley-center-valley-pa/2023-07-20-09.47.28-scaled.jpg'
     alt: 'Estates at Saucon Valley - Center Valley, PA - image 4'
-  - src: /images/portfolio/estates-at-saucon-valley-center-valley-pa/2023-07-20-09.37.23-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692421/images/portfolio/estates-at-saucon-valley-center-valley-pa/2023-07-20-09.37.23-scaled.jpg'
     alt: 'Estates at Saucon Valley - Center Valley, PA - image 5'
-  - src: /images/portfolio/estates-at-saucon-valley-center-valley-pa/2023-07-20-09.40.31-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692422/images/portfolio/estates-at-saucon-valley-center-valley-pa/2023-07-20-09.40.31-scaled.jpg'
     alt: 'Estates at Saucon Valley - Center Valley, PA - image 6'
 tags:
   - tag: src/content/tags/residential.md

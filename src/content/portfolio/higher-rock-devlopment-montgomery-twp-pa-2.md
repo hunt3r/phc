@@ -2,19 +2,19 @@
 title: 'Atwater South - Malvern, PA - PH&C - Rock Excavation'
 description: 'Major rock removal development required construction of sizable retaining walls. The project involved rock excavation, and stormwater management features.'
 location: Rock Excavation
-image: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.07.01-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692433/images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.07.01-scaled.jpg'
 gallery:
-  - src: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.07.01-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692433/images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.07.01-scaled.jpg'
     alt: 'Atwater South - Malvern, PA - PH&C - Rock Excavation - image 1'
-  - src: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.07.53-1-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692434/images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.07.53-1-scaled.jpg'
     alt: 'Atwater South - Malvern, PA - PH&C - Rock Excavation - image 2'
-  - src: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.09.06-1-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692435/images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.09.06-1-scaled.jpg'
     alt: 'Atwater South - Malvern, PA - PH&C - Rock Excavation - image 3'
-  - src: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.10.53-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692437/images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.10.53-scaled.jpg'
     alt: 'Atwater South - Malvern, PA - PH&C - Rock Excavation - image 4'
-  - src: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.10.01-1-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692436/images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.10.01-1-scaled.jpg'
     alt: 'Atwater South - Malvern, PA - PH&C - Rock Excavation - image 5'
-  - src: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.06.31-1-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692433/images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.06.31-1-scaled.jpg'
     alt: 'Atwater South - Malvern, PA - PH&C - Rock Excavation - image 6'
 tags:
   - tag: src/content/tags/retail.md

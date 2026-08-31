@@ -2,23 +2,23 @@
 title: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023'
 description: Redevelopment of a food production facility into retail and entertainment.
 location: PH&C
-image: /images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-24-09.48.37-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692466/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-24-09.48.37-scaled.jpg'
 gallery:
-  - src: /images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-24-09.48.37-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692466/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-24-09.48.37-scaled.jpg'
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 1'
-  - src: /images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-24-09.49.07-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692467/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-24-09.49.07-scaled.jpg'
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 2'
-  - src: /images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-10-12.50.50-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692465/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-10-12.50.50-scaled.jpg'
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 3'
-  - src: /images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-10-12.51.34-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692466/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-10-12.51.34-scaled.jpg'
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 4'
-  - src: /images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-10-12.49.53-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692464/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-10-12.49.53-scaled.jpg'
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 5'
-  - src: /images/portfolio/national-biscuit-co-phase-ii-redevelopment/Photo-Jul-01-10-19-09-AM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692468/images/portfolio/national-biscuit-co-phase-ii-redevelopment/Photo-Jul-01-10-19-09-AM-scaled.jpg'
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 6'
-  - src: /images/portfolio/national-biscuit-co-phase-ii-redevelopment/2022-01-14-13.27.46-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692463/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2022-01-14-13.27.46-scaled.jpg'
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 7'
-  - src: /images/portfolio/national-biscuit-co-phase-ii-redevelopment/2022-01-14-13.27.58-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692464/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2022-01-14-13.27.58-scaled.jpg'
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 8'
 tags:
   - tag: src/content/tags/retail.md

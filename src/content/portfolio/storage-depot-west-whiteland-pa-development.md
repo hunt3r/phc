@@ -2,17 +2,17 @@
 title: 'A Storage Depot - West Whiteland Twp, PA'
 description: 'A suburban multi-Story Climate Controlled Self Storage depot development, using the latest sustainable stormwater management features.'
 location: 'West Whiteland Twp, PA'
-image: /images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.08.48-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692723/images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.08.48-scaled.jpg'
 gallery:
-  - src: /images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.08.48-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692723/images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.08.48-scaled.jpg'
     alt: 'A Storage Depot - West Whiteland Twp, PA - image 1'
-  - src: /images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.08.31-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692722/images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.08.31-scaled.jpg'
     alt: 'A Storage Depot - West Whiteland Twp, PA - image 2'
-  - src: /images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.09.11-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692724/images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.09.11-scaled.jpg'
     alt: 'A Storage Depot - West Whiteland Twp, PA - image 3'
-  - src: /images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.09.30.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692726/images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.09.30.jpg'
     alt: 'A Storage Depot - West Whiteland Twp, PA - image 4'
-  - src: /images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.14.53-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692728/images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.14.53-scaled.jpg'
     alt: 'A Storage Depot - West Whiteland Twp, PA - image 5'
 tags:
   - tag: src/content/tags/self-storage.md

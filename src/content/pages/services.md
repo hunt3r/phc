@@ -1,7 +1,7 @@
 ---
 title: Our Services
 description: "Site Analysis / Property Assessment / Feasibility Studies / Due Diligence:Developers need to fully understand the risks and costs for their projects before they commit their project funds.\_ PH&C will lead the full site analysis, facility assessment, feasibility studies and due diligence services tailored to the project specifics in order to provide our client with"
-featuredImage: /images/pages/services-phc_services.jpg
+featuredImage: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204183/images/pages/services-phc_services.jpg'
 ---
 **Site Analysis / Property Assessment / Feasibility Studies / Due Diligence:  
 **Developers need to fully understand the risks and costs for their projects before they commit their project funds.  PH&C will lead the full site analysis, facility assessment, feasibility studies and due diligence services tailored to the project specifics in order to provide our client with the critical information they need to either move forward with confidence, or just as importantly identify and pass on projects that do not meet their criteria.

@@ -2,15 +2,15 @@
 title: 'LiDL US - Totowa, New Jersey'
 description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores! On February 4, 2026, we participated in another store grand opening, which occurred in Totowa, […]'
 location: 'Totowa, New Jersey'
-image: /images/portfolio/lidl-us-llc-totowa-new-jersey/2026-02-04-07.42.07-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204204/images/portfolio/lidl-us-llc-totowa-new-jersey/2026-02-04-07.42.07-scaled.jpg'
 gallery:
-  - src: /images/portfolio/lidl-us-llc-totowa-new-jersey/2026-02-04-07.42.07-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204204/images/portfolio/lidl-us-llc-totowa-new-jersey/2026-02-04-07.42.07-scaled.jpg'
     alt: 'LiDL US - Totowa, New Jersey - image 1'
-  - src: /images/portfolio/lidl-us-llc-totowa-new-jersey/2026-02-04-07.41.31-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204203/images/portfolio/lidl-us-llc-totowa-new-jersey/2026-02-04-07.41.31-scaled.jpg'
     alt: 'LiDL US - Totowa, New Jersey - image 2'
-  - src: /images/portfolio/lidl-us-llc-totowa-new-jersey/2026-02-04-07.45.32-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204205/images/portfolio/lidl-us-llc-totowa-new-jersey/2026-02-04-07.45.32-scaled.jpg'
     alt: 'LiDL US - Totowa, New Jersey - image 3'
-  - src: /images/portfolio/lidl-us-llc-totowa-new-jersey/2024-02-15-13.29.56-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204202/images/portfolio/lidl-us-llc-totowa-new-jersey/2024-02-15-13.29.56-scaled.jpg'
     alt: 'LiDL US - Totowa, New Jersey - image 4'
 tags:
   - tag: src/content/tags/retail.md

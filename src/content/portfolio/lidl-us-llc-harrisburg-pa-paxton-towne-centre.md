@@ -2,15 +2,15 @@
 title: 'LiDL US - Harrisburg, PA. Paxton Towne Centre'
 description: "Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. On June 12, 2024, we participated in our FIRST store grand opening, which occurred on Jonestown Road in Harrisburg, PA.\_ Our team worked with the Architect and Engineers […]"
 location: 'Harrisburg, PA. Paxton Towne Centre'
-image: /images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/Photo-Jun-12-2024-7-13-38-AM-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692441/images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/Photo-Jun-12-2024-7-13-38-AM-scaled.jpg'
 gallery:
-  - src: /images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/Photo-Jun-12-2024-7-13-38-AM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692441/images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/Photo-Jun-12-2024-7-13-38-AM-scaled.jpg'
     alt: 'LiDL US - Harrisburg, PA. Paxton Towne Centre - image 1'
-  - src: /images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/2024-06-12-07.19.48-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692439/images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/2024-06-12-07.19.48-scaled.jpg'
     alt: 'LiDL US - Harrisburg, PA. Paxton Towne Centre - image 2'
-  - src: /images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/IMG_2641-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692440/images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/IMG_2641-scaled.jpg'
     alt: 'LiDL US - Harrisburg, PA. Paxton Towne Centre - image 3'
-  - src: /images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/2023-12-01-09.16.04-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692438/images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/2023-12-01-09.16.04-scaled.jpg'
     alt: 'LiDL US - Harrisburg, PA. Paxton Towne Centre - image 4'
 tags:
   - tag: src/content/tags/retail.md

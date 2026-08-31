@@ -2,17 +2,17 @@
 title: 'Wawa/Retail Bldg/Bank - Trooper, PA'
 description: 'Key Features: 5,535 sf Wawa Food Market with 16 fuel stations 8,000 sf Retail Building with Drive-Thru Smile Exchange, Good Shepherd Penn Partners and Shake Shack Retail Fit-Outs 3800 sf Citadel Bank w/ 3 Drive Thru Lanes PennDOT Signal & Access Improvements'
 location: 'Trooper, PA'
-image: /images/portfolio/wawa-retail-bldg-bank-trooper-pa/DSC_2803-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692793/images/portfolio/wawa-retail-bldg-bank-trooper-pa/DSC_2803-scaled.jpg'
 gallery:
-  - src: /images/portfolio/wawa-retail-bldg-bank-trooper-pa/DSC_2803-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692793/images/portfolio/wawa-retail-bldg-bank-trooper-pa/DSC_2803-scaled.jpg'
     alt: 'Wawa/Retail Bldg/Bank - Trooper, PA - image 1'
-  - src: /images/portfolio/wawa-retail-bldg-bank-trooper-pa/2020-09-16-10.51.13-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692792/images/portfolio/wawa-retail-bldg-bank-trooper-pa/2020-09-16-10.51.13-scaled.jpg'
     alt: 'Wawa/Retail Bldg/Bank - Trooper, PA - image 2'
-  - src: /images/portfolio/wawa-retail-bldg-bank-trooper-pa/2020-09-16-10.48.55-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692791/images/portfolio/wawa-retail-bldg-bank-trooper-pa/2020-09-16-10.48.55-scaled.jpg'
     alt: 'Wawa/Retail Bldg/Bank - Trooper, PA - image 3'
-  - src: /images/portfolio/wawa-retail-bldg-bank-trooper-pa/DSC_2814-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692793/images/portfolio/wawa-retail-bldg-bank-trooper-pa/DSC_2814-scaled.jpg'
     alt: 'Wawa/Retail Bldg/Bank - Trooper, PA - image 4'
-  - src: /images/portfolio/wawa-retail-bldg-bank-trooper-pa/DSC_2816-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692795/images/portfolio/wawa-retail-bldg-bank-trooper-pa/DSC_2816-scaled.jpg'
     alt: 'Wawa/Retail Bldg/Bank - Trooper, PA - image 5'
 tags:
   - tag: src/content/tags/retail.md

@@ -2,15 +2,15 @@
 title: 'Wawa - Maple Shade, NJ'
 description: 'Assisting the Wawa Corporation in fulfilling their expansion plans including redevelopment, remediation, accessibility, management, and more.'
 location: 'Maple Shade, NJ'
-image: /images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.43.06-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692781/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.43.06-scaled.jpg'
 gallery:
-  - src: /images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.43.06-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692781/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.43.06-scaled.jpg'
     alt: 'Wawa - Maple Shade, NJ - image 1'
-  - src: /images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.42.08-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692780/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.42.08-scaled.jpg'
     alt: 'Wawa - Maple Shade, NJ - image 2'
-  - src: /images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.44.48-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692782/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.44.48-scaled.jpg'
     alt: 'Wawa - Maple Shade, NJ - image 3'
-  - src: /images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.46.11-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692782/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.46.11-scaled.jpg'
     alt: 'Wawa - Maple Shade, NJ - image 4'
 tags:
   - tag: src/content/tags/retail.md

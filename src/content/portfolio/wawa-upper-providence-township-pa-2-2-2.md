@@ -2,15 +2,15 @@
 title: 'Wawa - Feasterville, PA'
 description: 'Assisting Wawa Corporation fulfill their expansion plans continues with this store in another key market targeted by Wawa and our developer client. As usual, this site had numerous redevelopment challenges including environmental remediation of multiple structures, demolition of said structures, wet and dry utility issues and relocations, storm water, vehicular and pedestrian management, as well […]'
 location: 'Feasterville, PA'
-image: /images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.05.21-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692817/images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.05.21-scaled.jpg'
 gallery:
-  - src: /images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.05.21-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692817/images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.05.21-scaled.jpg'
     alt: 'Wawa - Feasterville, PA - image 1'
-  - src: /images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.06.47-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692818/images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.06.47-scaled.jpg'
     alt: 'Wawa - Feasterville, PA - image 2'
-  - src: /images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.03.40-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692816/images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.03.40-scaled.jpg'
     alt: 'Wawa - Feasterville, PA - image 3'
-  - src: /images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.05.55-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692818/images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.05.55-scaled.jpg'
     alt: 'Wawa - Feasterville, PA - image 4'
 tags:
   - tag: src/content/tags/retail.md

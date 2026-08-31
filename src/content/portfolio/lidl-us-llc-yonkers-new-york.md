@@ -2,23 +2,23 @@
 title: 'LiDL US - Yonkers, New York'
 description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. In 2025 they asked us to expand our reach into New York state and we were excited to accept this opportunity! On October 22, 2025, we participated in […]'
 location: 'Yonkers, New York'
-image: /images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.52.57-AM-1024x755.png
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204210/images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.52.57-AM-1024x755.png'
 gallery:
-  - src: /images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.52.57-AM-1024x755.png
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204210/images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.52.57-AM-1024x755.png'
     alt: 'LiDL US - Yonkers, New York - image 1'
-  - src: /images/portfolio/lidl-us-llc-yonkers-new-york/2025-10-22-07.48.51-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204206/images/portfolio/lidl-us-llc-yonkers-new-york/2025-10-22-07.48.51-scaled.jpg'
     alt: 'LiDL US - Yonkers, New York - image 2'
-  - src: /images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.54.09-AM.png
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204212/images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.54.09-AM.png'
     alt: 'LiDL US - Yonkers, New York - image 3'
-  - src: /images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.52.57-AM.png
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204211/images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.52.57-AM.png'
     alt: 'LiDL US - Yonkers, New York - image 4'
-  - src: /images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.52.10-AM.png
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204209/images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.52.10-AM.png'
     alt: 'LiDL US - Yonkers, New York - image 5'
-  - src: /images/portfolio/lidl-us-llc-yonkers-new-york/Photo-Jan-29-2025-12-48-17-PM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204208/images/portfolio/lidl-us-llc-yonkers-new-york/Photo-Jan-29-2025-12-48-17-PM-scaled.jpg'
     alt: 'LiDL US - Yonkers, New York - image 6'
-  - src: /images/portfolio/lidl-us-llc-yonkers-new-york/Photo-Dec-20-2024-11-57-02-AM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204207/images/portfolio/lidl-us-llc-yonkers-new-york/Photo-Dec-20-2024-11-57-02-AM-scaled.jpg'
     alt: 'LiDL US - Yonkers, New York - image 7'
-  - src: /images/portfolio/lidl-us-llc-yonkers-new-york/Photo-Dec-20-2024-12-04-47-PM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204207/images/portfolio/lidl-us-llc-yonkers-new-york/Photo-Dec-20-2024-12-04-47-PM-scaled.jpg'
     alt: 'LiDL US - Yonkers, New York - image 8'
 tags:
   - tag: src/content/tags/retail.md

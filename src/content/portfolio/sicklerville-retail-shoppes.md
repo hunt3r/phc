@@ -2,31 +2,31 @@
 title: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ'
 description: 'A environmental remediation construction project for three new retail buildings including Panda Express, Jersey Mikes, and a Vet.'
 location: 'Sicklerville/ Turnersville, NJ'
-image: /images/portfolio/sicklerville-retail-shoppes/2021-01-29-09.49.40.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692542/images/portfolio/sicklerville-retail-shoppes/2021-01-29-09.49.40.jpg'
 gallery:
-  - src: /images/portfolio/sicklerville-retail-shoppes/2021-01-29-09.49.40.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692542/images/portfolio/sicklerville-retail-shoppes/2021-01-29-09.49.40.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 1'
-  - src: /images/portfolio/sicklerville-retail-shoppes/2020-04-09-09.54.08-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692535/images/portfolio/sicklerville-retail-shoppes/2020-04-09-09.54.08-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 2'
   - src: /images/portfolio/sicklerville-retail-shoppes/Photo-May-07-9-32-26-AM.jpg
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 3'
-  - src: /images/portfolio/sicklerville-retail-shoppes/2020-07-09-11.10.08-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692536/images/portfolio/sicklerville-retail-shoppes/2020-07-09-11.10.08-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 4'
-  - src: /images/portfolio/sicklerville-retail-shoppes/2020-07-16-10.27.12-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692537/images/portfolio/sicklerville-retail-shoppes/2020-07-16-10.27.12-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 5'
-  - src: /images/portfolio/sicklerville-retail-shoppes/2020-08-14-10.23.36-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692539/images/portfolio/sicklerville-retail-shoppes/2020-08-14-10.23.36-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 6'
-  - src: /images/portfolio/sicklerville-retail-shoppes/Photo-Aug-20-10-52-53-AM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692543/images/portfolio/sicklerville-retail-shoppes/Photo-Aug-20-10-52-53-AM-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 7'
-  - src: /images/portfolio/sicklerville-retail-shoppes/2020-09-18-10.24.11-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692539/images/portfolio/sicklerville-retail-shoppes/2020-09-18-10.24.11-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 8'
-  - src: /images/portfolio/sicklerville-retail-shoppes/2020-10-05-12.31.50-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692540/images/portfolio/sicklerville-retail-shoppes/2020-10-05-12.31.50-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 9'
-  - src: /images/portfolio/sicklerville-retail-shoppes/2020-12-02-10.44.02-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692541/images/portfolio/sicklerville-retail-shoppes/2020-12-02-10.44.02-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 10'
-  - src: /images/portfolio/sicklerville-retail-shoppes/Photo-Dec-30-10-27-25-AM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692544/images/portfolio/sicklerville-retail-shoppes/Photo-Dec-30-10-27-25-AM-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 11'
-  - src: /images/portfolio/sicklerville-retail-shoppes/2021-01-29-09.49.05-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692542/images/portfolio/sicklerville-retail-shoppes/2021-01-29-09.49.05-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 12'
 tags:
   - tag: src/content/tags/retail.md

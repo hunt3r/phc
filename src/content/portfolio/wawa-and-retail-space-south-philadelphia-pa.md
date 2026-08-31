@@ -2,17 +2,17 @@
 title: 'Wawa and Retail Space - Philadelphia, PA'
 description: 'Key Features: Existing Industrial Brownfield Demolition and Redevelopment 5,585 sf Wawa Food Market with 8 fuel canopy pump station 11,000 sf Mixed Use Retail: Xfinity Retail Store, Fine Wine and Spirits PennDOT Access Improvements Soil Remediation / Piles & Caissons Individual NPDES Permit'
 location: 'Philadelphia, PA'
-image: /images/portfolio/wawa-and-retail-space-south-philadelphia-pa/South-Philly-pre-wawa.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692764/images/portfolio/wawa-and-retail-space-south-philadelphia-pa/South-Philly-pre-wawa.jpg'
 gallery:
-  - src: /images/portfolio/wawa-and-retail-space-south-philadelphia-pa/South-Philly-pre-wawa.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692764/images/portfolio/wawa-and-retail-space-south-philadelphia-pa/South-Philly-pre-wawa.jpg'
     alt: 'Wawa and Retail Space - Philadelphia, PA - image 1'
-  - src: /images/portfolio/wawa-and-retail-space-south-philadelphia-pa/South-Philly-wawa-1024x765.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692765/images/portfolio/wawa-and-retail-space-south-philadelphia-pa/South-Philly-wawa-1024x765.jpg'
     alt: 'Wawa and Retail Space - Philadelphia, PA - image 2'
-  - src: /images/portfolio/wawa-and-retail-space-south-philadelphia-pa/2021-08-11-12.00.56-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692763/images/portfolio/wawa-and-retail-space-south-philadelphia-pa/2021-08-11-12.00.56-scaled.jpg'
     alt: 'Wawa and Retail Space - Philadelphia, PA - image 3'
-  - src: /images/portfolio/wawa-and-retail-space-south-philadelphia-pa/2021-08-11-11.57.59-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692761/images/portfolio/wawa-and-retail-space-south-philadelphia-pa/2021-08-11-11.57.59-scaled.jpg'
     alt: 'Wawa and Retail Space - Philadelphia, PA - image 4'
-  - src: /images/portfolio/wawa-and-retail-space-south-philadelphia-pa/2021-08-11-11.59.31-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692762/images/portfolio/wawa-and-retail-space-south-philadelphia-pa/2021-08-11-11.59.31-scaled.jpg'
     alt: 'Wawa and Retail Space - Philadelphia, PA - image 5'
 tags:
   - tag: src/content/tags/retail.md

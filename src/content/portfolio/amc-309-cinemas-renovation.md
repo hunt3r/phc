@@ -2,17 +2,17 @@
 title: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation'
 description: 'A interior and exterior renovation of the AMC 309 Cinemas. Updates include building renovations, site work, signage, and landscaping.'
 location: Major Exterior Renovation
-image: /images/portfolio/amc-309-cinemas-renovation/amc-309-2.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692379/images/portfolio/amc-309-cinemas-renovation/amc-309-2.jpg'
 gallery:
-  - src: /images/portfolio/amc-309-cinemas-renovation/amc-309-2.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692379/images/portfolio/amc-309-cinemas-renovation/amc-309-2.jpg'
     alt: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation - image 1'
-  - src: /images/portfolio/amc-309-cinemas-renovation/AMC309-OLD2.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692376/images/portfolio/amc-309-cinemas-renovation/AMC309-OLD2.jpg'
     alt: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation - image 2'
-  - src: /images/portfolio/amc-309-cinemas-renovation/amc-309-2-1.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692378/images/portfolio/amc-309-cinemas-renovation/amc-309-2-1.jpg'
     alt: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation - image 3'
-  - src: /images/portfolio/amc-309-cinemas-renovation/AMC-Montgomeryville-1-11.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692375/images/portfolio/amc-309-cinemas-renovation/AMC-Montgomeryville-1-11.jpg'
     alt: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation - image 4'
-  - src: /images/portfolio/amc-309-cinemas-renovation/AMC309.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692377/images/portfolio/amc-309-cinemas-renovation/AMC309.jpg'
     alt: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation - image 5'
 tags:
   - tag: src/content/tags/retail.md

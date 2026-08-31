@@ -2,25 +2,25 @@
 title: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA
 description: Redevelopment of a food production facility into retail and entertainment. An awarded project involving environmental clean-up.
 location: Philadelphia PA
-image: /images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/IMG_2877.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692457/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/IMG_2877.jpg'
 gallery:
-  - src: /images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/IMG_2877.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692457/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/IMG_2877.jpg'
     alt: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA - image 1
-  - src: /images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/NabiscoDemo87.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692461/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/NabiscoDemo87.jpg'
     alt: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA - image 2
-  - src: /images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/NabiscoDemo6.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692460/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/NabiscoDemo6.jpg'
     alt: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA - image 3
-  - src: /images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/NabiscoDemo3-e1599661770232.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692459/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/NabiscoDemo3-e1599661770232.jpg'
     alt: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA - image 4
-  - src: /images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/Nabisco-Demo-092617-rotated.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692458/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/Nabisco-Demo-092617-rotated.jpg'
     alt: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA - image 5
-  - src: /images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/NabiscoDemo2-e1600196304123.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692459/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/NabiscoDemo2-e1600196304123.jpg'
     alt: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA - image 6
-  - src: /images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/Photo-Jan-04-1-32-04-PM.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692462/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/Photo-Jan-04-1-32-04-PM.jpg'
     alt: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA - image 7
-  - src: /images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/2020-07-24-11.26.16-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692456/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/2020-07-24-11.26.16-scaled.jpg'
     alt: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA - image 8
-  - src: /images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/2020-07-14-13.53.15-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692456/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/2020-07-14-13.53.15-scaled.jpg'
     alt: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA - image 9
 tags:
   - tag: src/content/tags/retail.md

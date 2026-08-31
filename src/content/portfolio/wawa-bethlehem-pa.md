@@ -2,15 +2,15 @@
 title: 'Wawa - Bethlehem, PA'
 description: 'We are proud to continue with our assistance in developing another Wawa store that opened in December 2023. Our work for an individual land owner client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. This site had the gamut of redevelopment challenges […]'
 location: 'Bethlehem, PA'
-image: /images/portfolio/wawa-bethlehem-pa/2023-11-29-10.12.31-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692766/images/portfolio/wawa-bethlehem-pa/2023-11-29-10.12.31-scaled.jpg'
 gallery:
-  - src: /images/portfolio/wawa-bethlehem-pa/2023-11-29-10.12.31-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692766/images/portfolio/wawa-bethlehem-pa/2023-11-29-10.12.31-scaled.jpg'
     alt: 'Wawa - Bethlehem, PA - image 1'
-  - src: /images/portfolio/wawa-bethlehem-pa/2023-11-29-10.14.27-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692767/images/portfolio/wawa-bethlehem-pa/2023-11-29-10.14.27-scaled.jpg'
     alt: 'Wawa - Bethlehem, PA - image 2'
-  - src: /images/portfolio/wawa-bethlehem-pa/2023-11-29-10.15.33-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692767/images/portfolio/wawa-bethlehem-pa/2023-11-29-10.15.33-scaled.jpg'
     alt: 'Wawa - Bethlehem, PA - image 3'
-  - src: /images/portfolio/wawa-bethlehem-pa/2023-11-29-10.16.23-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692769/images/portfolio/wawa-bethlehem-pa/2023-11-29-10.16.23-scaled.jpg'
     alt: 'Wawa - Bethlehem, PA - image 4'
 tags:
   - tag: src/content/tags/retail.md

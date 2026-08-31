@@ -2,15 +2,15 @@
 title: 'Wawa - West Whiteland Township (Exton), PA'
 description: 'We continue our assistance in developing Wawa stores with this store opening in December 2024. Our work for an individual land owner client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. This project included remediation and demolition of an existing gas station […]'
 location: 'West Whiteland Township (Exton), PA'
-image: /images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.07.49-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692821/images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.07.49-scaled.jpg'
 gallery:
-  - src: /images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.07.49-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692821/images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.07.49-scaled.jpg'
     alt: 'Wawa - West Whiteland Township (Exton), PA - image 1'
-  - src: /images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.08.43-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692822/images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.08.43-scaled.jpg'
     alt: 'Wawa - West Whiteland Township (Exton), PA - image 2'
-  - src: /images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.06.20-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692820/images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.06.20-scaled.jpg'
     alt: 'Wawa - West Whiteland Township (Exton), PA - image 3'
-  - src: /images/portfolio/wawa-west-whiteland-exton-pa/2024-03-04-14.16.21-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692819/images/portfolio/wawa-west-whiteland-exton-pa/2024-03-04-14.16.21-scaled.jpg'
     alt: 'Wawa - West Whiteland Township (Exton), PA - image 4'
   - src: /images/portfolio/wawa-west-whiteland-exton-pa/2024-03-12-11.29.12.jpg
     alt: 'Wawa - West Whiteland Township (Exton), PA - image 5'

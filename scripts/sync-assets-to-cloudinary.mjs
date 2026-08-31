@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Sync assets from public/images to Cloudinary and update portfolio markdown
- * to use Cloudinary URLs. Run: npm run sync:cloudinary
+ * Sync assets from public/images to Cloudinary and update site content
+ * (all collections under src/content, both .md and .json) to use Cloudinary URLs.
+ * Run: npm run sync:cloudinary
  * Optional: npm run sync:cloudinary -- --dry-run
  */
 
@@ -17,7 +18,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const PUBLIC_DIR = join(ROOT, "public");
 const IMAGES_DIR = join(PUBLIC_DIR, "images");
-const PORTFOLIO_CONTENT = join(ROOT, "src", "content", "portfolio");
+const CONTENT_DIR = join(ROOT, "src", "content");
 
 const IMAGE_EXT = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
 
@@ -146,14 +147,14 @@ function replacePathsInObject(obj, pathToUrl, applyReplacements = true) {
   return count;
 }
 
-async function listMdFiles(dir) {
+async function listContentFiles(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
   const files = [];
   for (const e of entries) {
     const full = join(dir, e.name);
     if (e.isDirectory()) {
-      files.push(...(await listMdFiles(full)));
-    } else if (e.isFile() && e.name.endsWith(".md")) {
+      files.push(...(await listContentFiles(full)));
+    } else if (e.isFile() && (e.name.endsWith(".md") || e.name.endsWith(".json"))) {
       files.push(full);
     }
   }
@@ -178,44 +179,72 @@ async function main() {
     if (url) pathToUrl.set(contentPath, url);
   }
 
-  let mdFiles = [];
+  let contentFiles = [];
   try {
-    mdFiles = await listMdFiles(PORTFOLIO_CONTENT);
+    contentFiles = await listContentFiles(CONTENT_DIR);
   } catch (e) {
     if (e.code !== "ENOENT") throw e;
   }
-  if (mdFiles.length === 0) {
-    console.log("No markdown files found under src/content/portfolio");
+  if (contentFiles.length === 0) {
+    console.log("No content files found under src/content");
     return;
   }
 
-  for (const mdPath of mdFiles) {
-    const raw = await readFile(mdPath, "utf-8");
-    const { data, content } = matter(raw);
-    const countFront = replacePathsInObject(data, pathToUrl, !dryRun);
-    let countBody = 0;
-    let newContent = content;
-    if (pathToUrl.size > 0) {
-      for (const [path, url] of pathToUrl) {
-        if (content.includes(path) && url && !url.includes("placeholder")) {
-          countBody += (content.match(new RegExp(path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g")) || []).length;
-          if (!dryRun) newContent = newContent.split(path).join(url);
-        }
-      }
-    }
-    const total = countFront + countBody;
-    if (total > 0) {
-      if (dryRun) {
-        console.log("[dry-run] would update", relative(ROOT, mdPath), "(", total, "replacement(s))");
-      } else {
-        const out = matter.stringify(newContent, data, { lineWidth: -1 });
-        await writeFile(mdPath, out, "utf-8");
-        console.log("Updated", relative(ROOT, mdPath), "(", total, "replacement(s))");
-      }
+  for (const filePath of contentFiles) {
+    if (filePath.endsWith(".json")) {
+      await updateJsonFile(filePath, pathToUrl);
+    } else {
+      await updateMarkdownFile(filePath, pathToUrl);
     }
   }
 
   if (dryRun) console.log("\n--- Dry run complete ---");
+}
+
+async function updateMarkdownFile(mdPath, pathToUrl) {
+  const raw = await readFile(mdPath, "utf-8");
+  const { data, content } = matter(raw);
+  const countFront = replacePathsInObject(data, pathToUrl, !dryRun);
+  let countBody = 0;
+  let newContent = content;
+  if (pathToUrl.size > 0) {
+    for (const [path, url] of pathToUrl) {
+      if (content.includes(path) && url && !url.includes("placeholder")) {
+        countBody += (content.match(new RegExp(path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g")) || []).length;
+        if (!dryRun) newContent = newContent.split(path).join(url);
+      }
+    }
+  }
+  const total = countFront + countBody;
+  if (total > 0) {
+    if (dryRun) {
+      console.log("[dry-run] would update", relative(ROOT, mdPath), "(", total, "replacement(s))");
+    } else {
+      const out = matter.stringify(newContent, data, { lineWidth: -1 });
+      await writeFile(mdPath, out, "utf-8");
+      console.log("Updated", relative(ROOT, mdPath), "(", total, "replacement(s))");
+    }
+  }
+}
+
+async function updateJsonFile(jsonPath, pathToUrl) {
+  const raw = await readFile(jsonPath, "utf-8");
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch (e) {
+    console.warn("Skip (invalid JSON):", relative(ROOT, jsonPath), e.message);
+    return;
+  }
+  const count = replacePathsInObject(parsed, pathToUrl, !dryRun);
+  if (count > 0) {
+    if (dryRun) {
+      console.log("[dry-run] would update", relative(ROOT, jsonPath), "(", count, "replacement(s))");
+    } else {
+      await writeFile(jsonPath, JSON.stringify(parsed, null, 2) + "\n", "utf-8");
+      console.log("Updated", relative(ROOT, jsonPath), "(", count, "replacement(s))");
+    }
+  }
 }
 
 main().catch((err) => {

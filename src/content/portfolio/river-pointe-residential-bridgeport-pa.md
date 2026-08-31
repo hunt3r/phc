@@ -2,21 +2,21 @@
 title: 'River Pointe Residential - Bridgeport, PA'
 description: 'Ground up development of this large land parcel started in 2022, and transitioned to home building for this new residential community in Summer of 2023. Sales of these LENNAR HOMES has been robust, and the last phase of homes are being constructed in 2025. Located on the banks of the scenic Schuylkill River, River Pointe […]'
 location: 'Bridgeport, PA'
-image: /images/portfolio/river-pointe-residential-bridgeport-pa/2024-10-24-11.23.52-copy-1024x637.jpeg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692511/images/portfolio/river-pointe-residential-bridgeport-pa/2024-10-24-11.23.52-copy-1024x637.jpg'
 gallery:
-  - src: /images/portfolio/river-pointe-residential-bridgeport-pa/2024-10-24-11.23.52-copy-1024x637.jpeg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692511/images/portfolio/river-pointe-residential-bridgeport-pa/2024-10-24-11.23.52-copy-1024x637.jpg'
     alt: 'River Pointe Residential - Bridgeport, PA - image 1'
-  - src: /images/portfolio/river-pointe-residential-bridgeport-pa/2024-10-24-11.23.52-copy.jpeg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692512/images/portfolio/river-pointe-residential-bridgeport-pa/2024-10-24-11.23.52-copy.jpg'
     alt: 'River Pointe Residential - Bridgeport, PA - image 2'
-  - src: /images/portfolio/river-pointe-residential-bridgeport-pa/2024-11-29-10.31.29-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692514/images/portfolio/river-pointe-residential-bridgeport-pa/2024-11-29-10.31.29-scaled.jpg'
     alt: 'River Pointe Residential - Bridgeport, PA - image 3'
-  - src: /images/portfolio/river-pointe-residential-bridgeport-pa/2024-11-08-10.16.55-copy-scaled.jpeg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692513/images/portfolio/river-pointe-residential-bridgeport-pa/2024-11-08-10.16.55-copy-scaled.jpg'
     alt: 'River Pointe Residential - Bridgeport, PA - image 4'
-  - src: /images/portfolio/river-pointe-residential-bridgeport-pa/2024-07-12-07.57.33-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692508/images/portfolio/river-pointe-residential-bridgeport-pa/2024-07-12-07.57.33-scaled.jpg'
     alt: 'River Pointe Residential - Bridgeport, PA - image 5'
-  - src: /images/portfolio/river-pointe-residential-bridgeport-pa/2024-07-12-07.58.58-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692510/images/portfolio/river-pointe-residential-bridgeport-pa/2024-07-12-07.58.58-scaled.jpg'
     alt: 'River Pointe Residential - Bridgeport, PA - image 6'
-  - src: /images/portfolio/river-pointe-residential-bridgeport-pa/2023-09-08-11.34.30-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692507/images/portfolio/river-pointe-residential-bridgeport-pa/2023-09-08-11.34.30-scaled.jpg'
     alt: 'River Pointe Residential - Bridgeport, PA - image 7'
 tags:
   - tag: src/content/tags/residential.md

@@ -2,21 +2,21 @@
 title: 'LiDL US - Freehold, New Jersey'
 description: 'Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. On May 9, 2025, we participated in our 4th store grand opening, which occurred in Freehold, NJ. Our team worked with the Architect and Engineers to value engineer […]'
 location: 'Freehold, New Jersey'
-image: /images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-May-12-2025-11-08-38-AM-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692455/images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-May-12-2025-11-08-38-AM-scaled.jpg'
 gallery:
-  - src: /images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-May-12-2025-11-08-38-AM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692455/images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-May-12-2025-11-08-38-AM-scaled.jpg'
     alt: 'LiDL US - Freehold, New Jersey - image 1'
-  - src: /images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-May-12-2025-11-04-07-AM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692454/images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-May-12-2025-11-04-07-AM-scaled.jpg'
     alt: 'LiDL US - Freehold, New Jersey - image 2'
-  - src: /images/portfolio/lidl-us-llc-paramus-new-jersey-2/IMG_5008.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692450/images/portfolio/lidl-us-llc-paramus-new-jersey-2/IMG_5008.jpg'
     alt: 'LiDL US - Freehold, New Jersey - image 3'
-  - src: /images/portfolio/lidl-us-llc-paramus-new-jersey-2/IMG_4939-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692449/images/portfolio/lidl-us-llc-paramus-new-jersey-2/IMG_4939-scaled.jpg'
     alt: 'LiDL US - Freehold, New Jersey - image 4'
-  - src: /images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-Jun-07-2024-10-52-05-AM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692453/images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-Jun-07-2024-10-52-05-AM-scaled.jpg'
     alt: 'LiDL US - Freehold, New Jersey - image 5'
-  - src: /images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-Dec-23-2024-2-39-21-PM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692452/images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-Dec-23-2024-2-39-21-PM-scaled.jpg'
     alt: 'LiDL US - Freehold, New Jersey - image 6'
-  - src: /images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-Apr-16-2024-10-22-06-AM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692452/images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-Apr-16-2024-10-22-06-AM-scaled.jpg'
     alt: 'LiDL US - Freehold, New Jersey - image 7'
 tags:
   - tag: src/content/tags/retail.md

@@ -2,17 +2,17 @@
 title: 'LiDL US - Bear, Delaware'
 description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores! On July 11, 2025, we participated in our 5th store grand opening, which occurred in […]'
 location: 'Bear, Delaware'
-image: /images/portfolio/lidl-us-llc-bear-delaware/2025-07-11-07.51.30-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204197/images/portfolio/lidl-us-llc-bear-delaware/2025-07-11-07.51.30-scaled.jpg'
 gallery:
-  - src: /images/portfolio/lidl-us-llc-bear-delaware/2025-07-11-07.51.30-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204197/images/portfolio/lidl-us-llc-bear-delaware/2025-07-11-07.51.30-scaled.jpg'
     alt: 'LiDL US - Bear, Delaware - image 1'
-  - src: /images/portfolio/lidl-us-llc-bear-delaware/2025-07-11-07.51.19-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204196/images/portfolio/lidl-us-llc-bear-delaware/2025-07-11-07.51.19-scaled.jpg'
     alt: 'LiDL US - Bear, Delaware - image 2'
-  - src: /images/portfolio/lidl-us-llc-bear-delaware/2025-07-11-07.51.10-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204195/images/portfolio/lidl-us-llc-bear-delaware/2025-07-11-07.51.10-scaled.jpg'
     alt: 'LiDL US - Bear, Delaware - image 3'
-  - src: /images/portfolio/lidl-us-llc-bear-delaware/Screenshot-2026-06-16-at-10.39.04-AM.png
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204198/images/portfolio/lidl-us-llc-bear-delaware/Screenshot-2026-06-16-at-10.39.04-AM.png'
     alt: 'LiDL US - Bear, Delaware - image 4'
-  - src: /images/portfolio/lidl-us-llc-bear-delaware/Screenshot-2026-06-16-at-10.40.05-AM-scaled.png
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204199/images/portfolio/lidl-us-llc-bear-delaware/Screenshot-2026-06-16-at-10.40.05-AM-scaled.png'
     alt: 'LiDL US - Bear, Delaware - image 5'
 tags:
   - tag: src/content/tags/retail.md

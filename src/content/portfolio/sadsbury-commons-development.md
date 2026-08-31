@@ -2,17 +2,17 @@
 title: 'Sadsbury Commons - Parkesburg, PA - Development'
 description: The Sadsbury Commons development will offer many benefits to the local communities including a state-of-the-art medical facility anchors the site and more.
 location: Development
-image: /images/portfolio/sadsbury-commons-development/sadsbury-1.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692516/images/portfolio/sadsbury-commons-development/sadsbury-1.jpg'
 gallery:
-  - src: /images/portfolio/sadsbury-commons-development/sadsbury-1.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692516/images/portfolio/sadsbury-commons-development/sadsbury-1.jpg'
     alt: 'Sadsbury Commons - Parkesburg, PA - Development - image 1'
-  - src: /images/portfolio/sadsbury-commons-development/2020-07-21-13.22.08-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692515/images/portfolio/sadsbury-commons-development/2020-07-21-13.22.08-scaled.jpg'
     alt: 'Sadsbury Commons - Parkesburg, PA - Development - image 2'
-  - src: /images/portfolio/sadsbury-commons-development/sadsbury-2.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692516/images/portfolio/sadsbury-commons-development/sadsbury-2.jpg'
     alt: 'Sadsbury Commons - Parkesburg, PA - Development - image 3'
-  - src: /images/portfolio/sadsbury-commons-development/sadsbury-3.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692517/images/portfolio/sadsbury-commons-development/sadsbury-3.jpg'
     alt: 'Sadsbury Commons - Parkesburg, PA - Development - image 4'
-  - src: /images/portfolio/sadsbury-commons-development/sadsbury-4.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692518/images/portfolio/sadsbury-commons-development/sadsbury-4.jpg'
     alt: 'Sadsbury Commons - Parkesburg, PA - Development - image 5'
 tags:
   - tag: src/content/tags/healthcare.md

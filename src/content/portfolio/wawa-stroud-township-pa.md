@@ -2,19 +2,19 @@
 title: 'Wawa - Stroud Township, PA'
 description: 'We continue our assistance in developing Wawa stores, and our newest opened in April 2025. Our work for a developer on their first ever Wawa store included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. Our focus was on controlling costs and managing […]'
 location: 'Stroud Township, PA'
-image: /images/portfolio/wawa-stroud-township-pa/2025-04-10-07.59.37-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692797/images/portfolio/wawa-stroud-township-pa/2025-04-10-07.59.37-scaled.jpg'
 gallery:
-  - src: /images/portfolio/wawa-stroud-township-pa/2025-04-10-07.59.37-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692797/images/portfolio/wawa-stroud-township-pa/2025-04-10-07.59.37-scaled.jpg'
     alt: 'Wawa - Stroud Township, PA - image 1'
-  - src: /images/portfolio/wawa-stroud-township-pa/2025-04-10-08.01.44-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692797/images/portfolio/wawa-stroud-township-pa/2025-04-10-08.01.44-scaled.jpg'
     alt: 'Wawa - Stroud Township, PA - image 2'
-  - src: /images/portfolio/wawa-stroud-township-pa/2025-04-10-08.02.35-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692798/images/portfolio/wawa-stroud-township-pa/2025-04-10-08.02.35-scaled.jpg'
     alt: 'Wawa - Stroud Township, PA - image 3'
-  - src: /images/portfolio/wawa-stroud-township-pa/Photo-May-07-2024-10-57-13-AM-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692799/images/portfolio/wawa-stroud-township-pa/Photo-May-07-2024-10-57-13-AM-scaled.jpg'
     alt: 'Wawa - Stroud Township, PA - image 4'
   - src: /images/portfolio/wawa-stroud-township-pa/Photo-Mar-20-2024-9-05-19-AM.jpg
     alt: 'Wawa - Stroud Township, PA - image 5'
-  - src: /images/portfolio/wawa-stroud-township-pa/2023-08-03-10.35.46-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692796/images/portfolio/wawa-stroud-township-pa/2023-08-03-10.35.46-scaled.jpg'
     alt: 'Wawa - Stroud Township, PA - image 6'
 tags:
   - tag: src/content/tags/retail.md

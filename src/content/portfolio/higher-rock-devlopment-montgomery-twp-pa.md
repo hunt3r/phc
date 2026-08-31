@@ -2,15 +2,15 @@
 title: 'Higher Rock Development - Montgomery Twp, PA'
 description: 'Development of this former plant nursery required rock removal management, benefitting the community with retail food and commercial office space.'
 location: 'Montgomery Twp, PA'
-image: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.03.16-scaled.jpg
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692430/images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.03.16-scaled.jpg'
 gallery:
-  - src: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.03.16-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692430/images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.03.16-scaled.jpg'
     alt: 'Higher Rock Development - Montgomery Twp, PA - image 1'
-  - src: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.02.11-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692429/images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.02.11-scaled.jpg'
     alt: 'Higher Rock Development - Montgomery Twp, PA - image 2'
-  - src: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.11.03-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692432/images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.11.03-scaled.jpg'
     alt: 'Higher Rock Development - Montgomery Twp, PA - image 3'
-  - src: /images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.06.48-scaled.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692431/images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.06.48-scaled.jpg'
     alt: 'Higher Rock Development - Montgomery Twp, PA - image 4'
 tags:
   - tag: src/content/tags/retail.md
