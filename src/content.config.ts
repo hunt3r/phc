@@ -86,6 +86,17 @@ const about = defineCollection({
     }),
 });
 
+const pages = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
+  schema: () =>
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      featuredImage: z.string().optional(),
+      hero: aboutHeroSchema,
+    }),
+});
+
 const staff = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/staff' }),
   schema: z.object({
@@ -109,4 +120,4 @@ const site = defineCollection({
   }),
 });
 
-export const collections = { portfolio, home, about, staff, site };
+export const collections = { portfolio, home, about, pages, staff, site };
