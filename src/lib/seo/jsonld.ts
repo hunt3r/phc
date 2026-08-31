@@ -13,7 +13,6 @@ export interface PortfolioSchemaInput {
   name: string;
   description?: string;
   image?: string;
-  category?: string;
   date?: string;
   location?: string;
   client?: string;
@@ -130,7 +129,6 @@ export function createPortfolioCreativeWorkSchema(site: string, input: Portfolio
     image: input.image ? [input.image] : undefined,
     datePublished,
     keywords: input.tags,
-    genre: input.category,
     contentLocation: input.location
       ? {
           "@type": "Place",

@@ -13,8 +13,7 @@ gallery:
   - src: /images/portfolio/wawa-gilbertsville-pa/Wawa-Gilbertsville-41-1024x683.jpg
     alt: 'Wawa - Gilbertsville, PA - image 4'
 tags:
-  - retail
-  - retailers
+  - tag: src/content/tags/retail.md
 order: 65
 ---
 Key Features:

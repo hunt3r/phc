@@ -11,7 +11,8 @@ gallery:
   - src: /images/portfolio/tulip-special-care-philadelphia-pa/Photo-May-23-3-10-43-PM-1280x962.jpg
     alt: 'Tulip Special Care - Philadelphia, PA - image 3'
 tags:
-  - institutional
+  - tag: src/content/tags/healthcare.md
+  - tag: src/content/tags/institutional.md
 order: 63
 ---
 **Tulip Special Care is a 60 bed Skilled Nursing Facility specializing in the care of ventilator dependent adults.**

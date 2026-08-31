@@ -17,8 +17,8 @@
     "generate:pages": "node scripts/generate-pages-from-scrape.mjs",
     "generate:redirects": "node scripts/generate-redirects.mjs",
     "sync:cloudinary": "node --import dotenv/config scripts/sync-assets-to-cloudinary.mjs",
-    "backfill:category": "node scripts/backfill-category.mjs",
-    "backfill:category:dry": "node scripts/backfill-category.mjs --dry-run"
+    "migrate:tags": "node scripts/migrate-tags.mjs --write",
+    "migrate:tags:dry": "node scripts/migrate-tags.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

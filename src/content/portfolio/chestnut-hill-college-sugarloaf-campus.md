@@ -26,9 +26,9 @@ quotes:
     role: 'President, Chestnut Hill College'
     featured: true
 tags:
-  - government
-  - remediation
-  - institutional
+  - tag: src/content/tags/institutional.md
+  - tag: src/content/tags/government.md
+  - tag: src/content/tags/remediation.md
 order: 21
 ---
 

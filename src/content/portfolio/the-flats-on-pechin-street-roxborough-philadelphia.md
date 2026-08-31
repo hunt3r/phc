@@ -15,7 +15,7 @@ gallery:
   - src: /images/portfolio/the-flats-on-pechin-street-roxborough-philadelphia/2020-08-19-11.55.50-scaled.jpg
     alt: The Flats on Pechin Street - Roxborough Philadelphia - image 5
 tags:
-  - multi-family
+  - tag: src/content/tags/residential.md
 order: 57
 ---
 **Key Features:**

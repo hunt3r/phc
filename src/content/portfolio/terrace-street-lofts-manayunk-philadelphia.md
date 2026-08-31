@@ -17,7 +17,7 @@ gallery:
   - src: /images/portfolio/terrace-street-lofts-manayunk-philadelphia/Terrace-Lofts-2-Jul-20-2021-scaled.jpg
     alt: Terrace Street Lofts - Manayunk Philadelphia - image 6
 tags:
-  - multi-family
+  - tag: src/content/tags/residential.md
 order: 39
 ---
 **Key Features:**

@@ -11,8 +11,7 @@ gallery:
   - src: /images/portfolio/wawa-thorndale-caln-township-pa/2020-10-02-14.16.16-scaled.jpg
     alt: 'Wawa - Thorndale/Caln Township, PA - image 3'
 tags:
-  - retail
-  - retailers
+  - tag: src/content/tags/retail.md
 order: 55
 ---
 **Key Features:**

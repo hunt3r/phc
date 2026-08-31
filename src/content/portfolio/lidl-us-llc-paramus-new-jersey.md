@@ -15,11 +15,11 @@ gallery:
   - src: /images/portfolio/lidl-us-llc-paramus-new-jersey/Photo-Jun-14-2024-8-48-16-AM-scaled.jpg
     alt: 'LiDL US - Paramus, New Jersey - image 5'
 tags:
-  - retail
-  - retailers
-  - remediation
-  - demolition
-  - project-management
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/remediation.md
+  - tag: src/content/tags/demolition.md
+  - tag: src/content/tags/project-management.md
+  - tag: src/content/tags/grocery.md
 order: 5
 ---
 Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.

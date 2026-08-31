@@ -19,7 +19,7 @@ gallery:
   - src: /images/portfolio/river-pointe-residential-bridgeport-pa/2023-09-08-11.34.30-scaled.jpg
     alt: 'River Pointe Residential - Bridgeport, PA - image 7'
 tags:
-  - multi-family
+  - tag: src/content/tags/residential.md
 order: 11
 featured: true
 youtube: 'https://www.youtube.com/watch?v=tK7IUFDWB3w'

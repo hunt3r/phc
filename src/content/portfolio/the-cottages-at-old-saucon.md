@@ -15,7 +15,7 @@ gallery:
   - src: /images/portfolio/the-cottages-at-old-saucon/2023-10-25-10.42.57-scaled.jpg
     alt: 'The Cottages At Old Saucon - Bethlehem, PA - image 5'
 tags:
-  - multi-family
+  - tag: src/content/tags/residential.md
 order: 13
 ---
 Continuing our expansion into Residential and Multi-Family community projects, we assisted a team of investors develop this brand new 55+ age-qualified community located in the beautiful Saucon Valley of Pennsylvania.

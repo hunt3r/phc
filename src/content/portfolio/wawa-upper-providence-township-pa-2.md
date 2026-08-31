@@ -13,8 +13,7 @@ gallery:
   - src: /images/portfolio/wawa-upper-providence-township-pa-2/2021-04-02-11.09.56-scaled.jpg
     alt: 'Wawa - Westhampton, NJ - image 4'
 tags:
-  - retail
-  - retailers
+  - tag: src/content/tags/retail.md
 order: 25
 ---
 **Key Features:**

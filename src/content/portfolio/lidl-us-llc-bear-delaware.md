@@ -15,9 +15,9 @@ gallery:
   - src: /images/portfolio/lidl-us-llc-bear-delaware/Screenshot-2026-06-16-at-10.40.05-AM-scaled.png
     alt: 'LiDL US - Bear, Delaware - image 5'
 tags:
-  - retail
-  - retailers
-  - project-management
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/project-management.md
+  - tag: src/content/tags/grocery.md
 order: 1
 featured: true
 ---

@@ -7,8 +7,7 @@ gallery:
   - src: /images/portfolio/wawa-lower-moreland/PHC-Placeholder.jpg
     alt: 'Wawa - Lower Moreland, PA - image 1'
 tags:
-  - retail
-  - retailers
+  - tag: src/content/tags/retail.md
 order: 60
 ---
 **Key Features:**

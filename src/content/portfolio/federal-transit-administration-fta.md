@@ -7,9 +7,9 @@ gallery:
   - src: /images/portfolio/federal-transit-administration-fta/logo_FTA-copy.jpg
     alt: Federal Transit Administration (FTA) - image 1
 tags:
-  - government
-  - federal-government
-  - project-management
+  - tag: src/content/tags/government.md
+  - tag: src/content/tags/federal-government.md
+  - tag: src/content/tags/project-management.md
 order: 59
 ---
 **Key Features:**

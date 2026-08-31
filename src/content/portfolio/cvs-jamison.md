@@ -9,7 +9,7 @@ gallery:
   - src: /images/portfolio/cvs-jamison/cvs-jamison-2.jpeg
     alt: 'CVS Pharmacy - Jamison, PA - image 2'
 tags:
-  - retail
+  - tag: src/content/tags/retail.md
 order: 50
 ---
 **Key Features:**

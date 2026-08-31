@@ -9,10 +9,10 @@ gallery:
   - src: /images/portfolio/6060-ridge-ave-philadelphia-pa/6060-Ridge2-1024x683.jpg
     alt: '6060 Ridge Ave - Philadelphia, PA - image 2'
 tags:
-  - office
-  - healthcare
-  - remediation
-  - demolition
+  - tag: src/content/tags/healthcare.md
+  - tag: src/content/tags/office.md
+  - tag: src/content/tags/remediation.md
+  - tag: src/content/tags/demolition.md
 order: 53
 ---
 **Key Features:**

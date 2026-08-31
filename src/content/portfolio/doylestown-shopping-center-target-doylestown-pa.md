@@ -19,10 +19,9 @@ gallery:
   - src: /images/portfolio/doylestown-shopping-center-target-doylestown-pa/2023-09-28-11.46.09-scaled.jpg
     alt: 'Doylestown Shopping Center Target - Doylestown, PA - image 7'
 tags:
-  - retail
-  - retailers
-  - remediation
-  - project-management
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/remediation.md
+  - tag: src/content/tags/project-management.md
 order: 8
 ---
 Retail shopping center transformations continue as defunct retailers blossom into new opportunities for the latest and greatest companies. We assisted our client, the shopping center owner, to consolidate 3 separate spaces and transform them into a state-of-the-art [**Target**](https://www.target.com/sl/doylestown/3453) store that opened it doors for business in July 2024.

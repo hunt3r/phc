@@ -15,8 +15,7 @@ gallery:
   - src: /images/portfolio/wawa-cherry-hill/wawa-cherryhill-5.jpg
     alt: 'Wawa - Cherry Hill, NJ - image 5'
 tags:
-  - retail
-  - retailers
+  - tag: src/content/tags/retail.md
 order: 62
 ---
 **Key Features:**

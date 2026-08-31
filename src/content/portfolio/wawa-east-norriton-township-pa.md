@@ -15,12 +15,11 @@ gallery:
   - src: /images/portfolio/wawa-east-norriton-township-pa/2023-04-28-10.34.57-scaled.jpg
     alt: 'Wawa - East Norriton, PA - image 5'
 tags:
-  - retail
-  - retailers
-  - government
-  - remediation
-  - demolition
-  - project-management
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/government.md
+  - tag: src/content/tags/remediation.md
+  - tag: src/content/tags/demolition.md
+  - tag: src/content/tags/project-management.md
 order: 19
 ---
 We are proud to continue with our assistance in developing another Wawa store in their core market that opened in October 2023. Our work for a commercial real estate developer client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction.

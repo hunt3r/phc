@@ -17,10 +17,9 @@ gallery:
   - src: /images/portfolio/wawa-stroud-township-pa/2023-08-03-10.35.46-scaled.jpg
     alt: 'Wawa - Stroud Township, PA - image 6'
 tags:
-  - retail
-  - retailers
-  - government
-  - project-management
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/government.md
+  - tag: src/content/tags/project-management.md
 order: 10
 ---
 We continue our assistance in developing Wawa stores, and our newest opened in April 2025. Our work for a developer on their first ever Wawa store included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction.

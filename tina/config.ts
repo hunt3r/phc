@@ -1,5 +1,4 @@
 import { defineConfig } from 'tinacms';
-import { CATEGORIES } from '../src/data/categories';
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -47,14 +46,6 @@ export default defineConfig({
             ],
           },
           {
-            type: 'string',
-            name: 'category',
-            label: 'Category',
-            description: 'One category per project (used for category nav)',
-            options: CATEGORIES.map((c) => ({ value: c.label, label: c.label })),
-            ui: { component: 'select' },
-          },
-          {
             type: 'object',
             name: 'quotes',
             label: 'Customer Quotes',
@@ -70,13 +61,61 @@ export default defineConfig({
               { type: 'boolean', name: 'featured', label: 'Promote to home page' },
             ],
           },
-          { type: 'string', name: 'tags', label: 'Tags', list: true },
+          {
+            type: 'object',
+            name: 'tags',
+            label: 'Tags',
+            list: true,
+            description: 'Tags this project belongs to. Tags power the portfolio navigation and have their own landing pages.',
+            ui: { itemProps: (item) => ({ label: item?.tag }) },
+            fields: [
+              { type: 'reference', name: 'tag', label: 'Tag', collections: ['tags'] },
+            ],
+          },
           { type: 'number', name: 'order', label: 'Order' },
           { type: 'boolean', name: 'featured', label: 'Featured' },
           { type: 'string', name: 'youtube', label: 'YouTube Video URL', description: 'Optional. Paste a full YouTube link to embed a player at the bottom of the page.' },
           { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
         ],
         defaultItem: () => ({ order: 0 }),
+      },
+      {
+        name: 'tags',
+        label: 'Tags',
+        path: 'src/content/tags',
+        format: 'md',
+        fields: [
+          { type: 'string', name: 'label', label: 'Label', required: true, description: 'Display name for this tag (e.g. Retail).' },
+          { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
+          { type: 'image', name: 'image', label: 'Image', description: 'Upload via Cloudinary. Used on the tag landing page and cards.' },
+          {
+            type: 'object',
+            name: 'hero',
+            label: 'Hero',
+            description: 'Optional hero block for the tag landing page. Defaults use the label and image.',
+            fields: [
+              { type: 'string', name: 'size', label: 'Size', options: ['full', 'compact'], ui: { component: 'select' } },
+              { type: 'string', name: 'eyebrow', label: 'Eyebrow' },
+              { type: 'string', name: 'tagline', label: 'Tagline' },
+              { type: 'string', name: 'subtitle', label: 'Subtitle', ui: { component: 'textarea' } },
+              { type: 'string', name: 'ctaPrimaryText', label: 'Primary CTA Text' },
+              { type: 'string', name: 'ctaPrimaryHref', label: 'Primary CTA Link' },
+              { type: 'string', name: 'ctaSecondaryText', label: 'Secondary CTA Text' },
+              { type: 'string', name: 'ctaSecondaryHref', label: 'Secondary CTA Link' },
+              { type: 'image', name: 'backgroundImage', label: 'Background Image', description: 'Upload via Cloudinary' },
+              { type: 'number', name: 'overlayOpacity', label: 'Overlay Opacity (0-100)' },
+              { type: 'string', name: 'overlayColor', label: 'Overlay Color', options: ['dark', 'light'], ui: { component: 'select' } },
+            ],
+          },
+          { type: 'number', name: 'order', label: 'Order', description: 'Sort order in the portfolio navigation.' },
+          { type: 'boolean', name: 'showInNav', label: 'Show in portfolio navigation' },
+          { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
+        ],
+        ui: {
+          filename: {
+            slugify: (values) => (values?.label ? String(values.label).toLowerCase().replace(/[\s/]+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '') : ''),
+          },
+        },
       },
       {
         name: 'about',

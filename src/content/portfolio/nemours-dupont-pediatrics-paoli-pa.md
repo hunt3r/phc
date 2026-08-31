@@ -17,9 +17,9 @@ gallery:
   - src: /images/portfolio/nemours-dupont-pediatrics-paoli-pa/NEMOURS4-1024x683.jpg
     alt: 'Nemours DuPont Pediatrics - Paoli, PA - image 6'
 tags:
-  - office
-  - healthcare
-  - landscaping
+  - tag: src/content/tags/healthcare.md
+  - tag: src/content/tags/office.md
+  - tag: src/content/tags/landscaping.md
 order: 54
 ---
 **Key Features:**

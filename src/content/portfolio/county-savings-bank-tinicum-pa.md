@@ -15,9 +15,9 @@ gallery:
   - src: /images/portfolio/county-savings-bank-tinicum-pa/6-1024x683.jpg
     alt: 'County Savings Bank - Tinicum, PA - image 5'
 tags:
-  - retail
-  - remediation
-  - demolition
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/remediation.md
+  - tag: src/content/tags/demolition.md
 order: 51
 ---
 **Key Features:**

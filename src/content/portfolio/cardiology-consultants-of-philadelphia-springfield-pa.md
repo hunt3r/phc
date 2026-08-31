@@ -15,9 +15,10 @@ gallery:
   - src: /images/portfolio/cardiology-consultants-of-philadelphia-springfield-pa/IMG_1762-copy-scaled.jpg
     alt: 'CARDIOLOGY CONSULTANTS OF PHILADELPHIA - Springfield, PA - image 5'
 tags:
-  - office
-  - healthcare
-  - signage
+  - tag: src/content/tags/healthcare.md
+  - tag: src/content/tags/institutional.md
+  - tag: src/content/tags/office.md
+  - tag: src/content/tags/signage.md
 order: 20
 ---
 Fit-out for new Medical office space in existing building.

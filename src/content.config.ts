@@ -11,8 +11,7 @@ const portfolio = defineCollection({
       client: z.string().optional(),
       date: z.string().optional(),
       image: z.string().optional(),
-      category: z.string().optional(),
-      tags: z.array(z.string()).optional(),
+      tags: z.array(z.object({ tag: z.string() })).optional(),
       gallery: z
         .array(
           z.object({
@@ -88,6 +87,19 @@ const aboutHeroSchema = z
   })
   .optional();
 
+const tags = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/tags' }),
+  schema: () =>
+    z.object({
+      label: z.string(),
+      description: z.string().optional(),
+      image: z.string().optional(),
+      hero: aboutHeroSchema,
+      order: z.number().optional(),
+      showInNav: z.boolean().optional(),
+    }),
+});
+
 const about = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/about' }),
   schema: () =>
@@ -134,4 +146,4 @@ const site = defineCollection({
   }),
 });
 
-export const collections = { portfolio, home, about, pages, staff, site };
+export const collections = { portfolio, tags, home, about, pages, staff, site };

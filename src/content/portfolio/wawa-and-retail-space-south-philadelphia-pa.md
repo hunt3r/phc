@@ -15,10 +15,10 @@ gallery:
   - src: /images/portfolio/wawa-and-retail-space-south-philadelphia-pa/2021-08-11-11.59.31-scaled.jpg
     alt: 'Wawa and Retail Space - Philadelphia, PA - image 5'
 tags:
-  - retail
-  - retailers
-  - remediation
-  - demolition
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/remediation.md
+  - tag: src/content/tags/demolition.md
+  - tag: src/content/tags/mixed-use.md
 order: 38
 ---
 **Key Features:**

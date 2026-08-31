@@ -9,9 +9,9 @@ gallery:
   - src: /images/portfolio/whitman-plaza-burlington-coat-factory-ross-dress-for-less/whitmanplaza-2.jpg
     alt: 'Whitman Plaza - Philadelphia, PA - image 2'
 tags:
-  - retail
-  - remediation
-  - demolition
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/remediation.md
+  - tag: src/content/tags/demolition.md
 order: 46
 ---
 **Key Features:**

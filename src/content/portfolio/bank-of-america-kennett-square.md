@@ -11,7 +11,7 @@ gallery:
   - src: /images/portfolio/bank-of-america-kennett-square/DSC_5328.jpg
     alt: 'Bank of America - Kennett Square, PA - image 3'
 tags:
-  - retail
+  - tag: src/content/tags/retail.md
 order: 52
 ---
 **Key Features:**

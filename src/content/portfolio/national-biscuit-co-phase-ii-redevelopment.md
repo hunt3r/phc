@@ -21,9 +21,10 @@ gallery:
   - src: /images/portfolio/national-biscuit-co-phase-ii-redevelopment/2022-01-14-13.27.58-scaled.jpg
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 8'
 tags:
-  - retail
-  - retailers
-  - landscaping
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/landscaping.md
+  - tag: src/content/tags/grocery.md
+  - tag: src/content/tags/mixed-use.md
 order: 16
 ---
 [**Nabisco Plaza**](https://www.costar.com/article/192402005/nabisco-plaza-shows-how-a-factory-can-become-a-destination-for-indoor-golf-retail) in Philadelphia, PA is nearing completion in November 2023!

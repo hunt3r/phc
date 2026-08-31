@@ -17,7 +17,7 @@ gallery:
   - src: /images/portfolio/ussc-group-exton-pa/2020-09-21-14.04.42-scaled.jpg
     alt: 'USSC Group - Exton, PA - image 6'
 tags:
-  - office
+  - tag: src/content/tags/office.md
 order: 58
 ---
 **Key Features:**

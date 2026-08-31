@@ -11,7 +11,7 @@ gallery:
   - src: /images/portfolio/pnc-bank-westtown/DSC_53681.jpg
     alt: 'PNC Bank - Westtown, PA - image 3'
 tags:
-  - retail
+  - tag: src/content/tags/retail.md
 order: 49
 ---
 **Key Features:**

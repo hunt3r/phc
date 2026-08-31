@@ -2,11 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, getEntry } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { CATEGORIES } from '@/data/categories';
+import { getNavTags, getTagMap, resolveTags } from '@/lib/tags';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 const portfolio = await getCollection('portfolio');
 const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+const navTags = await getNavTags();
+const tagMap = await getTagMap();
 const siteEntry = await getEntry('site', 'index');
 const portfolioTitle = siteEntry?.data?.portfolioTitle ?? 'Portfolio';
 const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
@@ -26,23 +28,23 @@ const jsonLdNodes = [
   <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
     <aside class="shrink-0 lg:w-52">
       {/* Mobile: dropdown */}
-      <div class="lg:hidden" aria-label="Categories">
-        <label for="portfolio-category-mobile" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Categories:</label>
+      <div class="lg:hidden" aria-label="Sections">
+        <label for="portfolio-tag-mobile" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Sections:</label>
         <select
-          id="portfolio-category-mobile"
+          id="portfolio-tag-mobile"
           class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-gray-500"
-          data-portfolio-category-select
+          data-portfolio-tag-select
         >
           <option value="/portfolio" selected>All</option>
-          {CATEGORIES.map((c) => (
-            <option value={`/category/${c.slug}`}>{c.label}</option>
+          {navTags.map((t) => (
+            <option value={`/tags/${t.id}`}>{t.data.label}</option>
           ))}
         </select>
       </div>
       {/* Desktop: sidebar nav */}
-      <nav aria-label="Categories" class="sticky top-24 hidden space-y-1 lg:block">
+      <nav aria-label="Sections" class="sticky top-24 hidden space-y-1 lg:block">
         <p class="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
-          Category
+          Sections
         </p>
         <ul class="space-y-0.5">
           <li>
@@ -53,13 +55,13 @@ const jsonLdNodes = [
               All
             </a>
           </li>
-          {CATEGORIES.map((c) => (
+          {navTags.map((t) => (
             <li>
               <a
-                href={`/category/${c.slug}`}
+                href={`/tags/${t.id}`}
                 class="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100"
               >
-                {c.label}
+                {t.data.label}
               </a>
             </li>
           ))}
@@ -77,13 +79,13 @@ const jsonLdNodes = [
         {sorted.map((entry) => (
           <li>
             <ProjectCard
-              title={String((entry.data as { title?: string }).title ?? '')}
-              description={String((entry.data as { description?: string }).description ?? '')}
+              title={entry.data.title ?? ''}
+              description={entry.data.description ?? ''}
               href={`/portfolio/${entry.id}`}
-              imageSrc={(entry.data as { image?: string }).image}
-              imageAlt={String((entry.data as { title?: string }).title ?? '')}
-              tags={Array.isArray((entry.data as { tags?: string[] }).tags) ? (entry.data as { tags?: string[] }).tags ?? [] : []}
-              date={(entry.data as { date?: string }).date}
+              imageSrc={entry.data.image}
+              imageAlt={entry.data.title ?? ''}
+              tags={resolveTags(entry, tagMap)}
+              date={entry.data.date}
             />
           </li>
         ))}
@@ -91,7 +93,7 @@ const jsonLdNodes = [
     </div>
   </div>
   <script>
-    document.querySelector('[data-portfolio-category-select]')?.addEventListener('change', (e) => {
+    document.querySelector('[data-portfolio-tag-select]')?.addEventListener('change', (e) => {
       const target = e.target as HTMLSelectElement;
       if (target?.value) window.location.href = target.value;
     });

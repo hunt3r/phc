@@ -7,8 +7,7 @@ gallery:
   - src: /images/portfolio/wawa-hatfield/PHC-Placeholder.jpg
     alt: 'Wawa - Hatfield, PA - image 1'
 tags:
-  - retail
-  - retailers
+  - tag: src/content/tags/retail.md
 order: 61
 ---
 **Key Features:**

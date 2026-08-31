@@ -1,73 +1,158 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { slugify, titleize } from '@/lib/slug';
+import { getImageUrl } from '@/lib/cloudinary';
+import { getNavTags, getTagMap, resolveTags, portfolioEntriesForTag } from '@/lib/tags';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 export async function getStaticPaths() {
-  const portfolio = await getCollection('portfolio');
-  const slugSet = new Set<string>();
-  for (const entry of portfolio) {
-    const tags = entry.data.tags ?? [];
-    for (const tag of tags) {
-      const s = slugify(tag);
-      if (s) slugSet.add(s);
-    }
-  }
-  return Array.from(slugSet).map((tag) => ({ params: { tag }, props: { tag } }));
+  const tags = await getCollection('tags');
+  return tags.map((entry) => ({ params: { tag: entry.id }, props: { entry } }));
 }
 
-const { tag: tagSlug } = Astro.params;
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const tagLabel = entry.data.label;
+
 const portfolio = await getCollection('portfolio');
+const tagMap = await getTagMap();
+const navTags = await getNavTags();
+const entries = portfolioEntriesForTag(entry.id, portfolio).sort(
+  (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)
+);
 
-const entries = portfolio.filter((entry) => {
-  const tags = entry.data.tags ?? [];
-  return tags.some((t) => slugify(t) === tagSlug);
-});
+const HERO_WIDTHS = [640, 960, 1200, 1600];
+const heroImageUrl = entry.data.image
+  ? getImageUrl(entry.data.image, { width: 1600, quality: 'auto:eco' })
+  : undefined;
+const heroImageSrcSet = entry.data.image
+  ? HERO_WIDTHS.map((width) => `${getImageUrl(entry.data.image, { width, quality: 'auto:eco' })} ${width}w`).join(', ')
+  : undefined;
 
-const sorted = entries.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
-const rawLabel = sorted[0]?.data.tags?.find((t) => slugify(t) === tagSlug) ?? tagSlug ?? 'Tag';
-const tagLabel = titleize(rawLabel);
-const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
+const ogDescription = entry.data.description
+  ? entry.data.description.slice(0, 160).trim()
+  : undefined;
+const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
 const jsonLdNodes = [
   createBreadcrumbListSchema(site, [
-    { name: "Home", path: "/" },
-    { name: "Tags", path: "/tags" },
-    { name: tagLabel, path: `/tags/${tagSlug}` },
+    { name: 'Home', path: '/' },
+    { name: 'Tags', path: '/tags' },
+    { name: tagLabel, path: `/tags/${entry.id}` },
   ]),
 ];
 ---
 
-<BaseLayout title={`Tag: ${tagLabel}`} description={`Projects tagged ${tagLabel}.`} jsonLdNodes={jsonLdNodes}>
-  <div class="pt-8 space-y-8">
-    <div>
-      <a href="/tags" class="text-sm text-primary hover:underline">← All tags</a>
-      <h1 class="mt-2 text-3xl font-bold text-gray-900 dark:text-gray-100">
-        {tagLabel}
-      </h1>
-      <p class="mt-1 text-gray-600 dark:text-gray-400">
-        {entries.length} project{entries.length === 1 ? '' : 's'}
-      </p>
-    </div>
-    {sorted.length > 0 ? (
-      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {sorted.map((entry) => (
+<BaseLayout title={tagLabel} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes}>
+  {heroImageUrl && (
+    <img
+      src={heroImageUrl}
+      srcset={heroImageSrcSet}
+      sizes="(max-width: 1152px) 100vw, 1152px"
+      alt={tagLabel}
+      width="1600"
+      height="686"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+      class="mt-8 aspect-[21/9] w-full rounded-lg object-cover"
+    />
+  )}
+
+  <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
+    <aside class="shrink-0 lg:w-52">
+      {/* Mobile: dropdown */}
+      <div class="lg:hidden" aria-label="Sections">
+        <label for="portfolio-tag-mobile" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Sections:</label>
+        <select
+          id="portfolio-tag-mobile"
+          class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-gray-500"
+          data-portfolio-tag-select
+        >
+          <option value="/portfolio">All</option>
+          {navTags.map((t) => (
+            <option value={`/tags/${t.id}`} selected={t.id === entry.id}>{t.data.label}</option>
+          ))}
+        </select>
+      </div>
+      {/* Desktop: sidebar nav */}
+      <nav aria-label="Sections" class="sticky top-24 hidden space-y-1 lg:block">
+        <p class="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+          Sections
+        </p>
+        <ul class="space-y-0.5">
           <li>
-            <ProjectCard
-              title={String((entry.data as { title?: string }).title ?? '')}
-              description={String((entry.data as { description?: string }).description ?? '')}
-              href={`/portfolio/${entry.id}`}
-              imageSrc={(entry.data as { image?: string }).image}
-              imageAlt={String((entry.data as { title?: string }).title ?? '')}
-              tags={Array.isArray((entry.data as { tags?: string[] }).tags) ? (entry.data as { tags?: string[] }).tags ?? [] : []}
-              date={(entry.data as { date?: string }).date}
-            />
+            <a
+              href="/portfolio"
+              class="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100"
+            >
+              All
+            </a>
           </li>
-        ))}
-      </ul>
-    ) : (
-      <p class="text-gray-600 dark:text-gray-400">No projects with this tag.</p>
-    )}
+          {navTags.map((t) => {
+            const isActive = t.id === entry.id;
+            return (
+              <li>
+                <a
+                  href={`/tags/${t.id}`}
+                  class={`block rounded-lg px-3 py-2 text-sm font-medium transition ${
+                    isActive
+                      ? 'bg-primary/10 text-primary dark:bg-primary/20'
+                      : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100'
+                  }`}
+                >
+                  {t.data.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="min-w-0 flex-1 space-y-6">
+      <div>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{tagLabel}</h1>
+        {entry.data.description && (
+          <p class="mt-1 text-gray-600 dark:text-gray-400">{entry.data.description}</p>
+        )}
+      </div>
+
+      <section class="prose-content">
+        <Content />
+      </section>
+
+      <div>
+        <p class="text-gray-600 dark:text-gray-400">
+          {entries.length} project{entries.length === 1 ? '' : 's'}
+        </p>
+      </div>
+
+      {entries.length > 0 ? (
+        <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          {entries.map((portfolioEntry) => (
+            <li>
+              <ProjectCard
+                title={portfolioEntry.data.title ?? ''}
+                description={portfolioEntry.data.description ?? ''}
+                href={`/portfolio/${portfolioEntry.id}`}
+                imageSrc={portfolioEntry.data.image}
+                imageAlt={portfolioEntry.data.title ?? ''}
+                tags={resolveTags(portfolioEntry, tagMap)}
+                date={portfolioEntry.data.date}
+              />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="text-gray-600 dark:text-gray-400">No projects with this tag yet.</p>
+      )}
+    </div>
   </div>
+  <script>
+    document.querySelector('[data-portfolio-tag-select]')?.addEventListener('change', (e) => {
+      const target = e.target as HTMLSelectElement;
+      if (target?.value) window.location.href = target.value;
+    });
+  </script>
 </BaseLayout>

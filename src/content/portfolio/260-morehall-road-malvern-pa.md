@@ -19,6 +19,8 @@ gallery:
   - src: /images/portfolio/260-morehall-road-malvern-pa/2020-09-21-13.14.27-scaled-e1600886504940.jpg
     alt: '260 Morehall Road - Malvern, PA - image 7'
 order: 43
+tags:
+  - tag: src/content/tags/retail.md
 ---
 **Key Features:**
 

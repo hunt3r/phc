@@ -21,11 +21,11 @@ gallery:
   - src: /images/portfolio/lidl-us-llc-yonkers-new-york/Photo-Dec-20-2024-12-04-47-PM-scaled.jpg
     alt: 'LiDL US - Yonkers, New York - image 8'
 tags:
-  - retail
-  - retailers
-  - remediation
-  - demolition
-  - project-management
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/remediation.md
+  - tag: src/content/tags/demolition.md
+  - tag: src/content/tags/project-management.md
+  - tag: src/content/tags/grocery.md
 order: 2
 ---
 Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.

@@ -13,8 +13,7 @@ gallery:
   - src: /images/portfolio/wawa-abington-jenkintown/4DSC_3944.jpg
     alt: 'Wawa - Abington/Jenkintown, PA - image 4'
 tags:
-  - retail
-  - retailers
+  - tag: src/content/tags/retail.md
 order: 67
 ---
 **Key Features:**

@@ -15,10 +15,10 @@ gallery:
   - src: /images/portfolio/amc-309-cinemas-renovation/AMC309.jpg
     alt: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation - image 5'
 tags:
-  - retail
-  - project-management
-  - landscaping
-  - signage
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/project-management.md
+  - tag: src/content/tags/landscaping.md
+  - tag: src/content/tags/signage.md
 order: 32
 ---
 The antiquated and dilapidated entertainment facility located at the intersection of two major traffic corridors received a much-needed update including a complete interior and exterior façade renovation, energy-efficient HVAC systems. The site received parking and stormwater management improvements.  PH&C’s insight and experience helped marshal this project to successful completion while reducing costs via spearheading value engineering of several design features with architects and engineers, as well as managing the prime contracting for various aspects of the project, including building renovations, site work, site electrical work, landscaping, signage, and streetscapes.

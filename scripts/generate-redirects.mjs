@@ -25,8 +25,25 @@ const PAGE_REDIRECTS = {
   video: "/",
 };
 
-const CATEGORY_REDIRECTS = {
-  "multi-family": "/category/residential/",
+// Categories are retired; every /category/<slug> now redirects to /tags/<slug>.
+const CATEGORY_TO_TAG = {
+  "multi-family": "residential",
+};
+
+// Tags that were merged/renamed; old tag archive URLs redirect to the survivor.
+const TAG_TO_TAG = {
+  retailers: "retail",
+};
+
+// "Overview" portfolio items were merged into tag landing pages and removed.
+const OVERVIEW_TO_TAG = {
+  "retail-property-development": "retail",
+  "office-overview": "office",
+  "healthcare-overview": "healthcare",
+  "government-overview": "government",
+  "office-overview-2": "institutional",
+  "residential-multi-family-overview": "residential",
+  "custom-self-storage-development": "self-storage",
 };
 
 function slugify(value) {
@@ -59,7 +76,9 @@ async function loadNewTagSlugs() {
     const raw = await readFile(join(PORTFOLIO_DIR, file), "utf-8");
     const { data } = matter(raw);
     for (const tag of data.tags ?? []) {
-      const slug = slugify(tag);
+      const ref = typeof tag === "string" ? tag : tag?.tag ?? "";
+      const base = (ref.split("/").pop() ?? "").replace(/\.(md|mdx|json)$/i, "");
+      const slug = slugify(base);
       if (slug) slugs.add(slug);
     }
   }
@@ -81,17 +100,20 @@ async function main() {
 
   for (const entry of manifest) {
     if (entry.type !== "post") continue;
-    addRule(rules, `/${entry.slug}`, `/portfolio/${entry.slug}/`);
+    const overviewTag = OVERVIEW_TO_TAG[entry.slug];
+    const target = overviewTag ? `/tags/${overviewTag}/` : `/portfolio/${entry.slug}/`;
+    addRule(rules, `/${entry.slug}`, target);
   }
 
   for (const tag of tags) {
-    const target = newTagSlugs.has(tag.slug) ? `/tags/${tag.slug}/` : "/tags/";
+    const aliased = TAG_TO_TAG[tag.slug] ?? tag.slug;
+    const target = newTagSlugs.has(aliased) ? `/tags/${aliased}/` : "/tags/";
     addRule(rules, `/tag/${tag.slug}`, target);
   }
 
   for (const category of categories) {
-    const target = CATEGORY_REDIRECTS[category.slug] ?? `/category/${category.slug}/`;
-    addRule(rules, `/category/${category.slug}`, target);
+    const tagSlug = CATEGORY_TO_TAG[category.slug] ?? category.slug;
+    addRule(rules, `/category/${category.slug}`, `/tags/${tagSlug}/`);
   }
 
   for (const author of authors) {

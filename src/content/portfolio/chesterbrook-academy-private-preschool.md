@@ -19,8 +19,8 @@ gallery:
   - src: /images/portfolio/chesterbrook-academy-private-preschool/Photo-Apr-17-10-58-46-AM.jpg
     alt: 'Chesterbrook Academy Private Preschool - Malvern, PA - image 7'
 tags:
-  - institutional
-  - landscaping
+  - tag: src/content/tags/institutional.md
+  - tag: src/content/tags/landscaping.md
 order: 37
 ---
 **Turnkey Private Preschool Facility**

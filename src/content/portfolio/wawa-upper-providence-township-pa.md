@@ -13,10 +13,9 @@ gallery:
   - src: /images/portfolio/wawa-upper-providence-township-pa/2020-10-01-09.53.08-scaled.jpg
     alt: 'Wawa - Upper Providence Township, PA - image 4'
 tags:
-  - retail
-  - retailers
-  - remediation
-  - demolition
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/remediation.md
+  - tag: src/content/tags/demolition.md
 order: 44
 ---
 **Key Features:**

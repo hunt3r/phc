@@ -15,10 +15,10 @@ gallery:
   - src: /images/portfolio/sadsbury-commons-development/sadsbury-4.jpg
     alt: 'Sadsbury Commons - Parkesburg, PA - Development - image 5'
 tags:
-  - retail
-  - multi-family
-  - office
-  - healthcare
+  - tag: src/content/tags/healthcare.md
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/residential.md
+  - tag: src/content/tags/office.md
 order: 30
 ---
 Sadsbury Commons, a once-rural area located about halfway between Philadelphia and Lancaster has seen robust development in recent years. This project will offer many benefits to the local communities, old and new. A state-of-the-art medical facility anchors the site and improvements to the stormwater management are underway for the up-and-coming retail and residential portions of this project.

@@ -15,10 +15,11 @@ gallery:
   - src: /images/portfolio/shops-of-villanova-villanova-pa/VillanovaShops5-1024x683.jpg
     alt: 'Shops of Villanova - Villanova, PA - image 5'
 tags:
-  - retail
-  - office
-  - healthcare
-  - institutional
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/office.md
+  - tag: src/content/tags/healthcare.md
+  - tag: src/content/tags/institutional.md
+  - tag: src/content/tags/mixed-use.md
 order: 48
 ---
 **Key Features:**

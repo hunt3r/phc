@@ -15,8 +15,8 @@ gallery:
   - src: /images/portfolio/environmental-standards-inc-valley-forge-pa/20130409-6-scaled-e1600803374748.jpg
     alt: 'Environmental Standards Inc - Valley Forge, PA - image 5'
 tags:
-  - office
-  - remediation
+  - tag: src/content/tags/office.md
+  - tag: src/content/tags/remediation.md
 order: 45
 ---
 [Locations – Valley Forge, PA](https://www.envstd.com/locations-vf/)

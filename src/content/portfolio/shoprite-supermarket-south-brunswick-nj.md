@@ -31,10 +31,11 @@ gallery:
   - src: /images/portfolio/shoprite-supermarket-south-brunswick-nj/2021-11-03-15.07.41-scaled.jpg
     alt: 'ShopRite Supermarket - South Brunswick, NJ - image 13'
 tags:
-  - retail
-  - retailers
-  - landscaping
-  - signage
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/office.md
+  - tag: src/content/tags/landscaping.md
+  - tag: src/content/tags/signage.md
+  - tag: src/content/tags/grocery.md
 order: 28
 ---
 Development of a new state-of-the-art ShopRite Supermarket along the busy US-1 corridor benefitting the local community was a much needed improvement for this area of New Jersey. Modern storm water management features were designed and implemented, as well as a pedestrian trail connection adjacent to this busy intersection providing safe alternatives to driving.

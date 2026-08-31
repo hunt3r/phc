@@ -13,11 +13,11 @@ gallery:
   - src: /images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/2023-12-01-09.16.04-scaled.jpg
     alt: 'LiDL US - Harrisburg, PA. Paxton Towne Centre - image 4'
 tags:
-  - retail
-  - retailers
-  - remediation
-  - demolition
-  - project-management
+  - tag: src/content/tags/retail.md
+  - tag: src/content/tags/remediation.md
+  - tag: src/content/tags/demolition.md
+  - tag: src/content/tags/project-management.md
+  - tag: src/content/tags/grocery.md
 order: 4
 ---
 Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.
