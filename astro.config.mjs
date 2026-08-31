@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://phandc.net',
-  trailingSlash: 'always',
+  trailingSlash: 'ignore',
   integrations: [
     sitemap({
       changefreq: 'weekly',

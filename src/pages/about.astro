@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getEntry, render } from 'astro:content';
 import PersonnelCard from '../components/PersonnelCard.astro';
 import HeroPage from '../components/blocks/hero-page.astro';
+import YouTubeEmbed from '../components/blocks/youtube-embed.astro';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 const entry = await getEntry('about', 'index');
@@ -60,5 +61,7 @@ const jsonLdNodes = [
         ))}
       </div>
     </section>
+
+    <YouTubeEmbed url={entry.data.youtube} title={entry.data.title} />
   </article>
 </BaseLayout>

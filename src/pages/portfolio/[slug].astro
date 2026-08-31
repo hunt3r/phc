@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import PortfolioGallery from '../../components/PortfolioGallery.astro';
+import YouTubeEmbed from '../../components/blocks/youtube-embed.astro';
 import { getImageUrl } from '@/lib/cloudinary';
 import { slugify } from '@/lib/slug';
 import { getCategoryBySlug } from '@/data/categories';
@@ -130,5 +131,7 @@ const jsonLdNodes = [
     {galleryImages.length > 0 && (
       <PortfolioGallery images={galleryImages} galleryId={entry.id} />
     )}
+
+    <YouTubeEmbed url={entry.data.youtube} title={entry.data.title} />
   </article>
 </BaseLayout>

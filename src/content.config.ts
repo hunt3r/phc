@@ -23,6 +23,7 @@ const portfolio = defineCollection({
         .optional(),
       order: z.number().optional(),
       featured: z.boolean().optional(),
+      youtube: z.string().optional(),
     }),
 });
 
@@ -30,6 +31,7 @@ const home = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/home' }),
   schema: z.object({
     title: z.string().optional(),
+    youtube: z.string().optional(),
     hero: z
       .object({
         size: z.enum(['full', 'compact']).optional(),
@@ -83,6 +85,7 @@ const about = defineCollection({
       title: z.string(),
       featuredImage: z.string().optional(),
       hero: aboutHeroSchema,
+      youtube: z.string().optional(),
     }),
 });
 
@@ -94,6 +97,7 @@ const pages = defineCollection({
       description: z.string().optional(),
       featuredImage: z.string().optional(),
       hero: aboutHeroSchema,
+      youtube: z.string().optional(),
     }),
 });
 

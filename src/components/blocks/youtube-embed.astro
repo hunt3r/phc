@@ -1,0 +1,61 @@
+---
+interface Props {
+  url?: string;
+  title?: string;
+}
+
+const { url, title = 'YouTube video player' } = Astro.props;
+
+function getYouTubeId(input?: string): string | undefined {
+  if (!input) return undefined;
+  const raw = input.trim();
+  if (!raw) return undefined;
+
+  // Bare 11-character video ID
+  if (/^[a-zA-Z0-9_-]{11}$/.test(raw)) return raw;
+
+  try {
+    const parsed = new URL(raw);
+    const host = parsed.hostname.replace(/^www\./, '');
+
+    if (host === 'youtu.be') {
+      const id = parsed.pathname.split('/').filter(Boolean)[0];
+      return id && /^[a-zA-Z0-9_-]{11}$/.test(id) ? id : undefined;
+    }
+
+    if (host.endsWith('youtube.com') || host.endsWith('youtube-nocookie.com')) {
+      const vParam = parsed.searchParams.get('v');
+      if (vParam && /^[a-zA-Z0-9_-]{11}$/.test(vParam)) return vParam;
+
+      const segments = parsed.pathname.split('/').filter(Boolean);
+      const idx = segments.findIndex((s) => s === 'embed' || s === 'shorts' || s === 'v' || s === 'live');
+      const id = idx >= 0 ? segments[idx + 1] : undefined;
+      return id && /^[a-zA-Z0-9_-]{11}$/.test(id) ? id : undefined;
+    }
+  } catch {
+    return undefined;
+  }
+
+  return undefined;
+}
+
+const videoId = getYouTubeId(url);
+const embedUrl = videoId ? `https://www.youtube-nocookie.com/embed/${videoId}` : undefined;
+---
+
+{embedUrl && (
+  <section class="pt-4">
+    <div class="relative w-full overflow-hidden rounded-lg bg-black shadow-sm" style="aspect-ratio: 16 / 9;">
+      <iframe
+        class="absolute inset-0 h-full w-full"
+        src={embedUrl}
+        title={title}
+        loading="lazy"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+)}

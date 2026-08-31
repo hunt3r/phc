@@ -1,0 +1,208 @@
+---
+import { getImageUrl } from '@/lib/cloudinary';
+
+export interface HeroSlide {
+  title: string;
+  description?: string;
+  href: string;
+  image: string;
+}
+
+interface Props {
+  id?: string;
+  size?: 'full' | 'compact';
+  slides: HeroSlide[];
+  ctaText?: string;
+  overlayOpacity?: number;
+  overlayColor?: 'dark' | 'light';
+  autoplayMs?: number;
+}
+
+const {
+  id = 'hero',
+  size = 'full',
+  slides,
+  ctaText = 'View project',
+  overlayOpacity = 85,
+  overlayColor = 'dark',
+  autoplayMs = 6000,
+} = Astro.props;
+
+const HERO_IMAGE_OPTIONS = { width: 1920, quality: 'auto:eco' as const };
+const clampedOpacity = Math.min(Math.max(overlayOpacity ?? 85, 0), 100);
+const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
+const overlayIsDark = overlayColor === 'dark';
+const textClass = overlayIsDark ? 'text-white' : 'text-gray-900';
+const mutedClass = overlayIsDark ? 'text-white/80' : 'text-gray-900/80';
+const controlClass = overlayIsDark
+  ? 'text-white bg-black/30 hover:bg-black/50 focus:ring-white'
+  : 'text-gray-900 bg-white/40 hover:bg-white/60 focus:ring-gray-900';
+
+const wrapperClass =
+  size === 'full'
+    ? 'relative min-h-[80vh] flex flex-col justify-center overflow-hidden'
+    : 'relative flex flex-col justify-center overflow-hidden py-16 md:py-24';
+
+const resolvedSlides = slides.map((slide) => ({
+  ...slide,
+  imageUrl: getImageUrl(slide.image, HERO_IMAGE_OPTIONS),
+}));
+const multiple = resolvedSlides.length > 1;
+---
+
+<section
+  id={id}
+  class={`${wrapperClass} w-screen left-1/2 -translate-x-1/2`}
+  data-hero-carousel
+  data-autoplay={multiple ? autoplayMs : 0}
+  aria-roledescription="carousel"
+  aria-label="Featured projects"
+>
+  <div class="relative w-full">
+    {resolvedSlides.map((slide, index) => (
+      <div
+        class="hero-slide inset-0 bg-cover bg-center transition-opacity duration-700 motion-reduce:transition-none"
+        class:list={[index === 0 ? 'relative opacity-100' : 'absolute opacity-0 pointer-events-none']}
+        data-hero-slide
+        data-active={index === 0 ? 'true' : 'false'}
+        role="group"
+        aria-roledescription="slide"
+        aria-label={`${index + 1} of ${resolvedSlides.length}: ${slide.title}`}
+        aria-hidden={index === 0 ? 'false' : 'true'}
+        style={`background-image: url(${slide.imageUrl})`}
+      >
+        <div
+          class="absolute inset-0"
+          style={`background: linear-gradient(to bottom, oklch(${baseColor} / ${clampedOpacity / 100}) 0%, oklch(${baseColor} / 0) 100%)`}
+          aria-hidden="true"
+        />
+        <div class={`relative flex ${size === 'full' ? 'min-h-[80vh]' : ''} flex-col justify-center items-center text-center px-4 py-12 md:py-16`}>
+          <div class="mx-auto max-w-6xl w-full">
+            <h1 class={`text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl ${textClass}`}>
+              {slide.title}
+            </h1>
+            {slide.description && (
+              <p class={`mt-4 text-lg max-w-2xl mx-auto line-clamp-3 ${mutedClass}`}>
+                {slide.description}
+              </p>
+            )}
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+              <a href={slide.href} class="btn btn-primary">
+                {ctaText}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+
+    {multiple && (
+      <>
+        <button
+          type="button"
+          data-hero-prev
+          class={`absolute left-3 top-1/2 -translate-y-1/2 z-10 grid place-items-center h-10 w-10 rounded-full transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent ${controlClass}`}
+          aria-label="Previous slide"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          data-hero-next
+          class={`absolute right-3 top-1/2 -translate-y-1/2 z-10 grid place-items-center h-10 w-10 rounded-full transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent ${controlClass}`}
+          aria-label="Next slide"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5" aria-hidden="true">
+            <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2" role="tablist" aria-label="Choose slide">
+          {resolvedSlides.map((slide, index) => (
+            <button
+              type="button"
+              data-hero-dot
+              data-index={index}
+              class="h-2.5 w-2.5 rounded-full bg-white/50 transition data-[active=true]:bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
+              data-active={index === 0 ? 'true' : 'false'}
+              role="tab"
+              aria-selected={index === 0 ? 'true' : 'false'}
+              aria-label={`Go to slide ${index + 1}: ${slide.title}`}
+            />
+          ))}
+        </div>
+      </>
+    )}
+  </div>
+</section>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('[data-hero-carousel]').forEach((root) => {
+    const slides = Array.from(root.querySelectorAll('[data-hero-slide]'));
+    const dots = Array.from(root.querySelectorAll('[data-hero-dot]'));
+    if (slides.length <= 1) return;
+
+    const autoplayMs = Number((root as HTMLElement).dataset.autoplay ?? 0);
+    let current = 0;
+    let timer: number | undefined;
+
+    const show = (next: number) => {
+      const total = slides.length;
+      const index = ((next % total) + total) % total;
+      slides.forEach((slide, i) => {
+        const active = i === index;
+        slide.classList.toggle('relative', active);
+        slide.classList.toggle('absolute', !active);
+        slide.classList.toggle('opacity-100', active);
+        slide.classList.toggle('opacity-0', !active);
+        slide.classList.toggle('pointer-events-none', !active);
+        (slide as HTMLElement).dataset.active = active ? 'true' : 'false';
+        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+      dots.forEach((dot, i) => {
+        const active = i === index;
+        (dot as HTMLElement).dataset.active = active ? 'true' : 'false';
+        dot.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      current = index;
+    };
+
+    const stop = () => {
+      if (timer !== undefined) {
+        window.clearInterval(timer);
+        timer = undefined;
+      }
+    };
+
+    const start = () => {
+      if (reduceMotion || !autoplayMs) return;
+      stop();
+      timer = window.setInterval(() => show(current + 1), autoplayMs);
+    };
+
+    root.querySelector('[data-hero-prev]')?.addEventListener('click', () => {
+      show(current - 1);
+      start();
+    });
+    root.querySelector('[data-hero-next]')?.addEventListener('click', () => {
+      show(current + 1);
+      start();
+    });
+    dots.forEach((dot, i) =>
+      dot.addEventListener('click', () => {
+        show(i);
+        start();
+      })
+    );
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', start);
+
+    start();
+  });
+</script>

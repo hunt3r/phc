@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroPage from '../components/blocks/hero-page.astro';
+import HeroCarousel from '../components/blocks/hero-carousel.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import YouTubeEmbed from '../components/blocks/youtube-embed.astro';
 import { getEntry, getCollection } from 'astro:content';
 
 const homeEntry = await getEntry('home', 'index');
@@ -9,31 +11,55 @@ const data = homeEntry?.data;
 const hero = data?.hero;
 const portfolioEntries = await getCollection('portfolio');
 
-const latestProjects = [...portfolioEntries].sort((a, b) => {
+const byOrderThenTitle = (a: any, b: any) => {
   const orderA = (a.data as any).order ?? 999;
   const orderB = (b.data as any).order ?? 999;
   if (orderA !== orderB) return orderA - orderB;
   return ((a.data as any).title ?? '').localeCompare((b.data as any).title ?? '');
-}).slice(0, 3);
+};
+
+const latestProjects = [...portfolioEntries].sort(byOrderThenTitle).slice(0, 3);
+
+// Promoted items: featured and with a hero/cover image. Items missing an
+// image are soft-skipped so a stray `featured: true` never breaks the build.
+const promotedSlides = [...portfolioEntries]
+  .filter((e) => (e.data as any).featured && (e.data as any).image)
+  .sort(byOrderThenTitle)
+  .slice(0, 5)
+  .map((entry) => ({
+    title: (entry.data as any).title,
+    description: (entry.data as any).description ?? '',
+    href: `/portfolio/${entry.id}`,
+    image: (entry.data as any).image as string,
+  }));
 
 const ogDescription = hero?.subtitle ?? (typeof data?.about?.body === 'string' ? data.about.body.slice(0, 160).trim() : undefined) ?? "PH&C facilitates Real Estate Development as the tri-state area's premiere Owner's Representation, Construction Management, and Fee Development firm.";
-const ogImage = typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : undefined;
+const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : undefined);
 ---
 
 <BaseLayout title={data?.title ?? 'Home'} description={ogDescription} image={ogImage}>
-  <HeroPage
-    size={hero?.size ?? 'full'}
-    eyebrow={hero?.eyebrow}
-    tagline={hero?.tagline ?? 'Welcome to PHC'}
-    subtitle={hero?.subtitle ?? 'Construction and renovation expertise.'}
-    ctaPrimaryText={hero?.ctaPrimaryText}
-    ctaPrimaryHref={hero?.ctaPrimaryHref}
-    ctaSecondaryText={hero?.ctaSecondaryText}
-    ctaSecondaryHref={hero?.ctaSecondaryHref}
-    backgroundImage={typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : undefined}
-    overlayOpacity={hero?.overlayOpacity ?? 70}
-    overlayColor={hero?.overlayColor ?? 'dark'}
-  />
+  {promotedSlides.length > 0 ? (
+    <HeroCarousel
+      size={hero?.size ?? 'full'}
+      slides={promotedSlides}
+      overlayOpacity={hero?.overlayOpacity ?? 85}
+      overlayColor={hero?.overlayColor ?? 'dark'}
+    />
+  ) : (
+    <HeroPage
+      size={hero?.size ?? 'full'}
+      eyebrow={hero?.eyebrow}
+      tagline={hero?.tagline ?? 'Welcome to PHC'}
+      subtitle={hero?.subtitle ?? 'Construction and renovation expertise.'}
+      ctaPrimaryText={hero?.ctaPrimaryText}
+      ctaPrimaryHref={hero?.ctaPrimaryHref}
+      ctaSecondaryText={hero?.ctaSecondaryText}
+      ctaSecondaryHref={hero?.ctaSecondaryHref}
+      backgroundImage={typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : undefined}
+      overlayOpacity={hero?.overlayOpacity ?? 70}
+      overlayColor={hero?.overlayColor ?? 'dark'}
+    />
+  )}
   <article class="pt-16 space-y-16 sm:pt-20">
 
     {latestProjects.length > 0 && (
@@ -83,5 +109,7 @@ const ogImage = typeof hero?.backgroundImage === 'string' ? hero.backgroundImage
         </p>
       </section>
     )}
+
+    <YouTubeEmbed url={data?.youtube} title={data?.title} />
   </article>
 </BaseLayout>
