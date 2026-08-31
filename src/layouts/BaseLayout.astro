@@ -1,5 +1,6 @@
 ---
 import JsonLd from "@/components/seo/JsonLd.astro";
+import Footer from "@/components/Footer.astro";
 import {
   createGraphSchema,
   createOrganizationSchema,
@@ -137,16 +138,7 @@ const baseJsonLd = createGraphSchema([
         <slot />
       </div>
     </main>
-    <footer class="border-t border-gray-200 dark:border-gray-700 py-6">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <p class="text-center text-sm text-gray-600 dark:text-gray-400">
-          © {new Date().getFullYear()} PH&C.{' '}
-          <a href="/portfolio" class="text-primary underline underline-offset-2 decoration-1 decoration-current dark:text-gray-200">Portfolio</a>
-          {' · '}
-          <a href="/privacy-policy" class="text-primary underline underline-offset-2 decoration-1 decoration-current dark:text-gray-200">Privacy Policy</a>
-        </p>
-      </div>
-    </footer>
+    <Footer />
     <script>
       document.querySelector('[data-mobile-menu-toggle]')?.addEventListener('click', () => {
         const menu = document.querySelector('[data-mobile-menu]');

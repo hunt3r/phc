@@ -1,7 +1,9 @@
 ---
 title: Privacy Policy
-description: 'PH&C values the privacy and security of the information that you share with us. It is important that you understand how we collect, use, and maintain your information. This Privacy Statement explains our online information practices, the choices you may make about how we collect and use your information at this web site, and the'
+description: PH&C values the privacy and security of the information that you share with us.
+featuredImage: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788188361/franck-v-SQ67IUDiZns-unsplash_bpae7u.jpg'
 ---
+
 PH&C values the privacy and security of the information that you share with us. It is important that you understand how we collect, use, and maintain your information. This Privacy Statement explains our online information practices, the choices you may make about how we collect and use your information at this web site, and the ways you may contact us.
 
 We may change this Privacy Statement from time to time. Changes to this Privacy Statement are effective upon posting. Please check back periodically for updates.
