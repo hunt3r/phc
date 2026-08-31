@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import PortfolioGallery from '../../components/PortfolioGallery.astro';
+import QuoteCard from '../../components/QuoteCard.astro';
 import YouTubeEmbed from '../../components/blocks/youtube-embed.astro';
 import { getImageUrl } from '@/lib/cloudinary';
 import { slugify } from '@/lib/slug';
@@ -130,6 +131,19 @@ const jsonLdNodes = [
 
     {galleryImages.length > 0 && (
       <PortfolioGallery images={galleryImages} galleryId={entry.id} />
+    )}
+
+    {entry.data.quotes && entry.data.quotes.length > 0 && (
+      <section class="space-y-6">
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+          Testimonials
+        </h2>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {entry.data.quotes.map((q) => (
+            <QuoteCard quote={q.quote} author={q.author} role={q.role} />
+          ))}
+        </div>
+      </section>
     )}
 
     <YouTubeEmbed url={entry.data.youtube} title={entry.data.title} />

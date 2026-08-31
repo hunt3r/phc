@@ -54,6 +54,22 @@ export default defineConfig({
             options: CATEGORIES.map((c) => ({ value: c.label, label: c.label })),
             ui: { component: 'select' },
           },
+          {
+            type: 'object',
+            name: 'quotes',
+            label: 'Customer Quotes',
+            list: true,
+            description: 'Add, remove, or reorder customer quotes. Toggle "Promote to home page" to feature a quote on the homepage.',
+            ui: {
+              itemProps: (item) => ({ label: item?.author || item?.quote?.slice(0, 40) || 'New quote' }),
+            },
+            fields: [
+              { type: 'string', name: 'quote', label: 'Quote', required: true, ui: { component: 'textarea' } },
+              { type: 'string', name: 'author', label: 'Author' },
+              { type: 'string', name: 'role', label: 'Role / Company' },
+              { type: 'boolean', name: 'featured', label: 'Promote to home page' },
+            ],
+          },
           { type: 'string', name: 'tags', label: 'Tags', list: true },
           { type: 'number', name: 'order', label: 'Order' },
           { type: 'boolean', name: 'featured', label: 'Featured' },

@@ -20,12 +20,18 @@ gallery:
     alt: Chestnut Hill College - Sugarloaf Campus Philadelphia PA - image 7
   - src: /images/portfolio/chestnut-hill-college-sugarloaf-campus/2021-12-10-12.10.17-scaled.jpg
     alt: Chestnut Hill College - Sugarloaf Campus Philadelphia PA - image 8
+quotes:
+  - quote: 'Having served as a president for thirty years, I have engaged with a number of construction managers.  Working with PH&C, L.L.C., has surpassed any expectations I might have had about the quality of a working relationship with an outside firm. '
+    author: 'Sister Carol Jean Vale, SSJ, Ph.D.'
+    role: 'President, Chestnut Hill College'
+    featured: true
 tags:
   - government
   - remediation
   - institutional
 order: 21
 ---
+
 We competitively bid and were awarded a contract to provide construction management and oversight for the new entrance to their Sugarloaf Campus. A brand new entrance roadway off Germantown Ave., made in alignment with East Hillcrest Ave., was added to make much easier and safer access to this campus. This project also including a paved pedestrian/bicycle trail through the beautiful [Wissahickon Valley Park](https://www.visitphilly.com/things-to-do/attractions/wissahickon-valley-park/) woods connecting to their main campus.
 
 This project included many complex utility relocations for the intersection reconfiguration, and new traffic control equipment. Rock blasting was also needed to make way for the road, and this included cooperation and coordination with multiple government agencies, nearby institutions and residents.

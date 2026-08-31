@@ -22,6 +22,7 @@ tags:
   - multi-family
 order: 11
 featured: true
+youtube: 'https://www.youtube.com/watch?v=tK7IUFDWB3w'
 ---
 
 Ground up development of this large land parcel started in 2022, and transitioned to home building for this new residential community in Summer of 2023. Sales of these [LENNAR HOMES](https://www.lennar.com/) has been robust, and the last phase of homes are being constructed in 2025.

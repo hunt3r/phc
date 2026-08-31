@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteCard from '../components/QuoteCard.astro';
+import { getAllQuotes } from '@/lib/quotes';
+import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
+
+const quotes = await getAllQuotes();
+const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const jsonLdNodes = [
+  createBreadcrumbListSchema(site, [
+    { name: 'Home', path: '/' },
+    { name: 'Testimonials', path: '/testimonials' },
+  ]),
+];
+---
+
+<BaseLayout
+  title="Testimonials"
+  description="What our clients say about working with PH&C."
+  jsonLdNodes={jsonLdNodes}
+>
+  <div class="pt-8 space-y-8">
+    <div>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">Testimonials</h1>
+      <p class="mt-1 text-gray-600 dark:text-gray-400">
+        {quotes.length} quote{quotes.length === 1 ? '' : 's'} from the owners and teams we partner with.
+      </p>
+    </div>
+
+    {quotes.length > 0 ? (
+      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {quotes.map((q) => (
+          <li>
+            <QuoteCard
+              quote={q.quote}
+              author={q.author}
+              role={q.role}
+              projectTitle={q.projectTitle}
+              projectHref={q.projectHref}
+            />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="text-gray-600 dark:text-gray-400">No testimonials yet. Check back soon.</p>
+    )}
+  </div>
+</BaseLayout>

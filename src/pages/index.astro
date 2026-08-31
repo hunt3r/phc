@@ -4,6 +4,8 @@ import HeroPage from '../components/blocks/hero-page.astro';
 import HeroCarousel from '../components/blocks/hero-carousel.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import YouTubeEmbed from '../components/blocks/youtube-embed.astro';
+import QuoteCard from '../components/QuoteCard.astro';
+import { getFeaturedQuotes } from '@/lib/quotes';
 import { getEntry, getCollection } from 'astro:content';
 
 const homeEntry = await getEntry('home', 'index');
@@ -19,6 +21,8 @@ const byOrderThenTitle = (a: any, b: any) => {
 };
 
 const latestProjects = [...portfolioEntries].sort(byOrderThenTitle).slice(0, 3);
+
+const featuredQuotes = await getFeaturedQuotes();
 
 // Promoted items: featured and with a hero/cover image. Items missing an
 // image are soft-skipped so a stray `featured: true` never breaks the build.
@@ -84,6 +88,36 @@ const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 's
               date={(entry.data as any).year}
             />
           ))}
+        </div>
+      </section>
+    )}
+
+    {featuredQuotes.length > 0 && (
+      <section>
+        <div class="mb-8 text-center">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 sm:text-3xl">
+            What our clients say
+          </h2>
+          <p class="mt-2 text-gray-600 dark:text-gray-400">
+            Feedback from the owners and teams we partner with.
+          </p>
+        </div>
+        <div class="grid w-full gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredQuotes.map((q) => (
+            <QuoteCard
+              quote={q.quote}
+              author={q.author}
+              role={q.role}
+              projectTitle={q.projectTitle}
+              projectHref={q.projectHref}
+            />
+          ))}
+        </div>
+        <div class="mt-8 text-center">
+          <a href="/testimonials" class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
+            <span>View all testimonials</span>
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </section>
     )}

@@ -21,6 +21,16 @@ const portfolio = defineCollection({
           })
         )
         .optional(),
+      quotes: z
+        .array(
+          z.object({
+            quote: z.string(),
+            author: z.string().optional(),
+            role: z.string().optional(),
+            featured: z.boolean().optional(),
+          })
+        )
+        .optional(),
       order: z.number().optional(),
       featured: z.boolean().optional(),
       youtube: z.string().optional(),
