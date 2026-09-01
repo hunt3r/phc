@@ -126,12 +126,17 @@ const multiple = resolvedSlides.length > 1;
               type="button"
               data-hero-dot
               data-index={index}
-              class="h-2.5 w-2.5 rounded-full bg-white/50 transition data-[active=true]:bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
+              class="group grid place-items-center h-6 w-6 rounded-full transition focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
               data-active={index === 0 ? 'true' : 'false'}
               role="tab"
               aria-selected={index === 0 ? 'true' : 'false'}
               aria-label={`Go to slide ${index + 1}: ${slide.title}`}
-            />
+            >
+              <span
+                class="h-2.5 w-2.5 rounded-full bg-white/50 transition group-hover:bg-white/80 group-data-[active=true]:bg-white"
+                aria-hidden="true"
+              />
+            </button>
           ))}
         </div>
         <button
