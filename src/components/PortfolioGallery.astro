@@ -21,7 +21,7 @@ const THUMB_OPTIONS = { width: 400, quality: "auto:eco" as const };
 const LIGHTBOX_OPTIONS = { width: 1200, quality: "auto:eco" as const };
 const THUMB_WIDTHS = [320, 400, 640, 800];
 const THUMB_SIZES = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
-const LIGHTBOX_WIDTHS = [960, 1280, 1600, 1920];
+const LIGHTBOX_WIDTHS = [640, 960, 1280, 1600, 1920, 2560];
 const thumbImages = images.map((img) => ({
   src: getImageUrl(img.src, THUMB_OPTIONS),
   srcset: getImageSrcSet(img.src, THUMB_WIDTHS, { quality: "auto:eco" }),
@@ -106,7 +106,7 @@ const lightboxImages = images.map((img) => ({
           <img
             id={lightboxImageId}
             src=""
-            sizes="100vw"
+            sizes="(min-width: 640px) calc(100vw - 2rem), calc(100vw - 1rem)"
             alt=""
             class="max-h-full w-auto max-w-full rounded-md object-contain"
           />
