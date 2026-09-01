@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import PortfolioGallery from '../../components/PortfolioGallery.astro';
+import ProjectSpecs from '../../components/ProjectSpecs.astro';
 import QuoteCard from '../../components/QuoteCard.astro';
 import YouTubeEmbed from '../../components/blocks/youtube-embed.astro';
 import { getImageUrl } from '@/lib/cloudinary';
@@ -109,7 +110,14 @@ const jsonLdNodes = [
       )}
     </header>
 
-    <section class="prose-content">
+    <section class="prose-content [&::after]:clear-both [&::after]:table [&::after]:content-['']">
+      <ProjectSpecs
+        projectCost={entry.data.projectCost}
+        size={entry.data.size}
+        architect={entry.data.architect}
+        contractor={entry.data.contractor}
+        class="mb-4 w-full md:float-right md:mb-3 md:ml-6 md:w-72 lg:w-80"
+      />
       <Content />
     </section>
 

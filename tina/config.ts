@@ -33,6 +33,10 @@ export default defineConfig({
           { type: 'string', name: 'location', label: 'Location' },
           { type: 'string', name: 'client', label: 'Client' },
           { type: 'string', name: 'date', label: 'Date (e.g. 2020)' },
+          { type: 'string', name: 'projectCost', label: 'Project Cost', description: 'e.g. $145M' },
+          { type: 'string', name: 'size', label: 'Size', description: 'e.g. 166,000 SF' },
+          { type: 'string', name: 'architect', label: 'Architect' },
+          { type: 'string', name: 'contractor', label: 'Contractor' },
           { type: 'image', name: 'image', label: 'Hero / cover image', description: 'Upload via Cloudinary' },
           {
             type: 'object',

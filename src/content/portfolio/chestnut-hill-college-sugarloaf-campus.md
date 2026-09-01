@@ -2,6 +2,7 @@
 title: Chestnut Hill College - Sugarloaf Campus Philadelphia PA
 description: 'We competitively bid and were awarded a contract to provide construction management and oversight for the new entrance to their Sugarloaf Campus, including a paved pedestrian trail through the beautiful Wissahickon Valley woods connecting to their main campus.'
 location: Sugarloaf Campus Philadelphia PA
+contractor: 'Benchmark Site Development, Armor & Sons Electric, Shearon Environmental Design'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692399/images/portfolio/chestnut-hill-college-sugarloaf-campus/2023-09-27-14.52.26-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692399/images/portfolio/chestnut-hill-college-sugarloaf-campus/2023-09-27-14.52.26-scaled.jpg'

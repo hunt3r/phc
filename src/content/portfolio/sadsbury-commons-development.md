@@ -2,6 +2,7 @@
 title: 'Sadsbury Commons - Parkesburg, PA - Development'
 description: The Sadsbury Commons development will offer many benefits to the local communities including a state-of-the-art medical facility anchors the site and more.
 location: Development
+size: '36,000 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692516/images/portfolio/sadsbury-commons-development/sadsbury-1.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692516/images/portfolio/sadsbury-commons-development/sadsbury-1.jpg'

@@ -10,6 +10,10 @@ const portfolio = defineCollection({
       location: z.string().optional(),
       client: z.string().optional(),
       date: z.string().optional(),
+      projectCost: z.string().optional(),
+      size: z.string().optional(),
+      architect: z.string().optional(),
+      contractor: z.string().optional(),
       image: z.string().optional(),
       tags: z.array(z.object({ tag: z.string() })).optional(),
       gallery: z

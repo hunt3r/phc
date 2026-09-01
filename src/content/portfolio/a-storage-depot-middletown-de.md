@@ -2,6 +2,7 @@
 title: 'A Storage Depot - Middletown, DE'
 description: 'Key Features: 103,350 SF / 3 story climate controlled self storage facility 6000 square feet of covered parking. Light gauge framing building with standing seam metal roof. Coordination of door and corridor contractor. EIFS, brick and metal panel exterior. https://astoragedepot.com/'
 location: 'Middletown, DE'
+size: '103,350 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692374/images/portfolio/a-storage-depot-middletown-de/2020-05-29-10.26.42-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692374/images/portfolio/a-storage-depot-middletown-de/2020-05-29-10.26.42-scaled.jpg'

@@ -2,6 +2,7 @@
 title: 'Bank of America - Kennett Square, PA'
 description: 'Key Features: 3,156sf Bank with Drive-Thru Canopy Individual NPDES permit PennDOT Access & Signal Improvements https://www.bankofamerica.com/'
 location: 'Kennett Square, PA'
+size: '3,156 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692379/images/portfolio/bank-of-america-kennett-square/DSC_5300-copy-for-website.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692379/images/portfolio/bank-of-america-kennett-square/DSC_5300-copy-for-website.jpg'

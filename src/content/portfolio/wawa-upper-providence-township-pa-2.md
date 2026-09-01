@@ -2,6 +2,7 @@
 title: 'Wawa - Westhampton, NJ'
 description: 'Key Features: 5,585 SF Food Market with Drive Thru and 6 fuel stations. Improvements to access and blacktop surfaces for neighboring business, TD Bank Pedestrian Sidewalks and Trail improvements and additions along Rancocas Rd. Landscape improvements and retaining walls for neighboring business park. (2) above ground storm-water infiltration basins. Individual NPDES Permit NJ DOT & […]'
 location: 'Westhampton, NJ'
+size: '5,585 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692813/images/portfolio/wawa-upper-providence-township-pa-2/2021-04-02-11.10.36-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692813/images/portfolio/wawa-upper-providence-township-pa-2/2021-04-02-11.10.36-scaled.jpg'

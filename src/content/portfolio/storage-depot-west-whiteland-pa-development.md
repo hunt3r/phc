@@ -2,6 +2,7 @@
 title: 'A Storage Depot - West Whiteland Twp, PA'
 description: 'A suburban multi-Story Climate Controlled Self Storage depot development, using the latest sustainable stormwater management features.'
 location: 'West Whiteland Twp, PA'
+size: '88,000 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692723/images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.08.48-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692723/images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.08.48-scaled.jpg'

@@ -2,6 +2,7 @@
 title: 'Wawa - Maple Shade, NJ'
 description: 'Assisting the Wawa Corporation in fulfilling their expansion plans including redevelopment, remediation, accessibility, management, and more.'
 location: 'Maple Shade, NJ'
+size: '5,585 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692781/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.43.06-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692781/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.43.06-scaled.jpg'

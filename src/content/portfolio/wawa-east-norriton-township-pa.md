@@ -2,6 +2,7 @@
 title: 'Wawa - East Norriton, PA'
 description: 'We are proud to continue with our assistance in developing another Wawa store in their core market that opened in October 2023. Our work for a commercial real estate developer client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. As usual, this […]'
 location: 'East Norriton, PA'
+size: '5,051 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692779/images/portfolio/wawa-east-norriton-township-pa/2023-10-17-11.54.22-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692779/images/portfolio/wawa-east-norriton-township-pa/2023-10-17-11.54.22-scaled.jpg'

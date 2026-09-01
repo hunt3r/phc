@@ -2,6 +2,8 @@
 title: 'Chesterbrook Academy Private Preschool - Malvern, PA'
 description: 'Turnkey Private Preschool Facility Key Features: Site improvements include multiple stormwater management features/systems, wet and dry utilities with existing tie-ins, toddler & kids playgrounds with equipment, landscaping & irrigation, paving and concrete features 13,200 SF new facility including wood stick frame with wood truss system, EIFS, stone & brick facade, all mechanical equipment installed in […]'
 location: 'Malvern, PA'
+projectCost: '$3.3 million'
+size: '13,200 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692392/images/portfolio/chesterbrook-academy-private-preschool/Screenshot-2019-02-21-11.20.38.png'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692392/images/portfolio/chesterbrook-academy-private-preschool/Screenshot-2019-02-21-11.20.38.png'

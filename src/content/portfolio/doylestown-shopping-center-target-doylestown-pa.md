@@ -2,6 +2,7 @@
 title: 'Doylestown Shopping Center Target - Doylestown, PA'
 description: We performed environmental remediation and demolished an out-parcel Sears Auto Center making a Chick-Fil-A restaurant and Chase Bank branch. We also performed a complete façade renewal and parking lot enhancements . PH&C oversaw the project’s execution in this open and operating shopping center.
 location: 'Doylestown, PA'
+architect: 'Bignell Watkins Hasser'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692409/images/portfolio/doylestown-shopping-center-target-doylestown-pa/2024-07-10-12.04.59-scaled-e1747420247122.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692409/images/portfolio/doylestown-shopping-center-target-doylestown-pa/2024-07-10-12.04.59-scaled-e1747420247122.jpg'

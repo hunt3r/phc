@@ -2,6 +2,7 @@
 title: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA
 description: Redevelopment of a food production facility into retail and entertainment. An awarded project involving environmental clean-up.
 location: Philadelphia PA
+size: '27 acres'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692457/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/IMG_2877.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692457/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/IMG_2877.jpg'

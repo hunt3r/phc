@@ -2,6 +2,7 @@
 title: 'Prices Corner Shopping Center - Wilmington, DE'
 description: We performed environmental remediation and demolished an out-parcel Sears Auto Center making a Chick-Fil-A restaurant and Chase Bank branch. We also performed a complete façade renewal and parking lot enhancements . PH&C oversaw the project’s execution in this open and operating shopping center.
 location: 'Wilmington, DE'
+architect: 'Bignell Watkins Hasser'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692501/images/portfolio/prices-corner-shopping-center-wilmington-de/2021-04-13-16.57.54-scaled-e1624381733351.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692501/images/portfolio/prices-corner-shopping-center-wilmington-de/2021-04-13-16.57.54-scaled-e1624381733351.jpg'
