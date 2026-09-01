@@ -50,7 +50,7 @@ const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX
 
     <div
       id={lightboxId}
-      class="pointer-events-none fixed inset-0 z-40 flex items-center justify-center bg-black/70 opacity-0 transition-opacity duration-150"
+      class="pointer-events-none fixed inset-0 z-[60] flex items-center justify-center bg-black/70 opacity-0 transition-opacity duration-150"
       role="dialog"
       aria-modal="true"
       aria-label="Image gallery"
@@ -58,37 +58,43 @@ const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX
       hidden
       inert
     >
-      <div class="relative mx-4 max-h-[90vh] max-w-4xl rounded-lg bg-black/80 p-4 text-white shadow-xl" id={`${lightboxId}-focus-root`} tabindex="-1">
+      <div class="relative flex h-full w-full max-w-none flex-col rounded-none bg-black/80 p-2 text-white shadow-xl sm:p-4" id={`${lightboxId}-focus-root`} tabindex="-1">
         <button
           type="button"
-          class="absolute right-3 top-3 rounded-full bg-white/10 px-2 py-1 text-sm font-medium hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          class="absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-3 sm:top-3"
           data-role="close"
           aria-label="Close gallery"
         >
-          Close
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
         </button>
         <button
           type="button"
-          class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/10 px-2 py-1 text-sm hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          class="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-3"
           data-role="prev"
           aria-label="Previous image"
         >
-          ‹
+          <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
         </button>
         <button
           type="button"
-          class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/10 px-2 py-1 text-sm hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          class="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-3"
           data-role="next"
           aria-label="Next image"
         >
-          ›
+          <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
         </button>
-        <div class="flex items-center justify-center">
+        <div class="flex h-full flex-1 items-center justify-center">
           <img
             id={lightboxImageId}
             src=""
             alt=""
-            class="max-h-[75vh] w-auto max-w-full rounded-md object-contain"
+            class="max-h-full w-auto max-w-full rounded-md object-contain"
           />
         </div>
         <div aria-live="polite" aria-atomic="true" class="sr-only" data-role="counter"></div>

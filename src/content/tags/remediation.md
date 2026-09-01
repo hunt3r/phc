@@ -1,5 +1,5 @@
 ---
 label: Remediation
-showInNav: false
+showInNav: true
 ---
 

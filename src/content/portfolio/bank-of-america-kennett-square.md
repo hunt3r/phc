@@ -13,11 +13,13 @@ gallery:
 tags:
   - tag: src/content/tags/retail.md
 order: 52
+featured: true
 ---
+
 **Key Features:**
 
-*   3,156sf Bank with Drive-Thru Canopy
-*   Individual NPDES permit
-*   PennDOT Access & Signal Improvements
+* 3,156sf Bank with Drive-Thru Canopy
+* Individual NPDES permit
+* PennDOT Access & Signal Improvements
 
 [https://www.bankofamerica.com/](https://www.bankofamerica.com/)
