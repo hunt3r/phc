@@ -1,6 +1,6 @@
 ---
 title: 'LiDL US - Harrisburg, PA. Paxton Towne Centre'
-description: "Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. On June 12, 2024, we participated in our FIRST store grand opening, which occurred on Jonestown Road in Harrisburg, PA.\_ Our team worked with the Architect and Engineers […]"
+description: 'Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. On June 12, 2024, we participated in our FIRST store grand opening, which occurred on Jonestown Road in Harrisburg, PA. Our team worked with the Architect and Engineers'
 location: 'Harrisburg, PA. Paxton Towne Centre'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692441/images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/Photo-Jun-12-2024-7-13-38-AM-scaled.jpg'
 gallery:

@@ -1,6 +1,6 @@
 ---
 title: 'PA State Police Barracks - Media, PA'
-description: 'Re-development project for the State Police in Delaware County PA, for a larger state-of-the-art facility to replace their old site.'
+description: 'Re-development project for the State Police in Delaware County PA, for a larger state-of-the-art facility to replace their old site'
 location: 'Media, PA'
 size: '17,490 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692485/images/portfolio/pa-state-police-barracks-media-pa/Photo-Aug-27-11-18-42-AM-1-scaled-e1601568328120.jpg'

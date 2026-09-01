@@ -1,5 +1,50 @@
 ---
 import ContentPageSection from '../components/ContentPageSection.astro';
+import {
+  CORE_SERVICES,
+  createServiceSchema,
+  createFaqSchema,
+} from '@/lib/seo/jsonld';
+
+const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+
+const faqSchema = createFaqSchema([
+  {
+    question: 'What does PH&C do?',
+    answer:
+      "PH&C, LLC is an owner's-representation, construction management, and real estate development consulting firm based in Wayne, PA. We help owners and developers plan, design, procure, and build commercial, retail, healthcare, residential, self-storage, and institutional projects.",
+  },
+  {
+    question: 'What is an owner\'s representative?',
+    answer:
+      "An owner's representative acts as the owner's agent and point of control across a project, functioning like your in-house real estate construction department - overseeing design, entitlement, procurement, and construction - without the overhead of hiring in-house staff.",
+  },
+  {
+    question: 'What regions does PH&C serve?',
+    answer:
+      'PH&C is based in the Greater Philadelphia area and serves projects across Pennsylvania, New Jersey, Delaware, Maryland, and New York.',
+  },
+  {
+    question: 'What types of projects does PH&C manage?',
+    answer:
+      'PH&C manages retail, office and warehouse, residential and multi-family, self-storage, healthcare, and government projects, including ground-up development, renovations, fit-outs, and re-development.',
+  },
+  {
+    question: 'When was PH&C founded?',
+    answer:
+      'PH&C was founded in 2010 by Paul Harris and has since delivered a wide range of development and re-development projects for land owners, developers, businesses, and government agencies.',
+  },
+]);
+
+const jsonLdNodes = [
+  ...CORE_SERVICES.map((service) => createServiceSchema(site, service)),
+  ...(faqSchema ? [faqSchema] : []),
+];
 ---
 
-<ContentPageSection entryId="services" path="/services" breadcrumbLabel="Services" />
+<ContentPageSection
+  entryId="services"
+  path="/services"
+  breadcrumbLabel="Services"
+  jsonLdNodes={jsonLdNodes}
+/>

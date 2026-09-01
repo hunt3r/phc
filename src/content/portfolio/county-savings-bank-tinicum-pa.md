@@ -1,6 +1,6 @@
 ---
 title: 'County Savings Bank - Tinicum, PA'
-description: 'Key Features: Demolition/Re-Construction of Retail Bank Drive Thru lane https://www.countysavingsbank.com/'
+description: 'Demolition/Re-Construction of Retail Bank Drive Thru lane'
 location: 'Tinicum, PA'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692400/images/portfolio/county-savings-bank-tinicum-pa/1-1024x683.jpg'
 gallery:

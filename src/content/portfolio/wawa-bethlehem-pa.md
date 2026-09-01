@@ -1,6 +1,6 @@
 ---
 title: 'Wawa - Bethlehem, PA'
-description: 'We are proud to continue with our assistance in developing another Wawa store that opened in December 2023. Our work for an individual land owner client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. This site had the gamut of redevelopment challenges […]'
+description: 'We are proud to continue with our assistance in developing another Wawa store that opened in December 2023. Our work for an individual land owner client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. This site had the gamut of redevelopment challenges'
 location: 'Bethlehem, PA'
 size: '5,585 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692766/images/portfolio/wawa-bethlehem-pa/2023-11-29-10.12.31-scaled.jpg'

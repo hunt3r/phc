@@ -1,6 +1,6 @@
 ---
 title: '6060 Ridge Ave - Philadelphia, PA'
-description: 'Key Features: Complete Facade Renovation Interior Demolition and Redevelopment of existing Bank Branch Office Fit Out/ Medical Office (Vybe Urgent Care) https://www.vybe.care/vybe-locations/roxborough/'
+description: 'Complete Facade Renovation Interior Demolition and Redevelopment of existing Bank Branch Office Fit Out/ Medical Office (Vybe Urgent Care)'
 location: 'Philadelphia, PA'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692369/images/portfolio/6060-ridge-ave-philadelphia-pa/6060-Ridge1-1024x683.jpg'
 gallery:

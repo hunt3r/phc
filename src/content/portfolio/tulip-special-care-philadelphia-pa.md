@@ -1,6 +1,6 @@
 ---
 title: 'Tulip Special Care - Philadelphia, PA'
-description: 'Tulip Special Care is a 60 bed Skilled Nursing Facility specializing in the care of ventilator dependent adults. Key Features: 20,585 sf Complete Renovation to the 7th floor of the former Medial College of Pennsylvania Building Site Improvements include Exterior Oxygen Pad with tanks and delivery equipment, with O2 and Electrical lines running into building […]'
+description: 'Tulip Special Care is a 60 bed Skilled Nursing Facility specializing in the care of ventilator dependent adults. Key Features: 20,585 sf Complete Renovation to the 7th floor of the former Medial College of Pennsylvania Building Site Improvements include Exterior Oxygen Pad with tanks and delivery equipment, with O2 and Electrical lines running into building'
 location: 'Philadelphia, PA'
 projectCost: '$3.5 million'
 size: '20,585 SF'

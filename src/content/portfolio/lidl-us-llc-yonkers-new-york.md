@@ -1,6 +1,6 @@
 ---
 title: 'LiDL US - Yonkers, New York'
-description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. In 2025 they asked us to expand our reach into New York state and we were excited to accept this opportunity! On October 22, 2025, we participated in […]'
+description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. In 2025 they asked us to expand our reach into New York state and we were excited to accept this opportunity! On October 22, 2025, we participated in'
 location: 'Yonkers, New York'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204210/images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.52.57-AM-1024x755.png'
 gallery:

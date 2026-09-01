@@ -1,6 +1,6 @@
 ---
 title: 'Higher Rock Development - Montgomery Twp, PA'
-description: 'Development of this former plant nursery required rock removal management, benefitting the community with retail food and commercial office space.'
+description: 'Development of this former plant nursery required rock removal management, benefitting the community with retail food and commercial office space'
 location: 'Montgomery Twp, PA'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692430/images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.03.16-scaled.jpg'
 gallery:

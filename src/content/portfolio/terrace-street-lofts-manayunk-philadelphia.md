@@ -1,6 +1,6 @@
 ---
 title: Terrace Street Lofts - Manayunk Philadelphia
-description: 'Key Features: 32 Unit / 40,500 SF / 4 Story Residential Complex 40 Space Parking Garage Underground Storm Water Retention Basins https://www.terraceloftsapartments.com'
+description: '32 Unit / 40,500 SF / 4 Story Residential Complex 40 Space Parking Garage Underground Storm Water Retention Basins'
 location: Manayunk Philadelphia
 size: '40,500 SF / 32 units'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692736/images/portfolio/terrace-street-lofts-manayunk-philadelphia/TerraceLofts_HomepageBanner_Carousel_Working_V1-07.jpg'

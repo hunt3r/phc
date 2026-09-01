@@ -1,6 +1,6 @@
 ---
 title: 'Shops of Villanova - Villanova, PA'
-description: "Key Features: 32,000 sf Two story mixed use Medical Office and Retail Building redevelopment of existing Retail / Office campus 16,000 SF of Retail Building:\_Starbucks, First Watch, Bernie Robbins Jewelry, Bulldog Yoga, Snap Kitchen 16,000 SF of Class A Office Space 8,000 SF of Medical Offices for Bryn Mawr Dermatology and Cross Plastic Surgery Group […]"
+description: '32,000 sf Two story mixed use Medical Office and Retail Building redevelopment of existing Retail / Office campus 16,000 SF of Retail Building: Starbucks, First Watch, Bernie Robbins Jewelry, Bulldog Yoga, Snap Kitchen 16,000 SF of Class A Office Space 8,000 SF of Medical Offices for Bryn Mawr Dermatology and Cross Plastic Surgery Group'
 location: 'Villanova, PA'
 size: '32,000 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692533/images/portfolio/shops-of-villanova-villanova-pa/VillanovaShops8-1024x683.jpg'

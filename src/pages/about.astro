@@ -4,7 +4,7 @@ import { getEntry, render } from 'astro:content';
 import PersonnelCard from '../components/PersonnelCard.astro';
 import HeroPage from '../components/blocks/hero-page.astro';
 import YouTubeEmbed from '../components/blocks/youtube-embed.astro';
-import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
+import { createBreadcrumbListSchema, createPersonSchema } from '@/lib/seo/jsonld';
 
 const entry = await getEntry('about', 'index');
 if (!entry) {
@@ -24,6 +24,14 @@ const jsonLdNodes = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
   ]),
+  ...staff.map((member) =>
+    createPersonSchema(site, {
+      name: member.name,
+      jobTitle: member.title,
+      bio: member.bio,
+      image: member.image,
+    })
+  ),
 ];
 ---
 

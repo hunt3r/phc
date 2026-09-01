@@ -1,6 +1,6 @@
 ---
 title: 'LiDL US - Totowa, New Jersey'
-description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores! On February 4, 2026, we participated in another store grand opening, which occurred in Totowa, […]'
+description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores! On February 4, 2026, we participated in another store grand opening, which occurred in Totowa'
 location: 'Totowa, New Jersey'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204204/images/portfolio/lidl-us-llc-totowa-new-jersey/2026-02-04-07.42.07-scaled.jpg'
 gallery:

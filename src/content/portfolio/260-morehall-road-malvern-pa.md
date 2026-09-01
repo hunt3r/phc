@@ -1,6 +1,6 @@
 ---
 title: '260 Morehall Road - Malvern, PA'
-description: 'Key Features: Site development retaining walls: 7500 SF of segmental block 1300 SF cast in place 5,000 SF Chick-Fil-A Restaurant 2,400 SF Starbucks Coffee Over $1.2 million in site & highway improvements'
+description: 'Site development retaining walls: 7500 SF of segmental block 1300 SF cast in place 5,000 SF Chick-Fil-A Restaurant 2,400 SF Starbucks Coffee Over $1.2 million in site & highway improvements'
 location: 'Malvern, PA'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692361/images/portfolio/260-morehall-road-malvern-pa/2020-09-21-13.13.50-scaled.jpg'
 gallery:

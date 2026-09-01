@@ -1,6 +1,6 @@
 ---
 title: 'LiDL US - Freehold, New Jersey'
-description: 'Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. On May 9, 2025, we participated in our 4th store grand opening, which occurred in Freehold, NJ. Our team worked with the Architect and Engineers to value engineer […]'
+description: 'Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. On May 9, 2025, we participated in our 4th store grand opening, which occurred in Freehold, NJ. Our team worked with the Architect and Engineers to value engineer'
 location: 'Freehold, New Jersey'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692455/images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-May-12-2025-11-08-38-AM-scaled.jpg'
 gallery:

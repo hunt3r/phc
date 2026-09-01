@@ -60,7 +60,7 @@ const jsonLdNodes = [
 ];
 ---
 
-<BaseLayout title={entry.data.title} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes}>
+<BaseLayout title={entry.data.title} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes} ogType="article" datePublished={entry.data.date}>
   <article class="pt-8 space-y-8">
     <header class="space-y-3">
       <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{entry.data.title}</h1>

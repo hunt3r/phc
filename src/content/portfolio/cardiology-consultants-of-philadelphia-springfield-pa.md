@@ -1,6 +1,6 @@
 ---
 title: 'CARDIOLOGY CONSULTANTS OF PHILADELPHIA - Springfield, PA'
-description: 'Fit-out for new Medical office space in existing building. Key Features: 10,200 sf renovation and fit-out of 2nd floor of 3 story building, with operating tenants Structural, electrical and HVAC alterations/improvements for the following areas: Onsite cardiac PET/CT camera and control room Spect camera room Stress test room Medial exam rooms Testing lab Image reading […]'
+description: 'Fit-out for new Medical office space in existing building. Key Features: 10,200 sf renovation and fit-out of 2nd floor of 3 story building, with operating tenants Structural, electrical and HVAC alterations/improvements for the following areas: Onsite cardiac PET/CT camera and control room Spect camera room Stress test room Medial exam rooms Testing lab Image reading'
 location: 'Springfield, PA'
 projectCost: '$1.4 million'
 size: '10,200 SF'

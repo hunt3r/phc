@@ -17,6 +17,9 @@
     "generate:pages": "node scripts/generate-pages-from-scrape.mjs",
     "generate:redirects": "node scripts/generate-redirects.mjs",
     "sync:cloudinary": "node --import dotenv/config scripts/sync-assets-to-cloudinary.mjs",
+    "export:portfolio": "node scripts/export-portfolio-csv.mjs",
+    "import:portfolio": "node scripts/import-portfolio-csv.mjs",
+    "clean:descriptions": "node scripts/clean-portfolio-descriptions.mjs",
     "migrate:tags": "node scripts/migrate-tags.mjs --write",
     "migrate:tags:dry": "node scripts/migrate-tags.mjs"
   },

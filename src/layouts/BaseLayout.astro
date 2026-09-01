@@ -14,13 +14,25 @@ interface Props {
   description?: string;
   image?: string;
   jsonLdNodes?: Record<string, unknown>[];
+  ogType?: string;
+  datePublished?: string;
+  dateModified?: string;
 }
 
-const { title = "PH&C", description, image, jsonLdNodes = [] } = Astro.props as Props;
+const {
+  title = "PH&C",
+  description,
+  image,
+  jsonLdNodes = [],
+  ogType = 'website',
+  datePublished,
+  dateModified,
+} = Astro.props as Props;
 import '../styles/global.css';
 
 const displayTitle = title.startsWith('PH&C - ') || title.startsWith('PH&C – ') ? title : `PH&C - ${title}`;
 const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const canonicalUrl = new URL(Astro.url.pathname, site).href.replace(/\/$/, '') || site;
 const absoluteImageUrl = image
   ? toAbsoluteUrl(image, site)
   : new URL('/images/logo-light.png', site).href;
@@ -33,6 +45,8 @@ const baseJsonLd = createGraphSchema([
     name: displayTitle,
     description,
     image: absoluteImageUrl,
+    datePublished,
+    dateModified,
   }),
   ...jsonLdNodes,
 ]);
@@ -44,11 +58,19 @@ const baseJsonLd = createGraphSchema([
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:site_name" content="PH&C" />
     <meta property="og:title" content={displayTitle} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={absoluteImageUrl} />
     {description && <meta property="og:description" content={description} />}
+    {ogType === 'article' && datePublished && (
+      <meta property="article:published_time" content={datePublished} />
+    )}
+    {ogType === 'article' && dateModified && (
+      <meta property="article:modified_time" content={dateModified} />
+    )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={displayTitle} />
     {description && <meta name="twitter:description" content={description} />}

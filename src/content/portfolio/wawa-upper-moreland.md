@@ -1,6 +1,6 @@
 ---
 title: 'Wawa - Upper Moreland, PA'
-description: 'Key Features: 5,585sf Wawa Food Market with 12 fuel stations 10,000sf Mixed Use Retail Building Grubb Burger Restaurant, Sports Clips, Zoe’s Kitchen, Royal Bank SEPTA Station Pedestrian Improvements Stream Bank Repair / Riparian Buffer Restoration Stream Road Crossing PennDOT & Township Signal & Access Improvements Individual NPDES Permit'
+description: '5,585sf Wawa Food Market with 12 fuel stations 10,000sf Mixed Use Retail Building Grubb Burger Restaurant, Sports Clips, Zoe’s Kitchen, Royal Bank SEPTA Station Pedestrian Improvements Stream Bank Repair / Riparian Buffer Restoration Stream Road Crossing PennDOT & Township Signal & Access Improvements Individual NPDES Permit'
 location: 'Upper Moreland, PA'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692804/images/portfolio/wawa-upper-moreland/DSC_3819.jpg'
 gallery:

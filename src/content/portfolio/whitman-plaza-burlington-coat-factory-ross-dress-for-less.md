@@ -1,6 +1,6 @@
 ---
 title: 'Whitman Plaza - Philadelphia, PA'
-description: 'Key Features: 120,000 sqft Retail Building demolition and renovation for new tenants, Burlington Coat Factory & Ross Dress for Less Over $7 million investment Loading dock expansion Façade renovation Deep Foundation system'
+description: '120,000 sqft Retail Building demolition and renovation for new tenants, Burlington Coat Factory & Ross Dress for Less Over $7 million investment Loading dock expansion Façade renovation Deep Foundation system'
 location: 'Philadelphia, PA'
 projectCost: 'Over $7 million'
 size: '120,000 SF'

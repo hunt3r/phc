@@ -1,6 +1,6 @@
 ---
 title: 'Nemours DuPont Pediatrics - Paoli, PA'
-description: 'Key Features: 9,000 sf Pediatric Care Facility / Medical Office 6,000 sf Bldg Gut and Renovation and 3,000 SF Expansion Site Improvements include SWM, Pedestrian access improvements, landscaping, lighting https://www.nemours.org/locations/pennsylvania-primary-care-pediatrician-paoli.html'
+description: '9,000 sf Pediatric Care Facility / Medical Office 6,000 sf Bldg Gut and Renovation and 3,000 SF Expansion Site Improvements include SWM, Pedestrian access improvements, landscaping, lighting'
 location: 'Paoli, PA'
 size: '9,000 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692470/images/portfolio/nemours-dupont-pediatrics-paoli-pa/NEMOURS-1024x683.jpg'

@@ -9,9 +9,10 @@ interface Props {
   entryId: string;
   path: string;
   breadcrumbLabel?: string;
+  jsonLdNodes?: Record<string, unknown>[];
 }
 
-const { entryId, path, breadcrumbLabel } = Astro.props;
+const { entryId, path, breadcrumbLabel, jsonLdNodes: extraJsonLdNodes = [] } = Astro.props;
 
 const entry = await getEntry('pages', entryId);
 if (!entry) {
@@ -33,10 +34,11 @@ const jsonLdNodes = [
     { name: 'Home', path: '/' },
     { name: label, path },
   ]),
+  ...extraJsonLdNodes,
 ];
 ---
 
-<BaseLayout title={entry.data.title} description={ogDescription} image={heroBackgroundImage} jsonLdNodes={jsonLdNodes}>
+<BaseLayout title={entry.data.title} description={ogDescription} image={heroBackgroundImage} jsonLdNodes={jsonLdNodes} ogType="article">
   <HeroPage
     id={`${entryId}-hero`}
     size={hero?.size ?? 'compact'}

@@ -1,6 +1,6 @@
 ---
 title: 'Newton Square Shopping Center Renovations, Newton, PA'
-description: 'Renovation of this popular suburban shopping center located in Newtown Square, PA. Updating the façade appearance to a more modern design.'
+description: 'Renovation of this popular suburban shopping center located in Newtown Square, PA. Updating the façade appearance to a more modern design'
 location: PH&C
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692479/images/portfolio/newtown-square-pa-shopping-center/IMG_4135-scaled.jpg'
 gallery:

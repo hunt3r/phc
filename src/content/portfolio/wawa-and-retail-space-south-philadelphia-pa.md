@@ -1,6 +1,6 @@
 ---
 title: 'Wawa and Retail Space - Philadelphia, PA'
-description: 'Key Features: Existing Industrial Brownfield Demolition and Redevelopment 5,585 sf Wawa Food Market with 8 fuel canopy pump station 11,000 sf Mixed Use Retail: Xfinity Retail Store, Fine Wine and Spirits PennDOT Access Improvements Soil Remediation / Piles & Caissons Individual NPDES Permit'
+description: 'Existing Industrial Brownfield Demolition and Redevelopment 5,585 sf Wawa Food Market with 8 fuel canopy pump station 11,000 sf Mixed Use Retail: Xfinity Retail Store, Fine Wine and Spirits PennDOT Access Improvements Soil Remediation / Piles & Caissons Individual NPDES Permit'
 location: 'Philadelphia, PA'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692764/images/portfolio/wawa-and-retail-space-south-philadelphia-pa/South-Philly-pre-wawa.jpg'
 gallery:

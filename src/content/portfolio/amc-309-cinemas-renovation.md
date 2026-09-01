@@ -1,6 +1,6 @@
 ---
 title: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation'
-description: 'A interior and exterior renovation of the AMC 309 Cinemas. Updates include building renovations, site work, signage, and landscaping.'
+description: 'A interior and exterior renovation of the AMC 309 Cinemas. Updates include building renovations, site work, signage, and landscaping'
 location: Major Exterior Renovation
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692379/images/portfolio/amc-309-cinemas-renovation/amc-309-2.jpg'
 gallery:

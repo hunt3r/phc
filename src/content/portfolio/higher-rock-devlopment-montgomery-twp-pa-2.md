@@ -1,6 +1,6 @@
 ---
 title: 'Atwater South - Malvern, PA - PH&C - Rock Excavation'
-description: 'Major rock removal development required construction of sizable retaining walls. The project involved rock excavation, and stormwater management features.'
+description: 'Major rock removal development required construction of sizable retaining walls. The project involved rock excavation, and stormwater management features'
 location: Rock Excavation
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692433/images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.07.01-scaled.jpg'
 gallery:

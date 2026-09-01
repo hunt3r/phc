@@ -1,6 +1,6 @@
 ---
 title: 'USSC Group - Exton, PA'
-description: "Key Features: Tenant Representative for 183,952 SF new warehouse. Underground stormwater management retention facilities. Provided a cross connection to the existing building, allowing two way fork lift traffic. Pre-engineered building, mid-level FF/FL floor. EFSR sprinkler system with fire pump. \_ https://unitedsafetycorporation.com/"
+description: 'Tenant Representative for 183,952 SF new warehouse. Underground stormwater management retention facilities. Provided a cross connection to the existing building, allowing two way fork lift traffic. Pre-engineered building, mid-level FF/FL floor. EFSR sprinkler system with fire pump'
 location: 'Exton, PA'
 size: '183,952 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692754/images/portfolio/ussc-group-exton-pa/2020-09-21-14.03.30-scaled.jpg'

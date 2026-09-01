@@ -1,6 +1,6 @@
 ---
 title: 'Environmental Standards Inc - Valley Forge, PA'
-description: 'Key Features: Developer Land Purchase / Lease Back w/ Addition Construction Design /Bid /Build Two story 9,000sf office addition Services started from Initial Budgeting for Proforma thru Design and Construction Fully operational building with no business interruption Environmentally sensitive site 8.5 months total project duration Total construction cost $1.8 million'
+description: 'Developer Land Purchase / Lease Back w/ Addition Construction Design /Bid /Build Two story 9,000sf office addition Services started from Initial Budgeting for Proforma thru Design and Construction Fully operational building with no business interruption Environmentally sensitive site 8.5 months total project duration Total construction cost $1.8 million'
 location: 'Valley Forge, PA'
 projectCost: '$1.8 million'
 size: '9,000 SF'

@@ -1,6 +1,6 @@
 ---
 title: 'LiDL US - Paramus, New Jersey'
-description: "Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. On February 12, 2025, we participated in our 3rd store grand opening, which occurred in Paramus, NJ.\_ Our team worked with the Architect and Engineers to value engineer […]"
+description: 'Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. On February 12, 2025, we participated in our 3rd store grand opening, which occurred in Paramus, NJ. Our team worked with the Architect and Engineers to value engineer'
 location: 'Paramus, New Jersey'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692445/images/portfolio/lidl-us-llc-paramus-new-jersey/Photo-Feb-07-2025-11-21-31-AM-scaled.jpg'
 gallery:

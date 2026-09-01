@@ -1,6 +1,6 @@
 ---
 title: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ'
-description: 'A environmental remediation construction project for three new retail buildings including Panda Express, Jersey Mikes, and a Vet.'
+description: 'A environmental remediation construction project for three new retail buildings including Panda Express, Jersey Mikes, and a Vet'
 location: 'Sicklerville/ Turnersville, NJ'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692542/images/portfolio/sicklerville-retail-shoppes/2021-01-29-09.49.40.jpg'
 gallery:

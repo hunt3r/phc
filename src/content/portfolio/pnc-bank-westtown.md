@@ -1,6 +1,6 @@
 ---
 title: 'PNC Bank - Westtown, PA'
-description: 'Key Features: 4,020sf Bank 3 Drive-Thru lanes with canopy PennDOT Access & Signal Improvements https://www.pnc.com/en/personal-banking.html'
+description: '4,020sf Bank 3 Drive-Thru lanes with canopy PennDOT Access & Signal Improvements'
 location: 'Westtown, PA'
 size: '4,020 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692488/images/portfolio/pnc-bank-westtown/DSC_53851.jpg'
