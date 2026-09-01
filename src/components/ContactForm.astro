@@ -1,0 +1,82 @@
+---
+import { contactFields } from '@/lib/contact-form';
+
+const FORM_NAME = 'contact';
+const controlClass =
+  'mt-1 block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm transition placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:placeholder:text-gray-500';
+---
+
+<section class="mt-12 border-t border-gray-200 pt-10 dark:border-gray-700">
+  <h2 class="text-2xl font-semibold tracking-tight">Send us a message</h2>
+  <p class="mt-2 text-gray-600 dark:text-gray-400">
+    Fill out the form below and we'll get back to you as soon as possible.
+  </p>
+
+  <form
+    name={FORM_NAME}
+    method="POST"
+    action="/contact/success"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2"
+  >
+    <input type="hidden" name="form-name" value={FORM_NAME} />
+
+    <p class="hidden">
+      <label>
+        Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" />
+      </label>
+    </p>
+
+    {
+      contactFields.map((field) => (
+        <div class={field.fullWidth ? 'sm:col-span-2' : ''}>
+          <label for={`contact-${field.name}`} class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            {field.label}
+            {field.required && <span class="text-brand-burnt" aria-hidden="true"> *</span>}
+          </label>
+
+          {field.type === 'textarea' ? (
+            <textarea
+              id={`contact-${field.name}`}
+              name={field.name}
+              required={field.required}
+              minlength={field.minlength}
+              rows={field.rows ?? 5}
+              placeholder={field.placeholder}
+              class={controlClass}
+            />
+          ) : field.type === 'select' ? (
+            <select
+              id={`contact-${field.name}`}
+              name={field.name}
+              required={field.required}
+              class={controlClass}
+            >
+              {field.options?.map((option) => (
+                <option value={option.value} disabled={option.value === '' && field.required} selected={option.value === ''}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <input
+              id={`contact-${field.name}`}
+              name={field.name}
+              type={field.type}
+              required={field.required}
+              minlength={field.minlength}
+              autocomplete={field.autocomplete}
+              placeholder={field.placeholder}
+              class={controlClass}
+            />
+          )}
+        </div>
+      ))
+    }
+
+    <div class="sm:col-span-2">
+      <button type="submit" class="btn btn-primary w-full sm:w-auto">Send message</button>
+    </div>
+  </form>
+</section>
