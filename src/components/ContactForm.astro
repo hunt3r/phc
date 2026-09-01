@@ -17,6 +17,7 @@ const controlClass =
     method="POST"
     action="/contact/success"
     data-netlify="true"
+    data-netlify-recaptcha="true"
     netlify-honeypot="bot-field"
     class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2"
   >
@@ -74,6 +75,8 @@ const controlClass =
         </div>
       ))
     }
+
+    <div class="sm:col-span-2" data-netlify-recaptcha="true"></div>
 
     <div class="sm:col-span-2">
       <button type="submit" class="btn btn-primary w-full sm:w-auto">Send message</button>
