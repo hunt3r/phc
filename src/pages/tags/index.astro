@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, getEntry } from 'astro:content';
-import { getImageUrl } from '@/lib/cloudinary';
+import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
 import { getPortfolioTagSlugs } from '@/lib/tags';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
+
+const CARD_WIDTHS = [320, 480, 640, 960, 1280];
+const CARD_SIZES = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw';
 
 const tags = await getCollection('tags');
 const portfolio = await getCollection('portfolio');
@@ -48,6 +51,9 @@ const jsonLdNodes = [
         const imageUrl = entry.data.image
           ? getImageUrl(entry.data.image, { width: 960, quality: 'auto:eco' })
           : undefined;
+        const imageSrcSet = entry.data.image
+          ? getImageSrcSet(entry.data.image, CARD_WIDTHS, { quality: 'auto:eco' })
+          : undefined;
         return (
           <li>
             <a
@@ -58,6 +64,8 @@ const jsonLdNodes = [
                 <div class="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-700">
                   <img
                     src={imageUrl}
+                    srcset={imageSrcSet}
+                    sizes={CARD_SIZES}
                     alt={entry.data.label}
                     loading="lazy"
                     width="960"

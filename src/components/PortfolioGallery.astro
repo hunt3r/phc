@@ -1,5 +1,5 @@
 ---
-import { getImageUrl } from "@/lib/cloudinary";
+import { getImageUrl, getImageSrcSet } from "@/lib/cloudinary";
 
 interface Image {
   src: string
@@ -19,8 +19,19 @@ const lightboxImageId = `portfolio-lightbox-image-${galleryId}`
 
 const THUMB_OPTIONS = { width: 400, quality: "auto:eco" as const };
 const LIGHTBOX_OPTIONS = { width: 1200, quality: "auto:eco" as const };
-const thumbImages = images.map((img) => ({ src: getImageUrl(img.src, THUMB_OPTIONS), alt: img.alt }));
-const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX_OPTIONS), alt: img.alt }));
+const THUMB_WIDTHS = [320, 400, 640, 800];
+const THUMB_SIZES = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
+const LIGHTBOX_WIDTHS = [960, 1280, 1600, 1920];
+const thumbImages = images.map((img) => ({
+  src: getImageUrl(img.src, THUMB_OPTIONS),
+  srcset: getImageSrcSet(img.src, THUMB_WIDTHS, { quality: "auto:eco" }),
+  alt: img.alt,
+}));
+const lightboxImages = images.map((img) => ({
+  src: getImageUrl(img.src, LIGHTBOX_OPTIONS),
+  srcset: getImageSrcSet(img.src, LIGHTBOX_WIDTHS, { quality: "auto:eco" }),
+  alt: img.alt,
+}));
 ---
 
 {images && images.length > 0 && (
@@ -40,6 +51,8 @@ const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX
         >
           <img
             src={image.src}
+            srcset={image.srcset}
+            sizes={THUMB_SIZES}
             alt={image.alt || ""}
             loading="lazy"
             class="h-40 w-full object-cover transition-transform duration-200 group-hover:scale-105"
@@ -93,6 +106,7 @@ const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX
           <img
             id={lightboxImageId}
             src=""
+            sizes="100vw"
             alt=""
             class="max-h-full w-auto max-w-full rounded-md object-contain"
           />
@@ -154,6 +168,8 @@ const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX
       lastActiveThumb = thumb;
       const img = images[currentIndex];
       lightboxImg.src = img.src;
+      if (img.srcset) lightboxImg.srcset = img.srcset;
+      else lightboxImg.removeAttribute("srcset");
       lightboxImg.alt = img.alt || "";
       updateCounter();
       lightbox.removeAttribute("hidden");
@@ -196,6 +212,8 @@ const lightboxImages = images.map((img) => ({ src: getImageUrl(img.src, LIGHTBOX
       currentIndex = (currentIndex + delta + images.length) % images.length;
       const img = images[currentIndex];
       lightboxImg.src = img.src;
+      if (img.srcset) lightboxImg.srcset = img.srcset;
+      else lightboxImg.removeAttribute("srcset");
       lightboxImg.alt = img.alt || "";
       updateCounter();
     }

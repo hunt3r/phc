@@ -1,5 +1,5 @@
 ---
-import { getImageUrl } from '@/lib/cloudinary';
+import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
 
 export interface HeroSlide {
   title: string;
@@ -29,6 +29,7 @@ const {
 } = Astro.props;
 
 const HERO_IMAGE_OPTIONS = { width: 1920, quality: 'auto:eco' as const };
+const HERO_WIDTHS = [640, 960, 1280, 1600, 1920, 2560];
 const clampedOpacity = Math.min(Math.max(overlayOpacity ?? 85, 0), 100);
 const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
 const overlayIsDark = overlayColor === 'dark';
@@ -46,6 +47,7 @@ const wrapperClass =
 const resolvedSlides = slides.map((slide) => ({
   ...slide,
   imageUrl: getImageUrl(slide.image, HERO_IMAGE_OPTIONS),
+  imageSrcSet: getImageSrcSet(slide.image, HERO_WIDTHS, { quality: 'auto:eco' }),
 }));
 const multiple = resolvedSlides.length > 1;
 ---
@@ -61,7 +63,7 @@ const multiple = resolvedSlides.length > 1;
   <div class="relative w-full">
     {resolvedSlides.map((slide, index) => (
       <div
-        class="hero-slide inset-0 bg-cover bg-center transition-opacity duration-700 motion-reduce:transition-none"
+        class="hero-slide inset-0 overflow-hidden transition-opacity duration-700 motion-reduce:transition-none"
         class:list={[index === 0 ? 'relative opacity-100' : 'absolute opacity-0 pointer-events-none']}
         data-hero-slide
         data-active={index === 0 ? 'true' : 'false'}
@@ -69,8 +71,18 @@ const multiple = resolvedSlides.length > 1;
         aria-roledescription="slide"
         aria-label={`${index + 1} of ${resolvedSlides.length}: ${slide.title}`}
         aria-hidden={index === 0 ? 'false' : 'true'}
-        style={`background-image: url(${slide.imageUrl})`}
       >
+        <img
+          src={slide.imageUrl}
+          srcset={slide.imageSrcSet}
+          sizes="100vw"
+          alt=""
+          aria-hidden="true"
+          fetchpriority={index === 0 ? 'high' : undefined}
+          loading={index === 0 ? 'eager' : 'lazy'}
+          decoding="async"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
         <div
           class="absolute inset-0"
           style={`background: linear-gradient(to bottom, oklch(${baseColor} / ${clampedOpacity / 100}) 0%, oklch(${baseColor} / 0) 100%)`}

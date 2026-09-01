@@ -1,5 +1,8 @@
 ---
-import { getImageUrl } from "@/lib/cloudinary";
+import { getImageUrl, getImageSrcSet } from "@/lib/cloudinary";
+
+const CARD_WIDTHS = [320, 480, 640, 960, 1280];
+const CARD_SIZES = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
 
 interface TagLink {
   label: string
@@ -29,6 +32,7 @@ const {
 } = Astro.props as Props
 
 const resolvedImageSrc = imageSrc ? getImageUrl(imageSrc, { width: 960, quality: "auto:eco" }) : undefined;
+const resolvedImageSrcSet = imageSrc ? getImageSrcSet(imageSrc, CARD_WIDTHS, { quality: "auto:eco" }) : undefined;
 ---
 
 <div
@@ -42,6 +46,8 @@ const resolvedImageSrc = imageSrc ? getImageUrl(imageSrc, { width: 960, quality:
       <div class="relative aspect-[16/9] w-full shrink-0 overflow-hidden rounded-t-xl bg-gray-100 dark:bg-gray-700">
         <img
           src={resolvedImageSrc}
+          srcset={resolvedImageSrcSet}
+          sizes={CARD_SIZES}
           alt={imageAlt || title}
           loading="lazy"
           class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"

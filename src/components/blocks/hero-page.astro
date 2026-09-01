@@ -1,5 +1,5 @@
 ---
-import { getImageUrl } from '@/lib/cloudinary';
+import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
 
 interface Props {
   id?: string;
@@ -32,7 +32,11 @@ const {
 } = Astro.props;
 
 const HERO_IMAGE_OPTIONS = { width: 1920, quality: "auto:eco" as const };
+const HERO_WIDTHS = [640, 960, 1280, 1600, 1920, 2560];
 const backgroundImageUrl = backgroundImage ? getImageUrl(backgroundImage, HERO_IMAGE_OPTIONS) : undefined;
+const backgroundImageSrcSet = backgroundImage
+  ? getImageSrcSet(backgroundImage, HERO_WIDTHS, { quality: "auto:eco" })
+  : undefined;
 const clampedOpacity = Math.min(Math.max(overlayOpacity ?? 70, 0), 100);
 const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
 const hasOverlay = Boolean(backgroundImageUrl);
@@ -50,15 +54,27 @@ const secondaryBtnClass = hasOverlay
   : 'btn btn-secondary';
 const wrapperClass =
   size === 'full'
-    ? 'relative min-h-[80vh] flex flex-col justify-center bg-cover bg-center'
-    : 'relative flex flex-col justify-center bg-cover bg-center py-16 md:py-24';
+    ? 'relative min-h-[80vh] flex flex-col justify-center overflow-hidden'
+    : 'relative flex flex-col justify-center overflow-hidden py-16 md:py-24';
 ---
 
 <div
   id={id}
   class={`${wrapperClass} w-screen relative left-1/2 -translate-x-1/2`}
-  style={backgroundImageUrl ? `background-image: url(${backgroundImageUrl})` : undefined}
 >
+  {backgroundImageUrl && (
+    <img
+      src={backgroundImageUrl}
+      srcset={backgroundImageSrcSet}
+      sizes="100vw"
+      alt=""
+      aria-hidden="true"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+  )}
   {backgroundImageUrl && (
     <div
       class="absolute inset-0"
