@@ -23,7 +23,7 @@ sectors:
 services:
   - signage
 order: 20
-featured: true
+featured: false
 ---
 
 Fit-out for new Medical office space in existing building.

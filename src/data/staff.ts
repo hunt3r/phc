@@ -5,6 +5,6 @@ export interface StaffMember {
   bio: string;
   /** Optional: path or Cloudinary URL for profile photo */
   image?: string;
-  /** Optional: e.g. "September 16, 1957 – October 4, 2024" for In Memoriam */
-  inMemoriam?: string;
+  /** Optional short note shown under the title (e.g. In Memoriam dates, credentials). */
+  note?: string;
 }

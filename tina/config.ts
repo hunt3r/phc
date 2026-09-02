@@ -285,7 +285,7 @@ export default defineConfig({
               { type: 'string', name: 'title', label: 'Title', required: true },
               { type: 'string', name: 'bio', label: 'Bio', ui: { component: 'textarea' } },
               { type: 'image', name: 'image', label: 'Profile Photo', description: 'Upload via Cloudinary' },
-              { type: 'string', name: 'inMemoriam', label: 'In Memoriam', description: 'e.g. September 16, 1957 – October 4, 2024' },
+              { type: 'string', name: 'note', label: 'Note', description: 'Optional short note shown under the title (e.g. "In Memoriam - September 16, 1957 – October 4, 2024", credentials, etc.).' },
             ],
           },
         ],

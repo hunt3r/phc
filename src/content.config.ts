@@ -152,7 +152,7 @@ const staff = defineCollection({
         title: z.string(),
         bio: z.string(),
         image: z.string().optional(),
-        inMemoriam: z.string().optional(),
+        note: z.string().optional(),
       })
     ),
   }),
