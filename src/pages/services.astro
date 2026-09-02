@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroPage from '../components/blocks/hero-page.astro';
 import { render } from 'astro:content';
+import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
 import { getTagMap, childrenOf, tagHref } from '@/lib/tags';
 import {
   CORE_SERVICES,
@@ -24,6 +25,12 @@ const sections = await Promise.all(
     tag,
     href: tagHref(tag.id, tagMap),
     Content: (await render(tag)).Content,
+    image: tag.data.image
+      ? {
+          src: getImageUrl(tag.data.image, { width: 800, quality: 'auto:eco' }),
+          srcset: getImageSrcSet(tag.data.image, [480, 640, 800, 1200], { quality: 'auto:eco' }),
+        }
+      : undefined,
     children: childrenOf(tag.id, tagMap).map((child) => ({
       entry: child,
       href: tagHref(child.id, tagMap),
@@ -95,48 +102,70 @@ const jsonLdNodes = [
   />
 
   <div class="pt-8 space-y-14">
-    {sections.map((section) => {
+    {sections.map((section, index) => {
       const Body = section.Content;
       return (
-        <section class="space-y-4">
-          <h2 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
-            <a href={section.href} class="transition hover:text-primary">
-              {section.tag.data.label}
-            </a>
-          </h2>
-
-          <div class="prose-content">
-            <Body />
-          </div>
-
-          {section.children.length > 0 && (
-            <ul class="mt-2 grid gap-x-8 gap-y-2 sm:grid-cols-2">
-              {section.children.map((child) => (
-                <li class="break-inside-avoid">
-                  <a
-                    href={child.href}
-                    class="font-medium text-gray-800 transition hover:text-primary dark:text-gray-200"
-                  >
-                    {child.entry.data.label}
-                  </a>
-                  {child.children.length > 0 && (
-                    <ul class="mt-1 ml-4 space-y-1 border-l border-gray-200 pl-4 dark:border-gray-700">
-                      {child.children.map((grandchild) => (
-                        <li>
-                          <a
-                            href={grandchild.href}
-                            class="text-sm text-gray-600 transition hover:text-primary dark:text-gray-400"
-                          >
-                            {grandchild.entry.data.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
+        <section
+          class={`flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-12${
+            section.image && index % 2 === 0 ? ' lg:flex-row-reverse' : ''
+          }`}
+        >
+          {section.image && (
+            <div class="lg:w-1/2">
+              <img
+                src={section.image.src}
+                srcset={section.image.srcset}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                alt={section.tag.data.label}
+                loading="lazy"
+                decoding="async"
+                class="aspect-[4/3] w-full rounded-lg object-cover"
+              />
+            </div>
           )}
+
+          <div class={section.image ? 'space-y-4 lg:w-1/2' : 'w-full space-y-4'}>
+            <h2 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+              <a href={section.href} class="transition hover:text-primary">
+                {section.tag.data.label}
+              </a>
+            </h2>
+
+            <div class="prose-content">
+              <Body />
+            </div>
+
+            {section.children.length > 0 && (
+              <ul class="mt-2 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+                {section.children.map((child) => (
+                  <li class="break-inside-avoid">
+                    <a
+                      href={child.href}
+                      class="font-medium text-gray-800 transition hover:text-primary dark:text-gray-200"
+                    >
+                      {child.entry.data.label}
+                    </a>
+                    {child.children.length > 0 && (
+                      <ul class="mt-1 ml-4 space-y-1 border-l border-gray-200 pl-4 dark:border-gray-700">
+                        {child.children.map((grandchild) => (
+                          <li>
+                            <a
+                              href={grandchild.href}
+                              class="text-sm text-gray-600 transition hover:text-primary dark:text-gray-400"
+                            >
+                              {grandchild.entry.data.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <a href={section.href} class="btn-secondary mt-2">Learn more</a>
+          </div>
         </section>
       );
     })}
