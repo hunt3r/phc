@@ -99,6 +99,7 @@ const tags = defineCollection({
       description: z.string().optional(),
       image: z.string().optional(),
       hero: aboutHeroSchema,
+      parent: z.string().optional(),
       order: z.number().optional(),
       showInNav: z.boolean().optional(),
     }),

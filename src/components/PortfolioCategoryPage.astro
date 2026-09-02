@@ -1,14 +1,20 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection, render } from 'astro:content';
-import ProjectCard from '../../components/ProjectCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
 import { getImageUrl } from '@/lib/cloudinary';
-import { getNavTags, getTagMap, resolveTags, portfolioEntriesForTag } from '@/lib/tags';
+import {
+  getNavTags,
+  getTagMap,
+  resolveTags,
+  portfolioEntriesForTagTree,
+  childrenOf,
+  tagHref,
+} from '@/lib/tags';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
-export async function getStaticPaths() {
-  const tags = await getCollection('tags');
-  return tags.map((entry) => ({ params: { tag: entry.id }, props: { entry } }));
+interface Props {
+  entry: CollectionEntry<'tags'>;
 }
 
 const { entry } = Astro.props;
@@ -18,9 +24,10 @@ const tagLabel = entry.data.label;
 const portfolio = await getCollection('portfolio');
 const tagMap = await getTagMap();
 const navTags = await getNavTags();
-const entries = portfolioEntriesForTag(entry.id, portfolio).sort(
+const entries = portfolioEntriesForTagTree(entry.id, portfolio, tagMap).sort(
   (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)
 );
+const childTags = childrenOf(entry.id, tagMap);
 
 const HERO_WIDTHS = [640, 960, 1200, 1600];
 const heroImageUrl = entry.data.image
@@ -37,8 +44,8 @@ const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
 const jsonLdNodes = [
   createBreadcrumbListSchema(site, [
     { name: 'Home', path: '/' },
-    { name: 'Tags', path: '/tags' },
-    { name: tagLabel, path: `/tags/${entry.id}` },
+    { name: 'Portfolio', path: '/portfolio' },
+    { name: tagLabel, path: `/portfolio/${entry.id}` },
   ]),
 ];
 ---
@@ -73,7 +80,7 @@ const jsonLdNodes = [
       >
         <option value="/portfolio">All</option>
         {navTags.map((t) => (
-          <option value={`/tags/${t.id}`} selected={t.id === entry.id}>{t.data.label}</option>
+          <option value={tagHref(t.id, tagMap)} selected={t.id === entry.id}>{t.data.label}</option>
         ))}
       </select>
     </div>
@@ -97,7 +104,7 @@ const jsonLdNodes = [
             return (
               <li>
                 <a
-                  href={`/tags/${t.id}`}
+                  href={tagHref(t.id, tagMap)}
                   class={`block rounded-lg px-3 py-2 text-sm font-medium transition ${
                     isActive
                       ? 'bg-primary/10 text-primary dark:bg-primary/20'
@@ -125,6 +132,19 @@ const jsonLdNodes = [
         <Content />
       </section>
 
+      {childTags.length > 0 && (
+        <div class="flex flex-wrap gap-2">
+          {childTags.map((child) => (
+            <a
+              href={tagHref(child.id, tagMap)}
+              class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm font-medium text-gray-700 transition hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:border-primary dark:hover:bg-primary/10"
+            >
+              {child.data.label}
+            </a>
+          ))}
+        </div>
+      )}
+
       <div>
         <p class="text-gray-600 dark:text-gray-400">
           {entries.length} project{entries.length === 1 ? '' : 's'}
@@ -148,7 +168,7 @@ const jsonLdNodes = [
           ))}
         </ul>
       ) : (
-        <p class="text-gray-600 dark:text-gray-400">No projects with this tag yet.</p>
+        <p class="text-gray-600 dark:text-gray-400">No projects in this sector yet.</p>
       )}
     </div>
   </div>

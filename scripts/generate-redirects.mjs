@@ -14,7 +14,15 @@ const ROOT = join(__dirname, "..");
 const MANIFEST = join(ROOT, "scraped", "manifest.json");
 const TAXONOMY_DIR = join(ROOT, "scraped", "taxonomy");
 const PORTFOLIO_DIR = join(ROOT, "src", "content", "portfolio");
+const TAGS_DIR = join(ROOT, "src", "content", "tags");
 const OUTPUT = join(ROOT, "public", "_redirects");
+
+// Root tag types map to bespoke hub pages and a URL namespace for their leaves.
+// Keep in sync with ROOT_ROUTES in src/lib/tags.ts.
+const ROOT_HUB = { portfolio: "/portfolio", services: "/services" };
+const ROOT_LEAF_BASE = { portfolio: "/portfolio", services: "/services" };
+// Where to send a tag URL when the tag/root can't be resolved.
+const TAG_FALLBACK = "/portfolio/";
 
 const PAGE_REDIRECTS = {
   "about-us": "/about/",
@@ -85,12 +93,57 @@ async function loadNewTagSlugs() {
   return slugs;
 }
 
+function refToSlug(ref) {
+  if (!ref || typeof ref !== "string") return "";
+  const base = ref.split("/").pop() ?? ref;
+  return base.replace(/\.(md|mdx|json)$/i, "");
+}
+
+/**
+ * Load the tag hierarchy from src/content/tags and return the set of tag slugs
+ * plus a `tagUrl(slug)` helper that resolves a tag to its namespaced landing
+ * page URL by walking its parent chain to a registered root type.
+ */
+async function loadTagHierarchy() {
+  const files = (await readdir(TAGS_DIR)).filter((f) => f.endsWith(".md"));
+  const parentOf = new Map();
+  const slugs = new Set();
+  for (const file of files) {
+    const slug = file.replace(/\.md$/i, "");
+    const raw = await readFile(join(TAGS_DIR, file), "utf-8");
+    const { data } = matter(raw);
+    parentOf.set(slug, refToSlug(data.parent ?? ""));
+    slugs.add(slug);
+  }
+
+  function rootAncestor(slug) {
+    const visited = new Set([slug]);
+    let current = slug;
+    while (true) {
+      const parent = parentOf.get(current);
+      if (!parent || visited.has(parent)) return current;
+      visited.add(parent);
+      current = parent;
+    }
+  }
+
+  function tagUrl(slug) {
+    if (ROOT_HUB[slug]) return `${ROOT_HUB[slug]}/`.replace(/\/+$/, "/");
+    if (!slugs.has(slug)) return TAG_FALLBACK;
+    const base = ROOT_LEAF_BASE[rootAncestor(slug)];
+    return base ? `${base}/${slug}/` : TAG_FALLBACK;
+  }
+
+  return { slugs, tagUrl };
+}
+
 async function main() {
   const manifest = await loadJson(MANIFEST);
   const tags = await loadJson(join(TAXONOMY_DIR, "tags.json"));
   const categories = await loadJson(join(TAXONOMY_DIR, "categories.json"));
   const authors = await loadJson(join(TAXONOMY_DIR, "authors.json"));
   const newTagSlugs = await loadNewTagSlugs();
+  const { slugs: tagSlugs, tagUrl } = await loadTagHierarchy();
 
   const rules = new Map();
 
@@ -101,20 +154,27 @@ async function main() {
   for (const entry of manifest) {
     if (entry.type !== "post") continue;
     const overviewTag = OVERVIEW_TO_TAG[entry.slug];
-    const target = overviewTag ? `/tags/${overviewTag}/` : `/portfolio/${entry.slug}/`;
+    const target = overviewTag ? tagUrl(overviewTag) : `/portfolio/${entry.slug}/`;
     addRule(rules, `/${entry.slug}`, target);
   }
 
   for (const tag of tags) {
     const aliased = TAG_TO_TAG[tag.slug] ?? tag.slug;
-    const target = newTagSlugs.has(aliased) ? `/tags/${aliased}/` : "/tags/";
+    const target = newTagSlugs.has(aliased) ? tagUrl(aliased) : TAG_FALLBACK;
     addRule(rules, `/tag/${tag.slug}`, target);
   }
 
   for (const category of categories) {
     const tagSlug = CATEGORY_TO_TAG[category.slug] ?? category.slug;
-    addRule(rules, `/category/${category.slug}`, `/tags/${tagSlug}/`);
+    addRule(rules, `/category/${category.slug}`, tagUrl(tagSlug));
   }
+
+  // Retire the interim /tags/* namespace in favor of the type-namespaced URLs.
+  for (const slug of tagSlugs) {
+    if (ROOT_HUB[slug]) continue; // root tags never had a /tags/<slug> URL
+    addRule(rules, `/tags/${slug}`, tagUrl(slug));
+  }
+  addRule(rules, "/tags", "/portfolio/");
 
   for (const author of authors) {
     addRule(rules, `/author/${author.slug}`, "/about/");

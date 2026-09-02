@@ -111,8 +111,9 @@ export default defineConfig({
               { type: 'string', name: 'overlayColor', label: 'Overlay Color', options: ['dark', 'light'], ui: { component: 'select' } },
             ],
           },
-          { type: 'number', name: 'order', label: 'Order', description: 'Sort order in the portfolio navigation.' },
-          { type: 'boolean', name: 'showInNav', label: 'Show in portfolio navigation' },
+          { type: 'reference', name: 'parent', label: 'Parent Tag', collections: ['tags'], description: 'Optional. The parent tag in the hierarchy. Root tags (e.g. Sectors, Services) have no parent; supports unlimited nesting.' },
+          { type: 'number', name: 'order', label: 'Order', description: 'Sort order among sibling tags in navigation and listings.' },
+          { type: 'boolean', name: 'showInNav', label: 'Show in portfolio navigation', description: 'Deprecated: navigation is derived from the sectors tag tree.' },
           { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
         ],
         ui: {

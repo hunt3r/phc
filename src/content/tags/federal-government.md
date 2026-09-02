@@ -1,5 +1,6 @@
 ---
 label: Federal Government
-showInNav: false
+parent: src/content/tags/government.md
+showInNav: true
 ---
 

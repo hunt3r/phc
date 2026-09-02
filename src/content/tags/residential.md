@@ -1,5 +1,6 @@
 ---
 label: Residential
+parent: src/content/tags/portfolio.md
 order: 6
 showInNav: true
 description: PH&C brings the experience and knowledge to manage your projects successfully from inception to delivery on-time and on-budget residential homes.

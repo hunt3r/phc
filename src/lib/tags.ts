@@ -7,6 +7,34 @@ export interface ResolvedTag {
   href: string;
 }
 
+export interface TagGroup {
+  root: string;
+  label: string;
+  tags: ResolvedTag[];
+}
+
+export interface RootRoute {
+  /** The bespoke hub page for this root type. */
+  hub: string;
+  /** URL prefix for leaf landing pages under this root. */
+  leafBase: string;
+  /** Heading used when grouping a project's tags by this root. */
+  groupLabel: string;
+}
+
+/**
+ * Maps a root tag slug to its bespoke hub page and the URL namespace used for
+ * its leaf landing pages. Adding a new top-level tag type is a matter of adding
+ * an entry here plus the corresponding hub / [slug] pages.
+ */
+export const ROOT_ROUTES: Record<string, RootRoute> = {
+  portfolio: { hub: '/portfolio', leafBase: '/portfolio', groupLabel: 'Categories' },
+  services: { hub: '/services', leafBase: '/services', groupLabel: 'Services' },
+};
+
+/** Fallback namespace for tags whose root has no registered route. */
+const DEFAULT_LEAF_BASE = '/tags';
+
 /**
  * Convert a Tina reference value (a file path like
  * `src/content/tags/retail.md`) into a bare tag slug (`retail`).
@@ -34,18 +62,123 @@ export async function getTagMap(): Promise<Map<string, CollectionEntry<'tags'>>>
 }
 
 /**
- * Tag entries flagged for the portfolio navigation, sorted by order then label.
+ * The parent tag slug of a tag entry, or '' if it is a root.
+ */
+export function getParentSlug(entry: CollectionEntry<'tags'>): string {
+  return refToSlug((entry.data as { parent?: string }).parent ?? '');
+}
+
+function sortByOrderThenLabel(
+  a: CollectionEntry<'tags'>,
+  b: CollectionEntry<'tags'>
+): number {
+  const orderA = a.data.order ?? 999;
+  const orderB = b.data.order ?? 999;
+  if (orderA !== orderB) return orderA - orderB;
+  return (a.data.label ?? '').localeCompare(b.data.label ?? '');
+}
+
+/**
+ * The chain of ancestor slugs for a tag, from immediate parent up to the root.
+ * Cycle-guarded, so malformed data can never loop forever.
+ */
+export function ancestorChain(
+  slug: string,
+  tagMap: Map<string, CollectionEntry<'tags'>>
+): string[] {
+  const chain: string[] = [];
+  const visited = new Set<string>([slug]);
+  let current = tagMap.get(slug);
+  while (current) {
+    const parentSlug = getParentSlug(current);
+    if (!parentSlug || visited.has(parentSlug)) break;
+    visited.add(parentSlug);
+    chain.push(parentSlug);
+    current = tagMap.get(parentSlug);
+  }
+  return chain;
+}
+
+/**
+ * The topmost ancestor of a tag (its root type). Returns the slug itself when
+ * the tag has no parent.
+ */
+export function rootAncestor(
+  slug: string,
+  tagMap: Map<string, CollectionEntry<'tags'>>
+): string {
+  const chain = ancestorChain(slug, tagMap);
+  return chain.length ? chain[chain.length - 1] : slug;
+}
+
+/**
+ * Direct children of a tag, sorted by order then label.
+ */
+export function childrenOf(
+  slug: string,
+  tagMap: Map<string, CollectionEntry<'tags'>>
+): CollectionEntry<'tags'>[] {
+  return [...tagMap.values()]
+    .filter((t) => getParentSlug(t) === slug)
+    .sort(sortByOrderThenLabel);
+}
+
+/**
+ * All descendant slugs beneath a tag (children, grandchildren, ...).
+ * Cycle-guarded.
+ */
+export function descendantSlugs(
+  slug: string,
+  tagMap: Map<string, CollectionEntry<'tags'>>
+): string[] {
+  const result: string[] = [];
+  const visited = new Set<string>([slug]);
+  const queue = [slug];
+  while (queue.length) {
+    const current = queue.shift() as string;
+    for (const child of childrenOf(current, tagMap)) {
+      if (visited.has(child.id)) continue;
+      visited.add(child.id);
+      result.push(child.id);
+      queue.push(child.id);
+    }
+  }
+  return result;
+}
+
+/**
+ * Every tag that lives under a given root type (excluding the root itself).
+ */
+export function tagsWithRoot(
+  rootSlug: string,
+  tagMap: Map<string, CollectionEntry<'tags'>>
+): CollectionEntry<'tags'>[] {
+  return [...tagMap.values()]
+    .filter((t) => t.id !== rootSlug && rootAncestor(t.id, tagMap) === rootSlug)
+    .sort(sortByOrderThenLabel);
+}
+
+/**
+ * The public URL for a tag's landing page, namespaced by its root type.
+ * Root tags resolve to their bespoke hub page.
+ */
+export function tagHref(
+  slug: string,
+  tagMap: Map<string, CollectionEntry<'tags'>>
+): string {
+  if (ROOT_ROUTES[slug]) return ROOT_ROUTES[slug].hub;
+  const root = rootAncestor(slug, tagMap);
+  const base = ROOT_ROUTES[root]?.leafBase ?? DEFAULT_LEAF_BASE;
+  return `${base}/${slug}`;
+}
+
+/**
+ * Tag entries that form the portfolio (sector) navigation: the direct children
+ * of the `portfolio` root, sorted by order then label.
  */
 export async function getNavTags(): Promise<CollectionEntry<'tags'>[]> {
-  const tags = await getCollection('tags');
-  return tags
-    .filter((t) => t.data.showInNav)
-    .sort((a, b) => {
-      const orderA = a.data.order ?? 999;
-      const orderB = b.data.order ?? 999;
-      if (orderA !== orderB) return orderA - orderB;
-      return (a.data.label ?? '').localeCompare(b.data.label ?? '');
-    });
+  const tagMap = await getTagMap();
+  return childrenOf('portfolio', tagMap);
 }
 
 /**
@@ -59,18 +192,60 @@ export function resolveTags(
   return getPortfolioTagSlugs(entry).map((slug) => ({
     slug,
     label: tagMap.get(slug)?.data.label ?? titleize(slug),
-    href: `/tags/${slug}`,
+    href: tagHref(slug, tagMap),
   }));
 }
 
 /**
- * Portfolio entries that reference a given tag slug.
+ * Resolve a portfolio entry's tags grouped by root type, so a project page can
+ * render e.g. "Categories" and "Services" as separate rows. Groups are ordered
+ * by the ROOT_ROUTES registry, with any unregistered roots appended.
+ */
+export function resolveTagsGrouped(
+  entry: CollectionEntry<'portfolio'>,
+  tagMap: Map<string, CollectionEntry<'tags'>>
+): TagGroup[] {
+  const resolved = resolveTags(entry, tagMap);
+  const groupsBySlug = new Map<string, ResolvedTag[]>();
+  for (const tag of resolved) {
+    const root = rootAncestor(tag.slug, tagMap);
+    if (!groupsBySlug.has(root)) groupsBySlug.set(root, []);
+    (groupsBySlug.get(root) as ResolvedTag[]).push(tag);
+  }
+  const orderedRoots = [
+    ...Object.keys(ROOT_ROUTES).filter((r) => groupsBySlug.has(r)),
+    ...[...groupsBySlug.keys()].filter((r) => !ROOT_ROUTES[r]),
+  ];
+  return orderedRoots.map((root) => ({
+    root,
+    label: ROOT_ROUTES[root]?.groupLabel ?? tagMap.get(root)?.data.label ?? titleize(root),
+    tags: groupsBySlug.get(root) as ResolvedTag[],
+  }));
+}
+
+/**
+ * Portfolio entries that reference a given tag slug (exact match).
  */
 export function portfolioEntriesForTag(
   slug: string,
   portfolio: CollectionEntry<'portfolio'>[]
 ): CollectionEntry<'portfolio'>[] {
   return portfolio.filter((entry) => getPortfolioTagSlugs(entry).includes(slug));
+}
+
+/**
+ * Portfolio entries that reference a tag or any of its descendants, so a
+ * parent landing page rolls up the work done across its whole subtree.
+ */
+export function portfolioEntriesForTagTree(
+  slug: string,
+  portfolio: CollectionEntry<'portfolio'>[],
+  tagMap: Map<string, CollectionEntry<'tags'>>
+): CollectionEntry<'portfolio'>[] {
+  const slugs = new Set<string>([slug, ...descendantSlugs(slug, tagMap)]);
+  return portfolio.filter((entry) =>
+    getPortfolioTagSlugs(entry).some((s) => slugs.has(s))
+  );
 }
 
 export { slugify };

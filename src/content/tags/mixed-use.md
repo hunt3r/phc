@@ -1,5 +1,6 @@
 ---
 label: Mixed Use
+parent: src/content/tags/portfolio.md
 order: 8
 showInNav: true
 description: 'PH&C develops mixed-use projects that combine retail, office, residential, healthcare and hospitality uses into cohesive, community-serving destinations.'

@@ -39,7 +39,7 @@ const jsonLdNodes = [
       >
         <option value="/portfolio" selected>All</option>
         {navTags.map((t) => (
-          <option value={`/tags/${t.id}`}>{t.data.label}</option>
+          <option value={`/portfolio/${t.id}`}>{t.data.label}</option>
         ))}
       </select>
     </div>
@@ -61,7 +61,7 @@ const jsonLdNodes = [
           {navTags.map((t) => (
             <li>
               <a
-                href={`/tags/${t.id}`}
+                href={`/portfolio/${t.id}`}
                 class="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100"
               >
                 {t.data.label}

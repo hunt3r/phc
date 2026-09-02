@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { render, type CollectionEntry } from 'astro:content';
+import PortfolioGallery from './PortfolioGallery.astro';
+import ProjectSpecs from './ProjectSpecs.astro';
+import QuoteCard from './QuoteCard.astro';
+import YouTubeEmbed from './blocks/youtube-embed.astro';
+import { getImageUrl } from '@/lib/cloudinary';
+import { getTagMap, resolveTags, resolveTagsGrouped } from '@/lib/tags';
+import {
+  createBreadcrumbListSchema,
+  createPortfolioCreativeWorkSchema,
+  toAbsoluteUrl,
+} from '@/lib/seo/jsonld';
+
+interface Props {
+  entry: CollectionEntry<'portfolio'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const tagMap = await getTagMap();
+const resolvedTags = resolveTags(entry, tagMap);
+const tagGroups = resolveTagsGrouped(entry, tagMap);
+
+const HERO_WIDTHS = [640, 960, 1200, 1600];
+const heroImageUrl = entry.data.image ? getImageUrl(entry.data.image, { width: 1200, quality: 'auto:eco' }) : undefined;
+const heroImageSrcSet = entry.data.image
+  ? HERO_WIDTHS.map((width) => `${getImageUrl(entry.data.image, { width, quality: 'auto:eco' })} ${width}w`).join(', ')
+  : undefined;
+
+// Use gallery from frontmatter, or fall back to hero image so the gallery section always shows when we have an image
+const galleryImages =
+  entry.data.gallery && entry.data.gallery.length > 0
+    ? entry.data.gallery
+    : entry.data.image
+      ? [{ src: entry.data.image, alt: entry.data.title ?? '' }]
+      : [];
+
+const ogDescription = entry.data.description ? entry.data.description.slice(0, 160).trim() : undefined;
+const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
+const pageUrl = Astro.url.href;
+const jsonLdNodes = [
+  createBreadcrumbListSchema(site, [
+    { name: "Home", path: "/" },
+    { name: "Portfolio", path: "/portfolio" },
+    { name: entry.data.title, url: pageUrl },
+  ]),
+  createPortfolioCreativeWorkSchema(site, {
+    url: pageUrl,
+    name: entry.data.title,
+    description: ogDescription,
+    image: entry.data.image ? toAbsoluteUrl(entry.data.image, site) : undefined,
+    date: entry.data.date,
+    location: entry.data.location,
+    client: entry.data.client,
+    tags: resolvedTags.map((t) => t.label),
+  }),
+];
+---
+
+<BaseLayout title={entry.data.title} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes} ogType="article" datePublished={entry.data.date}>
+  <article class="pt-8 space-y-8">
+    <header class="space-y-3">
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{entry.data.title}</h1>
+      <dl class="mt-2 grid gap-4 text-sm text-gray-600 dark:text-gray-300 sm:grid-cols-3">
+        {entry.data.location && (
+          <div>
+            <dt class="font-medium text-gray-900 dark:text-gray-100">Location</dt>
+            <dd>{entry.data.location}</dd>
+          </div>
+        )}
+        {entry.data.client && (
+          <div>
+            <dt class="font-medium text-gray-900 dark:text-gray-100">Client</dt>
+            <dd>{entry.data.client}</dd>
+          </div>
+        )}
+        {entry.data.date && (
+          <div>
+            <dt class="font-medium text-gray-900 dark:text-gray-100">Date</dt>
+            <dd>{entry.data.date}</dd>
+          </div>
+        )}
+      </dl>
+      <div class="mt-2 space-y-2">
+        {tagGroups.map((group) => (
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              {group.label}:
+            </span>
+            {group.tags.map((tag) => (
+              <a
+                href={tag.href}
+                class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-xs font-medium text-gray-700 transition hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:border-primary dark:hover:bg-primary/10"
+              >
+                {tag.label}
+              </a>
+            ))}
+          </div>
+        ))}
+      </div>
+      {heroImageUrl && (
+        <img
+          src={heroImageUrl}
+          srcset={heroImageSrcSet}
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1200px"
+          alt={entry.data.title}
+          width="1200"
+          height="900"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+          class="mt-4 w-full rounded-lg object-cover"
+        />
+      )}
+    </header>
+
+    <section class="prose-content [&::after]:clear-both [&::after]:table [&::after]:content-['']">
+      <ProjectSpecs
+        projectCost={entry.data.projectCost}
+        size={entry.data.size}
+        architect={entry.data.architect}
+        contractor={entry.data.contractor}
+        class="mb-4 w-full md:float-right md:mb-3 md:ml-6 md:w-72 lg:w-80"
+      />
+      <Content />
+    </section>
+
+    {galleryImages.length > 0 && (
+      <PortfolioGallery images={galleryImages} galleryId={entry.id} />
+    )}
+
+    {entry.data.quotes && entry.data.quotes.length > 0 && (
+      <section class="space-y-6">
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+          Testimonials
+        </h2>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {entry.data.quotes.map((q) => (
+            <QuoteCard quote={q.quote} author={q.author} role={q.role} />
+          ))}
+        </div>
+      </section>
+    )}
+
+    <YouTubeEmbed url={entry.data.youtube} title={entry.data.title} />
+  </article>
+</BaseLayout>
