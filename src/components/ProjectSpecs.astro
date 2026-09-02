@@ -22,11 +22,14 @@ const specs = [
     class={`overflow-hidden rounded-xl border border-gray-700 bg-gray-900 text-gray-100 shadow-sm ${className ?? ''}`}
     aria-label="Project details"
   >
+    <h2 class="font-heading border-b border-white/10 px-6 py-4 text-xl font-bold text-white">
+      Project Details
+    </h2>
     <dl class="divide-y divide-white/10">
       {specs.map((spec) => (
-        <div class="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-baseline sm:justify-between">
-          <dt class="text-xs font-semibold uppercase tracking-wider text-primary">{spec.label}</dt>
-          <dd class="text-base font-medium text-white sm:text-right">{spec.value}</dd>
+        <div class="flex items-baseline justify-between gap-4 px-6 py-4">
+          <dt class="text-sm font-semibold uppercase tracking-wide text-primary">{spec.label}</dt>
+          <dd class="text-base font-medium text-white text-right">{spec.value}</dd>
         </div>
       ))}
     </dl>
