@@ -1,4 +1,5 @@
 import { getCollection, getEntry } from 'astro:content';
+import { childrenOf, getTagMap } from '@/lib/tags';
 import {
   CORE_SERVICES,
   ORG_ADDRESS,
@@ -35,8 +36,8 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
   const { full } = opts;
   const portfolio = [...(await getCollection('portfolio'))].sort(byOrderThenTitle);
   const about = await getEntry('about', 'index');
-  const services = await getEntry('pages', 'services');
-  const sectors = await getEntry('pages', 'project-sectors');
+  const tagMap = await getTagMap();
+  const serviceTags = childrenOf('services', tagMap).filter((t) => t.data.order != null);
 
   const lines: string[] = [];
 
@@ -57,7 +58,6 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
   lines.push('## Key pages');
   lines.push(`- [About](${normalizeUrl(site, '/about')}): Company history, mission, values, and key personnel.`);
   lines.push(`- [Services](${normalizeUrl(site, '/services')}): Full range of consulting and construction management services.`);
-  lines.push(`- [Project Sectors](${normalizeUrl(site, '/project-sectors')}): Retail, office/warehouse, residential, self-storage, healthcare, and government experience.`);
   lines.push(`- [Portfolio](${normalizeUrl(site, '/portfolio')}): Completed and in-progress projects.`);
   lines.push(`- [Testimonials](${normalizeUrl(site, '/testimonials')}): Client feedback.`);
   lines.push(`- [Contact](${normalizeUrl(site, '/contact')}): Get in touch with PH&C.`);
@@ -91,19 +91,35 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
       lines.push(about.body.trim());
       lines.push('');
     }
-    if (services?.body) {
+    if (serviceTags.length) {
       lines.push('## Services (detail)');
       lines.push('');
-      lines.push(services.body.trim());
-      lines.push('');
+      for (const service of serviceTags) {
+        lines.push(`### ${service.data.label}`);
+        lines.push(`URL: ${normalizeUrl(site, `/services/${service.id}`)}`);
+        if (service.body?.trim()) {
+          lines.push('');
+          lines.push(service.body.trim());
+        }
+        const children = childrenOf(service.id, tagMap);
+        if (children.length) {
+          lines.push('');
+          for (const child of children) {
+            const grandchildren = childrenOf(child.id, tagMap);
+            if (grandchildren.length) {
+              lines.push(
+                `- ${child.data.label}: ${grandchildren.map((g) => g.data.label).join(', ')}`
+              );
+            } else {
+              lines.push(
+                `- ${child.data.label}${child.data.description ? `: ${child.data.description}` : ''}`
+              );
+            }
+          }
+        }
+        lines.push('');
+      }
     }
-    if (sectors?.body) {
-      lines.push('## Project Sectors (detail)');
-      lines.push('');
-      lines.push(sectors.body.trim());
-      lines.push('');
-    }
-
     lines.push('## Projects (detail)');
     lines.push('');
     for (const entry of portfolio) {

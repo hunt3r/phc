@@ -2,13 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
+import ServicesNav from '../../components/ServicesNav.astro';
 import { getImageUrl } from '@/lib/cloudinary';
 import {
   getTagMap,
   resolveTags,
   portfolioEntriesForTagTree,
-  childrenOf,
-  tagHref,
   tagsWithRoot,
 } from '@/lib/tags';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
@@ -31,7 +30,6 @@ const tagMap = await getTagMap();
 const entries = portfolioEntriesForTagTree(entry.id, portfolio, tagMap).sort(
   (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)
 );
-const childServices = childrenOf(entry.id, tagMap);
 
 const HERO_WIDTHS = [640, 960, 1200, 1600];
 const heroImageUrl = entry.data.image
@@ -70,67 +68,55 @@ const jsonLdNodes = [
     />
   )}
 
-  <div class="pt-8 space-y-8">
-    <nav class="text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
-      <a href="/services" class="transition hover:text-primary">Services</a>
-      <span class="px-1.5">/</span>
-      <span class="text-gray-700 dark:text-gray-300">{serviceLabel}</span>
-    </nav>
+  <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
+    <ServicesNav activeId={entry.id} />
 
-    <div>
-      <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{serviceLabel}</h1>
-      {entry.data.description && (
-        <p class="mt-2 max-w-3xl text-lg text-gray-600 dark:text-gray-400">{entry.data.description}</p>
-      )}
-    </div>
+    <div class="min-w-0 flex-1 space-y-8">
+      <nav class="text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
+        <a href="/services" class="transition hover:text-primary">Services</a>
+        <span class="px-1.5">/</span>
+        <span class="text-gray-700 dark:text-gray-300">{serviceLabel}</span>
+      </nav>
 
-    <section class="prose-content">
-      <Content />
-    </section>
-
-    {childServices.length > 0 && (
-      <section class="space-y-3">
-        <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100">Related services</h2>
-        <div class="flex flex-wrap gap-2">
-          {childServices.map((child) => (
-            <a
-              href={tagHref(child.id, tagMap)}
-              class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm font-medium text-gray-700 transition hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:border-primary dark:hover:bg-primary/10"
-            >
-              {child.data.label}
-            </a>
-          ))}
-        </div>
-      </section>
-    )}
-
-    <section class="space-y-6">
-      <div class="flex items-baseline justify-between gap-4">
-        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Projects</h2>
-        <p class="shrink-0 text-sm text-gray-600 dark:text-gray-400">
-          {entries.length} project{entries.length === 1 ? '' : 's'}
-        </p>
+      <div>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{serviceLabel}</h1>
+        {entry.data.description && (
+          <p class="mt-2 max-w-3xl text-lg text-gray-600 dark:text-gray-400">{entry.data.description}</p>
+        )}
       </div>
 
-      {entries.length > 0 ? (
-        <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {entries.map((portfolioEntry) => (
-            <li>
-              <ProjectCard
-                title={portfolioEntry.data.title ?? ''}
-                description={portfolioEntry.data.description ?? ''}
-                href={`/portfolio/${portfolioEntry.id}`}
-                imageSrc={portfolioEntry.data.image}
-                imageAlt={portfolioEntry.data.title ?? ''}
-                tags={resolveTags(portfolioEntry, tagMap)}
-                date={portfolioEntry.data.date}
-              />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p class="text-gray-600 dark:text-gray-400">No projects for this service yet.</p>
-      )}
-    </section>
+      <section class="prose-content">
+        <Content />
+      </section>
+
+      <section class="space-y-6">
+        <div class="flex items-baseline justify-between gap-4">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Projects</h2>
+          <p class="shrink-0 text-sm text-gray-600 dark:text-gray-400">
+            {entries.length} project{entries.length === 1 ? '' : 's'}
+          </p>
+        </div>
+
+        {entries.length > 0 ? (
+          <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {entries.map((portfolioEntry) => (
+              <li>
+                <ProjectCard
+                  title={portfolioEntry.data.title ?? ''}
+                  description={portfolioEntry.data.description ?? ''}
+                  href={`/portfolio/${portfolioEntry.id}`}
+                  imageSrc={portfolioEntry.data.image}
+                  imageAlt={portfolioEntry.data.title ?? ''}
+                  tags={resolveTags(portfolioEntry, tagMap)}
+                  date={portfolioEntry.data.date}
+                />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="text-gray-600 dark:text-gray-400">No projects for this service yet.</p>
+        )}
+      </section>
+    </div>
   </div>
 </BaseLayout>

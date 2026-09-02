@@ -181,6 +181,68 @@ export async function getNavTags(): Promise<CollectionEntry<'tags'>[]> {
   return childrenOf('portfolio', tagMap);
 }
 
+export interface NavNode {
+  entry: CollectionEntry<'tags'>;
+  href: string;
+  children: NavNode[];
+}
+
+/**
+ * The nested portfolio navigation tree: every descendant of the `portfolio`
+ * root, in order, with children attached. Cycle-guarded against malformed data.
+ */
+export async function getNavTree(): Promise<NavNode[]> {
+  const tagMap = await getTagMap();
+  const seen = new Set<string>();
+  const build = (slug: string): NavNode[] =>
+    childrenOf(slug, tagMap)
+      .filter((entry) => !seen.has(entry.id) && seen.add(entry.id))
+      .map((entry) => ({
+        entry,
+        href: tagHref(entry.id, tagMap),
+        children: build(entry.id),
+      }));
+  return build('portfolio');
+}
+
+/**
+ * The nested services navigation tree: every descendant of the `services` root,
+ * in order, with children attached. The top level is limited to curated
+ * services (those carrying an `order`), so legacy portfolio-tag stubs that also
+ * live under `services` (e.g. `landscaping`, `signage`) are excluded.
+ */
+export async function getServicesNavTree(): Promise<NavNode[]> {
+  const tagMap = await getTagMap();
+  const seen = new Set<string>();
+  const build = (slug: string): NavNode[] =>
+    childrenOf(slug, tagMap)
+      .filter((entry) => !seen.has(entry.id) && seen.add(entry.id))
+      .map((entry) => ({
+        entry,
+        href: tagHref(entry.id, tagMap),
+        children: build(entry.id),
+      }));
+  return build('services').filter((node) => node.entry.data.order != null);
+}
+
+/**
+ * Flatten a nav tree into a depth-annotated list in tree order, for rendering
+ * the mobile dropdown where nesting is conveyed via indentation.
+ */
+export function flattenNavTree(
+  nodes: NavNode[],
+  depth = 0
+): { node: NavNode; depth: number }[] {
+  const result: { node: NavNode; depth: number }[] = [];
+  for (const node of nodes) {
+    result.push({ node, depth });
+    if (node.children.length) {
+      result.push(...flattenNavTree(node.children, depth + 1));
+    }
+  }
+  return result;
+}
+
 /**
  * Resolve a portfolio entry's tags into display-ready { slug, label, href }.
  * Falls back to a titleized slug when a tag doc is missing.

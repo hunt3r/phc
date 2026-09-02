@@ -21,7 +21,9 @@
     "import:portfolio": "node scripts/import-portfolio-csv.mjs",
     "clean:descriptions": "node scripts/clean-portfolio-descriptions.mjs",
     "migrate:tags": "node scripts/migrate-tags.mjs --write",
-    "migrate:tags:dry": "node scripts/migrate-tags.mjs"
+    "migrate:tags:dry": "node scripts/migrate-tags.mjs",
+    "generate:services-doc": "node scripts/generate-services-doc.mjs",
+    "generate:service-tags": "node scripts/generate-service-tags.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
@@ -42,6 +44,7 @@
     "cloudinary": "^2.5.1",
     "concurrently": "^9.1.0",
     "cross-env": "^7.0.3",
+    "docx": "^9.7.1",
     "dotenv": "^16.4.5",
     "gray-matter": "^4.0.3",
     "react-dnd": "^16.0.1",

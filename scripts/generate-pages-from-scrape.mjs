@@ -22,7 +22,6 @@ const PAGE_MAP = [
   { scraped: "contact-us", output: "contact", title: "Contact" },
   { scraped: "privacy-policy", output: "privacy-policy" },
   { scraped: "our-services", output: "services" },
-  { scraped: "project-sectors", output: "project-sectors" },
 ];
 
 function safeBasename(url) {

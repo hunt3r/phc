@@ -1,20 +1,39 @@
 ---
-import ContentPageSection from '../components/ContentPageSection.astro';
-import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroPage from '../components/blocks/hero-page.astro';
+import { render } from 'astro:content';
 import { getTagMap, childrenOf, tagHref } from '@/lib/tags';
 import {
   CORE_SERVICES,
   createServiceSchema,
   createFaqSchema,
+  createBreadcrumbListSchema,
 } from '@/lib/seo/jsonld';
 
 const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
 
 const tagMap = await getTagMap();
-const serviceTags = childrenOf('services', tagMap);
+const servicesRoot = tagMap.get('services');
 
-const CARD_WIDTHS = [320, 480, 640, 960, 1280];
-const CARD_SIZES = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw';
+// The curated 1st-level services carry an `order`; legacy portfolio-tag stubs
+// under `services` (landscaping, signage, etc.) do not and are excluded here.
+const serviceTags = childrenOf('services', tagMap).filter((t) => t.data.order != null);
+
+const sections = await Promise.all(
+  serviceTags.map(async (tag) => ({
+    tag,
+    href: tagHref(tag.id, tagMap),
+    Content: (await render(tag)).Content,
+    children: childrenOf(tag.id, tagMap).map((child) => ({
+      entry: child,
+      href: tagHref(child.id, tagMap),
+      children: childrenOf(child.id, tagMap).map((grandchild) => ({
+        entry: grandchild,
+        href: tagHref(grandchild.id, tagMap),
+      })),
+    })),
+  }))
+);
 
 const faqSchema = createFaqSchema([
   {
@@ -44,64 +63,82 @@ const faqSchema = createFaqSchema([
   },
 ]);
 
+const description =
+  servicesRoot?.data.description ??
+  'The owner\'s-representation, construction management, and development services PH&C provides.';
+
 const jsonLdNodes = [
+  createBreadcrumbListSchema(site, [
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+  ]),
   ...CORE_SERVICES.map((service) => createServiceSchema(site, service)),
   ...(faqSchema ? [faqSchema] : []),
 ];
 ---
 
-<ContentPageSection
-  entryId="services"
-  path="/services"
-  breadcrumbLabel="Services"
+<BaseLayout
+  title="Services"
+  description={description}
+  image={servicesRoot?.data.image}
   jsonLdNodes={jsonLdNodes}
+  ogType="article"
 >
-  {serviceTags.length > 0 && (
-    <section class="mt-12 space-y-6">
-      <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Explore our services</h2>
-      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {serviceTags.map((tag) => {
-          const imageUrl = tag.data.image
-            ? getImageUrl(tag.data.image, { width: 960, quality: 'auto:eco' })
-            : undefined;
-          const imageSrcSet = tag.data.image
-            ? getImageSrcSet(tag.data.image, CARD_WIDTHS, { quality: 'auto:eco' })
-            : undefined;
-          return (
-            <li>
-              <a
-                href={tagHref(tag.id, tagMap)}
-                class="group flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white text-gray-900 shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
-              >
-                {imageUrl && (
-                  <div class="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-700">
-                    <img
-                      src={imageUrl}
-                      srcset={imageSrcSet}
-                      sizes={CARD_SIZES}
-                      alt={tag.data.label}
-                      loading="lazy"
-                      width="960"
-                      height="540"
-                      class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                )}
-                <div class="flex min-h-0 flex-1 flex-col gap-2 p-5">
-                  <h3 class="text-base font-semibold tracking-tight text-gray-900 dark:text-gray-100">
-                    {tag.data.label}
-                  </h3>
-                  {tag.data.description && (
-                    <p class="text-sm text-gray-600 line-clamp-3 dark:text-gray-400">
-                      {tag.data.description}
-                    </p>
+  <HeroPage
+    id="services-hero"
+    size="compact"
+    tagline={servicesRoot?.data.label ?? 'Services'}
+    subtitle={description}
+    backgroundImage={servicesRoot?.data.image}
+    overlayOpacity={70}
+    overlayColor="dark"
+  />
+
+  <div class="pt-8 space-y-14">
+    {sections.map((section) => {
+      const Body = section.Content;
+      return (
+        <section class="space-y-4">
+          <h2 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+            <a href={section.href} class="transition hover:text-primary">
+              {section.tag.data.label}
+            </a>
+          </h2>
+
+          <div class="prose-content">
+            <Body />
+          </div>
+
+          {section.children.length > 0 && (
+            <ul class="mt-2 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+              {section.children.map((child) => (
+                <li class="break-inside-avoid">
+                  <a
+                    href={child.href}
+                    class="font-medium text-gray-800 transition hover:text-primary dark:text-gray-200"
+                  >
+                    {child.entry.data.label}
+                  </a>
+                  {child.children.length > 0 && (
+                    <ul class="mt-1 ml-4 space-y-1 border-l border-gray-200 pl-4 dark:border-gray-700">
+                      {child.children.map((grandchild) => (
+                        <li>
+                          <a
+                            href={grandchild.href}
+                            class="text-sm text-gray-600 transition hover:text-primary dark:text-gray-400"
+                          >
+                            {grandchild.entry.data.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                </div>
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
-  )}
-</ContentPageSection>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      );
+    })}
+  </div>
+</BaseLayout>

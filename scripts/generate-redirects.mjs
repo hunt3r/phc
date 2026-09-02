@@ -30,6 +30,7 @@ const PAGE_REDIRECTS = {
   "welcome-to-phc": "/",
   "contact-us": "/contact/",
   "our-services": "/services/",
+  "project-sectors": "/portfolio/",
   video: "/",
 };
 

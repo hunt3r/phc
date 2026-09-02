@@ -1,0 +1,33 @@
+---
+import type { NavNode } from '@/lib/tags';
+import Self from './PortfolioNavItem.astro';
+
+interface Props {
+  node: NavNode;
+  activeId?: string;
+}
+
+const { node, activeId } = Astro.props;
+const isActive = node.entry.id === activeId;
+---
+
+<li>
+  <a
+    href={node.href}
+    aria-current={isActive ? 'page' : undefined}
+    class={`block rounded-lg px-3 py-2 text-sm font-medium transition ${
+      isActive
+        ? 'bg-primary/10 text-primary dark:bg-primary/20'
+        : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100'
+    }`}
+  >
+    {node.entry.data.label}
+  </a>
+  {node.children.length > 0 && (
+    <ul class="mt-0.5 space-y-0.5 pl-4">
+      {node.children.map((child) => (
+        <Self node={child} activeId={activeId} />
+      ))}
+    </ul>
+  )}
+</li>
