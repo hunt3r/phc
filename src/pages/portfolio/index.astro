@@ -3,12 +3,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, getEntry } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
 import PortfolioNav from '../../components/PortfolioNav.astro';
+import HeroPage from '../../components/blocks/hero-page.astro';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 const portfolio = await getCollection('portfolio');
 const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 const siteEntry = await getEntry('site', 'index');
 const portfolioTitle = siteEntry?.data?.portfolioTitle ?? 'Portfolio';
+const portfolioTag = await getEntry('tags', 'portfolio');
 const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
 const jsonLdNodes = [
   createBreadcrumbListSchema(site, [
@@ -21,13 +23,29 @@ const jsonLdNodes = [
 <BaseLayout
   title={portfolioTitle}
   description="Explore our construction and development portfolio."
+  image={portfolioTag?.data.image}
   jsonLdNodes={jsonLdNodes}
 >
+  {portfolioTag?.data.image && (
+    <HeroPage
+      id="portfolio-hero"
+      size="compact"
+      class="min-h-[43vw]"
+      tagline={portfolioTitle}
+      subtitle={portfolioTag?.data.description}
+      backgroundImage={portfolioTag?.data.image}
+      overlayOpacity={70}
+      overlayColor="dark"
+    />
+  )}
+
   <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
     <PortfolioNav />
     <div class="min-w-0 flex-1 space-y-6">
       <div>
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">Portfolio</h1>
+        {!portfolioTag?.data.image && (
+          <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{portfolioTitle}</h1>
+        )}
         <p class="mt-1 text-gray-600 dark:text-gray-400">
           {sorted.length} project{sorted.length === 1 ? '' : 's'}
         </p>

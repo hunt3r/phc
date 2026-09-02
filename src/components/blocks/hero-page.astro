@@ -14,6 +14,8 @@ interface Props {
   backgroundImage?: string;
   overlayOpacity?: number;
   overlayColor?: 'dark' | 'light';
+  /** Optional extra classes for the wrapper (e.g. a min-height like `min-h-[43vw]`). */
+  class?: string;
 }
 
 const {
@@ -29,6 +31,7 @@ const {
   backgroundImage,
   overlayOpacity = 70,
   overlayColor = 'dark',
+  class: className,
 } = Astro.props;
 
 const HERO_IMAGE_OPTIONS = { width: 1920, quality: "auto:eco" as const };
@@ -60,7 +63,7 @@ const wrapperClass =
 
 <div
   id={id}
-  class={`${wrapperClass} w-screen relative left-1/2 -translate-x-1/2`}
+  class={`${wrapperClass} w-screen relative left-1/2 -translate-x-1/2${className ? ` ${className}` : ''}`}
 >
   {backgroundImageUrl && (
     <img

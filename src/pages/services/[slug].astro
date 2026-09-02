@@ -4,7 +4,7 @@ import { getCollection, render } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
 import ServicesNav from '../../components/ServicesNav.astro';
 import VideoGrid from '../../components/VideoGrid.astro';
-import { getImageUrl } from '@/lib/cloudinary';
+import HeroPage from '../../components/blocks/hero-page.astro';
 import {
   getTagMap,
   portfolioEntriesForTagTree,
@@ -34,14 +34,6 @@ const entries = portfolioEntriesForTagTree(entry.id, portfolio, tagMap).sort(
 
 const videos = toVideoViews(entry.data.videos, `service-${entry.id}`);
 
-const HERO_WIDTHS = [640, 960, 1280, 1600, 1920, 2560];
-const heroImageUrl = entry.data.image
-  ? getImageUrl(entry.data.image, { width: 1920, quality: 'auto:eco' })
-  : undefined;
-const heroImageSrcSet = entry.data.image
-  ? HERO_WIDTHS.map((width) => `${getImageUrl(entry.data.image, { width, quality: 'auto:eco' })} ${width}w`).join(', ')
-  : undefined;
-
 const ogDescription = entry.data.description
   ? entry.data.description.slice(0, 160).trim()
   : undefined;
@@ -56,18 +48,16 @@ const jsonLdNodes = [
 ---
 
 <BaseLayout title={serviceLabel} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes}>
-  {heroImageUrl && (
-    <img
-      src={heroImageUrl}
-      srcset={heroImageSrcSet}
-      sizes="100vw"
-      alt={serviceLabel}
-      width="1920"
-      height="823"
-      fetchpriority="high"
-      loading="eager"
-      decoding="async"
-      class="relative left-1/2 w-screen max-w-none -translate-x-1/2 aspect-[21/9] object-cover"
+  {entry.data.image && (
+    <HeroPage
+      id={`service-${entry.id}-hero`}
+      size="compact"
+      class="min-h-[43vw]"
+      tagline={serviceLabel}
+      subtitle={entry.data.description}
+      backgroundImage={entry.data.image}
+      overlayOpacity={70}
+      overlayColor="dark"
     />
   )}
 
@@ -81,12 +71,14 @@ const jsonLdNodes = [
         <span class="text-gray-700 dark:text-gray-300">{serviceLabel}</span>
       </nav>
 
-      <div>
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{serviceLabel}</h1>
-        {entry.data.description && (
-          <p class="mt-2 max-w-3xl text-lg text-gray-600 dark:text-gray-400">{entry.data.description}</p>
-        )}
-      </div>
+      {!entry.data.image && (
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{serviceLabel}</h1>
+          {entry.data.description && (
+            <p class="mt-2 max-w-3xl text-lg text-gray-600 dark:text-gray-400">{entry.data.description}</p>
+          )}
+        </div>
+      )}
 
       <section class="prose-content">
         <Content />
