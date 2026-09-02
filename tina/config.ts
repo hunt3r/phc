@@ -87,7 +87,23 @@ export default defineConfig({
           },
           { type: 'number', name: 'order', label: 'Order' },
           { type: 'boolean', name: 'featured', label: 'Featured' },
-          { type: 'string', name: 'youtube', label: 'YouTube Video URL', description: 'Optional. Paste a full YouTube link to embed a player at the bottom of the page.' },
+          {
+            type: 'object',
+            name: 'videos',
+            label: 'Videos',
+            list: true,
+            description: 'Add, remove, or reorder videos shown as a card + lightbox player on this project.',
+            ui: {
+              itemProps: (item) => ({ label: item?.title || item?.youtube || 'New video' }),
+            },
+            fields: [
+              { type: 'string', name: 'title', label: 'Title' },
+              { type: 'string', name: 'youtube', label: 'YouTube Video URL', required: true, description: 'Paste a full YouTube link (or a bare 11-character video ID).' },
+              { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
+              { type: 'image', name: 'thumbnail', label: 'Thumbnail Override', description: 'Optional. Upload via Cloudinary to override the auto YouTube thumbnail.' },
+              { type: 'boolean', name: 'featured', label: 'Promote to home page' },
+            ],
+          },
           { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
         ],
         defaultItem: () => ({ order: 0 }),
@@ -123,6 +139,23 @@ export default defineConfig({
           { type: 'reference', name: 'parent', label: 'Parent Tag', collections: ['tags'], description: 'Optional. The parent tag in the hierarchy. Root tags (e.g. Sectors, Services) have no parent; supports unlimited nesting.' },
           { type: 'number', name: 'order', label: 'Order', description: 'Sort order among sibling tags in navigation and listings.' },
           { type: 'boolean', name: 'showInNav', label: 'Show in portfolio navigation', description: 'Deprecated: navigation is derived from the sectors tag tree.' },
+          {
+            type: 'object',
+            name: 'videos',
+            label: 'Videos',
+            list: true,
+            description: 'Add, remove, or reorder videos shown as a card + lightbox player on this tag landing page.',
+            ui: {
+              itemProps: (item) => ({ label: item?.title || item?.youtube || 'New video' }),
+            },
+            fields: [
+              { type: 'string', name: 'title', label: 'Title' },
+              { type: 'string', name: 'youtube', label: 'YouTube Video URL', required: true, description: 'Paste a full YouTube link (or a bare 11-character video ID).' },
+              { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
+              { type: 'image', name: 'thumbnail', label: 'Thumbnail Override', description: 'Optional. Upload via Cloudinary to override the auto YouTube thumbnail.' },
+              { type: 'boolean', name: 'featured', label: 'Promote to home page' },
+            ],
+          },
           { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
         ],
         ui: {
@@ -160,7 +193,23 @@ export default defineConfig({
               { type: 'string', name: 'overlayColor', label: 'Overlay Color', options: ['dark', 'light'], ui: { component: 'select' } },
             ],
           },
-          { type: 'string', name: 'youtube', label: 'YouTube Video URL', description: 'Optional. Paste a full YouTube link to embed a player at the bottom of the page.' },
+          {
+            type: 'object',
+            name: 'videos',
+            label: 'Videos',
+            list: true,
+            description: 'Add, remove, or reorder videos shown as a card + lightbox player on this page.',
+            ui: {
+              itemProps: (item) => ({ label: item?.title || item?.youtube || 'New video' }),
+            },
+            fields: [
+              { type: 'string', name: 'title', label: 'Title' },
+              { type: 'string', name: 'youtube', label: 'YouTube Video URL', required: true, description: 'Paste a full YouTube link (or a bare 11-character video ID).' },
+              { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
+              { type: 'image', name: 'thumbnail', label: 'Thumbnail Override', description: 'Optional. Upload via Cloudinary to override the auto YouTube thumbnail.' },
+              { type: 'boolean', name: 'featured', label: 'Promote to home page' },
+            ],
+          },
           { type: 'string', name: 'body', label: 'Body', ui: { component: 'textarea' }, isBody: true },
         ],
       },
@@ -193,7 +242,23 @@ export default defineConfig({
               { type: 'string', name: 'overlayColor', label: 'Overlay Color', options: ['dark', 'light'], ui: { component: 'select' } },
             ],
           },
-          { type: 'string', name: 'youtube', label: 'YouTube Video URL', description: 'Optional. Paste a full YouTube link to embed a player at the bottom of the page.' },
+          {
+            type: 'object',
+            name: 'videos',
+            label: 'Videos',
+            list: true,
+            description: 'Add, remove, or reorder videos shown as a card + lightbox player on this page.',
+            ui: {
+              itemProps: (item) => ({ label: item?.title || item?.youtube || 'New video' }),
+            },
+            fields: [
+              { type: 'string', name: 'title', label: 'Title' },
+              { type: 'string', name: 'youtube', label: 'YouTube Video URL', required: true, description: 'Paste a full YouTube link (or a bare 11-character video ID).' },
+              { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
+              { type: 'image', name: 'thumbnail', label: 'Thumbnail Override', description: 'Optional. Upload via Cloudinary to override the auto YouTube thumbnail.' },
+              { type: 'boolean', name: 'featured', label: 'Promote to home page' },
+            ],
+          },
           { type: 'string', name: 'body', label: 'Body', ui: { component: 'textarea' }, isBody: true },
         ],
       },
@@ -245,7 +310,9 @@ export default defineConfig({
         ui: { allowedActions: { create: false, delete: false } },
         fields: [
           { type: 'string', name: 'title', label: 'Page Title', description: 'Browser & SEO title for the homepage.' },
-          { type: 'string', name: 'youtube', label: 'YouTube Video URL', description: 'Optional. Paste a full YouTube link to embed a player at the bottom of the page.' },
+          { type: 'number', name: 'maxProjects', label: 'Max Latest Projects', description: 'How many projects to show in the "Latest projects" section. Defaults to 3.' },
+          { type: 'number', name: 'maxTestimonials', label: 'Max Testimonials', description: 'How many featured testimonials to show on the homepage. Defaults to 8.' },
+          { type: 'number', name: 'maxVideos', label: 'Max Videos', description: 'How many featured videos to show on the homepage. Defaults to 8.' },
           { type: 'object', name: 'hero', label: 'Hero', fields: [
             { type: 'string', name: 'size', label: 'Size', options: ['full', 'compact'], ui: { component: 'select' } },
             { type: 'string', name: 'eyebrow', label: 'Eyebrow' },
@@ -273,7 +340,7 @@ export default defineConfig({
   },
   search: {
     tina: {
-      indexerToken: process.env.TINA_TOKEN,
+      indexerToken: process.env.TINA_INDEXER_TOKEN,
       stopwordLanguages: ['eng'],
     },
     indexBatchSize: 100,

@@ -5,6 +5,10 @@ image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788366369/geotechnic
 parent: src/content/tags/site-analysis-feasibility.md
 order: 1
 showInNav: false
+videos:
+  - title: Geotechnical investigations explained
+    youtube: 'https://www.youtube.com/watch?v=fqfJFctahM8'
+    featured: true
 ---
 
 What lies beneath a site is often the single largest source of hidden risk in a development budget. Before a shovel ever hits the ground, PH\&C leads a thorough geotechnical investigation to understand the soils, rock, and groundwater conditions that will ultimately govern how a project is designed, built, and priced. Getting this right early is one of the most effective ways we protect our clients from costly surprises during construction.

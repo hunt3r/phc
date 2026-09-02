@@ -20,7 +20,10 @@ gallery:
     alt: '260 Morehall Road - Malvern, PA - image 7'
 order: 43
 featured: false
-youtube: 'https://www.youtube.com/watch?v=WQrji8QNA0A'
+videos:
+  - title: '260 Morehall Road - Malvern, PA'
+    youtube: 'https://www.youtube.com/watch?v=WQrji8QNA0A'
+    description: 'Site development at 260 Morehall Road, Malvern, PA.'
 sectors:
   - retail
 services:

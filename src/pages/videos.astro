@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import VideoGrid from '../components/VideoGrid.astro';
+import { getAllVideos } from '@/lib/videos';
+import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
+
+const videos = await getAllVideos();
+const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const jsonLdNodes = [
+  createBreadcrumbListSchema(site, [
+    { name: 'Home', path: '/' },
+    { name: 'Videos', path: '/videos' },
+  ]),
+];
+---
+
+<BaseLayout
+  title="Videos"
+  description="Watch project videos and features from PH&C."
+  jsonLdNodes={jsonLdNodes}
+>
+  <div class="pt-8 space-y-8">
+    <div>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">Videos</h1>
+      <p class="mt-1 text-gray-600 dark:text-gray-400">
+        {videos.length} video{videos.length === 1 ? '' : 's'} from our projects and team.
+      </p>
+    </div>
+
+    {videos.length > 0 ? (
+      <VideoGrid videos={videos} sectionId="videos-index" />
+    ) : (
+      <p class="text-gray-600 dark:text-gray-400">No videos yet. Check back soon.</p>
+    )}
+  </div>
+</BaseLayout>

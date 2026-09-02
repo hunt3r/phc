@@ -1,0 +1,50 @@
+---
+import type { VideoView } from '@/lib/videos';
+
+interface Props {
+  video: VideoView;
+  index: number;
+  class?: string;
+}
+
+const { video, index, class: className } = Astro.props as Props;
+---
+
+<button
+  type="button"
+  data-index={index}
+  class={`video-card group flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white text-left text-gray-900 shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 ${className ?? ''}`}
+  aria-label={`Play video: ${video.title}`}
+>
+  <div class="relative aspect-video w-full shrink-0 overflow-hidden rounded-t-xl bg-gray-900">
+    {video.thumbUrl && (
+      <img
+        src={video.thumbUrl}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        width="640"
+        height="360"
+        class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
+      />
+    )}
+    <span class="absolute inset-0 bg-black/10 transition-colors duration-150 group-hover:bg-black/20"></span>
+    <span class="pointer-events-none absolute inset-0 flex items-center justify-center">
+      <span class="flex h-14 w-14 items-center justify-center rounded-full bg-black/60 text-white shadow-lg ring-1 ring-white/30 transition-transform duration-150 group-hover:scale-110">
+        <svg class="ml-0.5 h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div class="flex min-h-0 flex-1 flex-col gap-2 p-5">
+    <h3 class="text-base font-semibold tracking-tight text-gray-900 line-clamp-2 dark:text-gray-100">
+      {video.title || 'Untitled video'}
+    </h3>
+    {video.description && (
+      <p class="text-sm text-gray-600 line-clamp-3 dark:text-gray-400">
+        {video.description}
+      </p>
+    )}
+  </div>
+</button>

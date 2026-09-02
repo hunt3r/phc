@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
 import PortfolioNav from './PortfolioNav.astro';
+import VideoGrid from './VideoGrid.astro';
 import { getImageUrl } from '@/lib/cloudinary';
 import {
   getTagMap,
@@ -10,6 +11,7 @@ import {
   childrenOf,
   tagHref,
 } from '@/lib/tags';
+import { toVideoViews } from '@/lib/videos';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 interface Props {
@@ -26,6 +28,8 @@ const entries = portfolioEntriesForTagTree(entry.id, portfolio, tagMap).sort(
   (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)
 );
 const childTags = childrenOf(entry.id, tagMap);
+
+const videos = toVideoViews(entry.data.videos, `sector-${entry.id}`);
 
 const HERO_WIDTHS = [640, 960, 1200, 1600];
 const heroImageUrl = entry.data.image
@@ -115,6 +119,13 @@ const jsonLdNodes = [
         </ul>
       ) : (
         <p class="text-gray-600 dark:text-gray-400">No projects in this sector yet.</p>
+      )}
+
+      {videos.length > 0 && (
+        <section class="space-y-6">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Videos</h2>
+          <VideoGrid videos={videos} sectionId={`sector-${entry.id}`} />
+        </section>
       )}
     </div>
   </div>

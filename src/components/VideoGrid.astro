@@ -1,0 +1,259 @@
+---
+import VideoCard from './VideoCard.astro';
+import type { VideoView } from '@/lib/videos';
+
+interface Props {
+  videos: VideoView[];
+  /** Unique id when multiple grids exist on one page. */
+  sectionId?: string;
+  class?: string;
+}
+
+const { videos, sectionId = 'default', class: className } = Astro.props as Props;
+
+const views: VideoView[] = videos.filter((v) => v.embedUrl);
+
+const rootId = `video-grid-${sectionId}`;
+const lightboxId = `video-lightbox-${sectionId}`;
+const lightboxFrameId = `video-lightbox-frame-${sectionId}`;
+const lightboxTitleId = `video-lightbox-title-${sectionId}`;
+
+// Only the embed URL + title need to reach the client for the player.
+const clientData = views.map((v) => ({ embedUrl: v.embedUrl, title: v.title }));
+---
+
+{views.length > 0 && (
+  <div class={className}>
+    <div
+      id={rootId}
+      class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      data-video-section={sectionId}
+      data-videos={JSON.stringify(clientData)}
+    >
+      {views.map((video, index) => (
+        <VideoCard video={video} index={index} />
+      ))}
+    </div>
+
+    <div
+      id={lightboxId}
+      class="pointer-events-none fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-2 opacity-0 transition-opacity duration-150 sm:p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={lightboxTitleId}
+      aria-hidden="true"
+      hidden
+      inert
+    >
+      <div
+        class="relative flex w-full max-w-5xl flex-col text-white"
+        id={`${lightboxId}-focus-root`}
+        tabindex="-1"
+      >
+        <div class="mb-2 flex items-center justify-between gap-3 pr-1">
+          <h2 id={lightboxTitleId} class="min-w-0 truncate text-sm font-medium sm:text-base"></h2>
+          <button
+            type="button"
+            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            data-role="close"
+            aria-label="Close video"
+          >
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="relative w-full overflow-hidden rounded-lg bg-black shadow-xl" style="aspect-ratio: 16 / 9;">
+          <iframe
+            id={lightboxFrameId}
+            class="absolute inset-0 h-full w-full"
+            src="about:blank"
+            title="Video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        {views.length > 1 && (
+          <div class="mt-3 flex items-center justify-center gap-4">
+            <button
+              type="button"
+              class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              data-role="prev"
+              aria-label="Previous video"
+            >
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </button>
+            <span aria-live="polite" aria-atomic="true" class="text-xs text-white/80" data-role="counter"></span>
+            <button
+              type="button"
+              class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              data-role="next"
+              aria-label="Next video"
+            >
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+)}
+
+<script>
+  function initVideoGrids() {
+    const grids = document.querySelectorAll('[data-video-section]');
+    if (!grids.length) return;
+
+    function getFocusables(container: Element) {
+      const sel = 'button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe';
+      return Array.from(container.querySelectorAll(sel)) as HTMLElement[];
+    }
+
+    function trapFocus(e: KeyboardEvent, focusRoot: Element) {
+      if (e.key !== 'Tab') return;
+      const focusables = getFocusables(focusRoot);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
+    grids.forEach((grid) => {
+      const sectionId = (grid as HTMLElement).dataset.videoSection ?? 'default';
+      const lightbox = document.getElementById(`video-lightbox-${sectionId}`);
+      const frame = document.getElementById(`video-lightbox-frame-${sectionId}`) as HTMLIFrameElement | null;
+      const focusRoot = document.getElementById(`video-lightbox-${sectionId}-focus-root`);
+      const titleEl = document.getElementById(`video-lightbox-title-${sectionId}`);
+      const counterEl = lightbox?.querySelector('[data-role=counter]') as HTMLElement | null;
+      if (!lightbox || !frame || !focusRoot) return;
+
+      let videos: { embedUrl: string; title: string }[] = [];
+      try {
+        videos = JSON.parse((grid as HTMLElement).dataset.videos || '[]');
+      } catch {
+        videos = [];
+      }
+      let currentIndex = 0;
+      let lastActiveCard: HTMLElement | null = null;
+      let keyHandler: ((e: KeyboardEvent) => void) | null = null;
+
+      function withAutoplay(url: string) {
+        const sep = url.includes('?') ? '&' : '?';
+        return `${url}${sep}autoplay=1&rel=0&playsinline=1`;
+      }
+
+      function render() {
+        const video = videos[currentIndex];
+        if (!video) return;
+        frame!.src = withAutoplay(video.embedUrl);
+        if (titleEl) titleEl.textContent = video.title || '';
+        frame!.title = video.title || 'Video player';
+        if (counterEl && videos.length > 1) {
+          counterEl.textContent = `${currentIndex + 1} / ${videos.length}`;
+        }
+      }
+
+      function openLightbox(index: number, card: HTMLElement | null) {
+        currentIndex = index;
+        lastActiveCard = card;
+        render();
+        lightbox!.removeAttribute('hidden');
+        lightbox!.removeAttribute('inert');
+        lightbox!.classList.remove('pointer-events-none');
+        lightbox!.setAttribute('aria-hidden', 'false');
+        lightbox!.classList.add('opacity-100');
+        document.body.style.overflow = 'hidden';
+        document.addEventListener(
+          'keydown',
+          (keyHandler = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+              e.preventDefault();
+              closeLightbox();
+            } else if (e.key === 'ArrowRight' && videos.length > 1) {
+              e.preventDefault();
+              showNext(1);
+            } else if (e.key === 'ArrowLeft' && videos.length > 1) {
+              e.preventDefault();
+              showNext(-1);
+            } else if (e.key === 'Tab') {
+              trapFocus(e, focusRoot!);
+            }
+          })
+        );
+        focusRoot!.focus();
+      }
+
+      function closeLightbox() {
+        lightbox!.classList.add('pointer-events-none');
+        lightbox!.setAttribute('aria-hidden', 'true');
+        lightbox!.classList.remove('opacity-100');
+        lightbox!.setAttribute('inert', '');
+        lightbox!.setAttribute('hidden', '');
+        // Clearing the src stops playback/audio.
+        frame!.src = 'about:blank';
+        document.body.style.overflow = '';
+        if (keyHandler) document.removeEventListener('keydown', keyHandler);
+        keyHandler = null;
+        if (lastActiveCard) lastActiveCard.focus();
+      }
+
+      function showNext(delta: number) {
+        if (videos.length === 0) return;
+        currentIndex = (currentIndex + delta + videos.length) % videos.length;
+        render();
+      }
+
+      grid.addEventListener('click', (event) => {
+        const target = event.target as Element | null;
+        if (!target) return;
+        const button = target.closest('button[data-index]') as HTMLElement | null;
+        if (!button) return;
+        const index = Number(button.dataset.index || '0');
+        openLightbox(index, button);
+      });
+
+      lightbox.addEventListener('click', (event) => {
+        const target = event.target as Element | null;
+        if (!target) return;
+        const control = target.closest('[data-role]') as HTMLElement | null;
+        if (control?.dataset.role === 'close') {
+          closeLightbox();
+          return;
+        }
+        if (control?.dataset.role === 'next') {
+          showNext(1);
+          return;
+        }
+        if (control?.dataset.role === 'prev') {
+          showNext(-1);
+          return;
+        }
+        if (target === lightbox) {
+          closeLightbox();
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVideoGrids);
+  } else {
+    initVideoGrids();
+  }
+</script>

@@ -4,9 +4,10 @@ import { render, type CollectionEntry } from 'astro:content';
 import PortfolioGallery from './PortfolioGallery.astro';
 import ProjectSpecs from './ProjectSpecs.astro';
 import QuoteCard from './QuoteCard.astro';
-import YouTubeEmbed from './blocks/youtube-embed.astro';
+import VideoGrid from './VideoGrid.astro';
 import { getImageUrl } from '@/lib/cloudinary';
 import { getTagMap, resolveTags, resolveTagsGrouped } from '@/lib/tags';
+import { toVideoViews } from '@/lib/videos';
 import {
   createBreadcrumbListSchema,
   createPortfolioCreativeWorkSchema,
@@ -23,6 +24,8 @@ const { Content } = await render(entry);
 const tagMap = await getTagMap();
 const resolvedTags = resolveTags(entry, tagMap);
 const tagGroups = resolveTagsGrouped(entry, tagMap);
+
+const videos = toVideoViews(entry.data.videos, `portfolio-${entry.id}`);
 
 const HERO_WIDTHS = [640, 960, 1200, 1600];
 const heroImageUrl = entry.data.image ? getImageUrl(entry.data.image, { width: 1200, quality: 'auto:eco' }) : undefined;
@@ -145,6 +148,13 @@ const jsonLdNodes = [
       </section>
     )}
 
-    <YouTubeEmbed url={entry.data.youtube} title={entry.data.title} />
+    {videos.length > 0 && (
+      <section class="space-y-6">
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+          Videos
+        </h2>
+        <VideoGrid videos={videos} sectionId={`portfolio-${entry.id}`} />
+      </section>
+    )}
   </article>
 </BaseLayout>

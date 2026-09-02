@@ -1,6 +1,18 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+/**
+ * An inline video, embedded on a portfolio item, tag, or page. Rendered as a
+ * card that opens a lightbox player and aggregated onto the /videos page.
+ */
+const inlineVideoSchema = z.object({
+  title: z.string().optional(),
+  youtube: z.string(),
+  description: z.string().optional(),
+  thumbnail: z.string().optional(),
+  featured: z.boolean().optional(),
+});
+
 const portfolio = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/portfolio' }),
   schema: () =>
@@ -38,7 +50,7 @@ const portfolio = defineCollection({
         .optional(),
       order: z.number().optional(),
       featured: z.boolean().optional(),
-      youtube: z.string().optional(),
+      videos: z.array(inlineVideoSchema).optional(),
     }),
 });
 
@@ -46,7 +58,9 @@ const home = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/home' }),
   schema: z.object({
     title: z.string().optional(),
-    youtube: z.string().optional(),
+    maxProjects: z.number().optional(),
+    maxTestimonials: z.number().optional(),
+    maxVideos: z.number().optional(),
     hero: z
       .object({
         size: z.enum(['full', 'compact']).optional(),
@@ -104,6 +118,7 @@ const tags = defineCollection({
       parent: z.string().optional(),
       order: z.number().optional(),
       showInNav: z.boolean().optional(),
+      videos: z.array(inlineVideoSchema).optional(),
     }),
 });
 
@@ -114,7 +129,7 @@ const about = defineCollection({
       title: z.string(),
       featuredImage: z.string().optional(),
       hero: aboutHeroSchema,
-      youtube: z.string().optional(),
+      videos: z.array(inlineVideoSchema).optional(),
     }),
 });
 
@@ -126,7 +141,7 @@ const pages = defineCollection({
       description: z.string().optional(),
       featuredImage: z.string().optional(),
       hero: aboutHeroSchema,
-      youtube: z.string().optional(),
+      videos: z.array(inlineVideoSchema).optional(),
     }),
 });
 

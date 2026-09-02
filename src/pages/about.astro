@@ -3,7 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getEntry, render } from 'astro:content';
 import PersonnelCard from '../components/PersonnelCard.astro';
 import HeroPage from '../components/blocks/hero-page.astro';
-import YouTubeEmbed from '../components/blocks/youtube-embed.astro';
+import VideoGrid from '../components/VideoGrid.astro';
+import { toVideoViews } from '@/lib/videos';
 import { createBreadcrumbListSchema, createPersonSchema } from '@/lib/seo/jsonld';
 
 const entry = await getEntry('about', 'index');
@@ -14,6 +15,8 @@ const { Content } = await render(entry);
 
 const staffEntry = await getEntry('staff', 'index');
 const staff = staffEntry?.data?.staff ?? [];
+
+const videos = toVideoViews(entry.data.videos, 'about');
 
 const hero = entry.data.hero;
 const heroBackgroundImage = typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : entry.data.featuredImage;
@@ -70,6 +73,11 @@ const jsonLdNodes = [
       </div>
     </section>
 
-    <YouTubeEmbed url={entry.data.youtube} title={entry.data.title} />
+    {videos.length > 0 && (
+      <section class="pt-4 space-y-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Videos</h2>
+        <VideoGrid videos={videos} sectionId="about" />
+      </section>
+    )}
   </article>
 </BaseLayout>

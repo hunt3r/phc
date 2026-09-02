@@ -1,5 +1,8 @@
 {
   "title": "Construction and Real Estate Development Consulting Services",
+  "maxProjects": 8,
+  "maxTestimonials": 6,
+  "maxVideos": 3,
   "hero": {
     "size": "full",
     "eyebrow": "",

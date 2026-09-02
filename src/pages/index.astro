@@ -3,9 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroPage from '../components/blocks/hero-page.astro';
 import HeroCarousel from '../components/blocks/hero-carousel.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import YouTubeEmbed from '../components/blocks/youtube-embed.astro';
+import VideoGrid from '../components/VideoGrid.astro';
 import QuoteCard from '../components/QuoteCard.astro';
 import { getFeaturedQuotes } from '@/lib/quotes';
+import { getFeaturedVideos } from '@/lib/videos';
 import { getEntry, getCollection } from 'astro:content';
 
 const homeEntry = await getEntry('home', 'index');
@@ -20,9 +21,14 @@ const byOrderThenTitle = (a: any, b: any) => {
   return ((a.data as any).title ?? '').localeCompare((b.data as any).title ?? '');
 };
 
-const latestProjects = [...portfolioEntries].sort(byOrderThenTitle).slice(0, 3);
+const maxProjects = data?.maxProjects ?? 3;
+const maxTestimonials = data?.maxTestimonials ?? 8;
+const maxVideos = data?.maxVideos ?? 8;
 
-const featuredQuotes = await getFeaturedQuotes();
+const latestProjects = [...portfolioEntries].sort(byOrderThenTitle).slice(0, maxProjects);
+
+const featuredQuotes = (await getFeaturedQuotes()).slice(0, maxTestimonials);
+const featuredVideos = (await getFeaturedVideos()).slice(0, maxVideos);
 
 // Promoted items: featured and with a hero/cover image. Items missing an
 // image are soft-skipped so a stray `featured: true` never breaks the build.
@@ -91,6 +97,25 @@ const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 's
       </section>
     )}
 
+    {featuredVideos.length > 0 && (
+      <section>
+        <div class="mb-8 text-center">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 sm:text-3xl">
+            Videos
+          </h2>
+          <p class="mt-2 text-gray-600 dark:text-gray-400">
+            A closer look at our projects and team.
+          </p>
+        </div>
+        <VideoGrid videos={featuredVideos} sectionId="home-featured" />
+        <div class="mt-8 text-center">
+          <a href="/videos" class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
+            <span>View all videos</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    )}
     {featuredQuotes.length > 0 && (
       <section>
         <div class="mb-8 text-center">
@@ -121,16 +146,7 @@ const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 's
       </section>
     )}
 
-    {data?.about && (
-      <section>
-        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-          {data.about.heading ?? 'About Us'}
-        </h2>
-        <p class="mt-3 text-gray-600 dark:text-gray-400">
-          {data.about.body ?? 'We deliver quality construction and renovation projects.'}
-        </p>
-      </section>
-    )}
+
 
     {data?.contactCta && (
       <section class="rounded-xl border border-gray-200 bg-gray-50 p-8 text-center dark:border-gray-700 dark:bg-gray-800">
@@ -142,7 +158,5 @@ const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 's
         </p>
       </section>
     )}
-
-    <YouTubeEmbed url={data?.youtube} title={data?.title} />
   </article>
 </BaseLayout>

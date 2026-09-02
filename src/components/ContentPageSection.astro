@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroPage from './blocks/hero-page.astro';
-import YouTubeEmbed from './blocks/youtube-embed.astro';
+import VideoGrid from './VideoGrid.astro';
 import { getEntry, render } from 'astro:content';
+import { toVideoViews } from '@/lib/videos';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 interface Props {
@@ -20,6 +21,7 @@ if (!entry) {
 }
 
 const { Content } = await render(entry);
+const videos = toVideoViews(entry.data.videos, `page-${entryId}`);
 const hero = entry.data.hero;
 const heroBackgroundImage =
   typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : entry.data.featuredImage;
@@ -58,7 +60,12 @@ const jsonLdNodes = [
       <Content />
     </section>
 
-    <YouTubeEmbed url={entry.data.youtube} title={entry.data.title} />
+    {videos.length > 0 && (
+      <section class="pt-4 space-y-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Videos</h2>
+        <VideoGrid videos={videos} sectionId={`page-${entryId}`} />
+      </section>
+    )}
 
     <slot />
   </article>

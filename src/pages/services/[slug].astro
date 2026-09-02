@@ -3,12 +3,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
 import ServicesNav from '../../components/ServicesNav.astro';
+import VideoGrid from '../../components/VideoGrid.astro';
 import { getImageUrl } from '@/lib/cloudinary';
 import {
   getTagMap,
   portfolioEntriesForTagTree,
   tagsWithRoot,
 } from '@/lib/tags';
+import { toVideoViews } from '@/lib/videos';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 export async function getStaticPaths() {
@@ -29,6 +31,8 @@ const tagMap = await getTagMap();
 const entries = portfolioEntriesForTagTree(entry.id, portfolio, tagMap).sort(
   (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)
 );
+
+const videos = toVideoViews(entry.data.videos, `service-${entry.id}`);
 
 const HERO_WIDTHS = [640, 960, 1280, 1600, 1920, 2560];
 const heroImageUrl = entry.data.image
@@ -115,6 +119,13 @@ const jsonLdNodes = [
           <p class="text-gray-600 dark:text-gray-400">No projects for this service yet.</p>
         )}
       </section>
+
+      {videos.length > 0 && (
+        <section class="space-y-6">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Videos</h2>
+          <VideoGrid videos={videos} sectionId={`service-${entry.id}`} />
+        </section>
+      )}
     </div>
   </div>
 </BaseLayout>

@@ -22,7 +22,11 @@ gallery:
     alt: 'River Pointe Residential - Bridgeport, PA - image 7'
 order: 11
 featured: true
-youtube: 'https://www.youtube.com/watch?v=tK7IUFDWB3w'
+videos:
+  - title: 'River Pointe Residential - Bridgeport, PA'
+    youtube: 'https://www.youtube.com/watch?v=tK7IUFDWB3w'
+    description: 'A look at the River Pointe waterfront master-planned community in Bridgeport, PA.'
+    featured: true
 sectors:
   - residential
 ---
