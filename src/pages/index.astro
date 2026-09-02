@@ -6,7 +6,6 @@ import ProjectCard from '../components/ProjectCard.astro';
 import YouTubeEmbed from '../components/blocks/youtube-embed.astro';
 import QuoteCard from '../components/QuoteCard.astro';
 import { getFeaturedQuotes } from '@/lib/quotes';
-import { getTagMap, resolveTags } from '@/lib/tags';
 import { getEntry, getCollection } from 'astro:content';
 
 const homeEntry = await getEntry('home', 'index');
@@ -22,7 +21,6 @@ const byOrderThenTitle = (a: any, b: any) => {
 };
 
 const latestProjects = [...portfolioEntries].sort(byOrderThenTitle).slice(0, 3);
-const tagMap = await getTagMap();
 
 const featuredQuotes = await getFeaturedQuotes();
 
@@ -86,7 +84,6 @@ const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 's
               href={`/portfolio/${entry.id}`}
               imageSrc={(entry.data as any).image}
               imageAlt={(entry.data as any).title}
-              tags={resolveTags(entry, tagMap)}
               date={(entry.data as any).date}
             />
           ))}
@@ -104,7 +101,7 @@ const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 's
             Feedback from the owners and teams we partner with.
           </p>
         </div>
-        <div class="grid w-full gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid w-full gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {featuredQuotes.map((q) => (
             <QuoteCard
               quote={q.quote}

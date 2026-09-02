@@ -3,12 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, getEntry } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
 import PortfolioNav from '../../components/PortfolioNav.astro';
-import { getTagMap, resolveTags } from '@/lib/tags';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 const portfolio = await getCollection('portfolio');
 const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
-const tagMap = await getTagMap();
 const siteEntry = await getEntry('site', 'index');
 const portfolioTitle = siteEntry?.data?.portfolioTitle ?? 'Portfolio';
 const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
@@ -34,7 +32,7 @@ const jsonLdNodes = [
           {sorted.length} project{sorted.length === 1 ? '' : 's'}
         </p>
       </div>
-      <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+      <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {sorted.map((entry) => (
           <li>
             <ProjectCard
@@ -43,7 +41,6 @@ const jsonLdNodes = [
               href={`/portfolio/${entry.id}`}
               imageSrc={entry.data.image}
               imageAlt={entry.data.title ?? ''}
-              tags={resolveTags(entry, tagMap)}
               date={entry.data.date}
             />
           </li>

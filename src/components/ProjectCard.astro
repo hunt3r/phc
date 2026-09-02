@@ -4,18 +4,12 @@ import { getImageUrl, getImageSrcSet } from "@/lib/cloudinary";
 const CARD_WIDTHS = [320, 480, 640, 960, 1280];
 const CARD_SIZES = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
 
-interface TagLink {
-  label: string
-  href: string
-}
-
 interface Props {
   title: string
   description: string
   href: string
   imageSrc?: string
   imageAlt?: string
-  tags?: TagLink[]
   date?: string
   class?: string
 }
@@ -26,7 +20,6 @@ const {
   href,
   imageSrc,
   imageAlt,
-  tags = [],
   date,
   class: className,
 } = Astro.props as Props
@@ -81,17 +74,5 @@ const resolvedImageSrcSet = imageSrc ? getImageSrcSet(imageSrc, CARD_WIDTHS, { q
       </div>
     </div>
   </a>
-  {tags.length > 0 && (
-    <div class="flex flex-wrap gap-1.5 border-t border-gray-100 px-5 py-3 dark:border-gray-700">
-      {tags.map((tag) => (
-        <a
-          href={tag.href}
-          class="tag-pill rounded-full border border-gray-200 bg-gray-100 px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide text-gray-700 transition hover:border-primary hover:bg-primary/10 hover:text-primary dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-primary dark:hover:bg-primary/20 dark:hover:text-primary"
-        >
-          {tag.label}
-        </a>
-      ))}
-    </div>
-  )}
 </div>
 

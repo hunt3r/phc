@@ -25,6 +25,8 @@
   --font-body: 'Futura Book', 'Segoe UI', system-ui, sans-serif;
   /* Hero overlay (oklch L C H, used with oklch(var(--hero-overlay-color) / opacity)) */
   --hero-overlay-color: 0 0 0;
+  /* Wide container for xl/2xl screens (generates max-w-8xl) */
+  --container-8xl: 90rem;
 }
 
 /* Dark mode semantic overrides (class on html) */
@@ -79,18 +81,7 @@
   }
 }
 
-/* Project card tag pills: override base link style so pills stay gray with fill */
 @layer components {
-  .project-card a.tag-pill {
-    text-decoration: none;
-    color: #374151;
-  }
-  .project-card a.tag-pill:hover {
-    text-decoration: none;
-  }
-  .dark .project-card a.tag-pill {
-    color: #d1d5db;
-  }
   .prose-content {
     @apply prose prose-lg max-w-none;
     /* Headings: brand serif, clear hierarchy */

@@ -6,7 +6,6 @@ import PortfolioNav from './PortfolioNav.astro';
 import { getImageUrl } from '@/lib/cloudinary';
 import {
   getTagMap,
-  resolveTags,
   portfolioEntriesForTagTree,
   childrenOf,
   tagHref,
@@ -100,7 +99,7 @@ const jsonLdNodes = [
       </div>
 
       {entries.length > 0 ? (
-        <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {entries.map((portfolioEntry) => (
             <li>
               <ProjectCard
@@ -109,7 +108,6 @@ const jsonLdNodes = [
                 href={`/portfolio/${portfolioEntry.id}`}
                 imageSrc={portfolioEntry.data.image}
                 imageAlt={portfolioEntry.data.title ?? ''}
-                tags={resolveTags(portfolioEntry, tagMap)}
                 date={portfolioEntry.data.date}
               />
             </li>
