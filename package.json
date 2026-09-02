@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:site\"",
     "dev:api": "cross-env NODE_ENV=development node scripts/dev-api.mjs",
-    "dev:site": "npm run generate:tag-options && tinacms dev -c \"astro dev\"",
+    "dev:site": "tinacms dev -c \"astro dev\"",
     "build": "npm run generate:redirects && astro build",
-    "build:admin": "npm run generate:tag-options && tinacms build",
+    "build:admin": "tinacms build",
     "preview": "astro preview",
     "scrape": "node scripts/scrape-phandc.mjs",
     "spider": "node scripts/scrape-phandc.mjs",
@@ -25,8 +25,7 @@
     "migrate:tags:split": "node scripts/migrate-tags-split.mjs --write",
     "migrate:tags:split:dry": "node scripts/migrate-tags-split.mjs",
     "generate:services-doc": "node scripts/generate-services-doc.mjs",
-    "generate:service-tags": "node scripts/generate-service-tags.mjs",
-    "generate:tag-options": "node scripts/generate-tag-options.mjs"
+    "generate:service-tags": "node scripts/generate-service-tags.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

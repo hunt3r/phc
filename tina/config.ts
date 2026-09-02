@@ -1,8 +1,7 @@
 import { defineConfig } from 'tinacms';
-// Options are precomputed into a static module by scripts/generate-tag-options.mjs
-// (run before dev/build). This must NOT read the filesystem here: tina/config.ts
-// is also evaluated in the browser for the admin UI, where fs is unavailable.
-import { tagOptions } from './tag-options';
+// Sectors/Services options are fetched live from the tags collection by a custom
+// admin field component, so no tag data is baked into the schema.
+import { TagCheckboxGroup } from './fields/TagCheckboxGroup';
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -74,7 +73,7 @@ export default defineConfig({
             name: 'sectors',
             label: 'Sectors',
             list: true,
-            options: tagOptions.sectors,
+            ui: { component: TagCheckboxGroup as any },
             description: 'Check all portfolio sectors that apply. Sectors power the portfolio navigation and have their own landing pages.',
           },
           {
@@ -82,8 +81,8 @@ export default defineConfig({
             name: 'services',
             label: 'Services',
             list: true,
-            options: tagOptions.services,
-            description: 'Check all services performed on this project. To add a new tag, create it in the Tags collection; it will appear here after the next build.',
+            ui: { component: TagCheckboxGroup as any },
+            description: 'Check all services performed on this project. Create new tags in the Tags collection and they appear here immediately.',
           },
           { type: 'number', name: 'order', label: 'Order' },
           { type: 'boolean', name: 'featured', label: 'Featured' },
