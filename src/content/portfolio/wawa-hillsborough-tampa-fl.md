@@ -11,9 +11,9 @@ gallery:
     alt: 'Wawa - Hillsborough, Tampa FL - image 2'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692788/images/portfolio/wawa-hillsborough-tampa-fl/DSCN1948.jpg'
     alt: 'Wawa - Hillsborough, Tampa FL - image 3'
-tags:
-  - tag: src/content/tags/retail.md
 order: 64
+sectors:
+  - retail
 ---
 Key Features:
 

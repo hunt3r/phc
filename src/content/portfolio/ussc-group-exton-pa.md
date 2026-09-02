@@ -17,9 +17,9 @@ gallery:
     alt: 'USSC Group - Exton, PA - image 5'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692755/images/portfolio/ussc-group-exton-pa/2020-09-21-14.04.42-scaled.jpg'
     alt: 'USSC Group - Exton, PA - image 6'
-tags:
-  - tag: src/content/tags/office.md
 order: 58
+sectors:
+  - office
 ---
 **Key Features:**
 

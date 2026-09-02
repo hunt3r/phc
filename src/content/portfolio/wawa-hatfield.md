@@ -7,9 +7,9 @@ image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692787/images/por
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692787/images/portfolio/wawa-hatfield/PHC-Placeholder.jpg'
     alt: 'Wawa - Hatfield, PA - image 1'
-tags:
-  - tag: src/content/tags/retail.md
 order: 61
+sectors:
+  - retail
 ---
 **Key Features:**
 

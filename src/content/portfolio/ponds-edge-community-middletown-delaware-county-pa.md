@@ -2,7 +2,7 @@
 title: 'Pond''s Edge - Middletown Twp, PA'
 description: 'Pond’s Edge is a 197 unit townhouse community on approximately 55 acres in Middletown Township, Delaware County. This residential community project has been a great success, allowing our client to move forward with the opening of the final phase of home construction in late 2023 into 2024. Key Features: We procured and managed multiple consultants'
 location: 'Middletown Twp, PA'
-size: '197 units / 55 acres'
+size: 197 units / 55 acres
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692493/images/portfolio/ponds-edge-community-middletown-delaware-county-pa/2023-10-27-08.55.00-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692493/images/portfolio/ponds-edge-community-middletown-delaware-county-pa/2023-10-27-08.55.00-scaled.jpg'
@@ -19,11 +19,11 @@ gallery:
     alt: 'Pond''s Edge - Middletown Twp, PA - image 6'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692495/images/portfolio/ponds-edge-community-middletown-delaware-county-pa/2023-11-10-13.33.46-scaled.jpg'
     alt: 'Pond''s Edge - Middletown Twp, PA - image 7'
-tags:
-  - tag: src/content/tags/residential.md
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/government.md
 order: 15
+sectors:
+  - residential
+  - retail
+  - government
 ---
 Pond’s Edge is a 197 unit townhouse community on approximately 55 acres in Middletown Township, Delaware County. This residential community project has been a great success, allowing our client to move forward with the opening of the final phase of home construction in late 2023 into 2024. 
 

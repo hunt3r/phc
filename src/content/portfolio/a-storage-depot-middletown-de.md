@@ -15,9 +15,9 @@ gallery:
     alt: 'A Storage Depot - Middletown, DE - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692373/images/portfolio/a-storage-depot-middletown-de/2020-01-14-11.06.51-scaled-e1600892365404.jpg'
     alt: 'A Storage Depot - Middletown, DE - image 5'
-tags:
-  - tag: src/content/tags/self-storage.md
 order: 41
+sectors:
+  - self-storage
 ---
 **Key Features:**
 

@@ -31,9 +31,9 @@ const entries = portfolioEntriesForTagTree(entry.id, portfolio, tagMap).sort(
   (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)
 );
 
-const HERO_WIDTHS = [640, 960, 1200, 1600];
+const HERO_WIDTHS = [640, 960, 1280, 1600, 1920, 2560];
 const heroImageUrl = entry.data.image
-  ? getImageUrl(entry.data.image, { width: 1600, quality: 'auto:eco' })
+  ? getImageUrl(entry.data.image, { width: 1920, quality: 'auto:eco' })
   : undefined;
 const heroImageSrcSet = entry.data.image
   ? HERO_WIDTHS.map((width) => `${getImageUrl(entry.data.image, { width, quality: 'auto:eco' })} ${width}w`).join(', ')
@@ -57,14 +57,14 @@ const jsonLdNodes = [
     <img
       src={heroImageUrl}
       srcset={heroImageSrcSet}
-      sizes="(max-width: 1152px) 100vw, 1152px"
+      sizes="100vw"
       alt={serviceLabel}
-      width="1600"
-      height="686"
+      width="1920"
+      height="823"
       fetchpriority="high"
       loading="eager"
       decoding="async"
-      class="mt-8 aspect-[21/9] w-full rounded-lg object-cover"
+      class="relative left-1/2 w-screen max-w-none -translate-x-1/2 aspect-[21/9] object-cover"
     />
   )}
 

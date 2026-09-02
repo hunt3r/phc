@@ -15,13 +15,14 @@ gallery:
     alt: 'Wawa - West Whiteland Township (Exton), PA - image 4'
   - src: /images/portfolio/wawa-west-whiteland-exton-pa/2024-03-12-11.29.12.jpg
     alt: 'Wawa - West Whiteland Township (Exton), PA - image 5'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/government.md
-  - tag: src/content/tags/office.md
-  - tag: src/content/tags/remediation.md
-  - tag: src/content/tags/demolition.md
 order: 9
+sectors:
+  - retail
+  - government
+  - office
+services:
+  - remediation
+  - demolition
 ---
 We continue our assistance in developing Wawa stores with this store opening in December 2024. Our work for an individual land owner client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction.
 

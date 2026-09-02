@@ -13,10 +13,11 @@ gallery:
     alt: 'Wawa - Maple Shade, NJ - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692782/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.46.11-scaled.jpg'
     alt: 'Wawa - Maple Shade, NJ - image 4'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/remediation.md
 order: 26
+sectors:
+  - retail
+services:
+  - remediation
 ---
 Assisting the Wawa Corporation in fulfilling their expansion plans continued with this store in another key market targeted by Wawa and our developer client. As usual, this Wawa expansion site had numerous redevelopment challenges including environmental remediation, stormwater, vehicular and pedestrian management. As well as accessibility improvements and accommodating neighboring businesses.  All the while controlling costs and budget management.
 

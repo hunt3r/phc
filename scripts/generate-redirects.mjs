@@ -84,7 +84,9 @@ async function loadNewTagSlugs() {
   for (const file of files) {
     const raw = await readFile(join(PORTFOLIO_DIR, file), "utf-8");
     const { data } = matter(raw);
-    for (const tag of data.tags ?? []) {
+    const legacy = data.tags ?? [];
+    const flat = [...(data.sectors ?? []), ...(data.services ?? [])];
+    for (const tag of [...flat, ...legacy]) {
       const ref = typeof tag === "string" ? tag : tag?.tag ?? "";
       const base = (ref.split("/").pop() ?? "").replace(/\.(md|mdx|json)$/i, "");
       const slug = slugify(base);

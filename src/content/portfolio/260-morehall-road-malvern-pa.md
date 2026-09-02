@@ -18,13 +18,14 @@ gallery:
     alt: '260 Morehall Road - Malvern, PA - image 6'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692362/images/portfolio/260-morehall-road-malvern-pa/2020-09-21-13.14.27-scaled-e1600886504940.jpg'
     alt: '260 Morehall Road - Malvern, PA - image 7'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/bank-billing-inspection-coordination.md
-  - tag: src/content/tags/construction-coordination-supervision.md
 order: 43
 featured: false
 youtube: 'https://www.youtube.com/watch?v=WQrji8QNA0A'
+sectors:
+  - retail
+services:
+  - bank-billing-inspection-coordination
+  - construction-coordination-supervision
 ---
 
 **Key Features:**

@@ -17,11 +17,12 @@ gallery:
     alt: 'Nemours DuPont Pediatrics - Paoli, PA - image 5'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692473/images/portfolio/nemours-dupont-pediatrics-paoli-pa/NEMOURS4-1024x683.jpg'
     alt: 'Nemours DuPont Pediatrics - Paoli, PA - image 6'
-tags:
-  - tag: src/content/tags/healthcare.md
-  - tag: src/content/tags/office.md
-  - tag: src/content/tags/landscaping.md
 order: 54
+sectors:
+  - healthcare
+  - office
+services:
+  - landscaping
 ---
 **Key Features:**
 

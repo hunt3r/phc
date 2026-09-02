@@ -1,6 +1,6 @@
 ---
 title: 'Sadsbury Commons - Parkesburg, PA - Development'
-description: 'The Sadsbury Commons development will offer many benefits to the local communities including a state-of-the-art medical facility anchors the site and more'
+description: The Sadsbury Commons development will offer many benefits to the local communities including a state-of-the-art medical facility anchors the site and more
 location: Development
 size: '36,000 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692516/images/portfolio/sadsbury-commons-development/sadsbury-1.jpg'
@@ -15,12 +15,12 @@ gallery:
     alt: 'Sadsbury Commons - Parkesburg, PA - Development - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692518/images/portfolio/sadsbury-commons-development/sadsbury-4.jpg'
     alt: 'Sadsbury Commons - Parkesburg, PA - Development - image 5'
-tags:
-  - tag: src/content/tags/healthcare.md
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/residential.md
-  - tag: src/content/tags/office.md
 order: 30
+sectors:
+  - healthcare
+  - retail
+  - residential
+  - office
 ---
 Sadsbury Commons, a once-rural area located about halfway between Philadelphia and Lancaster has seen robust development in recent years. This project will offer many benefits to the local communities, old and new. A state-of-the-art medical facility anchors the site and improvements to the stormwater management are underway for the up-and-coming retail and residential portions of this project.
 

@@ -18,13 +18,14 @@ gallery:
     alt: 'LiDL US - Freehold, New Jersey - image 6'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692452/images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-Apr-16-2024-10-22-06-AM-scaled.jpg'
     alt: 'LiDL US - Freehold, New Jersey - image 7'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/remediation.md
-  - tag: src/content/tags/demolition.md
-  - tag: src/content/tags/project-management.md
-  - tag: src/content/tags/grocery.md
 order: 6
+sectors:
+  - retail
+  - grocery
+services:
+  - remediation
+  - demolition
+  - project-management
 ---
 Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.
 

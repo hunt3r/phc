@@ -23,11 +23,16 @@ gallery:
     alt: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA - image 8
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692456/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/2020-07-14-13.53.15-scaled.jpg'
     alt: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA - image 9
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/remediation.md
-  - tag: src/content/tags/demolition.md
-  - tag: src/content/tags/geotechnical-investigations.md
+sectors:
+  - retail
+services:
+  - remediation
+  - demolition
+  - geotechnical-investigations
+  - initial-program-development
+  - project-planning-coordination
+  - construction-management-services
+  - environmental-permitting
 order: 17
 ---
 

@@ -14,10 +14,10 @@ gallery:
     alt: 'Wawa - Upper Moreland, PA - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692807/images/portfolio/wawa-upper-moreland/DSC_3859.jpg'
     alt: 'Wawa - Upper Moreland, PA - image 5'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/mixed-use.md
 order: 66
+sectors:
+  - retail
+  - mixed-use
 ---
 Key Features:
 

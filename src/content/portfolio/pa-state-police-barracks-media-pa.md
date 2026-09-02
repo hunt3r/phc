@@ -19,14 +19,15 @@ gallery:
     alt: 'PA State Police Barracks - Media, PA - image 6'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692486/images/portfolio/pa-state-police-barracks-media-pa/Photo-May-01-10-28-30-AM-scaled-e1601571306939.jpg'
     alt: 'PA State Police Barracks - Media, PA - image 7'
-tags:
-  - tag: src/content/tags/office.md
-  - tag: src/content/tags/government.md
-  - tag: src/content/tags/institutional.md
-  - tag: src/content/tags/remediation.md
-  - tag: src/content/tags/demolition.md
-  - tag: src/content/tags/grant.md
 order: 14
+sectors:
+  - office
+  - government
+  - institutional
+services:
+  - remediation
+  - demolition
+  - grant
 ---
 As part of a much larger re-development project in Delaware County PA around the old Franklin Mint property, the State Police required a new building to replace their antiquated building with a larger, state-of-the-art facility.  Site development, remediation and demolition of their old facility was included in the project scope. This project was awarded an $5M RACP grant to offset significant infrastructure costs. 
 

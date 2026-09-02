@@ -16,10 +16,11 @@ gallery:
     alt: 'Newton Square Shopping Center Renovations, Newton, PA - image 5'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692479/images/portfolio/newtown-square-pa-shopping-center/2020-09-18-11.42.56-scaled.jpg'
     alt: 'Newton Square Shopping Center Renovations, Newton, PA - image 6'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/project-management.md
 order: 33
+sectors:
+  - retail
+services:
+  - project-management
 ---
 Owner invested in a needed renovation of this popular suburban shopping center, updating the façade appearance to a more modern design, improving the pedestrian circulation and accessibility, and increasing the lighting levels, and electrical efficiency of the site lighting. PH&C oversaw the project’s execution in this open and operating shopping center, while saving the owner costs by value engineering certain design aspect, and prime contracting of various specialty contractors. 
 

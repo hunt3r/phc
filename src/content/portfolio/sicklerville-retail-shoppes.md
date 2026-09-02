@@ -28,14 +28,15 @@ gallery:
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 11'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692542/images/portfolio/sicklerville-retail-shoppes/2021-01-29-09.49.05-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 12'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/remediation.md
-  - tag: src/content/tags/demolition.md
-  - tag: src/content/tags/project-management.md
-  - tag: src/content/tags/landscaping.md
-  - tag: src/content/tags/signage.md
 order: 31
+sectors:
+  - retail
+services:
+  - remediation
+  - demolition
+  - project-management
+  - landscaping
+  - signage
 ---
 Retail shopping center transformations continue as defunct retailers blossom into new opportunities for the latest and greatest companies. This project included environmental remediation and the demolition of a 2-story steel and masonry furniture building, and ground up construction of a state-of-the-art building for three new stores including **[Panda Express](https://www.pandaexpress.com/)** (with drive thru), **[Jersey Mike’s Subs](https://www.jerseymikes.com/)** and a **[THRIVE Affordable Vet Care](https://www.thrivevet.com/)**. PH&C oversaw the project’s execution while saving the owner costs by value engineering certain design aspect, and prime contracting of various specialty contractors, ultimately revitalizing this retail shopping center to benefit the local communities.
 

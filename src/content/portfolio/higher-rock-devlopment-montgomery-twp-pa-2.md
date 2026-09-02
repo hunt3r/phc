@@ -16,14 +16,14 @@ gallery:
     alt: 'Atwater South - Malvern, PA - PH&C - Rock Excavation - image 5'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692433/images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.06.31-1-scaled.jpg'
     alt: 'Atwater South - Malvern, PA - PH&C - Rock Excavation - image 6'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/office.md
-  - tag: src/content/tags/healthcare.md
-  - tag: src/content/tags/institutional.md
-  - tag: src/content/tags/residential.md
-  - tag: src/content/tags/mixed-use.md
 order: 22
+sectors:
+  - retail
+  - office
+  - healthcare
+  - institutional
+  - residential
+  - mixed-use
 ---
 Development of this former rock quarry and industrial parcel, along the busy commercial corridor of US Route 29 & the PA Turnpike in Malvern, is benefiting the community with retail food, convenience & fuel, health care, banking and a child care & educational institution. This valuable parcel of real estate is adjacent to a large newly built townhome and multi-family residential complex. Development required construction of sizable retaining walls, significant rock excavation, and sophisticated stormwater management features.   
 

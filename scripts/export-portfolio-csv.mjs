@@ -54,8 +54,9 @@ function csvEscape(value) {
 }
 
 /**
- * Convert a portfolio entry's tag references into a readable, comma-free string.
- * Tags are stored as [{ tag: 'src/content/tags/retail.md' }].
+ * Convert a portfolio entry's tags into a readable, comma-free string. Accepts
+ * plain slug strings (the current `sectors`/`services` format) as well as the
+ * legacy reference objects [{ tag: 'src/content/tags/retail.md' }].
  * @param {unknown} tags
  * @returns {string}
  */
@@ -93,7 +94,11 @@ async function main() {
       architect: data.architect ?? "",
       contractor: data.contractor ?? "",
       description: data.description ?? "",
-      tags: formatTags(data.tags),
+      tags: formatTags([
+        ...(data.sectors ?? []),
+        ...(data.services ?? []),
+        ...(data.tags ?? []),
+      ]),
     });
   }
 

@@ -46,11 +46,18 @@ export function refToSlug(ref: string): string {
 }
 
 /**
- * The tag slugs referenced by a portfolio entry, in order.
+ * The tag slugs referenced by a portfolio entry, in order. Reads the current
+ * `sectors` / `services` checkbox fields and falls back to the legacy `tags`
+ * reference format for any entry not yet migrated.
  */
 export function getPortfolioTagSlugs(entry: CollectionEntry<'portfolio'>): string[] {
-  const refs = (entry.data as { tags?: { tag: string }[] }).tags ?? [];
-  return refs.map((t) => refToSlug(t.tag)).filter(Boolean);
+  const data = entry.data as {
+    sectors?: string[];
+    services?: string[];
+    tags?: { tag: string }[];
+  };
+  const legacy = (data.tags ?? []).map((t) => refToSlug(t.tag));
+  return [...(data.sectors ?? []), ...(data.services ?? []), ...legacy].filter(Boolean);
 }
 
 /**

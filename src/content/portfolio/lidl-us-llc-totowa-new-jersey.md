@@ -12,13 +12,14 @@ gallery:
     alt: 'LiDL US - Totowa, New Jersey - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204202/images/portfolio/lidl-us-llc-totowa-new-jersey/2024-02-15-13.29.56-scaled.jpg'
     alt: 'LiDL US - Totowa, New Jersey - image 4'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/remediation.md
-  - tag: src/content/tags/demolition.md
-  - tag: src/content/tags/project-management.md
-  - tag: src/content/tags/grocery.md
 order: 3
+sectors:
+  - retail
+  - grocery
+services:
+  - remediation
+  - demolition
+  - project-management
 ---
 Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores!
 

@@ -12,9 +12,9 @@ gallery:
     alt: 'Wawa - Abington/Jenkintown, PA - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692760/images/portfolio/wawa-abington-jenkintown/4DSC_3944.jpg'
     alt: 'Wawa - Abington/Jenkintown, PA - image 4'
-tags:
-  - tag: src/content/tags/retail.md
 order: 67
+sectors:
+  - retail
 ---
 **Key Features:**
 

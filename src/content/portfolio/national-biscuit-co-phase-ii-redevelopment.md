@@ -1,8 +1,8 @@
 ---
 title: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023'
-description: 'Redevelopment of a food production facility into retail and entertainment'
+description: Redevelopment of a food production facility into retail and entertainment
 location: PH&C
-size: '27 acres'
+size: 27 acres
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692466/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-24-09.48.37-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692466/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-24-09.48.37-scaled.jpg'
@@ -21,12 +21,13 @@ gallery:
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 7'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692464/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2022-01-14-13.27.58-scaled.jpg'
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 8'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/landscaping.md
-  - tag: src/content/tags/grocery.md
-  - tag: src/content/tags/mixed-use.md
 order: 16
+sectors:
+  - retail
+  - grocery
+  - mixed-use
+services:
+  - landscaping
 ---
 [**Nabisco Plaza**](https://www.costar.com/article/192402005/nabisco-plaza-shows-how-a-factory-can-become-a-destination-for-indoor-golf-retail) in Philadelphia, PA is nearing completion in November 2023!
 

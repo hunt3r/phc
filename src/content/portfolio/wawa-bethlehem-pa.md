@@ -13,13 +13,14 @@ gallery:
     alt: 'Wawa - Bethlehem, PA - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692769/images/portfolio/wawa-bethlehem-pa/2023-11-29-10.16.23-scaled.jpg'
     alt: 'Wawa - Bethlehem, PA - image 4'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/government.md
-  - tag: src/content/tags/remediation.md
-  - tag: src/content/tags/demolition.md
-  - tag: src/content/tags/project-management.md
 order: 12
+sectors:
+  - retail
+  - government
+services:
+  - remediation
+  - demolition
+  - project-management
 ---
 We are proud to continue with our assistance in developing another Wawa store that opened in December 2023. Our work for an individual land owner client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction.
 

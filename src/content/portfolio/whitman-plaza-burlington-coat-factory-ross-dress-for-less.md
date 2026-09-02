@@ -2,7 +2,7 @@
 title: 'Whitman Plaza - Philadelphia, PA'
 description: '120,000 sqft Retail Building demolition and renovation for new tenants, Burlington Coat Factory & Ross Dress for Less Over $7 million investment Loading dock expansion Façade renovation Deep Foundation system'
 location: 'Philadelphia, PA'
-projectCost: 'Over $7 million'
+projectCost: Over $7 million
 size: '120,000 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692822/images/portfolio/whitman-plaza-burlington-coat-factory-ross-dress-for-less/whitmanplaza-1.jpg'
 gallery:
@@ -10,11 +10,12 @@ gallery:
     alt: 'Whitman Plaza - Philadelphia, PA - image 1'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692823/images/portfolio/whitman-plaza-burlington-coat-factory-ross-dress-for-less/whitmanplaza-2.jpg'
     alt: 'Whitman Plaza - Philadelphia, PA - image 2'
-tags:
-  - tag: src/content/tags/retail.md
-  - tag: src/content/tags/remediation.md
-  - tag: src/content/tags/demolition.md
 order: 46
+sectors:
+  - retail
+services:
+  - remediation
+  - demolition
 ---
 **Key Features:**
 

@@ -15,6 +15,8 @@ const portfolio = defineCollection({
       architect: z.string().optional(),
       contractor: z.string().optional(),
       image: z.string().optional(),
+      sectors: z.array(z.string()).optional(),
+      services: z.array(z.string()).optional(),
       tags: z.array(z.object({ tag: z.string() })).optional(),
       gallery: z
         .array(

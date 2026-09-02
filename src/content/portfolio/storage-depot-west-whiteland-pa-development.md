@@ -15,10 +15,10 @@ gallery:
     alt: 'A Storage Depot - West Whiteland Twp, PA - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692728/images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.14.53-scaled.jpg'
     alt: 'A Storage Depot - West Whiteland Twp, PA - image 5'
-tags:
-  - tag: src/content/tags/self-storage.md
-  - tag: src/content/tags/office.md
 order: 34
+sectors:
+  - self-storage
+  - office
 ---
 This burgeoning suburban area is prime for a Multi-Story Climate Controlled Self Storage facility, A Storage Depot, developed using the latest sustainable stormwater management features, as well as unique construction practices. Stormwater management features were critical at this steep slope location.
 
