@@ -6,3 +6,6 @@ order: 5
 showInNav: false
 ---
 
+Independent testing and inspection verify that critical work meets the specifications, and it must be scheduled to match the pace of construction. PH&C coordinates the materials testing and special inspection agencies - soils, concrete, steel, and other required testing - so inspections occur at the right time without slowing the work.
+
+We manage the testing scope, schedule, and reporting, and we make sure results are addressed promptly and documented for the record. Coordinated testing protects quality and provides the verification needed for agency approvals and closeout.

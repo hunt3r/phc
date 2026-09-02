@@ -18,7 +18,6 @@ gallery:
     alt: 'LiDL US - Freehold, New Jersey - image 6'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692452/images/portfolio/lidl-us-llc-paramus-new-jersey-2/Photo-Apr-16-2024-10-22-06-AM-scaled.jpg'
     alt: 'LiDL US - Freehold, New Jersey - image 7'
-order: 6
 sectors:
   - retail
   - grocery
@@ -26,8 +25,11 @@ services:
   - remediation
   - demolition
   - project-management
+  - highway-access
+order: 6
 ---
-Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.
+
+Starting in 2023, PH\&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.
 
 On May 9, 2025, we participated in our 4th store grand opening, which occurred in [Freehold, NJ](https://www.lidl.com/stores/US01545).
 
@@ -35,21 +37,13 @@ Our team worked with the Architect and Engineers to value engineer designs for m
 
 Key tasks and functions included:
 
-*   Manage demolition bidding process following LiDL US protocols, negotiate GC bids and prepare Award Recommendation to provide to the LiDL regional responsible party for review and execution.
-    
-*   Manage, coordinate, and administer all aspects of demolition project and contract administration to LiDL process standards.
-    
-*   Routinely maintain and update LiDL’s project management system and programs.
-    
-*   Communicate schedule updates, project milestones and timeline changes to the Lidl regional responsible party on a weekly basis.
-    
-*   Manage all activities and communications between general contractors, stakeholders, and consultants to deliver stores within scheduled timeframes and budgets.
-    
-*   Complete quality assurance steps throughout the construction phase utilizing LiDL standard Checklists.
-    
-*   Conduct final punch inspections, coordinate design team punch items and assemble one consolidated punch list. Manage punch closeout to completion.
-    
-*   Complete project closeout. Assemble and review contractor warranties, O&M manuals and as-built drawings as required in the project specifications. Complete LiDL final acceptance and closeout documentation.
-    
+* Manage demolition bidding process following LiDL US protocols, negotiate GC bids and prepare Award Recommendation to provide to the LiDL regional responsible party for review and execution.
+* Manage, coordinate, and administer all aspects of demolition project and contract administration to LiDL process standards.
+* Routinely maintain and update LiDL’s project management system and programs.
+* Communicate schedule updates, project milestones and timeline changes to the Lidl regional responsible party on a weekly basis.
+* Manage all activities and communications between general contractors, stakeholders, and consultants to deliver stores within scheduled timeframes and budgets.
+* Complete quality assurance steps throughout the construction phase utilizing LiDL standard Checklists.
+* Conduct final punch inspections, coordinate design team punch items and assemble one consolidated punch list. Manage punch closeout to completion.
+* Complete project closeout. Assemble and review contractor warranties, O\&M manuals and as-built drawings as required in the project specifications. Complete LiDL final acceptance and closeout documentation.
 
 We’re working hard on many more new store projects, so stay tuned for the next grand opening!
