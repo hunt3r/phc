@@ -49,7 +49,7 @@ function buildOptions(tags: TagNode[], root: string): Option[] {
   const bySlug = new Map(tags.map((t) => [t.slug, t]));
   return tags
     .filter((t) => t.slug !== root && rootOf(t.slug, bySlug) === root)
-    .sort((a, b) => a.order - b.order || a.label.localeCompare(b.label))
+    .sort((a, b) => a.label.localeCompare(b.label))
     .map((t) => ({ value: t.slug, label: t.label }));
 }
 
