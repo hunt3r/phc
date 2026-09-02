@@ -5,7 +5,6 @@ description: >-
   cost, and responsibility.
 parent: src/content/tags/site-analysis-feasibility.md
 order: 9
-showInNav: false
 ---
 
 On leased projects, the lease itself defines the construction scope, cost responsibility, and schedule obligations for both landlord and tenant. PH&C reviews the lease's construction provisions - work letters, delivery conditions, allowances, and critical dates - so our clients understand exactly what they are responsible for building and by when.

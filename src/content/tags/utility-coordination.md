@@ -3,7 +3,6 @@ label: Utility Coordination
 description: Coordinating utility providers and connections during construction.
 parent: src/content/tags/construction-management-services.md
 order: 4
-showInNav: false
 ---
 
 During construction, utility connections and relocations must be coordinated with the purveyors and the construction schedule. PH&C manages this coordination - scheduling service installations, inspections, and connections so utilities are energized and available when the project needs them.

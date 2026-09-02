@@ -5,7 +5,6 @@ description: >-
   be built on a site.
 parent: src/content/tags/site-analysis-feasibility.md
 order: 7
-showInNav: false
 ---
 
 Before committing to a site, an owner needs to know what the local ordinances will actually allow and what it will take to get approved. PH&C analyzes the zoning and land development requirements that govern a property - permitted uses, density, height, setbacks, parking, buffers, stormwater, and the subdivision or land development approval process itself.

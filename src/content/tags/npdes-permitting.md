@@ -5,7 +5,6 @@ description: >-
   schedule.
 parent: src/content/tags/project-planning-coordination.md
 order: 10
-showInNav: false
 ---
 
 Stormwater compliance is mandatory on most development sites, and NPDES permitting can gate the start of earthwork. PH&C manages the NPDES permitting process - coordinating the erosion and sediment control and post-construction stormwater management design, and the submissions to the conservation district and DEP.

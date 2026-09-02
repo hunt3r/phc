@@ -3,7 +3,6 @@ label: Contractor Negotiations / Contract Development
 description: Negotiating terms and developing contracts that protect the owner's interests.
 parent: src/content/tags/project-contractor-procurement.md
 order: 3
-showInNav: false
 ---
 
 The contract is where a project's cost, schedule, and risk allocation are locked in, and skilled negotiation protects the owner's interests. PH&C leads contractor negotiations and manages contract development - the price, scope, schedule, terms, and the allocation of risk between owner and contractor.

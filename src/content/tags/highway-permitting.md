@@ -5,7 +5,6 @@ description: >-
   roadway improvements.
 parent: src/content/tags/project-planning-coordination.md
 order: 9
-showInNav: false
 ---
 
 Roadway access and improvements are frequently a condition of a project's approval, and the permits involved carry long lead times. PH&C manages highway permitting with PennDOT, NJDOT, and local authorities - highway occupancy permits, driveway and access permits, and the associated traffic studies and roadway improvements.

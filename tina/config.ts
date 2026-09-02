@@ -47,6 +47,28 @@ export default defineConfig({
             label: 'Gallery',
             list: true,
             description: 'Project gallery images (upload via Cloudinary)',
+            ui: {
+              itemProps: (item) => {
+                const src: string = item?.src ?? '';
+                const thumb = src.includes('/upload/')
+                  ? src.replace('/upload/', '/upload/w_80,h_80,c_fill,q_auto,f_auto/')
+                  : src;
+                const filename = src.split('/').pop()?.split('?')[0] ?? '';
+                const label = item?.alt || filename || 'Gallery image';
+                return {
+                  label,
+                  ...(thumb && {
+                    style: {
+                      backgroundImage: `url("${thumb}")`,
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: 'auto 28px',
+                      backgroundPosition: 'right 64px center',
+                      paddingRight: '104px',
+                    },
+                  }),
+                } as any;
+              },
+            },
             fields: [
               { type: 'image', name: 'src', label: 'Image' },
               { type: 'string', name: 'alt', label: 'Alt text' },
@@ -116,28 +138,8 @@ export default defineConfig({
           { type: 'string', name: 'label', label: 'Label', required: true, description: 'Display name for this tag (e.g. Retail).' },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
           { type: 'image', name: 'image', label: 'Image', description: 'Upload via Cloudinary. Used on the tag landing page and cards.' },
-          {
-            type: 'object',
-            name: 'hero',
-            label: 'Hero',
-            description: 'Optional hero block for the tag landing page. Defaults use the label and image.',
-            fields: [
-              { type: 'string', name: 'size', label: 'Size', options: ['full', 'compact'], ui: { component: 'select' } },
-              { type: 'string', name: 'eyebrow', label: 'Eyebrow' },
-              { type: 'string', name: 'tagline', label: 'Tagline' },
-              { type: 'string', name: 'subtitle', label: 'Subtitle', ui: { component: 'textarea' } },
-              { type: 'string', name: 'ctaPrimaryText', label: 'Primary CTA Text' },
-              { type: 'string', name: 'ctaPrimaryHref', label: 'Primary CTA Link' },
-              { type: 'string', name: 'ctaSecondaryText', label: 'Secondary CTA Text' },
-              { type: 'string', name: 'ctaSecondaryHref', label: 'Secondary CTA Link' },
-              { type: 'image', name: 'backgroundImage', label: 'Background Image', description: 'Upload via Cloudinary' },
-              { type: 'number', name: 'overlayOpacity', label: 'Overlay Opacity (0-100)' },
-              { type: 'string', name: 'overlayColor', label: 'Overlay Color', options: ['dark', 'light'], ui: { component: 'select' } },
-            ],
-          },
           { type: 'reference', name: 'parent', label: 'Parent Tag', collections: ['tags'], description: 'Optional. The parent tag in the hierarchy. Root tags (e.g. Sectors, Services) have no parent; supports unlimited nesting.' },
           { type: 'number', name: 'order', label: 'Order', description: 'Sort order among sibling tags in navigation and listings.' },
-          { type: 'boolean', name: 'showInNav', label: 'Show in portfolio navigation', description: 'Deprecated: navigation is derived from the sectors tag tree.' },
           {
             type: 'object',
             name: 'videos',

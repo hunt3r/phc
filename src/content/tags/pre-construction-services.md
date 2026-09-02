@@ -4,7 +4,6 @@ description: 'Meticulous planning and coordination of design, entitlement, const
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788384970/tags/courtroom_oin2ov.jpg'
 parent: src/content/tags/services.md
 order: 0
-showInNav: false
 ---
 
 A successful project begins long before ground is broken. It requires meticulous planning and the careful coordination of many disciplines, from architects and engineers to municipal authorities and utility providers. PH\&C brings the expertise and the broad, experienced perspective needed to manage the design, entitlement, constructability, and cost processes that set a project up to succeed.

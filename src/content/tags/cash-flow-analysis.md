@@ -5,7 +5,6 @@ description: >-
   construction timeline.
 parent: src/content/tags/project-planning-coordination.md
 order: 7
-showInNav: false
 ---
 
 Development is as much about the timing of money as the amount. PH&C prepares cash-flow analyses that project when funds will be required across the life of the project, aligning the draw schedule with design, procurement, and construction activities.

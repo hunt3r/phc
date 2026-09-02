@@ -2,7 +2,6 @@
 label: Institutional
 parent: src/content/tags/portfolio.md
 order: 5
-showInNav: true
 description: PH&C acts as an extension of our clients staff/ office and brings the expertise they need to successfully complete their development.
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692481/images/portfolio/office-overview-2/phc_commercial.jpg'
 ---

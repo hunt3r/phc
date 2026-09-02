@@ -5,7 +5,6 @@ description: >-
   before committing funds.
 parent: src/content/tags/site-analysis-feasibility.md
 order: 10
-showInNav: false
 ---
 
 Every go/no-go decision ultimately turns on cost, and early cost clarity is one of the most valuable things a project manager can provide. During feasibility, PH&C develops opinions of probable cost and preliminary project budgets that capture hard and soft costs, site work, permitting, and appropriate contingencies for the stage of design.

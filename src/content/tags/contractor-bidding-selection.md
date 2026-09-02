@@ -5,7 +5,6 @@ description: >-
   contractor for the project.
 parent: src/content/tags/project-contractor-procurement.md
 order: 2
-showInNav: false
 ---
 
 Selecting the right contractor is about far more than the lowest number. PH&C manages the competitive bidding process - issuing documents, running clarifications, leveling bids, and evaluating contractors on price, qualifications, capacity, and fit for the specific project.

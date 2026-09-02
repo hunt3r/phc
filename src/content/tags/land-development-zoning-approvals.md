@@ -5,7 +5,6 @@ description: >-
   secure entitlements.
 parent: src/content/tags/project-planning-coordination.md
 order: 8
-showInNav: false
 ---
 
 Securing land development and zoning approvals is often the longest and least predictable phase of a project. PH&C manages this process end to end - guiding the design team through the municipality's subdivision and land development requirements and pursuing the variances, conditional uses, or rezoning a project may need.

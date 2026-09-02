@@ -5,7 +5,6 @@ description: >-
   approvals, and procurement on track.
 parent: src/content/tags/project-planning-coordination.md
 order: 4
-showInNav: false
 ---
 
 A realistic, actively managed schedule is one of the most important tools in pre-construction. PH&C develops the project schedule that ties together design milestones, entitlement and permitting timelines, procurement, and the path to construction, using critical-path logic to identify what truly drives the completion date.

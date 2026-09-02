@@ -5,7 +5,6 @@ description: >-
   program before design begins.
 parent: src/content/tags/project-planning-coordination.md
 order: 1
-showInNav: false
 ---
 
 Great projects begin with a clearly defined program. PH&C works with ownership to translate business goals into a concrete set of requirements - the uses, sizes, adjacencies, quality level, budget targets, and schedule that will guide the entire design and construction effort.

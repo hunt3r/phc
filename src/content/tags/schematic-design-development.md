@@ -5,7 +5,6 @@ description: >-
   phases to translate the program into buildable documents.
 parent: src/content/tags/project-planning-coordination.md
 order: 2
-showInNav: false
 ---
 
 The schematic and design development phases turn the program into a buildable design, and how they are managed determines whether the project stays on budget and on schedule. PH&C guides the architect and engineering consultants through these phases, coordinating the disciplines and keeping design decisions aligned with the program, budget, and schedule.

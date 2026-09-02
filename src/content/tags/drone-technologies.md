@@ -4,7 +4,6 @@ description: High-resolution aerial imagery that documents site conditions and p
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788365798/drone-services_yyzdby.jpg'
 parent: src/content/tags/services.md
 order: 5
-showInNav: false
 ---
 
 PH\&C employs drone aircraft technology at every step of the process to provide insight and a different perspective on a project's overview and possibilities. From the earliest site evaluation through final closeout, aerial imagery reveals context, scale, and detail that cannot be captured from the ground.

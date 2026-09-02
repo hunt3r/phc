@@ -5,7 +5,6 @@ description: >-
   construction.
 parent: src/content/tags/construction-management-services.md
 order: 3
-showInNav: false
 ---
 
 Construction is subject to ongoing inspections and approvals from building officials and other agencies, and coordinating them is essential to maintaining momentum. PH&C coordinates with the governing agencies throughout construction - scheduling inspections, resolving comments, and keeping approvals aligned with the work in the field.

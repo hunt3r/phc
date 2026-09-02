@@ -5,7 +5,6 @@ description: >-
   their impact on schedule.
 parent: src/content/tags/site-analysis-feasibility.md
 order: 6
-showInNav: false
 ---
 
 Environmental permitting can quietly become the critical path of a development if it is not identified early. During feasibility, PH&C determines which environmental approvals a project will require - wetlands and waters of the U.S., stream encroachments, erosion and sediment control, NPDES, and others - based on site conditions and the proposed program.

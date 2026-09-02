@@ -3,7 +3,6 @@ label: Testing Agency Coordination
 description: Scheduling and coordinating materials testing and inspection agencies.
 parent: src/content/tags/construction-management-services.md
 order: 5
-showInNav: false
 ---
 
 Independent testing and inspection verify that critical work meets the specifications, and it must be scheduled to match the pace of construction. PH&C coordinates the materials testing and special inspection agencies - soils, concrete, steel, and other required testing - so inspections occur at the right time without slowing the work.

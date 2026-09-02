@@ -2,7 +2,6 @@
 label: Self-Storage
 parent: src/content/tags/portfolio.md
 order: 7
-showInNav: true
 description: Multi-Story Climate Controlled Self Storage with numerous design & construction options provide a custom solution for your project specifics.
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692404/images/portfolio/custom-self-storage-development/phc_retail.jpg'
 ---

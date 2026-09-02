@@ -351,7 +351,6 @@ async function main() {
       description: record.description,
       parent: parentRef(record.parent),
       order: record.order,
-      showInNav: false,
     };
     const contents = matter.stringify(record.body ? `\n${record.body}\n` : '', frontmatter);
     await writeFile(filePath, contents);

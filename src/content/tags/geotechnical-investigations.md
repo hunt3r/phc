@@ -4,7 +4,6 @@ description: Subsurface and soils investigations that reveal geotechnical condit
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788366369/geotechnical-investigations_pqjynw.jpg'
 parent: src/content/tags/site-analysis-feasibility.md
 order: 1
-showInNav: false
 videos:
   - title: Geotechnical investigations explained
     youtube: 'https://www.youtube.com/watch?v=fqfJFctahM8'

@@ -5,7 +5,6 @@ description: >-
   completion.
 parent: src/content/tags/construction-management-services.md
 order: 8
-showInNav: false
 ---
 
 Controlling cost through completion requires disciplined administration of both the contract and the budget. PH&C manages the construction contract and budget - reviewing and validating payment applications, managing change orders, tracking costs against the budget, and maintaining accurate projections of cost to complete.

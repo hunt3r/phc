@@ -2,7 +2,6 @@
 label: Office/Warehouse
 parent: src/content/tags/portfolio.md
 order: 2
-showInNav: true
 description: PH&C acts as an extension of our clients staff/ office and brings the expertise they need to successfully complete their development.
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692480/images/portfolio/office-overview/phc_commercial.jpg'
 ---

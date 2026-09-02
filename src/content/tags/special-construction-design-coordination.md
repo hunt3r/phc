@@ -5,7 +5,6 @@ description: >-
   project's disciplines.
 parent: src/content/tags/project-planning-coordination.md
 order: 3
-showInNav: false
 ---
 
 Many projects include specialized systems or unique conditions - complex MEP, refrigeration, process equipment, specialty structures, or demanding tenant requirements - that must be coordinated carefully across the design team. PH&C manages this special coordination so those systems are integrated into the design rather than bolted on later.

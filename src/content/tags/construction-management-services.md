@@ -4,7 +4,6 @@ description: 'Hands-on management of every construction activity to keep your pr
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788385212/tags/construction-management-services_pmiz1g.jpg'
 parent: src/content/tags/services.md
 order: 3
-showInNav: false
 ---
 
 Once a project moves into construction, PH\&C manages every activity to ensure a successful completion. Construction begins with a detailed plan, aggressively executed, and adapts to changes as they inevitably arise. Our experienced staff works alongside contractors to anticipate issues and solve problems before they occur, keeping the project moving and the budget intact.

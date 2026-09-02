@@ -2,7 +2,6 @@
 label: Retail
 parent: src/content/tags/portfolio.md
 order: 1
-showInNav: true
 description: PH&C draws on vast retail property development experience with some of the nation’s and region’s most demanding and successful retailers
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692505/images/portfolio/retail-property-development/2020-10-23-12.49.12-scaled.jpg'
 ---

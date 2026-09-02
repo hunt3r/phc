@@ -5,7 +5,6 @@ description: >-
   value before procurement.
 parent: src/content/tags/project-planning-coordination.md
 order: 6
-showInNav: false
 ---
 
 Detailed estimating and value engineering are where cost is truly controlled - before procurement, while changes are still inexpensive. PH&C prepares and manages detailed project estimates as the design develops, giving ownership an accurate picture of cost at each milestone rather than a surprise at bid time.

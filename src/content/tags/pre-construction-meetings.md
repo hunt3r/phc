@@ -5,7 +5,6 @@ description: >-
   contractors before work begins.
 parent: src/content/tags/project-planning-coordination.md
 order: 14
-showInNav: false
 ---
 
 The transition from design to construction is a critical handoff, and how it is managed sets the tone for the entire build. PH&C leads pre-construction meetings that bring the owner, design team, and contractors together to align on scope, schedule, logistics, submittals, safety, and communication protocols before work begins.

@@ -5,7 +5,6 @@ description: >-
   before acquisition or development.
 parent: src/content/tags/site-analysis-feasibility.md
 order: 2
-showInNav: false
 ---
 
 Environmental risk is one of the first questions a lender, buyer, or developer needs answered, and it can make or break a deal. PH&C coordinates Phase I Environmental Site Assessments to review a property's history, prior uses, and surrounding conditions for recognized environmental concerns. When that review flags potential contamination, we manage the Phase II investigation - soil and groundwater sampling and laboratory analysis - to determine whether a problem actually exists and how significant it is.

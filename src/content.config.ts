@@ -114,10 +114,8 @@ const tags = defineCollection({
       label: z.string(),
       description: z.string().optional(),
       image: z.string().optional(),
-      hero: aboutHeroSchema,
       parent: z.string().optional(),
       order: z.number().optional(),
-      showInNav: z.boolean().optional(),
       videos: z.array(inlineVideoSchema).optional(),
     }),
 });

@@ -4,7 +4,6 @@ description: 'Surveys for asbestos, lead, and other hazardous materials that mus
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788371003/tags/hazardous-material-survey_qyolbd.jpg'
 parent: src/content/tags/site-analysis-feasibility.md
 order: 3
-showInNav: false
 ---
 
 Any project that touches an existing building carries the possibility of hazardous materials hidden in its walls, floors, mechanical systems, and finishes. Before renovation or demolition begins, PH\&C leads a comprehensive hazardous material survey to identify what is present, where it is, and how much it will cost to manage. Handled early, this is a straightforward due-diligence step. Discovered late - after abatement crews find surprises behind a wall - it becomes one of the most disruptive and expensive problems a project can face.

@@ -5,7 +5,6 @@ description: >-
   capacity and connection needs.
 parent: src/content/tags/site-analysis-feasibility.md
 order: 8
-showInNav: false
 ---
 
 Adequate utility capacity - or the lack of it - can determine whether a project is viable and what it will cost. PH&C identifies and assesses the existing water, sewer, gas, electric, and telecommunications infrastructure serving a site, confirming location, capacity, and the point and terms of connection.

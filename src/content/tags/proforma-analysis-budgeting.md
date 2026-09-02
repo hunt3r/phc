@@ -5,7 +5,6 @@ description: >-
   the financial proforma.
 parent: src/content/tags/project-planning-coordination.md
 order: 5
-showInNav: false
 ---
 
 A project's budget must align with the financial model that justifies it. PH&C develops detailed hard and soft cost budgets and tests them against the client's proforma, so the design being pursued actually supports the returns the project depends on.

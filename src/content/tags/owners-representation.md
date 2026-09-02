@@ -4,7 +4,6 @@ description: Complete program management as your agent and point of control - yo
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788385505/tags/handshake_ip2nes.jpg'
 parent: src/content/tags/services.md
 order: 4
-showInNav: false
 ---
 
 PH\&C's services include complete program management, or owner's representative, services. Acting as the owner's agent and single point of control, PH\&C oversees, manages, and administers the entire project, or any portion you choose to delegate. For owners without an in-house construction team, or for those whose teams are already stretched, we become the trusted authority who ensures the project is delivered exactly as intended.

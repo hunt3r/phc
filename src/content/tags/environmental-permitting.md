@@ -5,7 +5,6 @@ description: >-
   planning modules.
 parent: src/content/tags/project-planning-coordination.md
 order: 11
-showInNav: false
 ---
 
 When a site touches wetlands, streams, or other regulated resources, environmental permitting becomes a critical-path item. PH&C manages these approvals - stream crossings, wetlands, sewer planning modules, and related environmental permits - coordinating the specialists and agencies involved.

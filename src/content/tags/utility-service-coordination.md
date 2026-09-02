@@ -5,7 +5,6 @@ description: >-
   site.
 parent: src/content/tags/project-planning-coordination.md
 order: 12
-showInNav: false
 ---
 
 Delivering adequate water, sewer, gas, electric, phone, and cable service to a site is a coordination effort across multiple purveyors, each with its own process and timeline. PH&C manages this utility coordination - confirming capacity, arranging service, and coordinating the extensions, upgrades, and connections a project requires.

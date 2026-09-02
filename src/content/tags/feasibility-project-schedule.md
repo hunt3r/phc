@@ -5,7 +5,6 @@ description: >-
   during feasibility.
 parent: src/content/tags/site-analysis-feasibility.md
 order: 11
-showInNav: false
 ---
 
 Time is money in development, and an unrealistic schedule undermines every other assumption in a proforma. During feasibility, PH&C builds a preliminary project schedule that frames the major phases - due diligence, design, entitlements and permitting, procurement, and construction - along with the key milestones and long-lead approvals that drive the timeline.
