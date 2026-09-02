@@ -29,8 +29,8 @@
 
 /* Dark mode semantic overrides (class on html) */
 .dark {
-  --color-bg: #000000;
-  --color-surface: #1f2937;
+  --color-bg: #0a0a0a;
+  --color-surface: #171717;
   --color-text: #f9fafb;
   --color-text-muted: #9ca3af;
   --color-border: #374151;
