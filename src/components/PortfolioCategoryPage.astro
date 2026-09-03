@@ -91,29 +91,29 @@ const jsonLdNodes = [
 
       <ContentCards cards={entry.data.contentCards} sectionId={`sector-${entry.id}-card`} allowFullBleed={false} />
 
-      <div>
-        <p class="text-gray-600 dark:text-gray-400">
-          {entries.length} project{entries.length === 1 ? '' : 's'}
-        </p>
-      </div>
+      {entries.length > 0 && (
+        <>
+          <div>
+            <p class="text-gray-600 dark:text-gray-400">
+              {entries.length} project{entries.length === 1 ? '' : 's'}
+            </p>
+          </div>
 
-      {entries.length > 0 ? (
-        <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-          {entries.map((portfolioEntry) => (
-            <li>
-              <ProjectCard
-                title={portfolioEntry.data.title ?? ''}
-                description={portfolioEntry.data.description ?? ''}
-                href={`/portfolio/${portfolioEntry.id}`}
-                imageSrc={portfolioEntry.data.image}
-                imageAlt={portfolioEntry.data.title ?? ''}
-                date={portfolioEntry.data.date}
-              />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p class="text-gray-600 dark:text-gray-400">No projects in this sector yet.</p>
+          <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+            {entries.map((portfolioEntry) => (
+              <li>
+                <ProjectCard
+                  title={portfolioEntry.data.title ?? ''}
+                  description={portfolioEntry.data.description ?? ''}
+                  href={`/portfolio/${portfolioEntry.id}`}
+                  imageSrc={portfolioEntry.data.image}
+                  imageAlt={portfolioEntry.data.title ?? ''}
+                  date={portfolioEntry.data.date}
+                />
+              </li>
+            ))}
+          </ul>
+        </>
       )}
 
       {videos.length > 0 && (
