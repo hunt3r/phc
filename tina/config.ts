@@ -9,6 +9,12 @@ const branch =
   process.env.HEAD ||
   'main';
 
+// Only enable TinaCloud search when explicitly turned on with a valid, dedicated
+// search token. An invalid/missing indexer token otherwise fails the indexing
+// pipeline, which leaves the remote schema stale and breaks admin schema
+// validation ("An unexpected error occurred while validating your Tina schema").
+const enableSearch = process.env.TINA_SEARCH_ENABLED === 'true';
+
 /**
  * Fields for a reusable "Content Card" promo section. Attached as a `contentCards`
  * list on multiple collections; rendered below the body and above any project list.
@@ -406,12 +412,14 @@ export default defineConfig({
       },
     ],
   },
-  search: {
-    tina: {
-      indexerToken: process.env.TINA_INDEXER_TOKEN,
-      stopwordLanguages: ['eng'],
+  ...(enableSearch && {
+    search: {
+      tina: {
+        indexerToken: process.env.TINA_INDEXER_TOKEN,
+        stopwordLanguages: ['eng'],
+      },
+      indexBatchSize: 100,
+      maxSearchIndexFieldLength: 100,
     },
-    indexBatchSize: 100,
-    maxSearchIndexFieldLength: 100,
-  },
+  }),
 });
