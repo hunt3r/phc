@@ -52,7 +52,9 @@ const ctaClass = isDarkBg
   ? 'btn bg-white text-gray-900 hover:bg-gray-100 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent'
   : 'btn btn-primary';
 
-const titleClass = isDarkBg ? 'text-white' : 'text-gray-900';
+// On a dark background band the title is always white. Otherwise it follows
+// the page theme: dark text in light mode, light text in dark mode.
+const titleClass = isDarkBg ? 'text-white' : 'text-gray-900 dark:text-gray-100';
 
 // Wrapper handles full-bleed vs contained and the background color band.
 // Full-bleed is only safe when the card is in the centered page container, not
