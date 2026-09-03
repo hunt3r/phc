@@ -9,6 +9,75 @@ const branch =
   process.env.HEAD ||
   'main';
 
+/**
+ * Fields for a reusable "Content Card" promo section. Attached as a `contentCards`
+ * list on multiple collections; rendered below the body and above any project list.
+ */
+const contentCardFields: any[] = [
+  { type: 'rich-text', name: 'content', label: 'Content', description: 'Rich text shown in the card. Supports headings, bold, lists, links, etc.' },
+  { type: 'image', name: 'image', label: 'Image', description: 'Optional. Upload via Cloudinary.' },
+  { type: 'string', name: 'ctaText', label: 'CTA Text', description: 'Optional button label.' },
+  { type: 'string', name: 'ctaHref', label: 'CTA Link', description: 'Optional button link (URL or path).' },
+  {
+    type: 'string',
+    name: 'layout',
+    label: 'Layout',
+    options: ['vertical', 'horizontal'],
+    ui: { component: 'select' },
+    description: 'Vertical stacks the image above the text; horizontal places them side by side.',
+  },
+  {
+    type: 'string',
+    name: 'width',
+    label: 'Width',
+    options: ['contained', 'full'],
+    ui: { component: 'select' },
+    description: 'Contained stays within the page width; full bleeds to the edge of the viewport.',
+  },
+  {
+    type: 'string',
+    name: 'backgroundColor',
+    label: 'Background Color',
+    options: ['none', 'primary', 'secondary', 'brand-blue', 'surface', 'brand-beige'],
+    ui: { component: 'select' },
+    description: 'Background color behind the card content. Use with full width for a color band.',
+  },
+  {
+    type: 'string',
+    name: 'textSize',
+    label: 'Text Size',
+    options: ['sm', 'base', 'lg', 'xl'],
+    ui: { component: 'select' },
+    description: 'Base text size for the card content.',
+  },
+  {
+    type: 'string',
+    name: 'imagePosition',
+    label: 'Image Position (horizontal only)',
+    options: ['left', 'right'],
+    ui: { component: 'select' },
+    description: 'Which side the image sits on when layout is horizontal.',
+  },
+  {
+    type: 'boolean',
+    name: 'matchImageHeight',
+    label: 'Match image height to content (horizontal only)',
+    description: 'Crop the image to the height of the text content, clipping from the center.',
+  },
+];
+
+const contentCardsField = {
+  type: 'object' as const,
+  name: 'contentCards',
+  label: 'Content Cards',
+  list: true,
+  description: 'Promotional cards shown below the body content and above any project listing.',
+  ui: {
+    itemProps: (item: any) => ({ label: item?.ctaText || item?.ctaHref || 'Content card' }),
+  },
+  fields: contentCardFields,
+};
+
 export default defineConfig({
   branch,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
@@ -125,6 +194,7 @@ export default defineConfig({
               { type: 'boolean', name: 'featured', label: 'Promote to home page' },
             ],
           },
+          contentCardsField,
           { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
         ],
         defaultItem: () => ({ order: 0 }),
@@ -157,6 +227,7 @@ export default defineConfig({
               { type: 'boolean', name: 'featured', label: 'Promote to home page' },
             ],
           },
+          contentCardsField,
           { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
         ],
         ui: {
@@ -211,6 +282,7 @@ export default defineConfig({
               { type: 'boolean', name: 'featured', label: 'Promote to home page' },
             ],
           },
+          contentCardsField,
           { type: 'string', name: 'body', label: 'Body', ui: { component: 'textarea' }, isBody: true },
         ],
       },
@@ -260,6 +332,7 @@ export default defineConfig({
               { type: 'boolean', name: 'featured', label: 'Promote to home page' },
             ],
           },
+          contentCardsField,
           { type: 'string', name: 'body', label: 'Body', ui: { component: 'textarea' }, isBody: true },
         ],
       },
@@ -327,14 +400,7 @@ export default defineConfig({
             { type: 'number', name: 'overlayOpacity', label: 'Overlay Opacity (0-100)' },
             { type: 'string', name: 'overlayColor', label: 'Overlay Color', options: ['dark', 'light'], ui: { component: 'select' } },
           ]},
-          { type: 'object', name: 'about', label: 'About', fields: [
-            { type: 'string', name: 'heading', label: 'Heading' },
-            { type: 'string', name: 'body', label: 'Body', ui: { component: 'textarea' } },
-          ]},
-          { type: 'object', name: 'contactCta', label: 'Contact CTA', fields: [
-            { type: 'string', name: 'heading', label: 'Heading' },
-            { type: 'string', name: 'subtext', label: 'Subtext', ui: { component: 'textarea' } },
-          ]},
+          contentCardsField,
         ],
       },
     ],

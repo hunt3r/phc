@@ -1,0 +1,30 @@
+---
+import ContentCard from './ContentCard.astro';
+import { renderCardContent, type ContentCardData } from '@/lib/contentCard';
+
+interface Props {
+  cards?: ContentCardData[] | null;
+  /** Used to build stable per-card ids. */
+  sectionId?: string;
+  /**
+   * Allow `width: full` cards to bleed to the viewport edges. Set to false on
+   * pages with a sidebar so full-width cards fill their column, not the viewport.
+   */
+  allowFullBleed?: boolean;
+}
+
+const { cards, sectionId = 'content-card', allowFullBleed = true } = Astro.props;
+
+const list = (cards ?? []).filter(Boolean);
+const rendered = await Promise.all(
+  list.map(async (card) => ({ card, html: await renderCardContent(card?.content) }))
+);
+---
+
+{rendered.length > 0 && (
+  <div class="content-cards space-y-12">
+    {rendered.map(({ card, html }, index) => (
+      <ContentCard card={card} contentHtml={html} id={`${sectionId}-${index}`} allowFullBleed={allowFullBleed} />
+    ))}
+  </div>
+)}

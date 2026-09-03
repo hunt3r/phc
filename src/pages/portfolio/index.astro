@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, getEntry } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
 import PortfolioNav from '../../components/PortfolioNav.astro';
+import ContentCards from '../../components/ContentCards.astro';
 import HeroPage from '../../components/blocks/hero-page.astro';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
@@ -50,6 +51,7 @@ const jsonLdNodes = [
           {sorted.length} project{sorted.length === 1 ? '' : 's'}
         </p>
       </div>
+      <ContentCards cards={portfolioTag?.data.contentCards} sectionId="portfolio-index-card" allowFullBleed={false} />
       <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {sorted.map((entry) => (
           <li>

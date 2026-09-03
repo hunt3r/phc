@@ -1,0 +1,141 @@
+---
+import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
+import { BG_CLASS, DARK_BACKGROUNDS, TEXT_SIZE_REM, type ContentCardData } from '@/lib/contentCard';
+
+interface Props {
+  card: ContentCardData;
+  /** Pre-rendered HTML for the card content (see renderCardContent). */
+  contentHtml: string;
+  id?: string;
+  /**
+   * Whether `width: full` may bleed to the viewport edges. Disable on pages
+   * where the card lives inside an offset column (e.g. a sidebar layout), so a
+   * full-width card fills its column instead of overlapping the sidebar.
+   */
+  allowFullBleed?: boolean;
+}
+
+const { card, contentHtml, id, allowFullBleed = true } = Astro.props;
+
+const layout = card.layout ?? 'vertical';
+const width = card.width ?? 'contained';
+const backgroundColor = card.backgroundColor ?? 'none';
+const textSize = card.textSize ?? 'base';
+const imagePosition = card.imagePosition ?? 'left';
+
+const hasBg = backgroundColor !== 'none';
+const isDarkBg = DARK_BACKGROUNDS.has(backgroundColor);
+const isHorizontal = layout === 'horizontal';
+const hasImage = Boolean(card.image?.trim());
+const hasCta = Boolean(card.ctaText?.trim() && card.ctaHref?.trim());
+const matchImageHeight = Boolean(card.matchImageHeight);
+
+const bgClass = BG_CLASS[backgroundColor] ?? '';
+// Applied inline to the prose container; child elements scale in em from this.
+const rootFontStyle = `font-size:${TEXT_SIZE_REM[textSize] ?? TEXT_SIZE_REM.base}`;
+
+// Content prose classes. On a dark background we cannot use `.prose-content`
+// (it hardcodes dark gray text), so we build an inverted prose variant.
+const proseClass = isDarkBg
+  ? [
+      'prose max-w-none prose-invert',
+      'prose-headings:font-heading prose-headings:tracking-tight',
+      'prose-a:text-white prose-a:underline hover:prose-a:no-underline',
+      'prose-strong:text-white prose-li:marker:text-white',
+    ]
+      .filter(Boolean)
+      .join(' ')
+  : 'prose-content';
+
+const ctaClass = isDarkBg
+  ? 'btn bg-white text-gray-900 hover:bg-gray-100 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent'
+  : 'btn btn-primary';
+
+// Wrapper handles full-bleed vs contained and the background color band.
+// Full-bleed is only safe when the card is in the centered page container, not
+// inside an offset column (sidebar layouts pass allowFullBleed={false}).
+const fullBleed = width === 'full' && allowFullBleed;
+const wrapperClass = fullBleed
+  ? `w-screen relative left-1/2 -translate-x-1/2 ${bgClass}`.trim()
+  : hasBg
+    ? `rounded-xl ${bgClass}`
+    : '';
+
+// Inner padding: generous for full-bleed color bands and contained color cards.
+const innerPadClass = fullBleed
+  ? 'mx-auto max-w-8xl px-4 py-12 sm:px-6 md:py-16 lg:px-8'
+  : hasBg
+    ? 'p-8 md:p-10'
+    : '';
+
+// Image sizing.
+const IMAGE_WIDTHS = [480, 768, 1024, 1600];
+const imageUrl = hasImage ? getImageUrl(card.image, { width: 1024 }) : undefined;
+const imageSrcSet = hasImage ? getImageSrcSet(card.image, IMAGE_WIDTHS) : undefined;
+---
+
+<section id={id} class={`content-card ${wrapperClass}`.trim()}>
+  <div class={innerPadClass}>
+    {isHorizontal ? (
+      <div class={`grid gap-8 md:grid-cols-2 ${matchImageHeight ? 'items-stretch' : 'items-center'}`}>
+        {hasImage && (
+          matchImageHeight ? (
+            <div
+              class={`relative aspect-[16/9] overflow-hidden rounded-lg md:aspect-auto md:h-full ${imagePosition === 'right' ? 'md:order-2' : ''}`}
+            >
+              <img
+                src={imageUrl}
+                srcset={imageSrcSet}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                class="absolute inset-0 h-full w-full object-cover object-center"
+              />
+            </div>
+          ) : (
+            <img
+              src={imageUrl}
+              srcset={imageSrcSet}
+              sizes="(min-width: 768px) 50vw, 100vw"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              class={`w-full rounded-lg object-cover ${imagePosition === 'right' ? 'md:order-2' : ''}`}
+            />
+          )
+        )}
+        <div class={hasImage ? '' : 'md:col-span-2'}>
+          <div class={proseClass} style={rootFontStyle} set:html={contentHtml} />
+          {hasCta && (
+            <div class="mt-6">
+              <a href={card.ctaHref} class={ctaClass}>{card.ctaText}</a>
+            </div>
+          )}
+        </div>
+      </div>
+    ) : (
+      <div class="flex flex-col gap-8">
+        {hasImage && (
+          <img
+            src={imageUrl}
+            srcset={imageSrcSet}
+            sizes="100vw"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            class="block aspect-[16/9] w-full rounded-lg object-cover object-center"
+          />
+        )}
+        <div class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+          <div class={`${proseClass} text-center`} style={rootFontStyle} set:html={contentHtml} />
+          {hasCta && (
+            <div>
+              <a href={card.ctaHref} class={ctaClass}>{card.ctaText}</a>
+            </div>
+          )}
+        </div>
+      </div>
+    )}
+  </div>
+</section>

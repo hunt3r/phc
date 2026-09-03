@@ -4,6 +4,7 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
 import PortfolioNav from './PortfolioNav.astro';
 import VideoGrid from './VideoGrid.astro';
+import ContentCards from './ContentCards.astro';
 import HeroPage from './blocks/hero-page.astro';
 import {
   getTagMap,
@@ -87,6 +88,8 @@ const jsonLdNodes = [
           ))}
         </div>
       )}
+
+      <ContentCards cards={entry.data.contentCards} sectionId={`sector-${entry.id}-card`} allowFullBleed={false} />
 
       <div>
         <p class="text-gray-600 dark:text-gray-400">

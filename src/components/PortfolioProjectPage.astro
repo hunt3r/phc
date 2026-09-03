@@ -5,6 +5,7 @@ import PortfolioGallery from './PortfolioGallery.astro';
 import ProjectSpecs from './ProjectSpecs.astro';
 import QuoteCard from './QuoteCard.astro';
 import VideoGrid from './VideoGrid.astro';
+import ContentCards from './ContentCards.astro';
 import { getImageUrl } from '@/lib/cloudinary';
 import { getTagMap, resolveTags, resolveTagsGrouped } from '@/lib/tags';
 import { toVideoViews } from '@/lib/videos';
@@ -130,6 +131,8 @@ const jsonLdNodes = [
       />
       <Content />
     </section>
+
+    <ContentCards cards={entry.data.contentCards} sectionId={`portfolio-${entry.id}-card`} />
 
     {galleryImages.length > 0 && (
       <PortfolioGallery images={galleryImages} galleryId={entry.id} />

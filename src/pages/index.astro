@@ -5,6 +5,7 @@ import HeroCarousel from '../components/blocks/hero-carousel.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import VideoGrid from '../components/VideoGrid.astro';
 import QuoteCard from '../components/QuoteCard.astro';
+import ContentCards from '../components/ContentCards.astro';
 import { getFeaturedQuotes } from '@/lib/quotes';
 import { getFeaturedVideos } from '@/lib/videos';
 import { getEntry, getCollection } from 'astro:content';
@@ -43,7 +44,7 @@ const promotedSlides = [...portfolioEntries]
     image: (entry.data as any).image as string,
   }));
 
-const ogDescription = hero?.subtitle ?? (typeof data?.about?.body === 'string' ? data.about.body.slice(0, 160).trim() : undefined) ?? "PH&C facilitates Real Estate Development as the tri-state area's premiere Owner's Representation, Construction Management, and Fee Development firm.";
+const ogDescription = hero?.subtitle ?? "PH&C facilitates Real Estate Development as the tri-state area's premiere Owner's Representation, Construction Management, and Fee Development firm.";
 const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : undefined);
 ---
 
@@ -71,6 +72,8 @@ const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 's
     />
   )}
   <article class="pt-16 space-y-16 sm:pt-20">
+
+    <ContentCards cards={data?.contentCards} sectionId="home-card" />
 
     {latestProjects.length > 0 && (
       <section>
@@ -143,19 +146,6 @@ const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 's
             <span aria-hidden="true">→</span>
           </a>
         </div>
-      </section>
-    )}
-
-
-
-    {data?.contactCta && (
-      <section class="rounded-xl border border-gray-200 bg-gray-50 p-8 text-center dark:border-gray-700 dark:bg-gray-800">
-        <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
-          {data.contactCta.heading ?? 'Get in Touch'}
-        </h2>
-        <p class="mt-2 text-gray-600 dark:text-gray-400">
-          {data.contactCta.subtext ?? 'Ready to start your project? Contact us today.'}
-        </p>
       </section>
     )}
   </article>

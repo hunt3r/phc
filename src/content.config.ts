@@ -13,6 +13,33 @@ const inlineVideoSchema = z.object({
   featured: z.boolean().optional(),
 });
 
+/**
+ * An optional enum that also tolerates the empty strings Tina writes for
+ * unset `select` fields (coerced to `undefined`).
+ */
+const optionalEnum = <T extends [string, ...string[]]>(values: T) =>
+  z.preprocess((v) => (v === '' || v == null ? undefined : v), z.enum(values).optional());
+
+/**
+ * A reusable "Content Card" promo section. `content` is `z.any()` because Tina
+ * serializes rich-text as a markdown string in `.md` collections but as a
+ * rich-text AST object in the `home` `.json` collection.
+ */
+const contentCardSchema = z.object({
+  content: z.any().optional(),
+  image: z.string().optional(),
+  ctaText: z.string().optional(),
+  ctaHref: z.string().optional(),
+  layout: optionalEnum(['vertical', 'horizontal']),
+  width: optionalEnum(['contained', 'full']),
+  backgroundColor: optionalEnum(['none', 'primary', 'secondary', 'brand-blue', 'surface', 'brand-beige']),
+  textSize: optionalEnum(['sm', 'base', 'lg', 'xl']),
+  imagePosition: optionalEnum(['left', 'right']),
+  matchImageHeight: z.boolean().optional(),
+});
+
+const contentCardsSchema = z.array(contentCardSchema).optional();
+
 const portfolio = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/portfolio' }),
   schema: () =>
@@ -51,6 +78,7 @@ const portfolio = defineCollection({
       order: z.number().optional(),
       featured: z.boolean().optional(),
       videos: z.array(inlineVideoSchema).optional(),
+      contentCards: contentCardsSchema,
     }),
 });
 
@@ -76,18 +104,7 @@ const home = defineCollection({
         overlayColor: z.enum(['dark', 'light']).optional(),
       })
       .optional(),
-    about: z
-      .object({
-        heading: z.string().optional(),
-        body: z.string().optional(),
-      })
-      .optional(),
-    contactCta: z
-      .object({
-        heading: z.string().optional(),
-        subtext: z.string().optional(),
-      })
-      .optional(),
+    contentCards: contentCardsSchema,
   }),
 });
 
@@ -117,6 +134,7 @@ const tags = defineCollection({
       parent: z.string().optional(),
       order: z.number().optional(),
       videos: z.array(inlineVideoSchema).optional(),
+      contentCards: contentCardsSchema,
     }),
 });
 
@@ -128,6 +146,7 @@ const about = defineCollection({
       featuredImage: z.string().optional(),
       hero: aboutHeroSchema,
       videos: z.array(inlineVideoSchema).optional(),
+      contentCards: contentCardsSchema,
     }),
 });
 
@@ -140,6 +159,7 @@ const pages = defineCollection({
       featuredImage: z.string().optional(),
       hero: aboutHeroSchema,
       videos: z.array(inlineVideoSchema).optional(),
+      contentCards: contentCardsSchema,
     }),
 });
 
