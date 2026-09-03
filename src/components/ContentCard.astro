@@ -28,6 +28,7 @@ const isDarkBg = DARK_BACKGROUNDS.has(backgroundColor);
 const isHorizontal = layout === 'horizontal';
 const hasImage = Boolean(card.image?.trim());
 const hasCta = Boolean(card.ctaText?.trim() && card.ctaHref?.trim());
+const hasTitle = Boolean(card.title?.trim());
 const matchImageHeight = Boolean(card.matchImageHeight);
 
 const bgClass = BG_CLASS[backgroundColor] ?? '';
@@ -50,6 +51,8 @@ const proseClass = isDarkBg
 const ctaClass = isDarkBg
   ? 'btn bg-white text-gray-900 hover:bg-gray-100 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent'
   : 'btn btn-primary';
+
+const titleClass = isDarkBg ? 'text-white' : 'text-gray-900';
 
 // Wrapper handles full-bleed vs contained and the background color band.
 // Full-bleed is only safe when the card is in the centered page container, not
@@ -106,6 +109,9 @@ const imageSrcSet = hasImage ? getImageSrcSet(card.image, IMAGE_WIDTHS) : undefi
           )
         )}
         <div class={hasImage ? '' : 'md:col-span-2'}>
+          {hasTitle && (
+            <h3 class={`mb-4 font-heading text-2xl font-semibold tracking-tight ${titleClass}`}>{card.title}</h3>
+          )}
           <div class={proseClass} style={rootFontStyle} set:html={contentHtml} />
           {hasCta && (
             <div class="mt-6">
@@ -128,6 +134,9 @@ const imageSrcSet = hasImage ? getImageSrcSet(card.image, IMAGE_WIDTHS) : undefi
           />
         )}
         <div class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+          {hasTitle && (
+            <h3 class={`font-heading text-2xl font-semibold tracking-tight ${titleClass}`}>{card.title}</h3>
+          )}
           <div class={`${proseClass} text-center`} style={rootFontStyle} set:html={contentHtml} />
           {hasCta && (
             <div>

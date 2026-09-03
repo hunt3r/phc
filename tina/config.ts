@@ -14,6 +14,7 @@ const branch =
  * list on multiple collections; rendered below the body and above any project list.
  */
 const contentCardFields: any[] = [
+  { type: 'string', name: 'title', label: 'Title', description: 'Optional. Shown as a heading (H3) above the card content.' },
   { type: 'rich-text', name: 'content', label: 'Content', description: 'Rich text shown in the card. Supports headings, bold, lists, links, etc.' },
   { type: 'image', name: 'image', label: 'Image', description: 'Optional. Upload via Cloudinary.' },
   { type: 'string', name: 'ctaText', label: 'CTA Text', description: 'Optional button label.' },
@@ -73,7 +74,7 @@ const contentCardsField = {
   list: true,
   description: 'Promotional cards shown below the body content and above any project listing.',
   ui: {
-    itemProps: (item: any) => ({ label: item?.ctaText || item?.ctaHref || 'Content card' }),
+    itemProps: (item: any) => ({ label: item?.title || item?.ctaText || item?.ctaHref || 'Content card' }),
   },
   fields: contentCardFields,
 };

@@ -26,6 +26,7 @@ const optionalEnum = <T extends [string, ...string[]]>(values: T) =>
  * rich-text AST object in the `home` `.json` collection.
  */
 const contentCardSchema = z.object({
+  title: z.string().optional(),
   content: z.any().optional(),
   image: z.string().optional(),
   ctaText: z.string().optional(),

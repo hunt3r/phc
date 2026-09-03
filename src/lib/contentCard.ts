@@ -9,6 +9,7 @@
 import { createMarkdownProcessor } from '@astrojs/markdown-remark';
 
 export interface ContentCardData {
+  title?: string;
   content?: unknown;
   image?: string;
   ctaText?: string;
