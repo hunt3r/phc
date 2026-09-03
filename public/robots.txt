@@ -38,3 +38,9 @@ User-agent: Perplexity-User
 Allow: /
 
 Sitemap: https://phandc.net/sitemap-index.xml
+
+# LLM-friendly content maps (llms.txt convention: https://llmstxt.org/).
+# No formal robots directive exists for these yet, so they are listed here
+# as comments for any agent that looks for them.
+# LLMs: https://phandc.net/llms.txt
+# LLMs-Full: https://phandc.net/llms-full.txt
