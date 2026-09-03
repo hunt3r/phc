@@ -35,9 +35,7 @@ const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
 const overlayIsDark = overlayColor === 'dark';
 const textClass = overlayIsDark ? 'text-white' : 'text-gray-900';
 const mutedClass = overlayIsDark ? 'text-white/80' : 'text-gray-900/80';
-const controlClass = overlayIsDark
-  ? 'text-white bg-black/30 hover:bg-black/50 focus:ring-white'
-  : 'text-gray-900 bg-white/40 hover:bg-white/60 focus:ring-gray-900';
+const controlClass = 'text-white bg-primary hover:bg-primary/90 focus:ring-primary';
 
 const wrapperClass =
   size === 'full'

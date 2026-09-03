@@ -71,7 +71,7 @@ const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 's
       overlayColor={hero?.overlayColor ?? 'dark'}
     />
   )}
-  <article class="pt-16 space-y-16 sm:pt-20">
+  <article class:list={['space-y-16', { 'pt-16 sm:pt-20': !data?.contentCards?.length }]}>
 
     <ContentCards cards={data?.contentCards} sectionId="home-card" />
 

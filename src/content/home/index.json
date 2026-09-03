@@ -25,7 +25,7 @@
       "ctaHref": "/about",
       "layout": "horizontal",
       "width": "full",
-      "backgroundColor": "secondary",
+      "backgroundColor": "brand-blue",
       "textSize": "lg"
     },
     {
