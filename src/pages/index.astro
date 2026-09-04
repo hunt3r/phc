@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import { islands } from '@/lib/islands';
 import HeroPage from '../components/blocks/hero-page.astro';
 import HeroCarousel from '../components/blocks/hero-carousel.astro';
 import ProjectCard from '../components/ProjectCard.astro';
@@ -49,6 +51,7 @@ const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 's
 ---
 
 <BaseLayout title={data?.title ?? 'Home'} description={ogDescription} image={ogImage}>
+  <TinaIsland name="home" wrapper={islands.home.wrapper} primary>
   {promotedSlides.length > 0 ? (
     <HeroCarousel
       size={hero?.size ?? 'full'}
@@ -71,6 +74,7 @@ const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 's
       overlayColor={hero?.overlayColor ?? 'dark'}
     />
   )}
+  </TinaIsland>
   <article class:list={['space-y-16', { 'pt-16 sm:pt-20': !data?.contentCards?.length }]}>
 
     <ContentCards cards={data?.contentCards} sectionId="home-card" />

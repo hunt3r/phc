@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import { islands } from '@/lib/islands';
 import ProjectCard from '../../components/ProjectCard.astro';
 import ServicesNav from '../../components/ServicesNav.astro';
 import VideoGrid from '../../components/VideoGrid.astro';
@@ -81,9 +83,11 @@ const jsonLdNodes = [
         </div>
       )}
 
-      <section class="prose-content">
-        <Content />
-      </section>
+      <TinaIsland name="tag" wrapper={islands.tag.wrapper} params={{ slug: entry.id }} primary>
+        <section class="prose-content">
+          <Content />
+        </section>
+      </TinaIsland>
 
       <ContentCards cards={entry.data.contentCards} sectionId={`service-${entry.id}-card`} allowFullBleed={false} />
 

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import { islands } from '@/lib/islands';
 import HeroPage from './blocks/hero-page.astro';
 import VideoGrid from './VideoGrid.astro';
 import ContentCards from './ContentCards.astro';
@@ -57,9 +59,11 @@ const jsonLdNodes = [
     overlayColor={hero?.overlayColor ?? 'dark'}
   />
   <article class="pt-8">
-    <section class="prose-content prose-img:rounded-lg">
-      <Content />
-    </section>
+    <TinaIsland name="page" wrapper={islands.page.wrapper} params={{ slug: entryId }} primary>
+      <section class="prose-content prose-img:rounded-lg">
+        <Content />
+      </section>
+    </TinaIsland>
 
     <ContentCards cards={entry.data.contentCards} sectionId={`page-${entryId}-card`} />
 

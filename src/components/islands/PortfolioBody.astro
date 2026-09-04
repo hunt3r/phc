@@ -1,0 +1,87 @@
+---
+/**
+ * Editable island renderer for a portfolio project.
+ *
+ * Rendered inside the admin iframe (and by the `/tina-island/portfolio`
+ * endpoint) against Tina query data. Every editable element carries a
+ * `data-tina-field` marker so clicking it focuses the matching form field.
+ * The public build still renders the project via `PortfolioProjectPage.astro`
+ * from `astro:content`; this component is the live-overlay counterpart.
+ */
+import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { PortfolioQuery } from '../../../tina/__generated__/types';
+
+interface Props {
+  data?: PortfolioQuery['portfolio'] | null;
+}
+
+const { data } = Astro.props;
+---
+
+{data && (
+  <article class="pt-8 space-y-8">
+    <header class="space-y-3">
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={tinaField(data, 'title')}>
+        {data.title}
+      </h1>
+      {data.description && (
+        <p class="text-gray-600 dark:text-gray-300" data-tina-field={tinaField(data, 'description')}>
+          {data.description}
+        </p>
+      )}
+      <dl class="mt-2 grid gap-4 text-sm text-gray-600 dark:text-gray-300 sm:grid-cols-3">
+        {data.location && (
+          <div>
+            <dt class="font-medium text-gray-900 dark:text-gray-100">Location</dt>
+            <dd data-tina-field={tinaField(data, 'location')}>{data.location}</dd>
+          </div>
+        )}
+        {data.client && (
+          <div>
+            <dt class="font-medium text-gray-900 dark:text-gray-100">Client</dt>
+            <dd data-tina-field={tinaField(data, 'client')}>{data.client}</dd>
+          </div>
+        )}
+        {data.date && (
+          <div>
+            <dt class="font-medium text-gray-900 dark:text-gray-100">Date</dt>
+            <dd data-tina-field={tinaField(data, 'date')}>{data.date}</dd>
+          </div>
+        )}
+      </dl>
+      {data.image && (
+        <img
+          src={data.image}
+          alt={data.title ?? ''}
+          class="mt-4 w-full rounded-lg object-cover"
+          data-tina-field={tinaField(data, 'image')}
+        />
+      )}
+    </header>
+
+    <section class="prose-content" data-tina-field={tinaField(data, 'body')}>
+      <TinaMarkdown content={data.body} />
+    </section>
+
+    {data.quotes && data.quotes.length > 0 && (
+      <section class="space-y-6">
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Testimonials</h2>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {data.quotes.map((q) =>
+            q ? (
+              <figure class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+                <blockquote data-tina-field={tinaField(q, 'quote')}>{q.quote}</blockquote>
+                {q.author && (
+                  <figcaption class="mt-2 text-sm text-gray-500" data-tina-field={tinaField(q, 'author')}>
+                    {q.author}
+                  </figcaption>
+                )}
+              </figure>
+            ) : null
+          )}
+        </div>
+      </section>
+    )}
+  </article>
+)}

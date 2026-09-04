@@ -2,6 +2,8 @@
 title: 'River Pointe Residential - Bridgeport, PA'
 description: 'Ground up development of this large land parcel started in 2022, and transitioned to home building for this new residential community in Summer of 2023. Sales of these LENNAR HOMES has been robust, and the last phase of homes are being constructed in 2025. Located on the banks of the scenic Schuylkill River, River Pointe'
 location: 'Bridgeport, PA'
+client: Lennar Homes
+date: '2025'
 size: 250 units
 contractor: Lennar
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692511/images/portfolio/river-pointe-residential-bridgeport-pa/2024-10-24-11.23.52-copy-1024x637.jpg'
@@ -20,6 +22,14 @@ gallery:
     alt: 'River Pointe Residential - Bridgeport, PA - image 6'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692507/images/portfolio/river-pointe-residential-bridgeport-pa/2023-09-08-11.34.30-scaled.jpg'
     alt: 'River Pointe Residential - Bridgeport, PA - image 7'
+sectors:
+  - residential
+services:
+  - pre-construction-services
+  - project-management
+  - site-analysis-feasibility
+  - tenant-delivery-coordination
+  - utility-coordination
 order: 11
 featured: true
 videos:
@@ -27,8 +37,6 @@ videos:
     youtube: 'https://www.youtube.com/watch?v=tK7IUFDWB3w'
     description: 'A look at the River Pointe waterfront master-planned community in Bridgeport, PA.'
     featured: true
-sectors:
-  - residential
 ---
 
 Ground up development of this large land parcel started in 2022, and transitioned to home building for this new residential community in Summer of 2023. Sales of these [LENNAR HOMES](https://www.lennar.com/) has been robust, and the last phase of homes are being constructed in 2025.

@@ -1,0 +1,37 @@
+---
+/**
+ * Editable island renderer for the Home document. Exposes the hero fields the
+ * homepage renders from its own document; the aggregated sections (latest
+ * projects, featured videos/quotes) are derived from other collections and are
+ * not editable in place.
+ */
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { HomeQuery } from '../../../tina/__generated__/types';
+
+interface Props {
+  data?: HomeQuery['home'] | null;
+}
+
+const { data } = Astro.props;
+const hero = data?.hero;
+---
+
+{data && (
+  <section class="space-y-4 py-8 text-center">
+    {hero?.eyebrow && (
+      <p class="text-sm font-semibold uppercase tracking-wider text-primary" data-tina-field={tinaField(hero, 'eyebrow')}>
+        {hero.eyebrow}
+      </p>
+    )}
+    {hero?.tagline && (
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={tinaField(hero, 'tagline')}>
+        {hero.tagline}
+      </h1>
+    )}
+    {hero?.subtitle && (
+      <p class="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300" data-tina-field={tinaField(hero, 'subtitle')}>
+        {hero.subtitle}
+      </p>
+    )}
+  </section>
+)}
