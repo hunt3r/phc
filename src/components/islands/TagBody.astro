@@ -1,9 +1,12 @@
 ---
 /**
- * Editable island renderer for a tag / portfolio-category document.
- * Renders the tag's own editable fields (label, description, body); the
- * cross-collection project listing on the public category page is not
- * editable in place and is omitted here.
+ * Editable island renderer for a tag / portfolio-category document body.
+ *
+ * This island wraps only the prose `body` region of the category/service
+ * landing pages — the page template renders the tag's label and description in
+ * its own header (and hero), so rendering them here too would duplicate them in
+ * the preview. The label, description, and image remain editable via the tag
+ * form, which loads as the primary form on these pages.
  */
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
 import { tinaField } from '@tinacms/astro/tina-field';
@@ -17,20 +20,7 @@ const { data } = Astro.props;
 ---
 
 {data && (
-  <div class="min-w-0 flex-1 space-y-6">
-    <div>
-      <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={tinaField(data, 'label')}>
-        {data.label}
-      </h1>
-      {data.description && (
-        <p class="mt-1 text-gray-600 dark:text-gray-400" data-tina-field={tinaField(data, 'description')}>
-          {data.description}
-        </p>
-      )}
-    </div>
-
-    <section class="prose-content" data-tina-field={tinaField(data, 'body')}>
-      <TinaMarkdown content={data.body} />
-    </section>
-  </div>
+  <section class="prose-content" data-tina-field={tinaField(data, 'body')}>
+    <TinaMarkdown content={data.body} />
+  </section>
 )}

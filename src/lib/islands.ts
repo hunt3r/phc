@@ -26,6 +26,7 @@ import type {
 
 import PortfolioBody from '../components/islands/PortfolioBody.astro';
 import TagBody from '../components/islands/TagBody.astro';
+import TagHero from '../components/islands/TagHero.astro';
 import AboutBody from '../components/islands/AboutBody.astro';
 import PageBody from '../components/islands/PageBody.astro';
 import HomeBody from '../components/islands/HomeBody.astro';
@@ -54,6 +55,16 @@ export const islands: IslandRegistry = {
   tag: {
     fetch: (_request, params) => getTag(params.get('slug') ?? ''),
     component: TagBody,
+    wrapper: { tag: 'div' },
+    propsFromData: (data) => ({
+      data: (data as QueryResult<TagsQuery>).data?.tags,
+    }),
+  },
+  // Hero region for the /portfolio and /services landing pages, which render a
+  // root tag through a custom HeroPage template.
+  tagHero: {
+    fetch: (_request, params) => getTag(params.get('slug') ?? ''),
+    component: TagHero,
     wrapper: { tag: 'div' },
     propsFromData: (data) => ({
       data: (data as QueryResult<TagsQuery>).data?.tags,

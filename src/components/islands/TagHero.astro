@@ -1,0 +1,40 @@
+---
+/**
+ * Editable island renderer for a tag's hero region, used on the custom-template
+ * landing pages (`/portfolio` and `/services`) that render a root tag through
+ * `HeroPage` rather than the generic category layout. Exposes the tag's own
+ * fields — image, label, description — so they are click-to-editable and the
+ * tag form loads on those pages.
+ */
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { TagsQuery } from '../../../tina/__generated__/types';
+
+interface Props {
+  data?: TagsQuery['tags'] | null;
+}
+
+const { data } = Astro.props;
+---
+
+{data && (
+  <section class="space-y-4">
+    {data.image && (
+      <img
+        src={data.image}
+        alt={data.label}
+        class="aspect-[21/9] w-full rounded-lg object-cover"
+        data-tina-field={tinaField(data, 'image')}
+      />
+    )}
+    <div class="space-y-2">
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={tinaField(data, 'label')}>
+        {data.label}
+      </h1>
+      {data.description && (
+        <p class="max-w-3xl text-lg text-gray-600 dark:text-gray-400" data-tina-field={tinaField(data, 'description')}>
+          {data.description}
+        </p>
+      )}
+    </div>
+  </section>
+)}

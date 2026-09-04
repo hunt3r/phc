@@ -37,13 +37,5 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss(), tinaAdminDevRedirect()],
-    server: {
-      proxy: {
-        '/api': {
-          target: 'http://localhost:3456',
-          changeOrigin: true,
-        },
-      },
-    },
   },
 });

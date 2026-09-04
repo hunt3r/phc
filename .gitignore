@@ -35,3 +35,6 @@ Thumbs.db
 
 # Optional: uncomment to avoid committing scraped site data
 # scraped/
+
+# Local Netlify folder
+.netlify

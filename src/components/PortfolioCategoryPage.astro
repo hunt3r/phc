@@ -49,16 +49,18 @@ const jsonLdNodes = [
 
 <BaseLayout title={tagLabel} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes}>
   {entry.data.image && (
-    <HeroPage
-      id={`portfolio-${entry.id}-hero`}
-      size="compact"
-      class="min-h-[43vw]"
-      tagline={tagLabel}
-      subtitle={entry.data.description}
-      backgroundImage={entry.data.image}
-      overlayOpacity={70}
-      overlayColor="dark"
-    />
+    <TinaIsland name="tagHero" wrapper={islands.tagHero.wrapper} params={{ slug: entry.id }} primary>
+      <HeroPage
+        id={`portfolio-${entry.id}-hero`}
+        size="compact"
+        class="min-h-[43vw]"
+        tagline={tagLabel}
+        subtitle={entry.data.description}
+        backgroundImage={entry.data.image}
+        overlayOpacity={70}
+        overlayColor="dark"
+      />
+    </TinaIsland>
   )}
 
   <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
@@ -66,15 +68,17 @@ const jsonLdNodes = [
 
     <div class="min-w-0 flex-1 space-y-6">
       {!entry.data.image && (
-        <div>
-          <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{tagLabel}</h1>
-          {entry.data.description && (
-            <p class="mt-1 text-gray-600 dark:text-gray-400">{entry.data.description}</p>
-          )}
-        </div>
+        <TinaIsland name="tagHero" wrapper={islands.tagHero.wrapper} params={{ slug: entry.id }} primary>
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{tagLabel}</h1>
+            {entry.data.description && (
+              <p class="mt-1 text-gray-600 dark:text-gray-400">{entry.data.description}</p>
+            )}
+          </div>
+        </TinaIsland>
       )}
 
-      <TinaIsland name="tag" wrapper={islands.tag.wrapper} params={{ slug: entry.id }} primary>
+      <TinaIsland name="tag" wrapper={islands.tag.wrapper} params={{ slug: entry.id }}>
         <section class="prose-content">
           <Content />
         </section>
