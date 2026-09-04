@@ -1,0 +1,39 @@
+---
+/**
+ * Editable island renderer for a `contentCards` list.
+ *
+ * Rendered inside the admin iframe (and by the `/tina-island/*Cards` endpoints)
+ * against Tina query data. Each card is drawn by the shared `ContentCard`
+ * component in its Tina-aware mode (`tinaCard` set), so every field carries a
+ * `data-tina-field` marker and the rich-text content renders live via
+ * `<TinaMarkdown>`. The public build keeps rendering the same cards through
+ * `ContentCards.astro` from `astro:content`.
+ */
+import ContentCard from '../ContentCard.astro';
+
+interface Props {
+  cards?: any[] | null;
+  /** Used to build stable per-card ids. */
+  sectionId?: string;
+  /** Match the page's `ContentCards` setting so full-width cards preview right. */
+  allowFullBleed?: boolean;
+}
+
+const { cards, sectionId = 'content-card', allowFullBleed = true } = Astro.props;
+
+const list = (cards ?? []).filter(Boolean);
+---
+
+{list.length > 0 && (
+  <div class="content-cards space-y-12">
+    {list.map((card, index) => (
+      <ContentCard
+        card={card}
+        tinaCard={card}
+        contentHtml=""
+        id={`${sectionId}-${index}`}
+        allowFullBleed={allowFullBleed}
+      />
+    ))}
+  </div>
+)}

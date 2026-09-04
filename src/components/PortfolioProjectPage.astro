@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { render, type CollectionEntry } from 'astro:content';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import { islands } from '@/lib/islands';
 import PortfolioGallery from './PortfolioGallery.astro';
 import ProjectSpecs from './ProjectSpecs.astro';
 import QuoteCard from './QuoteCard.astro';
@@ -65,6 +67,7 @@ const jsonLdNodes = [
 ---
 
 <BaseLayout title={entry.data.title} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes} ogType="article" datePublished={entry.data.date}>
+  <TinaIsland name="portfolio" wrapper={islands.portfolio.wrapper} params={{ slug: entry.id }} primary>
   <article class="pt-8 space-y-8">
     <header class="space-y-3">
       <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{entry.data.title}</h1>
@@ -132,7 +135,9 @@ const jsonLdNodes = [
       <Content />
     </section>
 
-    <ContentCards cards={entry.data.contentCards} sectionId={`portfolio-${entry.id}-card`} />
+    <TinaIsland name="portfolioCards" wrapper={islands.portfolioCards.wrapper} params={{ slug: entry.id }}>
+      <ContentCards cards={entry.data.contentCards} sectionId={`portfolio-${entry.id}-card`} />
+    </TinaIsland>
 
     {galleryImages.length > 0 && (
       <PortfolioGallery images={galleryImages} galleryId={entry.id} />
@@ -160,4 +165,5 @@ const jsonLdNodes = [
       </section>
     )}
   </article>
+  </TinaIsland>
 </BaseLayout>

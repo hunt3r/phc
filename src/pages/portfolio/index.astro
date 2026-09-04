@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, getEntry } from 'astro:content';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import { islands } from '@/lib/islands';
 import ProjectCard from '../../components/ProjectCard.astro';
 import PortfolioNav from '../../components/PortfolioNav.astro';
 import ContentCards from '../../components/ContentCards.astro';
@@ -27,31 +29,37 @@ const jsonLdNodes = [
   image={portfolioTag?.data.image}
   jsonLdNodes={jsonLdNodes}
 >
-  {portfolioTag?.data.image && (
-    <HeroPage
-      id="portfolio-hero"
-      size="compact"
-      class="min-h-[43vw]"
-      tagline={portfolioTitle}
-      subtitle={portfolioTag?.data.description}
-      backgroundImage={portfolioTag?.data.image}
-      overlayOpacity={70}
-      overlayColor="dark"
-    />
-  )}
+  <TinaIsland name="tagHero" wrapper={islands.tagHero.wrapper} params={{ slug: 'portfolio' }} primary>
+    {portfolioTag?.data.image && (
+      <HeroPage
+        id="portfolio-hero"
+        size="compact"
+        class="min-h-[43vw]"
+        tagline={portfolioTitle}
+        subtitle={portfolioTag?.data.description}
+        backgroundImage={portfolioTag?.data.image}
+        overlayOpacity={70}
+        overlayColor="dark"
+      />
+    )}
+  </TinaIsland>
 
   <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
     <PortfolioNav />
     <div class="min-w-0 flex-1 space-y-6">
-      <div>
-        {!portfolioTag?.data.image && (
-          <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{portfolioTitle}</h1>
-        )}
-        <p class="mt-1 text-gray-600 dark:text-gray-400">
-          {sorted.length} project{sorted.length === 1 ? '' : 's'}
-        </p>
-      </div>
-      <ContentCards cards={portfolioTag?.data.contentCards} sectionId="portfolio-index-card" allowFullBleed={false} />
+      <TinaIsland name="site" wrapper={islands.site.wrapper}>
+        <div>
+          {!portfolioTag?.data.image && (
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{portfolioTitle}</h1>
+          )}
+          <p class="mt-1 text-gray-600 dark:text-gray-400">
+            {sorted.length} project{sorted.length === 1 ? '' : 's'}
+          </p>
+        </div>
+      </TinaIsland>
+      <TinaIsland name="tagCards" wrapper={islands.tagCards.wrapper} params={{ slug: 'portfolio' }}>
+        <ContentCards cards={portfolioTag?.data.contentCards} sectionId="portfolio-index-card" allowFullBleed={false} />
+      </TinaIsland>
       <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {sorted.map((entry) => (
           <li>

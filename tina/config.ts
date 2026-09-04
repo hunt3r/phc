@@ -2,6 +2,9 @@ import { defineConfig } from 'tinacms';
 // Sectors/Services options are fetched live from the tags collection by a custom
 // admin field component, so no tag data is baked into the schema.
 import { TagCheckboxGroup } from './fields/TagCheckboxGroup';
+// Precomputed tag slug -> public URL map for the tags collection router.
+// Regenerate with `npm run generate:tag-routes`.
+import { tagRoutes } from './tag-routes';
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -205,6 +208,10 @@ export default defineConfig({
           { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
         ],
         defaultItem: () => ({ order: 0 }),
+        ui: {
+          // Open the project page in the visual editor.
+          router: ({ document }) => `/portfolio/${document._sys.filename}`,
+        },
       },
       {
         name: 'tags',
@@ -241,6 +248,11 @@ export default defineConfig({
           filename: {
             slugify: (values) => (values?.label ? String(values.label).toLowerCase().replace(/[\s/]+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '') : ''),
           },
+          // Tags render under either /portfolio/<slug> or /services/<slug>
+          // depending on their root ancestor. That can't be derived from the
+          // document alone, so use the precomputed tagRoutes map. Returns
+          // undefined for unmapped tags (falls back to the full-page editor).
+          router: ({ document }) => tagRoutes[document._sys.filename],
         },
       },
       {
@@ -249,7 +261,7 @@ export default defineConfig({
         path: 'src/content/about',
         match: { include: 'index' },
         format: 'md',
-        ui: { allowedActions: { create: false, delete: false } },
+        ui: { allowedActions: { create: false, delete: false }, router: () => '/about' },
         fields: [
           { type: 'string', name: 'title', label: 'Title', required: true },
           { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Upload via Cloudinary (used as hero background if hero background is not set)' },
@@ -298,7 +310,8 @@ export default defineConfig({
         label: 'Pages',
         path: 'src/content/pages',
         format: 'md',
-        ui: { allowedActions: { create: false, delete: false } },
+        // Pages render at the site root (e.g. /contact, /privacy-policy).
+        ui: { allowedActions: { create: false, delete: false }, router: ({ document }) => `/${document._sys.filename}` },
         fields: [
           { type: 'string', name: 'title', label: 'Title', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
@@ -349,7 +362,8 @@ export default defineConfig({
         path: 'src/content/staff',
         match: { include: 'index' },
         format: 'json',
-        ui: { allowedActions: { create: false, delete: false } },
+        // Staff is rendered on the About page.
+        ui: { allowedActions: { create: false, delete: false }, router: () => '/about' },
         fields: [
           {
             type: 'object',
@@ -376,7 +390,8 @@ export default defineConfig({
         path: 'src/content/site',
         match: { include: 'index' },
         format: 'json',
-        ui: { allowedActions: { create: false, delete: false } },
+        // Site settings (portfolio title) surface on the Portfolio index page.
+        ui: { allowedActions: { create: false, delete: false }, router: () => '/portfolio' },
         fields: [
           { type: 'string', name: 'portfolioTitle', label: 'Portfolio Page Title', description: 'Browser & SEO title for the Portfolio index page.' },
           { type: 'string', name: 'tagsTitle', label: 'Tags Page Title', description: 'Browser & SEO title for the Tags index page.' },
@@ -388,7 +403,7 @@ export default defineConfig({
         path: 'src/content/home',
         match: { include: 'index' },
         format: 'json',
-        ui: { allowedActions: { create: false, delete: false } },
+        ui: { allowedActions: { create: false, delete: false }, router: () => '/' },
         fields: [
           { type: 'string', name: 'title', label: 'Page Title', description: 'Browser & SEO title for the homepage.' },
           { type: 'number', name: 'maxProjects', label: 'Max Latest Projects', description: 'How many projects to show in the "Latest projects" section. Defaults to 3.' },
@@ -412,7 +427,6 @@ export default defineConfig({
       },
     ],
   },
-  ...(enableSearch && {
     search: {
       tina: {
         indexerToken: process.env.TINA_INDEXER_TOKEN,
@@ -421,5 +435,4 @@ export default defineConfig({
       indexBatchSize: 100,
       maxSearchIndexFieldLength: 100,
     },
-  }),
 });

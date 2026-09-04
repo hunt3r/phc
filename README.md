@@ -31,11 +31,9 @@ Image fields in Tina (portfolio hero image, gallery, home hero background) use t
    - `CLOUDINARY_API_SECRET`
    Optional for Tina Cloud: `NEXT_PUBLIC_TINA_CLIENT_ID`, `TINA_TOKEN`.
 
-2. **Media API** – The Tina admin talks to `/api/cloudinary/media` to upload, list, and delete assets. The repo uses the same approach as circuitn:
-   - **Local dev**: Run `npm run dev` (Tina + Astro only). With Tina Cloud configured (clientId + token), the Cloudinary media store uses Tina Cloud; no local API or proxy is required.
-   - **Production**: Deploy to **Netlify**. The Netlify function at `netlify/functions/api.mjs` serves `/api/cloudinary/media`. Set the same Cloudinary env vars in the Netlify dashboard.
-
-To test the media API locally against the Netlify function, run `netlify dev` instead of `npm run dev` so the function runs and proxies `/api/*` to it.
+2. **Media API** – The Tina admin talks to `/api/cloudinary/media` to upload, list, and delete assets. This is served by a native Astro on-demand route at `src/pages/api/cloudinary/[...media].ts`:
+   - **Local dev**: Run `npm run dev` (Tina + Astro). The route runs on the Astro dev server, so uploads work without a separate API process or proxy.
+   - **Production**: Deploy to **Netlify**. The Netlify adapter deploys the route as a serverless function automatically. Set the same Cloudinary env vars in the Netlify dashboard.
 
 ---
 

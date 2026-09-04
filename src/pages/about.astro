@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getEntry, render } from 'astro:content';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import { islands } from '@/lib/islands';
 import PersonnelCard from '../components/PersonnelCard.astro';
 import HeroPage from '../components/blocks/hero-page.astro';
 import VideoGrid from '../components/VideoGrid.astro';
@@ -55,26 +57,32 @@ const jsonLdNodes = [
     overlayColor={hero?.overlayColor ?? 'dark'}
   />
   <article class="pt-8 space-y-8">
-    <section class="prose-content prose-img:rounded-lg">
-      <Content />
-    </section>
+    <TinaIsland name="about" wrapper={islands.about.wrapper} primary>
+      <section class="prose-content prose-img:rounded-lg">
+        <Content />
+      </section>
+    </TinaIsland>
 
-    <ContentCards cards={entry.data.contentCards} sectionId="about-card" />
+    <TinaIsland name="aboutCards" wrapper={islands.aboutCards.wrapper}>
+      <ContentCards cards={entry.data.contentCards} sectionId="about-card" />
+    </TinaIsland>
 
-    <section class="pt-4">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Key Personnel</h2>
-      <div class="grid grid-cols-1 gap-6">
-        {staff.map((member) => (
-          <PersonnelCard
-            name={member.name}
-            title={member.title}
-            bio={member.bio}
-            image={member.image}
-            note={member.note}
-          />
-        ))}
-      </div>
-    </section>
+    <TinaIsland name="staff" wrapper={islands.staff.wrapper}>
+      <section class="pt-4">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Key Personnel</h2>
+        <div class="grid grid-cols-1 gap-6">
+          {staff.map((member) => (
+            <PersonnelCard
+              name={member.name}
+              title={member.title}
+              bio={member.bio}
+              image={member.image}
+              note={member.note}
+            />
+          ))}
+        </div>
+      </section>
+    </TinaIsland>
 
     {videos.length > 0 && (
       <section class="pt-4 space-y-6">

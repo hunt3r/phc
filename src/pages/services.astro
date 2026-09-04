@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import { islands } from '@/lib/islands';
 import HeroPage from '../components/blocks/hero-page.astro';
 import { render } from 'astro:content';
 import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
@@ -91,15 +93,17 @@ const jsonLdNodes = [
   jsonLdNodes={jsonLdNodes}
   ogType="article"
 >
-  <HeroPage
-    id="services-hero"
-    size="compact"
-    tagline={servicesRoot?.data.label ?? 'Services'}
-    subtitle={description}
-    backgroundImage={servicesRoot?.data.image}
-    overlayOpacity={70}
-    overlayColor="dark"
-  />
+  <TinaIsland name="tagHero" wrapper={islands.tagHero.wrapper} params={{ slug: 'services' }} primary>
+    <HeroPage
+      id="services-hero"
+      size="compact"
+      tagline={servicesRoot?.data.label ?? 'Services'}
+      subtitle={description}
+      backgroundImage={servicesRoot?.data.image}
+      overlayOpacity={70}
+      overlayColor="dark"
+    />
+  </TinaIsland>
 
   <div class="pt-8 space-y-14">
     {sections.map((section, index) => {

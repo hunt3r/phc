@@ -1,0 +1,26 @@
+---
+/**
+ * Editable island renderer for a tag / portfolio-category document body.
+ *
+ * This island wraps only the prose `body` region of the category/service
+ * landing pages — the page template renders the tag's label and description in
+ * its own header (and hero), so rendering them here too would duplicate them in
+ * the preview. The label, description, and image remain editable via the tag
+ * form, which loads as the primary form on these pages.
+ */
+import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { TagsQuery } from '../../../tina/__generated__/types';
+
+interface Props {
+  data?: TagsQuery['tags'] | null;
+}
+
+const { data } = Astro.props;
+---
+
+{data && (
+  <section class="prose-content" data-tina-field={tinaField(data, 'body')}>
+    <TinaMarkdown content={data.body} />
+  </section>
+)}
