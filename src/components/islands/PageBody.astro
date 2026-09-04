@@ -1,9 +1,11 @@
 ---
 /**
  * Editable island renderer for a `pages` collection document (e.g. contact,
- * privacy-policy). The page `body` is a plain-string (textarea) field, so it is
- * rendered as text rather than through TinaMarkdown.
+ * privacy-policy). The page island wraps only the body `prose-content` section
+ * on the page, so this renders just the rich-text body via `<TinaMarkdown>`
+ * (the header is rendered separately by the page's hero).
  */
+import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { PagesQuery } from '../../../tina/__generated__/types';
 
@@ -12,31 +14,10 @@ interface Props {
 }
 
 const { data } = Astro.props;
-const hero = data?.hero;
 ---
 
 {data && (
-  <article class="pt-8 space-y-8">
-    <header class="space-y-3">
-      <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={tinaField(data, 'title')}>
-        {data.title}
-      </h1>
-      {data.description && (
-        <p class="text-gray-600 dark:text-gray-300" data-tina-field={tinaField(data, 'description')}>
-          {data.description}
-        </p>
-      )}
-      {hero?.subtitle && (
-        <p class="text-gray-600 dark:text-gray-300" data-tina-field={tinaField(hero, 'subtitle')}>
-          {hero.subtitle}
-        </p>
-      )}
-    </header>
-
-    {data.body && (
-      <section class="prose-content whitespace-pre-wrap" data-tina-field={tinaField(data, 'body')}>
-        {data.body}
-      </section>
-    )}
-  </article>
+  <section class="prose-content prose-img:rounded-lg" data-tina-field={tinaField(data, 'body')}>
+    <TinaMarkdown content={data.body} />
+  </section>
 )}

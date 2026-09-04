@@ -135,9 +135,7 @@ const jsonLdNodes = [
       <Content />
     </section>
 
-    <TinaIsland name="portfolioCards" wrapper={islands.portfolioCards.wrapper} params={{ slug: entry.id }}>
-      <ContentCards cards={entry.data.contentCards} sectionId={`portfolio-${entry.id}-card`} />
-    </TinaIsland>
+    <ContentCards cards={entry.data.contentCards} sectionId={`portfolio-${entry.id}-card`} />
 
     {galleryImages.length > 0 && (
       <PortfolioGallery images={galleryImages} galleryId={entry.id} />

@@ -59,6 +59,8 @@ const jsonLdNodes = [
     overlayColor={hero?.overlayColor ?? 'dark'}
   />
   <article class="pt-8">
+    <slot name="aside" />
+
     <TinaIsland name="page" wrapper={islands.page.wrapper} params={{ slug: entryId }} primary>
       <section class="prose-content prose-img:rounded-lg">
         <Content />
@@ -76,6 +78,8 @@ const jsonLdNodes = [
       </section>
     )}
 
-    <slot />
+    <div class="clear-both">
+      <slot />
+    </div>
   </article>
 </BaseLayout>

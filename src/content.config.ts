@@ -144,8 +144,8 @@ const about = defineCollection({
   schema: () =>
     z.object({
       title: z.string(),
+      description: z.string().optional(),
       featuredImage: z.string().optional(),
-      hero: aboutHeroSchema,
       videos: z.array(inlineVideoSchema).optional(),
       contentCards: contentCardsSchema,
     }),
@@ -158,6 +158,8 @@ const pages = defineCollection({
       title: z.string(),
       description: z.string().optional(),
       featuredImage: z.string().optional(),
+      // Named rich-text field; Tina stores it as a markdown string in frontmatter.
+      contactInfo: z.string().optional(),
       hero: aboutHeroSchema,
       videos: z.array(inlineVideoSchema).optional(),
       contentCards: contentCardsSchema,
@@ -182,8 +184,7 @@ const staff = defineCollection({
 const site = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/site' }),
   schema: z.object({
-    portfolioTitle: z.string().optional(),
-    tagsTitle: z.string().optional(),
+    footerDescription: z.string().optional(),
   }),
 });
 

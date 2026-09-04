@@ -1,0 +1,29 @@
+---
+/**
+ * Floating contact-info card for the Contact page. Renders the Contact page's
+ * `contactInfo` rich-text (stored as markdown) into a card that floats to the
+ * right of the body copy on larger screens and stacks above it on mobile.
+ */
+import { marked } from 'marked';
+
+interface Props {
+  contactInfo: string;
+  heading?: string;
+}
+
+const { contactInfo, heading = 'Reach us' } = Astro.props;
+const html = marked.parse(contactInfo);
+---
+
+<aside
+  class="not-prose mb-6 w-full rounded-xl border border-gray-200 bg-gray-50 p-6 md:float-right md:mb-4 md:ml-8 md:w-72 dark:border-gray-700 dark:bg-gray-800/50"
+>
+  <h2 class="mb-3 text-sm font-semibold tracking-wide text-gray-900 uppercase dark:text-gray-100">
+    {heading}
+  </h2>
+  <div
+    class="space-y-2 text-sm text-gray-600 dark:text-gray-400 [&_a]:text-primary hover:[&_a]:text-primary/80 [&_strong]:font-medium [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100"
+    set:html={html}
+  >
+  </div>
+</aside>

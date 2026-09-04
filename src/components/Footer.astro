@@ -1,4 +1,7 @@
 ---
+import { getEntry } from 'astro:content';
+import { marked } from 'marked';
+
 const year = new Date().getFullYear();
 
 const navLinks = [
@@ -10,6 +13,19 @@ const navLinks = [
   { label: 'Videos', href: '/videos' },
   { label: 'Contact', href: '/contact' },
 ];
+
+const siteEntry = await getEntry('site', 'index');
+
+const footerDescription =
+  siteEntry?.data?.footerDescription ??
+  'Delivering quality construction and project management across retail, healthcare, government, and commercial sectors.';
+
+// Contact block lives on the Contact page (rich-text field, stored as markdown).
+const contactEntry = await getEntry('pages', 'contact');
+const contactInfo =
+  contactEntry?.data?.contactInfo ??
+  '**PH&C, LLC**\n\n998 Old Eagle School Road, Suite 1210\n\nWayne, PA 19087\n\n[info@phandc.net](mailto:info@phandc.net)';
+const contactInfoHtml = marked.parse(contactInfo);
 ---
 
 <footer class="border-t border-gray-200 bg-white dark:border-gray-700 dark:bg-[#0a0a0a]">
@@ -22,7 +38,7 @@ const navLinks = [
           <img src="/images/logo-dark.png" alt="PH&C" class="h-10 w-auto hidden dark:block" width="1462" height="324" />
         </a>
         <p class="mt-4 max-w-sm text-sm text-gray-600 dark:text-gray-400">
-          Delivering quality construction and project management across retail, healthcare, government, and commercial sectors.
+          {footerDescription}
         </p>
         <div class="mt-5 flex items-center gap-2">
           <a
@@ -65,14 +81,7 @@ const navLinks = [
       <!-- Contact -->
       <div>
         <h2 class="subheading text-sm text-gray-500 dark:text-gray-400">Contact</h2>
-        <address class="mt-4 space-y-2 text-sm not-italic text-gray-600 dark:text-gray-400">
-          <p class="font-medium text-gray-900 dark:text-gray-100">PH&amp;C, LLC</p>
-          <p>998 Old Eagle School Road, Suite 1210</p>
-          <p>Wayne, PA 19087</p>
-          <p>
-            <a href="mailto:info@phandc.net" class="text-primary hover:text-primary/80">info@phandc.net</a>
-          </p>
-        </address>
+        <address class="mt-4 space-y-2 text-sm not-italic text-gray-600 dark:text-gray-400 [&_a]:text-primary hover:[&_a]:text-primary/80 [&_strong]:font-medium [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100" set:html={contactInfoHtml}></address>
       </div>
     </div>
 

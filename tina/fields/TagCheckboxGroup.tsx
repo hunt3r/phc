@@ -47,10 +47,26 @@ function rootOf(slug: string, bySlug: Map<string, TagNode>): string {
 
 function buildOptions(tags: TagNode[], root: string): Option[] {
   const bySlug = new Map(tags.map((t) => [t.slug, t]));
-  return tags
-    .filter((t) => t.slug !== root && rootOf(t.slug, bySlug) === root)
-    .sort((a, b) => a.label.localeCompare(b.label))
-    .map((t) => ({ value: t.slug, label: t.label }));
+  const selectable = tags.filter((t) => t.slug !== root && rootOf(t.slug, bySlug) === root);
+
+  // Some distinct tags share an identical label (e.g. a "Project Schedule" under
+  // both Pre-Construction and Feasibility). Disambiguate only those by appending
+  // their parent group's label, so the picker never shows an ambiguous duplicate.
+  const labelCounts = new Map<string, number>();
+  for (const t of selectable) {
+    labelCounts.set(t.label, (labelCounts.get(t.label) ?? 0) + 1);
+  }
+
+  return selectable
+    .sort((a, b) => a.label.localeCompare(b.label) || a.slug.localeCompare(b.slug))
+    .map((t) => {
+      if ((labelCounts.get(t.label) ?? 0) <= 1) {
+        return { value: t.slug, label: t.label };
+      }
+      const parent = bySlug.get(t.parent);
+      const context = parent?.label || t.parent || t.slug;
+      return { value: t.slug, label: `${t.label} (${context})` };
+    });
 }
 
 export const TagCheckboxGroup = wrapFieldsWithMeta(({ input, field }: any) => {

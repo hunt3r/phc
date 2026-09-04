@@ -1,9 +1,11 @@
 ---
 /**
- * Editable island renderer for the About page document. The About `body` is a
- * plain-string (textarea) field in the schema, so it is rendered as text rather
- * than through TinaMarkdown.
+ * Editable island renderer for the About page document. Mirrors the tag hero
+ * pattern: an editable header (image + title + description) followed by the
+ * rich-text body. The public build renders the same structure via `about.astro`
+ * from `astro:content`.
  */
+import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { AboutQuery } from '../../../tina/__generated__/types';
 
@@ -12,31 +14,33 @@ interface Props {
 }
 
 const { data } = Astro.props;
-const hero = data?.hero;
 ---
 
 {data && (
-  <article class="pt-8 space-y-8">
-    <header class="space-y-3">
-      <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={tinaField(data, 'title')}>
-        {data.title}
-      </h1>
-      {hero?.tagline && (
-        <p class="text-xl text-gray-700 dark:text-gray-200" data-tina-field={tinaField(hero, 'tagline')}>
-          {hero.tagline}
-        </p>
+  <div class="space-y-8">
+    <section class="space-y-4">
+      {data.featuredImage && (
+        <img
+          src={data.featuredImage}
+          alt={data.title}
+          class="aspect-[21/9] w-full rounded-lg object-cover"
+          data-tina-field={tinaField(data, 'featuredImage')}
+        />
       )}
-      {hero?.subtitle && (
-        <p class="text-gray-600 dark:text-gray-300" data-tina-field={tinaField(hero, 'subtitle')}>
-          {hero.subtitle}
-        </p>
-      )}
-    </header>
+      <div class="space-y-2">
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={tinaField(data, 'title')}>
+          {data.title}
+        </h1>
+        {data.description && (
+          <p class="max-w-3xl text-lg text-gray-600 dark:text-gray-400" data-tina-field={tinaField(data, 'description')}>
+            {data.description}
+          </p>
+        )}
+      </div>
+    </section>
 
-    {data.body && (
-      <section class="prose-content whitespace-pre-wrap" data-tina-field={tinaField(data, 'body')}>
-        {data.body}
-      </section>
-    )}
-  </article>
+    <section class="prose-content prose-img:rounded-lg" data-tina-field={tinaField(data, 'body')}>
+      <TinaMarkdown content={data.body} />
+    </section>
+  </div>
 )}

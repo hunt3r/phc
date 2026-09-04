@@ -21,7 +21,6 @@ import type {
   PagesQuery,
   HomeQuery,
   StaffQuery,
-  SiteQuery,
 } from '../../tina/__generated__/types';
 
 import PortfolioBody from '../components/islands/PortfolioBody.astro';
@@ -31,7 +30,6 @@ import AboutBody from '../components/islands/AboutBody.astro';
 import PageBody from '../components/islands/PageBody.astro';
 import HomeBody from '../components/islands/HomeBody.astro';
 import StaffBody from '../components/islands/StaffBody.astro';
-import SiteSettings from '../components/islands/SiteSettings.astro';
 import ContentCardsBody from '../components/islands/ContentCardsBody.astro';
 
 import {
@@ -41,7 +39,6 @@ import {
   getPage,
   getHome,
   getStaff,
-  getSite,
 } from './tina-data';
 
 export const islands: IslandRegistry = {
@@ -103,28 +100,14 @@ export const islands: IslandRegistry = {
       data: (data as QueryResult<StaffQuery>).data?.staff,
     }),
   },
-  site: {
-    fetch: () => getSite(),
-    component: SiteSettings,
-    wrapper: { tag: 'div' },
-    propsFromData: (data) => ({
-      data: (data as QueryResult<SiteQuery>).data?.site,
-    }),
-  },
-
   // Content-card regions. Each fetches the same document as its body island but
   // renders only the `contentCards` list (a separate region on the page), so
   // both islands can point at the same Tina form and edit different parts.
-  portfolioCards: {
-    fetch: (_request, params) => getPortfolio(params.get('slug') ?? ''),
-    component: ContentCardsBody,
-    wrapper: { tag: 'div' },
-    propsFromData: (data) => ({
-      cards: (data as QueryResult<PortfolioQuery>).data?.portfolio?.contentCards,
-      sectionId: 'portfolio-card',
-      allowFullBleed: true,
-    }),
-  },
+  //
+  // Note: the portfolio project page renders its whole `<article>` as one big
+  // `portfolio` island, so its content cards + gallery are rendered inside
+  // `PortfolioBody` rather than as separate islands (nested islands get wiped
+  // when the outer island refreshes).
   tagCards: {
     fetch: (_request, params) => getTag(params.get('slug') ?? ''),
     component: ContentCardsBody,

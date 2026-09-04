@@ -264,26 +264,8 @@ export default defineConfig({
         ui: { allowedActions: { create: false, delete: false }, router: () => '/about' },
         fields: [
           { type: 'string', name: 'title', label: 'Title', required: true },
-          { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Upload via Cloudinary (used as hero background if hero background is not set)' },
-          {
-            type: 'object',
-            name: 'hero',
-            label: 'Hero',
-            description: 'Same hero block as the homepage. Optional; defaults use title and featured image.',
-            fields: [
-              { type: 'string', name: 'size', label: 'Size', options: ['full', 'compact'], ui: { component: 'select' } },
-              { type: 'string', name: 'eyebrow', label: 'Eyebrow' },
-              { type: 'string', name: 'tagline', label: 'Tagline' },
-              { type: 'string', name: 'subtitle', label: 'Subtitle', ui: { component: 'textarea' } },
-              { type: 'string', name: 'ctaPrimaryText', label: 'Primary CTA Text' },
-              { type: 'string', name: 'ctaPrimaryHref', label: 'Primary CTA Link' },
-              { type: 'string', name: 'ctaSecondaryText', label: 'Secondary CTA Text' },
-              { type: 'string', name: 'ctaSecondaryHref', label: 'Secondary CTA Link' },
-              { type: 'image', name: 'backgroundImage', label: 'Background Image', description: 'Upload via Cloudinary' },
-              { type: 'number', name: 'overlayOpacity', label: 'Overlay Opacity (0-100)' },
-              { type: 'string', name: 'overlayColor', label: 'Overlay Color', options: ['dark', 'light'], ui: { component: 'select' } },
-            ],
-          },
+          { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' }, description: 'Shown under the title in the page header.' },
+          { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Header banner image. Upload via Cloudinary.' },
           {
             type: 'object',
             name: 'videos',
@@ -302,7 +284,7 @@ export default defineConfig({
             ],
           },
           contentCardsField,
-          { type: 'string', name: 'body', label: 'Body', ui: { component: 'textarea' }, isBody: true },
+          { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
         ],
       },
       {
@@ -316,6 +298,7 @@ export default defineConfig({
           { type: 'string', name: 'title', label: 'Title', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
           { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Upload via Cloudinary (used as hero background if hero background is not set)' },
+          { type: 'rich-text', name: 'contactInfo', label: 'Contact Info (footer)', description: 'Only used on the Contact page. Rendered in the site footer contact block.' },
           {
             type: 'object',
             name: 'hero',
@@ -353,7 +336,7 @@ export default defineConfig({
             ],
           },
           contentCardsField,
-          { type: 'string', name: 'body', label: 'Body', ui: { component: 'textarea' }, isBody: true },
+          { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
         ],
       },
       {
@@ -362,8 +345,11 @@ export default defineConfig({
         path: 'src/content/staff',
         match: { include: 'index' },
         format: 'json',
-        // Staff is rendered on the About page.
-        ui: { allowedActions: { create: false, delete: false }, router: () => '/about' },
+        // Staff is rendered on the About page. No `router` here on purpose:
+        // clicking "Staff" opens the normal document form (so you can add /
+        // remove / reorder people via the list's controls). Inline preview &
+        // click-to-edit still works on the About page via the staff island.
+        ui: { allowedActions: { create: false, delete: false } },
         fields: [
           {
             type: 'object',
@@ -391,10 +377,12 @@ export default defineConfig({
         match: { include: 'index' },
         format: 'json',
         // Site settings (portfolio title) surface on the Portfolio index page.
-        ui: { allowedActions: { create: false, delete: false }, router: () => '/portfolio' },
+        // No `router`: clicking "Site Settings" opens the normal document form
+        // rather than redirecting into the Portfolio visual editor. The values
+        // still preview/click-to-edit on the Portfolio index via the site island.
+        ui: { allowedActions: { create: false, delete: false } },
         fields: [
-          { type: 'string', name: 'portfolioTitle', label: 'Portfolio Page Title', description: 'Browser & SEO title for the Portfolio index page.' },
-          { type: 'string', name: 'tagsTitle', label: 'Tags Page Title', description: 'Browser & SEO title for the Tags index page.' },
+          { type: 'string', name: 'footerDescription', label: 'Footer Description', ui: { component: 'textarea' }, description: 'Short blurb shown under the logo in the footer.' },
         ],
       },
       {

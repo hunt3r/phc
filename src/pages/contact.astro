@@ -1,8 +1,14 @@
 ---
 import ContentPageSection from '../components/ContentPageSection.astro';
 import ContactForm from '../components/ContactForm.astro';
+import ContactInfoCard from '../components/ContactInfoCard.astro';
+import { getEntry } from 'astro:content';
+
+const contactEntry = await getEntry('pages', 'contact');
+const contactInfo = contactEntry?.data?.contactInfo;
 ---
 
 <ContentPageSection entryId="contact" path="/contact" breadcrumbLabel="Contact">
+  {contactInfo && <ContactInfoCard slot="aside" contactInfo={contactInfo} />}
   <ContactForm />
 </ContentPageSection>

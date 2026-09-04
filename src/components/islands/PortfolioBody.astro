@@ -10,6 +10,8 @@
  */
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
 import { tinaField } from '@tinacms/astro/tina-field';
+import { getImageUrl } from '@/lib/cloudinary';
+import ContentCardsBody from './ContentCardsBody.astro';
 import type { PortfolioQuery } from '../../../tina/__generated__/types';
 
 interface Props {
@@ -17,6 +19,8 @@ interface Props {
 }
 
 const { data } = Astro.props;
+
+const gallery = (data?.gallery ?? []).filter((img): img is NonNullable<typeof img> => Boolean(img?.src));
 ---
 
 {data && (
@@ -63,6 +67,29 @@ const { data } = Astro.props;
     <section class="prose-content" data-tina-field={tinaField(data, 'body')}>
       <TinaMarkdown content={data.body} />
     </section>
+
+    <ContentCardsBody cards={data.contentCards} sectionId="portfolio-card" allowFullBleed={true} />
+
+    {gallery.length > 0 && (
+      <section class="mt-8" data-tina-field={tinaField(data, 'gallery')}>
+        <h2 class="mb-4 text-lg font-semibold text-gray-900 dark:text-gray-100">Project gallery</h2>
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {gallery.map((img) => (
+            <div
+              class="overflow-hidden rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800"
+              data-tina-field={tinaField(img, 'src')}
+            >
+              <img
+                src={getImageUrl(img.src, { width: 400, quality: 'auto:eco' })}
+                alt={img.alt ?? ''}
+                loading="lazy"
+                class="h-40 w-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
 
     {data.quotes && data.quotes.length > 0 && (
       <section class="space-y-6">

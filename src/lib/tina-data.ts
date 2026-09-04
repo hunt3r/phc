@@ -48,6 +48,3 @@ export const getHome = () =>
 
 export const getStaff = () =>
   requestWithMetadata(client.queries.staff({ relativePath: 'index.json' }));
-
-export const getSite = () =>
-  requestWithMetadata(client.queries.site({ relativePath: 'index.json' }));

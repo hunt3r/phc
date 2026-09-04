@@ -11,9 +11,9 @@ import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 const portfolio = await getCollection('portfolio');
 const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
-const siteEntry = await getEntry('site', 'index');
-const portfolioTitle = siteEntry?.data?.portfolioTitle ?? 'Portfolio';
 const portfolioTag = await getEntry('tags', 'portfolio');
+// Portfolio is a root tag; use its label as the page title.
+const portfolioTitle = portfolioTag?.data.label ?? 'Portfolio';
 const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
 const jsonLdNodes = [
   createBreadcrumbListSchema(site, [
@@ -47,16 +47,14 @@ const jsonLdNodes = [
   <div class="pt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
     <PortfolioNav />
     <div class="min-w-0 flex-1 space-y-6">
-      <TinaIsland name="site" wrapper={islands.site.wrapper}>
-        <div>
-          {!portfolioTag?.data.image && (
-            <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{portfolioTitle}</h1>
-          )}
-          <p class="mt-1 text-gray-600 dark:text-gray-400">
-            {sorted.length} project{sorted.length === 1 ? '' : 's'}
-          </p>
-        </div>
-      </TinaIsland>
+      <div>
+        {!portfolioTag?.data.image && (
+          <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{portfolioTitle}</h1>
+        )}
+        <p class="mt-1 text-gray-600 dark:text-gray-400">
+          {sorted.length} project{sorted.length === 1 ? '' : 's'}
+        </p>
+      </div>
       <TinaIsland name="tagCards" wrapper={islands.tagCards.wrapper} params={{ slug: 'portfolio' }}>
         <ContentCards cards={portfolioTag?.data.contentCards} sectionId="portfolio-index-card" allowFullBleed={false} />
       </TinaIsland>

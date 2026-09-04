@@ -1,10 +1,9 @@
 ---
 title: About Us
-featuredImage: ''
-hero:
-  size: compact
-  eyebrow: ''
-  backgroundImage: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773698882/nate-johnston-DowtEyavqsY-unsplash_r18ynk.jpg'
+description: >-
+  Our team, our values, and our commitment to delivering quality construction
+  and development services.
+featuredImage: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773698882/nate-johnston-DowtEyavqsY-unsplash_r18ynk.jpg'
 ---
 
 Established in the heart of an economic recession in 2010, PH&C developed a name and solid reputation by helping our clients successfully complete a variety of new development and re-development projects. 
