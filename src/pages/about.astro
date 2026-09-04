@@ -63,7 +63,9 @@ const jsonLdNodes = [
       </section>
     </TinaIsland>
 
-    <ContentCards cards={entry.data.contentCards} sectionId="about-card" />
+    <TinaIsland name="aboutCards" wrapper={islands.aboutCards.wrapper}>
+      <ContentCards cards={entry.data.contentCards} sectionId="about-card" />
+    </TinaIsland>
 
     <TinaIsland name="staff" wrapper={islands.staff.wrapper}>
       <section class="pt-4">

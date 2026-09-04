@@ -32,6 +32,7 @@ import PageBody from '../components/islands/PageBody.astro';
 import HomeBody from '../components/islands/HomeBody.astro';
 import StaffBody from '../components/islands/StaffBody.astro';
 import SiteSettings from '../components/islands/SiteSettings.astro';
+import ContentCardsBody from '../components/islands/ContentCardsBody.astro';
 
 import {
   getPortfolio,
@@ -108,6 +109,62 @@ export const islands: IslandRegistry = {
     wrapper: { tag: 'div' },
     propsFromData: (data) => ({
       data: (data as QueryResult<SiteQuery>).data?.site,
+    }),
+  },
+
+  // Content-card regions. Each fetches the same document as its body island but
+  // renders only the `contentCards` list (a separate region on the page), so
+  // both islands can point at the same Tina form and edit different parts.
+  portfolioCards: {
+    fetch: (_request, params) => getPortfolio(params.get('slug') ?? ''),
+    component: ContentCardsBody,
+    wrapper: { tag: 'div' },
+    propsFromData: (data) => ({
+      cards: (data as QueryResult<PortfolioQuery>).data?.portfolio?.contentCards,
+      sectionId: 'portfolio-card',
+      allowFullBleed: true,
+    }),
+  },
+  tagCards: {
+    fetch: (_request, params) => getTag(params.get('slug') ?? ''),
+    component: ContentCardsBody,
+    wrapper: { tag: 'div' },
+    propsFromData: (data) => ({
+      cards: (data as QueryResult<TagsQuery>).data?.tags?.contentCards,
+      sectionId: 'tag-card',
+      // Tag cards always render inside a sidebar column (category, service,
+      // and portfolio-index pages), so full-bleed is disabled there.
+      allowFullBleed: false,
+    }),
+  },
+  pageCards: {
+    fetch: (_request, params) => getPage(params.get('slug') ?? ''),
+    component: ContentCardsBody,
+    wrapper: { tag: 'div' },
+    propsFromData: (data) => ({
+      cards: (data as QueryResult<PagesQuery>).data?.pages?.contentCards,
+      sectionId: 'page-card',
+      allowFullBleed: true,
+    }),
+  },
+  aboutCards: {
+    fetch: () => getAbout(),
+    component: ContentCardsBody,
+    wrapper: { tag: 'div' },
+    propsFromData: (data) => ({
+      cards: (data as QueryResult<AboutQuery>).data?.about?.contentCards,
+      sectionId: 'about-card',
+      allowFullBleed: true,
+    }),
+  },
+  homeCards: {
+    fetch: () => getHome(),
+    component: ContentCardsBody,
+    wrapper: { tag: 'div' },
+    propsFromData: (data) => ({
+      cards: (data as QueryResult<HomeQuery>).data?.home?.contentCards,
+      sectionId: 'home-card',
+      allowFullBleed: true,
     }),
   },
 };

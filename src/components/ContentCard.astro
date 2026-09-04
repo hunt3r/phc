@@ -1,6 +1,8 @@
 ---
 import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
 import { BG_CLASS, DARK_BACKGROUNDS, TEXT_SIZE_REM, type ContentCardData } from '@/lib/contentCard';
+import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
+import { tinaField } from '@tinacms/astro/tina-field';
 
 interface Props {
   card: ContentCardData;
@@ -13,9 +15,21 @@ interface Props {
    * full-width card fills its column instead of overlapping the sidebar.
    */
   allowFullBleed?: boolean;
+  /**
+   * When rendered inside a Tina island, the raw card list item (carrying Tina
+   * metadata). Its presence switches the card to click-to-edit: fields get
+   * `data-tina-field` markers and the content renders live via `<TinaMarkdown>`
+   * (from the rich-text AST) instead of the pre-rendered `contentHtml`.
+   */
+  tinaCard?: any;
 }
 
-const { card, contentHtml, id, allowFullBleed = true } = Astro.props;
+const { card, contentHtml, id, allowFullBleed = true, tinaCard } = Astro.props;
+
+// Click-to-edit marker helper. Returns undefined outside the editor so Astro
+// omits the attribute on the public build.
+const tf = (name?: string) =>
+  tinaCard ? (name ? tinaField(tinaCard, name as any) : tinaField(tinaCard)) : undefined;
 
 const layout = card.layout ?? 'vertical';
 const width = card.width ?? 'contained';
@@ -79,7 +93,7 @@ const imageUrl = hasImage ? getImageUrl(card.image, { width: 1024 }) : undefined
 const imageSrcSet = hasImage ? getImageSrcSet(card.image, IMAGE_WIDTHS) : undefined;
 ---
 
-<section id={id} class={`content-card ${wrapperClass}`.trim()}>
+<section id={id} class={`content-card ${wrapperClass}`.trim()} data-tina-field={tf()}>
   <div class={innerPadClass}>
     {isHorizontal ? (
       <div class={`grid gap-8 md:grid-cols-2 ${matchImageHeight ? 'items-stretch' : 'items-center'}`}>
@@ -87,6 +101,7 @@ const imageSrcSet = hasImage ? getImageSrcSet(card.image, IMAGE_WIDTHS) : undefi
           matchImageHeight ? (
             <div
               class={`relative aspect-[16/9] overflow-hidden rounded-lg md:aspect-auto md:h-full ${imagePosition === 'right' ? 'md:order-2' : ''}`}
+              data-tina-field={tf('image')}
             >
               <img
                 src={imageUrl}
@@ -107,16 +122,23 @@ const imageSrcSet = hasImage ? getImageSrcSet(card.image, IMAGE_WIDTHS) : undefi
               loading="lazy"
               decoding="async"
               class={`w-full rounded-lg object-cover ${imagePosition === 'right' ? 'md:order-2' : ''}`}
+              data-tina-field={tf('image')}
             />
           )
         )}
         <div class={hasImage ? '' : 'md:col-span-2'}>
           {hasTitle && (
-            <h3 class={`mb-4 font-heading text-2xl font-semibold tracking-tight ${titleClass}`}>{card.title}</h3>
+            <h3 class={`mb-4 font-heading text-2xl font-semibold tracking-tight ${titleClass}`} data-tina-field={tf('title')}>{card.title}</h3>
           )}
-          <div class={proseClass} style={rootFontStyle} set:html={contentHtml} />
+          {tinaCard ? (
+            <div class={proseClass} style={rootFontStyle} data-tina-field={tf('content')}>
+              <TinaMarkdown content={tinaCard.content} />
+            </div>
+          ) : (
+            <div class={proseClass} style={rootFontStyle} set:html={contentHtml} />
+          )}
           {hasCta && (
-            <div class="mt-6">
+            <div class="mt-6" data-tina-field={tf('ctaText')}>
               <a href={card.ctaHref} class={ctaClass}>{card.ctaText}</a>
             </div>
           )}
@@ -133,15 +155,22 @@ const imageSrcSet = hasImage ? getImageSrcSet(card.image, IMAGE_WIDTHS) : undefi
             loading="lazy"
             decoding="async"
             class="block aspect-[16/9] w-full rounded-lg object-cover object-center"
+            data-tina-field={tf('image')}
           />
         )}
         <div class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
           {hasTitle && (
-            <h3 class={`font-heading text-2xl font-semibold tracking-tight ${titleClass}`}>{card.title}</h3>
+            <h3 class={`font-heading text-2xl font-semibold tracking-tight ${titleClass}`} data-tina-field={tf('title')}>{card.title}</h3>
           )}
-          <div class={`${proseClass} text-center`} style={rootFontStyle} set:html={contentHtml} />
+          {tinaCard ? (
+            <div class={`${proseClass} text-center`} style={rootFontStyle} data-tina-field={tf('content')}>
+              <TinaMarkdown content={tinaCard.content} />
+            </div>
+          ) : (
+            <div class={`${proseClass} text-center`} style={rootFontStyle} set:html={contentHtml} />
+          )}
           {hasCta && (
-            <div>
+            <div data-tina-field={tf('ctaText')}>
               <a href={card.ctaHref} class={ctaClass}>{card.ctaText}</a>
             </div>
           )}

@@ -97,7 +97,9 @@ const jsonLdNodes = [
         </div>
       )}
 
-      <ContentCards cards={entry.data.contentCards} sectionId={`sector-${entry.id}-card`} allowFullBleed={false} />
+      <TinaIsland name="tagCards" wrapper={islands.tagCards.wrapper} params={{ slug: entry.id }}>
+        <ContentCards cards={entry.data.contentCards} sectionId={`sector-${entry.id}-card`} allowFullBleed={false} />
+      </TinaIsland>
 
       {entries.length > 0 && (
         <>

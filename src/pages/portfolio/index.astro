@@ -57,7 +57,9 @@ const jsonLdNodes = [
           </p>
         </div>
       </TinaIsland>
-      <ContentCards cards={portfolioTag?.data.contentCards} sectionId="portfolio-index-card" allowFullBleed={false} />
+      <TinaIsland name="tagCards" wrapper={islands.tagCards.wrapper} params={{ slug: 'portfolio' }}>
+        <ContentCards cards={portfolioTag?.data.contentCards} sectionId="portfolio-index-card" allowFullBleed={false} />
+      </TinaIsland>
       <ul class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {sorted.map((entry) => (
           <li>

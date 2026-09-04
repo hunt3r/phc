@@ -65,7 +65,9 @@ const jsonLdNodes = [
       </section>
     </TinaIsland>
 
-    <ContentCards cards={entry.data.contentCards} sectionId={`page-${entryId}-card`} />
+    <TinaIsland name="pageCards" wrapper={islands.pageCards.wrapper} params={{ slug: entryId }}>
+      <ContentCards cards={entry.data.contentCards} sectionId={`page-${entryId}-card`} />
+    </TinaIsland>
 
     {videos.length > 0 && (
       <section class="pt-4 space-y-6">
