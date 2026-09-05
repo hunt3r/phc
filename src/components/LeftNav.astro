@@ -1,0 +1,72 @@
+---
+import type { NavNode } from '@/lib/tags';
+import { flattenNavTree } from '@/lib/tags';
+import PortfolioNavItem from './PortfolioNavItem.astro';
+
+interface Props {
+  navTree: NavNode[];
+  activeId?: string;
+  label: string;
+  rootHref: string;
+  rootLabel: string;
+  selectId: string;
+}
+
+const { navTree, activeId, label, rootHref, rootLabel, selectId } = Astro.props;
+const flatNav = flattenNavTree(navTree);
+const allActive = !activeId;
+---
+
+{/* Mobile: sticky dropdown below header */}
+<div
+  class="sticky top-16 z-40 -mx-4 border-b border-gray-200 bg-white px-4 py-3 dark:border-gray-700 dark:bg-[#0a0a0a] sm:-mx-6 sm:px-6 lg:hidden"
+  aria-label={label}
+>
+  <label for={selectId} class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">{label}:</label>
+  <select
+    id={selectId}
+    class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-gray-500"
+    data-leftnav-select
+  >
+    <option value={rootHref} selected={allActive}>{rootLabel}</option>
+    {flatNav.map(({ node, depth }) => (
+      <option value={node.href} selected={node.entry.id === activeId}>
+        {`${'\u00A0\u00A0\u00A0\u00A0'.repeat(depth)}${depth > 0 ? '– ' : ''}${node.entry.data.label}`}
+      </option>
+    ))}
+  </select>
+</div>
+
+<aside class="hidden shrink-0 lg:block lg:w-56 xl:w-64 2xl:w-72">
+  {/* Desktop: sidebar nav */}
+  <nav aria-label={label} class="sticky top-28 space-y-1">
+    <p class="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+      {label}
+    </p>
+    <ul class="space-y-6">
+      <li>
+        <a
+          href={rootHref}
+          aria-current={allActive ? 'page' : undefined}
+          class={`block rounded-lg px-3 py-2 text-base font-medium transition ${
+            allActive
+              ? 'bg-primary/10 text-primary dark:bg-primary/20'
+              : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100'
+          }`}
+        >
+          {rootLabel}
+        </a>
+      </li>
+      {navTree.map((node) => (
+        <PortfolioNavItem node={node} activeId={activeId} depth={0} />
+      ))}
+    </ul>
+  </nav>
+</aside>
+
+<script>
+  document.querySelector('[data-leftnav-select]')?.addEventListener('change', (e) => {
+    const target = e.target as HTMLSelectElement;
+    if (target?.value) window.location.href = target.value;
+  });
+</script>

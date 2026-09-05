@@ -5,17 +5,21 @@ import Self from './PortfolioNavItem.astro';
 interface Props {
   node: NavNode;
   activeId?: string;
+  depth?: number;
 }
 
-const { node, activeId } = Astro.props;
+const { node, activeId, depth = 0 } = Astro.props;
 const isActive = node.entry.id === activeId;
+const isRoot = depth === 0;
 ---
 
 <li>
   <a
     href={node.href}
     aria-current={isActive ? 'page' : undefined}
-    class={`block rounded-lg px-3 py-2 text-sm font-medium transition ${
+    class={`block rounded-lg px-3 py-2 font-medium transition ${
+      isRoot ? 'text-base' : 'text-sm'
+    } ${
       isActive
         ? 'bg-primary/10 text-primary dark:bg-primary/20'
         : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100'
@@ -26,7 +30,7 @@ const isActive = node.entry.id === activeId;
   {node.children.length > 0 && (
     <ul class="mt-0.5 space-y-0.5 pl-4">
       {node.children.map((child) => (
-        <Self node={child} activeId={activeId} />
+        <Self node={child} activeId={activeId} depth={depth + 1} />
       ))}
     </ul>
   )}

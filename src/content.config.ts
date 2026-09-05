@@ -42,6 +42,8 @@ const contentCardSchema = z.object({
       z.object({
         src: z.string(),
         alt: z.string().optional(),
+        href: z.string().optional(),
+        ctaText: z.string().optional(),
       })
     )
     .optional(),
@@ -71,6 +73,8 @@ const portfolio = defineCollection({
           z.object({
             src: z.string(),
             alt: z.string().optional(),
+            href: z.string().optional(),
+            ctaText: z.string().optional(),
           })
         )
         .optional(),

@@ -10,11 +10,14 @@ contentCards:
       We've helped many clients with the extensive permitting process around roadway access.
 
       [We can help you today](/contact)!
+    image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692434/images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.07.53-1-scaled.jpg'
     layout: horizontal
     imagePosition: right
     gallery:
       - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692377/images/portfolio/amc-309-cinemas-renovation/AMC309.jpg'
         alt: AMC Theatre Project
+        href: /portfolio/amc-309-cinemas-renovation
+        ctaText: ''
       - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692814/images/portfolio/wawa-upper-providence-township-pa-2/2021-04-02-11.11.44-1-scaled.jpg'
 ---
 

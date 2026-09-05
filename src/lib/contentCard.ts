@@ -20,7 +20,7 @@ export interface ContentCardData {
   textSize?: 'sm' | 'base' | 'lg' | 'xl';
   imagePosition?: 'left' | 'right';
   matchImageHeight?: boolean;
-  gallery?: { src: string; alt?: string }[];
+  gallery?: { src: string; alt?: string; href?: string; ctaText?: string }[];
 }
 
 /**

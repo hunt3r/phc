@@ -105,6 +105,8 @@ const contentCardFields: any[] = [
     fields: [
       { type: 'image', name: 'src', label: 'Image' },
       { type: 'string', name: 'alt', label: 'Alt text' },
+      { type: 'string', name: 'href', label: 'Link URL', description: 'Optional. Link this image to another page (e.g. a portfolio item).' },
+      { type: 'string', name: 'ctaText', label: 'Link button label', description: 'Optional. Defaults to "View project".' },
     ],
   },
 ];
@@ -184,6 +186,8 @@ export default defineConfig({
             fields: [
               { type: 'image', name: 'src', label: 'Image' },
               { type: 'string', name: 'alt', label: 'Alt text' },
+              { type: 'string', name: 'href', label: 'Link URL', description: 'Optional. Link this image to another page (e.g. a portfolio item).' },
+              { type: 'string', name: 'ctaText', label: 'Link button label', description: 'Optional. Defaults to "View project".' },
             ],
           },
           {

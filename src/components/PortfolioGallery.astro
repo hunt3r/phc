@@ -4,6 +4,10 @@ import { getImageUrl, getImageSrcSet } from "@/lib/cloudinary";
 interface Image {
   src: string
   alt?: string
+  /** Optional link (e.g. to another portfolio item), shown as a CTA button on the thumbnail and in the lightbox. */
+  href?: string
+  /** Optional CTA button label. Defaults to "View project". */
+  ctaText?: string
 }
 
 interface Props {
@@ -14,9 +18,17 @@ interface Props {
   heading?: string
   /** Wrapper section classes. Defaults to `mt-8`; pass "" to remove the top margin. */
   class?: string
+  /** Responsive grid column classes for the thumbnail grid. Defaults to the full-width layout. */
+  columnsClass?: string
 }
 
-const { images, galleryId = "default", heading = "Project gallery", class: sectionClass = "mt-8" } = Astro.props as Props
+const {
+  images,
+  galleryId = "default",
+  heading = "Project gallery",
+  class: sectionClass = "mt-8",
+  columnsClass = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
+} = Astro.props as Props
 const rootId = `portfolio-gallery-${galleryId}`
 const lightboxId = `portfolio-lightbox-${galleryId}`
 const lightboxImageId = `portfolio-lightbox-image-${galleryId}`
@@ -30,11 +42,15 @@ const thumbImages = images.map((img) => ({
   src: getImageUrl(img.src, THUMB_OPTIONS),
   srcset: getImageSrcSet(img.src, THUMB_WIDTHS, { quality: "auto:eco" }),
   alt: img.alt,
+  href: img.href?.trim() || undefined,
+  ctaText: img.ctaText?.trim() || undefined,
 }));
 const lightboxImages = images.map((img) => ({
   src: getImageUrl(img.src, LIGHTBOX_OPTIONS),
   srcset: getImageSrcSet(img.src, LIGHTBOX_WIDTHS, { quality: "auto:eco" }),
   alt: img.alt,
+  href: img.href?.trim() || undefined,
+  ctaText: img.ctaText?.trim() || undefined,
 }));
 ---
 
@@ -43,25 +59,36 @@ const lightboxImages = images.map((img) => ({
     {heading && <h2 class="mb-4 text-lg font-semibold text-gray-900">{heading}</h2>}
     <div
       id={rootId}
-      class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
+      class={`grid gap-3 ${columnsClass}`}
       data-images={JSON.stringify(lightboxImages)}
       data-gallery-id={galleryId}
     >
       {thumbImages.map((image, index) => (
-        <button
-          type="button"
-          class="group relative overflow-hidden rounded-lg border border-gray-200 bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary dark:border-gray-700 dark:bg-gray-800"
-          data-index={index}
-        >
-          <img
-            src={image.src}
-            srcset={image.srcset}
-            sizes={THUMB_SIZES}
-            alt={image.alt || ""}
-            loading="lazy"
-            class="h-40 w-full object-cover transition-transform duration-200 group-hover:scale-105"
-          />
-        </button>
+        <div class="group relative overflow-hidden rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
+          <button
+            type="button"
+            class="block w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            data-index={index}
+            aria-label={image.alt ? `View image: ${image.alt}` : "View image"}
+          >
+            <img
+              src={image.src}
+              srcset={image.srcset}
+              sizes={THUMB_SIZES}
+              alt={image.alt || ""}
+              loading="lazy"
+              class="h-40 w-full object-cover transition-transform duration-200 group-hover:scale-105"
+            />
+          </button>
+          {image.href && (
+            <a
+              href={image.href}
+              class="absolute bottom-2 left-1/2 z-10 -translate-x-1/2 rounded-full bg-primary px-3 py-1.5 text-sm font-medium text-white shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              {image.ctaText || "View project"}
+            </a>
+          )}
+        </div>
       ))}
     </div>
 
@@ -115,6 +142,12 @@ const lightboxImages = images.map((img) => ({
             class="max-h-full w-auto max-w-full rounded-md object-contain"
           />
         </div>
+        <a
+          data-role="cta"
+          href="#"
+          class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          hidden
+        >View project</a>
         <div aria-live="polite" aria-atomic="true" class="sr-only" data-role="counter"></div>
       </div>
     </div>
@@ -156,6 +189,7 @@ const lightboxImages = images.map((img) => ({
     const lightboxImg = document.getElementById(`portfolio-lightbox-image-${galleryId}`);
     const focusRoot = document.getElementById(`portfolio-lightbox-${galleryId}-focus-root`);
     const counterEl = lightbox?.querySelector("[data-role=counter]");
+    const ctaEl = lightbox?.querySelector("[data-role=cta]");
     if (!lightbox || !lightboxImg || !focusRoot) return;
 
     const images = JSON.parse(galleryRoot.dataset.images || "[]");
@@ -167,6 +201,19 @@ const lightboxImages = images.map((img) => ({
       if (counterEl && images.length) counterEl.textContent = `Image ${currentIndex + 1} of ${images.length}`;
     }
 
+    function updateCta() {
+      if (!ctaEl) return;
+      const img = images[currentIndex];
+      if (img && img.href) {
+        ctaEl.setAttribute("href", img.href);
+        ctaEl.textContent = img.ctaText || "View project";
+        ctaEl.removeAttribute("hidden");
+      } else {
+        ctaEl.setAttribute("hidden", "");
+        ctaEl.removeAttribute("href");
+      }
+    }
+
     function openLightbox(index, thumb) {
       currentIndex = index;
       lastActiveThumb = thumb;
@@ -176,6 +223,7 @@ const lightboxImages = images.map((img) => ({
       else lightboxImg.removeAttribute("srcset");
       lightboxImg.alt = img.alt || "";
       updateCounter();
+      updateCta();
       lightbox.removeAttribute("hidden");
       lightbox.removeAttribute("inert");
       lightbox.classList.remove("pointer-events-none");
@@ -220,6 +268,7 @@ const lightboxImages = images.map((img) => ({
       else lightboxImg.removeAttribute("srcset");
       lightboxImg.alt = img.alt || "";
       updateCounter();
+      updateCta();
     }
 
     galleryRoot.addEventListener("click", (event) => {

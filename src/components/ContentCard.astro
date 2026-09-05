@@ -137,7 +137,13 @@ const galleryBelow = hasGallery && !galleryInColumn;
           )
         ) : galleryInColumn ? (
           <div class={imagePosition === 'right' ? 'md:order-2' : ''} data-tina-field={tf('gallery')}>
-            <PortfolioGallery images={galleryImages} galleryId={id ?? 'content-card'} heading="" class="" />
+            <PortfolioGallery
+              images={galleryImages}
+              galleryId={id ?? 'content-card'}
+              heading=""
+              class=""
+              columnsClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
+            />
           </div>
         ) : null}
         <div class={hasImage || galleryInColumn ? '' : 'md:col-span-2'}>
