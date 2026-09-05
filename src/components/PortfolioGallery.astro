@@ -10,9 +10,13 @@ interface Props {
   images: Image[]
   /** Optional unique id when multiple galleries exist on one page (e.g. portfolio slug). */
   galleryId?: string
+  /** Heading shown above the grid. Pass an empty string to omit it (e.g. inside a content card). */
+  heading?: string
+  /** Wrapper section classes. Defaults to `mt-8`; pass "" to remove the top margin. */
+  class?: string
 }
 
-const { images, galleryId = "default" } = Astro.props as Props
+const { images, galleryId = "default", heading = "Project gallery", class: sectionClass = "mt-8" } = Astro.props as Props
 const rootId = `portfolio-gallery-${galleryId}`
 const lightboxId = `portfolio-lightbox-${galleryId}`
 const lightboxImageId = `portfolio-lightbox-image-${galleryId}`
@@ -35,11 +39,11 @@ const lightboxImages = images.map((img) => ({
 ---
 
 {images && images.length > 0 && (
-  <section class="mt-8">
-    <h2 class="mb-4 text-lg font-semibold text-gray-900">Project gallery</h2>
+  <section class={sectionClass}>
+    {heading && <h2 class="mb-4 text-lg font-semibold text-gray-900">{heading}</h2>}
     <div
       id={rootId}
-      class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
       data-images={JSON.stringify(lightboxImages)}
       data-gallery-id={galleryId}
     >

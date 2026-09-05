@@ -37,6 +37,14 @@ const contentCardSchema = z.object({
   textSize: optionalEnum(['sm', 'base', 'lg', 'xl']),
   imagePosition: optionalEnum(['left', 'right']),
   matchImageHeight: z.boolean().optional(),
+  gallery: z
+    .array(
+      z.object({
+        src: z.string(),
+        alt: z.string().optional(),
+      })
+    )
+    .optional(),
 });
 
 const contentCardsSchema = z.array(contentCardSchema).optional();

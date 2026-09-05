@@ -74,6 +74,39 @@ const contentCardFields: any[] = [
     label: 'Match image height to content (horizontal only)',
     description: 'Crop the image to the height of the text content, clipping from the center.',
   },
+  {
+    type: 'object',
+    name: 'gallery',
+    label: 'Image Gallery',
+    list: true,
+    description: 'Optional. Images shown as a thumbnail grid with a lightbox, below the card content.',
+    ui: {
+      itemProps: (item: any) => {
+        const src: string = item?.src ?? '';
+        const thumb = src.includes('/upload/')
+          ? src.replace('/upload/', '/upload/w_80,h_80,c_fill,q_auto,f_auto/')
+          : src;
+        const filename = src.split('/').pop()?.split('?')[0] ?? '';
+        const label = item?.alt || filename || 'Gallery image';
+        return {
+          label,
+          ...(thumb && {
+            style: {
+              backgroundImage: `url("${thumb}")`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'auto 28px',
+              backgroundPosition: 'right 64px center',
+              paddingRight: '104px',
+            },
+          }),
+        } as any;
+      },
+    },
+    fields: [
+      { type: 'image', name: 'src', label: 'Image' },
+      { type: 'string', name: 'alt', label: 'Alt text' },
+    ],
+  },
 ];
 
 const contentCardsField = {

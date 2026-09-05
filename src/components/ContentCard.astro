@@ -1,6 +1,7 @@
 ---
 import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
 import { BG_CLASS, DARK_BACKGROUNDS, TEXT_SIZE_REM, type ContentCardData } from '@/lib/contentCard';
+import PortfolioGallery from '@/components/PortfolioGallery.astro';
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
 import { tinaField } from '@tinacms/astro/tina-field';
 
@@ -91,13 +92,22 @@ const innerPadClass = fullBleed
 const IMAGE_WIDTHS = [480, 768, 1024, 1600];
 const imageUrl = hasImage ? getImageUrl(card.image, { width: 1024 }) : undefined;
 const imageSrcSet = hasImage ? getImageSrcSet(card.image, IMAGE_WIDTHS) : undefined;
+
+// Optional image gallery (identical to the portfolio gallery, with lightbox).
+const galleryImages = (card.gallery ?? []).filter((g) => g?.src?.trim());
+const hasGallery = galleryImages.length > 0;
+// In a horizontal card with no main image, the gallery floats in the image
+// column (taking the place of the main image). Otherwise it renders full-width
+// below the card content (including when a horizontal card has both).
+const galleryInColumn = isHorizontal && !hasImage && hasGallery;
+const galleryBelow = hasGallery && !galleryInColumn;
 ---
 
 <section id={id} class={`content-card ${wrapperClass}`.trim()} data-tina-field={tf()}>
   <div class={innerPadClass}>
     {isHorizontal ? (
       <div class={`grid gap-8 md:grid-cols-2 ${matchImageHeight ? 'items-stretch' : 'items-center'}`}>
-        {hasImage && (
+        {hasImage ? (
           matchImageHeight ? (
             <div
               class={`relative aspect-[16/9] overflow-hidden rounded-lg md:aspect-auto md:h-full ${imagePosition === 'right' ? 'md:order-2' : ''}`}
@@ -125,8 +135,12 @@ const imageSrcSet = hasImage ? getImageSrcSet(card.image, IMAGE_WIDTHS) : undefi
               data-tina-field={tf('image')}
             />
           )
-        )}
-        <div class={hasImage ? '' : 'md:col-span-2'}>
+        ) : galleryInColumn ? (
+          <div class={imagePosition === 'right' ? 'md:order-2' : ''} data-tina-field={tf('gallery')}>
+            <PortfolioGallery images={galleryImages} galleryId={id ?? 'content-card'} heading="" class="" />
+          </div>
+        ) : null}
+        <div class={hasImage || galleryInColumn ? '' : 'md:col-span-2'}>
           {hasTitle && (
             <h3 class={`mb-4 font-heading text-2xl font-semibold tracking-tight ${titleClass}`} data-tina-field={tf('title')}>{card.title}</h3>
           )}
@@ -175,6 +189,11 @@ const imageSrcSet = hasImage ? getImageSrcSet(card.image, IMAGE_WIDTHS) : undefi
             </div>
           )}
         </div>
+      </div>
+    )}
+    {galleryBelow && (
+      <div data-tina-field={tf('gallery')}>
+        <PortfolioGallery images={galleryImages} galleryId={id ?? 'content-card'} heading="" />
       </div>
     )}
   </div>
