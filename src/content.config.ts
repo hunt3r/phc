@@ -191,10 +191,18 @@ const staff = defineCollection({
   }),
 });
 
+const navLinkSchema = z.object({
+  label: z.string(),
+  href: z.string(),
+  newTab: z.boolean().optional(),
+});
+
 const site = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/site' }),
   schema: z.object({
     footerDescription: z.string().optional(),
+    headerLinks: z.array(navLinkSchema).optional(),
+    footerLinks: z.array(navLinkSchema).optional(),
   }),
 });
 

@@ -436,6 +436,36 @@ export default defineConfig({
         ui: { allowedActions: { create: false, delete: false } },
         fields: [
           { type: 'string', name: 'footerDescription', label: 'Footer Description', ui: { component: 'textarea' }, description: 'Short blurb shown under the logo in the footer.' },
+          {
+            type: 'object',
+            name: 'headerLinks',
+            label: 'Header Links',
+            list: true,
+            description: 'Navigation links shown in the site header. Drag to reorder.',
+            ui: {
+              itemProps: (item) => ({ label: item?.label || item?.href || 'Link' }),
+            },
+            fields: [
+              { type: 'string', name: 'label', label: 'Label', required: true },
+              { type: 'string', name: 'href', label: 'URL', required: true, description: 'Path (e.g. /about) or full URL.' },
+              { type: 'boolean', name: 'newTab', label: 'Open in new tab' },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'footerLinks',
+            label: 'Footer Links',
+            list: true,
+            description: 'Navigation links shown in the footer. Drag to reorder.',
+            ui: {
+              itemProps: (item) => ({ label: item?.label || item?.href || 'Link' }),
+            },
+            fields: [
+              { type: 'string', name: 'label', label: 'Label', required: true },
+              { type: 'string', name: 'href', label: 'URL', required: true, description: 'Path (e.g. /about) or full URL.' },
+              { type: 'boolean', name: 'newTab', label: 'Open in new tab' },
+            ],
+          },
         ],
       },
       {

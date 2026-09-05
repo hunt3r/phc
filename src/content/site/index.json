@@ -1,3 +1,55 @@
 {
-  "footerDescription": "Delivering quality construction and project management across retail, healthcare, government, and commercial sectors. PH&C, LLC is a Service-Disabled Veteran-Owned Small Business (SDVOSB)"
+  "footerDescription": "Delivering quality construction and project management across retail, healthcare, government, and commercial sectors. PH&C, LLC is a Service-Disabled Veteran-Owned Small Business (SDVOSB)",
+  "headerLinks": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Services",
+      "href": "/services"
+    },
+    {
+      "label": "Portfolio",
+      "href": "/portfolio"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "footerLinks": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Portfolio",
+      "href": "/portfolio"
+    },
+    {
+      "label": "Services",
+      "href": "/services"
+    },
+    {
+      "label": "Testimonials",
+      "href": "/testimonials"
+    },
+    {
+      "label": "Videos",
+      "href": "/videos"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ]
 }

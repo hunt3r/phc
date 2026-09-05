@@ -4,7 +4,7 @@ import { marked } from 'marked';
 
 const year = new Date().getFullYear();
 
-const navLinks = [
+const DEFAULT_FOOTER_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Portfolio', href: '/portfolio' },
@@ -15,6 +15,10 @@ const navLinks = [
 ];
 
 const siteEntry = await getEntry('site', 'index');
+
+const navLinks = siteEntry?.data?.footerLinks?.length
+  ? siteEntry.data.footerLinks
+  : DEFAULT_FOOTER_LINKS;
 
 const footerDescription =
   siteEntry?.data?.footerDescription ??
@@ -72,7 +76,14 @@ const contactInfoHtml = marked.parse(contactInfo);
         <ul class="mt-4 space-y-2">
           {navLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-sm text-primary hover:text-primary/80">{link.label}</a>
+              <a
+                href={link.href}
+                target={link.newTab ? '_blank' : undefined}
+                rel={link.newTab ? 'noopener noreferrer' : undefined}
+                class="text-sm text-primary hover:text-primary/80"
+              >
+                {link.label}
+              </a>
             </li>
           ))}
         </ul>
