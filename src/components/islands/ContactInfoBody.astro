@@ -1,0 +1,34 @@
+---
+/**
+ * Editable island renderer for the Contact page's `contactInfo` rich-text field.
+ * Mirrors the static `ContactInfoCard` markup, but renders the Tina rich-text
+ * AST via `TinaMarkdown` and adds `data-tina-field` for click-to-edit. The
+ * public build renders `ContactInfoCard` (from the markdown string) instead.
+ */
+import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { ContactQuery } from '../../../tina/__generated__/types';
+
+interface Props {
+  data?: ContactQuery['contact'] | null;
+  heading?: string;
+}
+
+const { data, heading = 'Reach us' } = Astro.props;
+---
+
+{data?.contactInfo && (
+  <aside
+    class="not-prose mb-6 w-full rounded-xl border border-gray-200 bg-gray-50 p-6 md:float-right md:mb-4 md:ml-8 md:w-72 dark:border-gray-700 dark:bg-gray-800/50"
+  >
+    <h2 class="mb-3 text-sm font-semibold tracking-wide text-gray-900 uppercase dark:text-gray-100">
+      {heading}
+    </h2>
+    <div
+      class="space-y-2 whitespace-pre-line text-sm text-gray-600 dark:text-gray-400 [&_a]:text-primary hover:[&_a]:text-primary/80 [&_strong]:font-medium [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100"
+      data-tina-field={tinaField(data, 'contactInfo')}
+    >
+      <TinaMarkdown content={data.contactInfo} />
+    </div>
+  </aside>
+)}

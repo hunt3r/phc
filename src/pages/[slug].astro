@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import ContentPageSection from '../components/ContentPageSection.astro';
+
+// Generic content pages live in the `pages` collection and render at the site
+// root (e.g. /privacy-policy). Each entry gets a route here, so editors can add
+// new pages in Tina without a bespoke Astro route per page.
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entryId: entry.id },
+  }));
+}
+
+const { entryId } = Astro.props;
+---
+
+<ContentPageSection entryId={entryId} path={`/${entryId}`} />

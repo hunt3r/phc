@@ -121,22 +121,6 @@ const home = defineCollection({
   }),
 });
 
-const aboutHeroSchema = z
-  .object({
-    size: z.enum(['full', 'compact']).optional(),
-    eyebrow: z.string().optional(),
-    tagline: z.string().optional(),
-    subtitle: z.string().optional(),
-    ctaPrimaryText: z.string().optional(),
-    ctaPrimaryHref: z.string().optional(),
-    ctaSecondaryText: z.string().optional(),
-    ctaSecondaryHref: z.string().optional(),
-    backgroundImage: z.string().optional(),
-    overlayOpacity: z.number().optional(),
-    overlayColor: z.enum(['dark', 'light']).optional(),
-  })
-  .optional();
-
 const tags = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/tags' }),
   schema: () =>
@@ -170,9 +154,23 @@ const pages = defineCollection({
       title: z.string(),
       description: z.string().optional(),
       featuredImage: z.string().optional(),
+      videos: z.array(inlineVideoSchema).optional(),
+      contentCards: contentCardsSchema,
+    }),
+});
+
+// The Contact page is its own singleton collection so its bespoke `contactInfo`
+// field (rendered in the footer + aside card) is not attached to every generic
+// page. Otherwise it mirrors the `pages` shape.
+const contact = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/contact' }),
+  schema: () =>
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      featuredImage: z.string().optional(),
       // Named rich-text field; Tina stores it as a markdown string in frontmatter.
       contactInfo: z.string().optional(),
-      hero: aboutHeroSchema,
       videos: z.array(inlineVideoSchema).optional(),
       contentCards: contentCardsSchema,
     }),
@@ -200,4 +198,4 @@ const site = defineCollection({
   }),
 });
 
-export const collections = { portfolio, tags, home, about, pages, staff, site };
+export const collections = { portfolio, tags, home, about, pages, contact, staff, site };

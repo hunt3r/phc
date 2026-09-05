@@ -21,7 +21,7 @@ const footerDescription =
   'Delivering quality construction and project management across retail, healthcare, government, and commercial sectors.';
 
 // Contact block lives on the Contact page (rich-text field, stored as markdown).
-const contactEntry = await getEntry('pages', 'contact');
+const contactEntry = await getEntry('contact', 'contact');
 const contactInfo =
   contactEntry?.data?.contactInfo ??
   '**PH&C, LLC**\n\n998 Old Eagle School Road, Suite 1210\n\nWayne, PA 19087\n\n[info@phandc.net](mailto:info@phandc.net)';
@@ -81,7 +81,7 @@ const contactInfoHtml = marked.parse(contactInfo);
       <!-- Contact -->
       <div>
         <h2 class="subheading text-sm text-gray-500 dark:text-gray-400">Contact</h2>
-        <address class="mt-4 space-y-2 text-sm not-italic text-gray-600 dark:text-gray-400 [&_a]:text-primary hover:[&_a]:text-primary/80 [&_strong]:font-medium [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100" set:html={contactInfoHtml}></address>
+        <address class="mt-4 space-y-2 whitespace-pre-line text-sm not-italic text-gray-600 dark:text-gray-400 [&_a]:text-primary hover:[&_a]:text-primary/80 [&_strong]:font-medium [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100" set:html={contactInfoHtml}></address>
       </div>
     </div>
 

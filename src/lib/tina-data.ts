@@ -40,6 +40,12 @@ export const getPage = (slug: string) =>
     { priority: 'primary' },
   );
 
+export const getContact = () =>
+  requestWithMetadata(
+    client.queries.contact({ relativePath: 'contact.md' }),
+    { priority: 'primary' },
+  );
+
 export const getHome = () =>
   requestWithMetadata(
     client.queries.home({ relativePath: 'index.json' }),

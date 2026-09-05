@@ -325,36 +325,52 @@ export default defineConfig({
         ],
       },
       {
-        name: 'pages',
-        label: 'Pages',
-        path: 'src/content/pages',
+        name: 'contact',
+        label: 'Contact',
+        path: 'src/content/contact',
+        match: { include: 'contact' },
         format: 'md',
-        // Pages render at the site root (e.g. /contact, /privacy-policy).
-        ui: { allowedActions: { create: false, delete: false }, router: ({ document }) => `/${document._sys.filename}` },
+        ui: { allowedActions: { create: false, delete: false }, router: () => '/contact' },
         fields: [
           { type: 'string', name: 'title', label: 'Title', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
           { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Upload via Cloudinary (used as hero background if hero background is not set)' },
-          { type: 'rich-text', name: 'contactInfo', label: 'Contact Info (footer)', description: 'Only used on the Contact page. Rendered in the site footer contact block.' },
+          { type: 'rich-text', name: 'contactInfo', label: 'Contact Info (footer)', description: 'Rendered in the site footer contact block and the aside card on the Contact page.' },
           {
             type: 'object',
-            name: 'hero',
-            label: 'Hero',
-            description: 'Optional hero block. Defaults use the page title and featured image.',
+            name: 'videos',
+            label: 'Videos',
+            list: true,
+            description: 'Add, remove, or reorder videos shown as a card + lightbox player on this page.',
+            ui: {
+              itemProps: (item) => ({ label: item?.title || item?.youtube || 'New video' }),
+            },
             fields: [
-              { type: 'string', name: 'size', label: 'Size', options: ['full', 'compact'], ui: { component: 'select' } },
-              { type: 'string', name: 'eyebrow', label: 'Eyebrow' },
-              { type: 'string', name: 'tagline', label: 'Tagline' },
-              { type: 'string', name: 'subtitle', label: 'Subtitle', ui: { component: 'textarea' } },
-              { type: 'string', name: 'ctaPrimaryText', label: 'Primary CTA Text' },
-              { type: 'string', name: 'ctaPrimaryHref', label: 'Primary CTA Link' },
-              { type: 'string', name: 'ctaSecondaryText', label: 'Secondary CTA Text' },
-              { type: 'string', name: 'ctaSecondaryHref', label: 'Secondary CTA Link' },
-              { type: 'image', name: 'backgroundImage', label: 'Background Image', description: 'Upload via Cloudinary' },
-              { type: 'number', name: 'overlayOpacity', label: 'Overlay Opacity (0-100)' },
-              { type: 'string', name: 'overlayColor', label: 'Overlay Color', options: ['dark', 'light'], ui: { component: 'select' } },
+              { type: 'string', name: 'title', label: 'Title' },
+              { type: 'string', name: 'youtube', label: 'YouTube Video URL', required: true, description: 'Paste a full YouTube link (or a bare 11-character video ID).' },
+              { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
+              { type: 'image', name: 'thumbnail', label: 'Thumbnail Override', description: 'Optional. Upload via Cloudinary to override the auto YouTube thumbnail.' },
+              { type: 'boolean', name: 'featured', label: 'Promote to home page' },
             ],
           },
+          contentCardsField,
+          { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
+        ],
+      },
+      {
+        name: 'pages',
+        label: 'Pages',
+        path: 'src/content/pages',
+        format: 'md',
+        // Generic content pages that render at the site root (e.g. /privacy-policy)
+        // via the dynamic src/pages/[slug].astro route. Create/delete stay enabled
+        // so the collection shows its document list (Tina auto-opens single-document
+        // collections that disable both actions) and editors can add new pages.
+        ui: { router: ({ document }) => `/${document._sys.filename}` },
+        fields: [
+          { type: 'string', name: 'title', label: 'Title', required: true },
+          { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
+          { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Upload via Cloudinary (used as the page header background).' },
           {
             type: 'object',
             name: 'videos',

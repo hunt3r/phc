@@ -2,13 +2,24 @@
 import ContentPageSection from '../components/ContentPageSection.astro';
 import ContactForm from '../components/ContactForm.astro';
 import ContactInfoCard from '../components/ContactInfoCard.astro';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import { islands } from '@/lib/islands';
 import { getEntry } from 'astro:content';
 
-const contactEntry = await getEntry('pages', 'contact');
+const contactEntry = await getEntry('contact', 'contact');
 const contactInfo = contactEntry?.data?.contactInfo;
 ---
 
-<ContentPageSection entryId="contact" path="/contact" breadcrumbLabel="Contact">
-  {contactInfo && <ContactInfoCard slot="aside" contactInfo={contactInfo} />}
+<ContentPageSection
+  entryId="contact"
+  collection="contact"
+  bodyIsland="contact"
+  cardsIsland="contactCards"
+  path="/contact"
+  breadcrumbLabel="Contact"
+>
+  <TinaIsland slot="aside" name="contactInfo" wrapper={islands.contactInfo.wrapper}>
+    {contactInfo && <ContactInfoCard contactInfo={contactInfo} />}
+  </TinaIsland>
   <ContactForm />
 </ContentPageSection>

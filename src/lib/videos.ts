@@ -116,7 +116,7 @@ export function toVideoViews(
   return views;
 }
 
-const VIDEO_COLLECTIONS = ['portfolio', 'tags', 'about', 'pages'] as const;
+const VIDEO_COLLECTIONS = ['portfolio', 'tags', 'about', 'pages', 'contact'] as const;
 
 /**
  * Every inline video across portfolio items, tags, and pages, flattened into a

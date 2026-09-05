@@ -19,6 +19,7 @@ import type {
   TagsQuery,
   AboutQuery,
   PagesQuery,
+  ContactQuery,
   HomeQuery,
   StaffQuery,
 } from '../../tina/__generated__/types';
@@ -28,6 +29,7 @@ import TagBody from '../components/islands/TagBody.astro';
 import TagHero from '../components/islands/TagHero.astro';
 import AboutBody from '../components/islands/AboutBody.astro';
 import PageBody from '../components/islands/PageBody.astro';
+import ContactInfoBody from '../components/islands/ContactInfoBody.astro';
 import HomeBody from '../components/islands/HomeBody.astro';
 import StaffBody from '../components/islands/StaffBody.astro';
 import ContentCardsBody from '../components/islands/ContentCardsBody.astro';
@@ -37,6 +39,7 @@ import {
   getTag,
   getAbout,
   getPage,
+  getContact,
   getHome,
   getStaff,
 } from './tina-data';
@@ -84,6 +87,16 @@ export const islands: IslandRegistry = {
       data: (data as QueryResult<PagesQuery>).data?.pages,
     }),
   },
+  // The Contact page is its own singleton collection but renders its body the
+  // same way a generic page does, so it reuses PageBody.
+  contact: {
+    fetch: () => getContact(),
+    component: PageBody,
+    wrapper: { tag: 'div' },
+    propsFromData: (data) => ({
+      data: (data as QueryResult<ContactQuery>).data?.contact,
+    }),
+  },
   home: {
     fetch: () => getHome(),
     component: HomeBody,
@@ -128,6 +141,26 @@ export const islands: IslandRegistry = {
       cards: (data as QueryResult<PagesQuery>).data?.pages?.contentCards,
       sectionId: 'page-card',
       allowFullBleed: true,
+    }),
+  },
+  contactCards: {
+    fetch: () => getContact(),
+    component: ContentCardsBody,
+    wrapper: { tag: 'div' },
+    propsFromData: (data) => ({
+      cards: (data as QueryResult<ContactQuery>).data?.contact?.contentCards,
+      sectionId: 'page-contact-card',
+      allowFullBleed: true,
+    }),
+  },
+  // The Contact page's floating info card. Uses a `display: contents` wrapper so
+  // the island element itself doesn't disrupt the card's `float-right` layout.
+  contactInfo: {
+    fetch: () => getContact(),
+    component: ContactInfoBody,
+    wrapper: { tag: 'div', className: 'contents' },
+    propsFromData: (data) => ({
+      data: (data as QueryResult<ContactQuery>).data?.contact,
     }),
   },
   aboutCards: {
