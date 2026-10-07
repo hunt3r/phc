@@ -4,6 +4,7 @@ description: 'Ground up development of this large land parcel started in 2022, a
 location: 'Bridgeport, PA'
 client: Lennar Homes
 date: '2025'
+projectCost: 50M
 size: 250 units
 contractor: Lennar
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692511/images/portfolio/river-pointe-residential-bridgeport-pa/2024-10-24-11.23.52-copy-1024x637.jpg'
