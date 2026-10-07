@@ -1,12 +1,14 @@
 ---
 import JsonLd from "@/components/seo/JsonLd.astro";
 import Footer from "@/components/Footer.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import {
   createGraphSchema,
   createOrganizationSchema,
   createWebPageSchema,
   createWebSiteSchema,
   toAbsoluteUrl,
+  type BreadcrumbItem,
 } from "@/lib/seo/jsonld";
 import { getImageUrl } from "@/lib/cloudinary";
 import { getEntry } from "astro:content";
@@ -29,6 +31,7 @@ interface Props {
   description?: string;
   image?: string;
   jsonLdNodes?: Record<string, unknown>[];
+  breadcrumbs?: BreadcrumbItem[];
   ogType?: string;
   datePublished?: string;
   dateModified?: string;
@@ -39,6 +42,7 @@ const {
   description,
   image,
   jsonLdNodes = [],
+  breadcrumbs,
   ogType = 'website',
   datePublished,
   dateModified,
@@ -192,6 +196,8 @@ const baseJsonLd = createGraphSchema([
     </header>
     <main class="flex-1">
       <div class="mx-auto max-w-8xl px-4 pt-0 pb-8 sm:px-6 lg:px-8">
+        <slot name="hero" />
+        <Breadcrumbs items={breadcrumbs} />
         <slot />
       </div>
     </main>

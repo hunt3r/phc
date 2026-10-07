@@ -1,5 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { slugify, titleize } from '@/lib/slug';
+import type { BreadcrumbItem } from '@/lib/seo/jsonld';
 
 export interface ResolvedTag {
   slug: string;
@@ -177,6 +178,30 @@ export function tagHref(
   const root = rootAncestor(slug, tagMap);
   const base = ROOT_ROUTES[root]?.leafBase ?? DEFAULT_LEAF_BASE;
   return `${base}/${slug}`;
+}
+
+/**
+ * Visible and JSON-LD breadcrumb for a tag page: Home, then ancestors from the
+ * hub down to the current tag. A root hub is Home / {hub}.
+ */
+export function tagBreadcrumbItems(
+  slug: string,
+  tagMap: Map<string, CollectionEntry<'tags'>>
+): BreadcrumbItem[] {
+  const crumbs: BreadcrumbItem[] = [{ name: 'Home', path: '/' }];
+  for (const ancestor of [...ancestorChain(slug, tagMap)].reverse()) {
+    const entry = tagMap.get(ancestor);
+    crumbs.push({
+      name: entry?.data.label || titleize(ancestor),
+      path: tagHref(ancestor, tagMap),
+    });
+  }
+  const current = tagMap.get(slug);
+  crumbs.push({
+    name: current?.data.label || titleize(slug),
+    path: tagHref(slug, tagMap),
+  });
+  return crumbs;
 }
 
 /**

@@ -33,12 +33,13 @@ const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
 const path = `/about/${member.slug}`;
 const firstParagraph = member.bio.split(/\n\n+/).find(Boolean)?.trim();
 const description = firstParagraph || `${member.name}, ${member.title} at PH&C.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: member.name, path },
+];
 const jsonLdNodes = [
-  createBreadcrumbListSchema(site, [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: member.name, path },
-  ]),
+  createBreadcrumbListSchema(site, breadcrumbs),
   createPersonSchema(site, {
     name: member.name,
     jobTitle: member.title,
@@ -50,8 +51,8 @@ const jsonLdNodes = [
 ];
 ---
 
-<BaseLayout title={member.name} description={description} image={member.image} jsonLdNodes={jsonLdNodes}>
-  <article class="pt-8">
+<BaseLayout title={member.name} description={description} image={member.image} jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs}>
+  <article class="pt-6">
     <TinaIsland name="staffProfile" wrapper={islands.staffProfile.wrapper} params={{ slug: member.slug }} primary>
       <StaffProfile
         name={member.name}

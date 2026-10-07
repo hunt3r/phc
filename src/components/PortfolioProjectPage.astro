@@ -47,12 +47,13 @@ const galleryImages =
 const ogDescription = entry.data.description ? entry.data.description.slice(0, 160).trim() : undefined;
 const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
 const pageUrl = Astro.url.href;
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Portfolio", path: "/portfolio" },
+  { name: entry.data.title, url: pageUrl },
+];
 const jsonLdNodes = [
-  createBreadcrumbListSchema(site, [
-    { name: "Home", path: "/" },
-    { name: "Portfolio", path: "/portfolio" },
-    { name: entry.data.title, url: pageUrl },
-  ]),
+  createBreadcrumbListSchema(site, breadcrumbs),
   createPortfolioCreativeWorkSchema(site, {
     url: pageUrl,
     name: entry.data.title,
@@ -66,7 +67,7 @@ const jsonLdNodes = [
 ];
 ---
 
-<BaseLayout title={entry.data.title} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes} ogType="article" datePublished={entry.data.date}>
+<BaseLayout title={entry.data.title} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs} ogType="article" datePublished={entry.data.date}>
   <TinaIsland name="portfolio" wrapper={islands.portfolio.wrapper} params={{ slug: entry.id }} primary>
   <article class="pt-8 space-y-8">
     <header class="space-y-3">

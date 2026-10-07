@@ -13,6 +13,7 @@ import {
   portfolioEntriesForTagTree,
   childrenOf,
   tagHref,
+  tagBreadcrumbItems,
 } from '@/lib/tags';
 import { toVideoViews } from '@/lib/videos';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
@@ -38,18 +39,15 @@ const ogDescription = entry.data.description
   ? entry.data.description.slice(0, 160).trim()
   : undefined;
 const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const breadcrumbs = tagBreadcrumbItems(entry.id, tagMap);
 const jsonLdNodes = [
-  createBreadcrumbListSchema(site, [
-    { name: 'Home', path: '/' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: tagLabel, path: `/portfolio/${entry.id}` },
-  ]),
+  createBreadcrumbListSchema(site, breadcrumbs),
 ];
 ---
 
-<BaseLayout title={tagLabel} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes}>
+<BaseLayout title={tagLabel} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs}>
   {entry.data.image && (
-    <TinaIsland name="tagHero" wrapper={islands.tagHero.wrapper} params={{ slug: entry.id }} primary>
+    <TinaIsland slot="hero" name="tagHero" wrapper={islands.tagHero.wrapper} params={{ slug: entry.id }} primary>
       <HeroPage
         id={`portfolio-${entry.id}-hero`}
         size="compact"

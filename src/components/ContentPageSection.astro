@@ -47,17 +47,19 @@ const ogDescription =
   entry.data.description ??
   `${label} — PH&C construction and real estate development consulting.`;
 const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: label, path },
+];
 const jsonLdNodes = [
-  createBreadcrumbListSchema(site, [
-    { name: 'Home', path: '/' },
-    { name: label, path },
-  ]),
+  createBreadcrumbListSchema(site, breadcrumbs),
   ...extraJsonLdNodes,
 ];
 ---
 
-<BaseLayout title={entry.data.title} description={ogDescription} image={heroBackgroundImage} jsonLdNodes={jsonLdNodes} ogType="article">
+<BaseLayout title={entry.data.title} description={ogDescription} image={heroBackgroundImage} jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs} ogType="article">
   <HeroPage
+    slot="hero"
     id={`${entryId}-hero`}
     size="compact"
     tagline={entry.data.title}

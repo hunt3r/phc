@@ -24,15 +24,16 @@ const videos = toVideoViews(entry.data.videos, 'about');
 const ogImage = entry.data.featuredImage;
 const ogDescription = entry.data.description ?? 'Our team, our values, and our commitment to delivering quality construction and development services.';
 const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+];
 const jsonLdNodes = [
-  createBreadcrumbListSchema(site, [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-  ]),
+  createBreadcrumbListSchema(site, breadcrumbs),
 ];
 ---
 
-<BaseLayout title={entry.data.title} description={ogDescription} image={ogImage} jsonLdNodes={jsonLdNodes}>
+<BaseLayout title={entry.data.title} description={ogDescription} image={ogImage} jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs}>
   <article class="pt-8 space-y-8">
     <TinaIsland name="about" wrapper={islands.about.wrapper} primary>
       <section class="space-y-4">

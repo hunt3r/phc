@@ -1,0 +1,40 @@
+---
+import type { BreadcrumbItem } from '@/lib/seo/jsonld';
+
+interface Props {
+  items?: BreadcrumbItem[];
+}
+
+const { items = [] } = Astro.props;
+const trail = items.filter((item) => item.name);
+const parent = trail.length >= 2 ? trail[trail.length - 2] : undefined;
+
+const hrefOf = (item: BreadcrumbItem) => item.path ?? item.url;
+---
+
+{trail.length > 1 && (
+  <nav class="pt-6 text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
+    {parent && hrefOf(parent) && (
+      <a href={hrefOf(parent)} class="inline-flex items-center gap-1.5 transition hover:text-primary md:hidden">
+        <span aria-hidden="true">←</span>
+        {parent.name}
+      </a>
+    )}
+    <ol class="hidden flex-wrap items-center gap-x-1.5 gap-y-1 md:flex">
+      {trail.map((item, index) => {
+        const last = index === trail.length - 1;
+        const href = hrefOf(item);
+        return (
+          <li class="flex min-w-0 items-center gap-1.5">
+            {index > 0 && <span aria-hidden="true">/</span>}
+            {last || !href ? (
+              <span class="truncate text-gray-700 dark:text-gray-300" aria-current={last ? 'page' : undefined}>{item.name}</span>
+            ) : (
+              <a href={href} class="transition hover:text-primary">{item.name}</a>
+            )}
+          </li>
+        );
+      })}
+    </ol>
+  </nav>
+)}

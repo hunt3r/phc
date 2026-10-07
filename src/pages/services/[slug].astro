@@ -12,6 +12,7 @@ import {
   getTagMap,
   portfolioEntriesForTagTree,
   tagsWithRoot,
+  tagBreadcrumbItems,
 } from '@/lib/tags';
 import { toVideoViews } from '@/lib/videos';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
@@ -41,18 +42,15 @@ const ogDescription = entry.data.description
   ? entry.data.description.slice(0, 160).trim()
   : undefined;
 const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const breadcrumbs = tagBreadcrumbItems(entry.id, tagMap);
 const jsonLdNodes = [
-  createBreadcrumbListSchema(site, [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: serviceLabel, path: `/services/${entry.id}` },
-  ]),
+  createBreadcrumbListSchema(site, breadcrumbs),
 ];
 ---
 
-<BaseLayout title={serviceLabel} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes}>
+<BaseLayout title={serviceLabel} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs}>
   {entry.data.image && (
-    <TinaIsland name="tagHero" wrapper={islands.tagHero.wrapper} params={{ slug: entry.id }} primary>
+    <TinaIsland slot="hero" name="tagHero" wrapper={islands.tagHero.wrapper} params={{ slug: entry.id }} primary>
       <HeroPage
         id={`service-${entry.id}-hero`}
         size="compact"
@@ -70,12 +68,6 @@ const jsonLdNodes = [
     <ServicesNav activeId={entry.id} />
 
     <div class="min-w-0 flex-1 space-y-8">
-      <nav class="text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
-        <a href="/services" class="transition hover:text-primary">Services</a>
-        <span class="px-1.5">/</span>
-        <span class="text-gray-700 dark:text-gray-300">{serviceLabel}</span>
-      </nav>
-
       {!entry.data.image && (
         <TinaIsland name="tagHero" wrapper={islands.tagHero.wrapper} params={{ slug: entry.id }} primary>
           <div>
