@@ -24,6 +24,7 @@ services:
   - bank-billing-inspection-coordination
   - construction-coordination-supervision
   - new-tag-test
+  - project-estimating-value-engineering
 order: 43
 featured: false
 videos:
