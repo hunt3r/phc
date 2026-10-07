@@ -186,6 +186,7 @@ const staff = defineCollection({
         bio: z.string(),
         image: z.string().optional(),
         note: z.string().optional(),
+        credentials: z.array(z.string()).optional(),
       })
     ),
   }),

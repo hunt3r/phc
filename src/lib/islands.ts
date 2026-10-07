@@ -32,6 +32,7 @@ import PageBody from '../components/islands/PageBody.astro';
 import ContactInfoBody from '../components/islands/ContactInfoBody.astro';
 import HomeBody from '../components/islands/HomeBody.astro';
 import StaffBody from '../components/islands/StaffBody.astro';
+import StaffProfileBody from '../components/islands/StaffProfileBody.astro';
 import ContentCardsBody from '../components/islands/ContentCardsBody.astro';
 
 import {
@@ -111,6 +112,15 @@ export const islands: IslandRegistry = {
     wrapper: { tag: 'div' },
     propsFromData: (data) => ({
       data: (data as QueryResult<StaffQuery>).data?.staff,
+    }),
+  },
+  staffProfile: {
+    fetch: () => getStaff(),
+    component: StaffProfileBody,
+    wrapper: { tag: 'div' },
+    propsFromData: (data, params) => ({
+      data: (data as QueryResult<StaffQuery>).data?.staff,
+      slug: params.get('slug') ?? '',
     }),
   },
   // Content-card regions. Each fetches the same document as its body island but

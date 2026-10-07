@@ -159,9 +159,11 @@ export interface PersonSchemaInput {
   bio?: string;
   image?: string;
   url?: string;
+  credentials?: string[];
 }
 
 export function createPersonSchema(site: string, input: PersonSchemaInput): JsonLdNode {
+  const credentials = input.credentials?.map((name) => name.trim()).filter(Boolean);
   return compact({
     "@type": "Person",
     name: input.name,
@@ -169,6 +171,10 @@ export function createPersonSchema(site: string, input: PersonSchemaInput): Json
     description: input.bio,
     image: input.image,
     url: input.url,
+    hasCredential: credentials?.map((name) => ({
+      "@type": "EducationalOccupationalCredential",
+      name,
+    })),
     worksFor: { "@id": `${site}${ORG_ID}` },
   });
 }

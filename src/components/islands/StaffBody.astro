@@ -1,18 +1,23 @@
 ---
 /**
  * Editable island renderer for the Staff document (a single list of people).
- * Used by the About page's "Key Personnel" region.
+ * Used by the About page's "Key Personnel" grid.
  */
 import { tinaField } from '@tinacms/astro/tina-field';
-import { getImageUrl } from '@/lib/cloudinary';
+import { getImageUrl, isCloudinarySrc } from '@/lib/cloudinary';
+import { withStaffSlugs } from '@/data/staff';
 import type { StaffQuery } from '../../../tina/__generated__/types';
+
+const CARD_WIDTHS = [320, 480, 640, 960];
+const CARD_SIZES = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw';
 
 interface Props {
   data?: StaffQuery['staff'] | null;
 }
 
 const { data } = Astro.props;
-const staff = data?.staff ?? [];
+const members = (data?.staff ?? []).flatMap((member) => (member?.name ? [member] : []));
+const slugged = withStaffSlugs(members);
 
 const initialsOf = (name?: string | null) =>
   (name ?? '')
@@ -26,50 +31,57 @@ const initialsOf = (name?: string | null) =>
 {data && (
   <section class="pt-4">
     <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">Key Personnel</h2>
-    <div class="grid grid-cols-1 gap-6">
-      {staff.map((member) =>
-        member ? (
-          <div class="grid grid-cols-1 gap-4 rounded-xl border border-gray-200 p-5 sm:grid-cols-[12rem_1fr] sm:gap-6 dark:border-gray-700">
-            <div class="flex flex-col items-center gap-3 text-center">
-              <div
-                class="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gray-100 text-xl font-semibold text-gray-500 sm:h-28 sm:w-28 dark:bg-gray-800 dark:text-gray-400"
-                data-tina-field={tinaField(member, 'image')}
-              >
-                {member.image ? (
-                  <img
-                    src={getImageUrl(member.image, { width: 112, height: 112, crop: 'fill' })}
-                    alt=""
-                    class="h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                ) : (
-                  initialsOf(member.name)
-                )}
-              </div>
-              <div>
-                <p class="text-lg font-semibold text-gray-900 dark:text-gray-100" data-tina-field={tinaField(member, 'name')}>
-                  {member.name}
-                </p>
-                <p class="mt-0.5 text-sm text-primary" data-tina-field={tinaField(member, 'title')}>
-                  {member.title}
-                </p>
-                {member.note && (
-                  <p class="mt-0.5 text-xs text-gray-500 dark:text-gray-400" data-tina-field={tinaField(member, 'note')}>
-                    {member.note}
-                  </p>
-                )}
-              </div>
+    <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {slugged.map((person, index) => {
+        const member = members[index];
+        const image = member.image;
+        return (
+        <li>
+          <a
+            href={`/about/${person.slug}`}
+            class="group flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white text-gray-900 shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
+          >
+            <div
+              class="flex aspect-square w-full items-center justify-center overflow-hidden bg-gray-100 text-3xl font-semibold text-gray-500 dark:bg-gray-700 dark:text-gray-400"
+              data-tina-field={tinaField(member, 'image')}
+            >
+              {image ? (
+                <img
+                  src={getImageUrl(image, { width: 640, height: 640, crop: 'fill' })}
+                  srcset={
+                    isCloudinarySrc(image)
+                      ? CARD_WIDTHS.map(
+                          (width) =>
+                            `${getImageUrl(image, { width, height: width, crop: 'fill' })} ${width}w`
+                        ).join(', ')
+                      : undefined
+                  }
+                  sizes={CARD_SIZES}
+                  alt=""
+                  class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
+                  width="640"
+                  height="640"
+                  loading="lazy"
+                />
+              ) : (
+                initialsOf(member.name)
+              )}
             </div>
-            {member.bio && (
-              <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300" data-tina-field={tinaField(member, 'bio')}>
-                {member.bio.split(/\n\n+/).filter(Boolean).map((para) => (
-                  <p>{para}</p>
-                ))}
-              </div>
-            )}
-          </div>
-        ) : null
-      )}
-    </div>
+            <div class="flex flex-1 flex-col gap-1 p-5">
+              <h3
+                class="text-base font-semibold tracking-tight text-gray-900 dark:text-gray-100"
+                data-tina-field={tinaField(member, 'name')}
+              >
+                {member.name}
+              </h3>
+              <p class="text-sm text-primary" data-tina-field={tinaField(member, 'title')}>
+                {member.title}
+              </p>
+            </div>
+          </a>
+        </li>
+        );
+      })}
+    </ul>
   </section>
 )}

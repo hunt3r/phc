@@ -416,9 +416,16 @@ export default defineConfig({
             fields: [
               { type: 'string', name: 'name', label: 'Name', required: true },
               { type: 'string', name: 'title', label: 'Title', required: true },
+              {
+                type: 'string',
+                name: 'credentials',
+                label: 'Credentials',
+                list: true,
+                description: 'Licenses, degrees, and certifications. Add one per item.',
+              },
               { type: 'string', name: 'bio', label: 'Bio', ui: { component: 'textarea' } },
               { type: 'image', name: 'image', label: 'Profile Photo', description: 'Upload via Cloudinary' },
-              { type: 'string', name: 'note', label: 'Note', description: 'Optional short note shown under the title (e.g. "In Memoriam - September 16, 1957 – October 4, 2024", credentials, etc.).' },
+              { type: 'string', name: 'note', label: 'Note', description: 'Optional short note shown on the profile aside (e.g. "In Memoriam - September 16, 1957 – October 4, 2024").' },
             ],
           },
         ],

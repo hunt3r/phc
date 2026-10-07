@@ -1,22 +1,25 @@
 ---
-import { getImageUrl } from '@/lib/cloudinary';
+import { getImageUrl, isCloudinarySrc } from '@/lib/cloudinary';
+
+const CARD_WIDTHS = [320, 480, 640, 960];
+const CARD_SIZES = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw';
 
 interface Props {
   name: string;
   title: string;
-  bio: string;
+  href: string;
   /** Optional profile photo path or Cloudinary URL */
   image?: string;
-  /** Optional short note shown as a subtitle under the title (e.g. In Memoriam, credentials) */
-  note?: string;
 }
 
-const { name, title, bio, image, note } = Astro.props;
-const imageUrl = image ? getImageUrl(image, { width: 112, height: 112, crop: 'fill' }) : undefined;
-const imageSrcSet = image
-  ? `${getImageUrl(image, { width: 112, height: 112, crop: 'fill' })} 1x, ${getImageUrl(image, { width: 224, height: 224, crop: 'fill' })} 2x`
-  : undefined;
-const paragraphs = bio.split(/\n\n+/).filter(Boolean);
+const { name, title, href, image } = Astro.props;
+const imageUrl = image ? getImageUrl(image, { width: 640, height: 640, crop: 'fill' }) : undefined;
+const imageSrcSet =
+  image && isCloudinarySrc(image)
+    ? CARD_WIDTHS.map(
+        (width) => `${getImageUrl(image, { width, height: width, crop: 'fill' })} ${width}w`
+      ).join(', ')
+    : undefined;
 const initials = name
   .split(/\s+/)
   .map((w) => w[0])
@@ -25,36 +28,28 @@ const initials = name
   .toUpperCase();
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-[12rem_1fr] gap-4 sm:gap-6 overflow-hidden rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-900">
-  <div class="flex flex-col items-center justify-center gap-3 min-w-0 sm:min-h-0">
-    {(imageUrl || initials) && (
-      <div class="w-24 h-24 sm:w-28 sm:h-28 shrink-0 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xl sm:text-2xl font-semibold text-gray-500 dark:text-gray-400">
-        {imageUrl ? (
-          <img
-            src={imageUrl}
-            srcset={imageSrcSet}
-            alt=""
-            class="h-full w-full object-cover"
-            width="112"
-            height="112"
-            loading="lazy"
-          />
-        ) : (
-          initials
-        )}
-      </div>
+<a
+  href={href}
+  class="group flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white text-gray-900 shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
+>
+  <div class="flex aspect-square w-full items-center justify-center overflow-hidden bg-gray-100 text-3xl font-semibold text-gray-500 dark:bg-gray-700 dark:text-gray-400">
+    {imageUrl ? (
+      <img
+        src={imageUrl}
+        srcset={imageSrcSet}
+        sizes={CARD_SIZES}
+        alt=""
+        class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
+        width="640"
+        height="640"
+        loading="lazy"
+      />
+    ) : (
+      initials
     )}
-    <div class="text-center">
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{name}</h3>
-      <p class="mt-0.5 text-sm text-primary">{title}</p>
-      {note && (
-        <p class="mt-0.5 text-xs text-gray-500 dark:text-gray-400">{note}</p>
-      )}
-    </div>
   </div>
-  <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300 min-w-0">
-    {paragraphs.map((para) => (
-      <p>{para}</p>
-    ))}
+  <div class="flex flex-1 flex-col gap-1 p-5">
+    <h3 class="text-base font-semibold tracking-tight text-gray-900 dark:text-gray-100">{name}</h3>
+    <p class="text-sm text-primary">{title}</p>
   </div>
-</div>
+</a>
