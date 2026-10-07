@@ -1,0 +1,40 @@
+---
+/**
+ * Editable island renderer for one staff profile.
+ * The About page grid links here; `slug` selects the person from the staff list.
+ */
+import { tinaField } from '@tinacms/astro/tina-field';
+import { withStaffSlugs } from '@/data/staff';
+import StaffProfile from '../StaffProfile.astro';
+import type { StaffQuery } from '../../../tina/__generated__/types';
+
+interface Props {
+  data?: StaffQuery['staff'] | null;
+  slug?: string;
+}
+
+const { data, slug } = Astro.props;
+const members = (data?.staff ?? []).flatMap((member) => (member?.name ? [member] : []));
+const slugged = withStaffSlugs(members);
+const index = slugged.findIndex((person) => person.slug === slug);
+const member = index >= 0 ? members[index] : undefined;
+---
+
+{member && (
+  <StaffProfile
+    name={member.name ?? ''}
+    title={member.title ?? ''}
+    bio={member.bio}
+    image={member.image}
+    note={member.note}
+    credentials={member.credentials}
+    fields={{
+      name: tinaField(member, 'name'),
+      title: tinaField(member, 'title'),
+      bio: tinaField(member, 'bio'),
+      image: tinaField(member, 'image'),
+      note: tinaField(member, 'note'),
+      credentials: tinaField(member, 'credentials'),
+    }}
+  />
+)}

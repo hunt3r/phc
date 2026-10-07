@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import { islands } from '@/lib/islands';
+import StaffProfile from '../../components/StaffProfile.astro';
+import { getEntry } from 'astro:content';
+import { withStaffSlugs } from '@/data/staff';
+import { createBreadcrumbListSchema, createPersonSchema } from '@/lib/seo/jsonld';
+
+export async function getStaticPaths() {
+  const staffEntry = await getEntry('staff', 'index');
+  const people = withStaffSlugs(staffEntry?.data?.staff ?? []);
+  return people.map((member) => ({
+    params: { slug: member.slug },
+    props: { member },
+  }));
+}
+
+interface Props {
+  member: {
+    name: string;
+    title: string;
+    bio: string;
+    image?: string;
+    note?: string;
+    credentials?: string[];
+    slug: string;
+  };
+}
+
+const { member } = Astro.props;
+const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const path = `/about/${member.slug}`;
+const firstParagraph = member.bio.split(/\n\n+/).find(Boolean)?.trim();
+const description = firstParagraph || `${member.name}, ${member.title} at PH&C.`;
+const jsonLdNodes = [
+  createBreadcrumbListSchema(site, [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: member.name, path },
+  ]),
+  createPersonSchema(site, {
+    name: member.name,
+    jobTitle: member.title,
+    bio: member.bio,
+    image: member.image,
+    url: new URL(path, site).href,
+    credentials: member.credentials,
+  }),
+];
+---
+
+<BaseLayout title={member.name} description={description} image={member.image} jsonLdNodes={jsonLdNodes}>
+  <article class="pt-8">
+    <TinaIsland name="staffProfile" wrapper={islands.staffProfile.wrapper} params={{ slug: member.slug }} primary>
+      <StaffProfile
+        name={member.name}
+        title={member.title}
+        bio={member.bio}
+        image={member.image}
+        note={member.note}
+        credentials={member.credentials}
+      />
+    </TinaIsland>
+  </article>
+</BaseLayout>

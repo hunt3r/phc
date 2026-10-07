@@ -1,0 +1,86 @@
+---
+import { getImageUrl, isCloudinarySrc } from '@/lib/cloudinary';
+
+const PORTRAIT_WIDTHS = [320, 480, 640];
+const PORTRAIT_SIZES = '19.6rem';
+
+interface Props {
+  name: string;
+  title: string;
+  bio?: string | null;
+  image?: string | null;
+  note?: string | null;
+  credentials?: Array<string | null> | null;
+  /** Click-to-edit attribute values, set by the visual-editing island. */
+  fields?: {
+    name?: string;
+    title?: string;
+    bio?: string;
+    image?: string;
+    note?: string;
+    credentials?: string;
+  };
+}
+
+const { name, title, bio, image, note, credentials, fields } = Astro.props;
+const imageUrl = image ? getImageUrl(image, { width: 800, height: 1000, crop: 'fill' }) : undefined;
+const imageSrcSet =
+  image && isCloudinarySrc(image)
+    ? PORTRAIT_WIDTHS.map((width) => {
+        const height = Math.round((width * 5) / 4);
+        return `${getImageUrl(image, { width, height, crop: 'fill' })} ${width}w`;
+      }).join(', ')
+    : undefined;
+const paragraphs = (bio ?? '').split(/\n\n+/).filter(Boolean);
+const credentialList = (credentials ?? []).map((item) => item?.trim()).filter((item): item is string => Boolean(item));
+const initials = name
+  .split(/\s+/)
+  .map((w) => w[0])
+  .slice(0, 2)
+  .join('')
+  .toUpperCase();
+---
+
+<div class="grid items-start gap-8 md:grid-cols-[19.6rem_minmax(0,1fr)]">
+  <aside class="w-full max-w-[19.6rem]">
+    <div
+      class="flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-xl bg-gray-100 text-3xl font-semibold text-gray-500 dark:bg-gray-800 dark:text-gray-400"
+      data-tina-field={fields?.image}
+    >
+      {imageUrl ? (
+        <img
+          src={imageUrl}
+          srcset={imageSrcSet}
+          sizes={PORTRAIT_SIZES}
+          alt={name}
+          class="h-full w-full object-cover"
+          width="628"
+          height="785"
+        />
+      ) : (
+        initials
+      )}
+    </div>
+  </aside>
+  <div class="min-w-0">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={fields?.name}>{name}</h1>
+    <p class="mt-2 text-base font-[650] text-primary" data-tina-field={fields?.title}>{title}</p>
+    {note && (
+      <p class="mt-2 text-sm text-gray-500 dark:text-gray-400" data-tina-field={fields?.note}>{note}</p>
+    )}
+    {(credentialList.length > 0 || fields?.credentials) && (
+      <ul class="mt-3 space-y-1 text-sm text-gray-600 dark:text-gray-300" data-tina-field={fields?.credentials}>
+        {credentialList.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    )}
+    {paragraphs.length > 0 && (
+      <div class="mt-6 space-y-4 text-gray-600 dark:text-gray-300" data-tina-field={fields?.bio}>
+        {paragraphs.map((para) => (
+          <p>{para}</p>
+        ))}
+      </div>
+    )}
+  </div>
+</div>
