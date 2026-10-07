@@ -2,7 +2,7 @@
 import { getImageUrl, isCloudinarySrc } from '@/lib/cloudinary';
 
 const PORTRAIT_WIDTHS = [320, 480, 640];
-const PORTRAIT_SIZES = '19.6rem';
+const PORTRAIT_SIZES = '(max-width: 768px) 100vw, 19.6rem';
 
 interface Props {
   name: string;
@@ -42,7 +42,7 @@ const initials = name
 ---
 
 <div class="grid items-start gap-8 md:grid-cols-[19.6rem_minmax(0,1fr)]">
-  <aside class="w-full max-w-[19.6rem]">
+  <aside class="w-full md:max-w-[19.6rem]">
     <div
       class="flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-xl bg-gray-100 text-3xl font-semibold text-gray-500 dark:bg-gray-800 dark:text-gray-400"
       data-tina-field={fields?.image}
@@ -62,7 +62,7 @@ const initials = name
       )}
     </div>
   </aside>
-  <div class="min-w-0">
+  <div class="min-w-0 text-center md:text-left">
     <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={fields?.name}>{name}</h1>
     <p class="mt-2 text-base font-[650] text-primary" data-tina-field={fields?.title}>{title}</p>
     {note && (
@@ -76,7 +76,7 @@ const initials = name
       </ul>
     )}
     {paragraphs.length > 0 && (
-      <div class="mt-6 space-y-4 text-gray-600 dark:text-gray-300" data-tina-field={fields?.bio}>
+      <div class="mt-6 space-y-4 text-left text-gray-600 dark:text-gray-300" data-tina-field={fields?.bio}>
         {paragraphs.map((para) => (
           <p>{para}</p>
         ))}
