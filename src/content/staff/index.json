@@ -17,12 +17,22 @@
     {
       "name": "Jeffrey McClintock, PE",
       "title": "Development Manager – Construction",
-      "bio": "Jeff has over 30 years of civil engineering experience in both private and public practice, including over 15 years working for local government. He manages all aspects of land development and construction for various commercial projects. Before joining PH&C, he served as the Township Engineer for local government where he was responsible for all engineering activities, including land development processing and project management. Jeff has successfully completed the 30-Hour OSHA Hazard Recognition Training for the Construction Industry. He is a registered Professional Engineer in Pennsylvania and Maryland, as well as a Certified Floodplain Manager. Jeff has a Bachelor of Arts in Physics from Lycoming College and a Bachelor of Science in Civil Engineering from The Pennsylvania State University."
+      "credentials": [
+        "Lycoming College, Bachelor of Arts, Physics",
+        "The Pennsylvania State University, Bachelor of Science, Civil Engineering",
+        "Professional Engineer, PA"
+      ],
+      "bio": "Jeff has over 30 years of civil engineering experience in both private and public practice, including over 15 years working for local government. He manages all aspects of land development and construction for various commercial projects. Before joining PH&C, he served as the Township Engineer for local government where he was responsible for all engineering activities, including land development processing and project management. Jeff has successfully completed the 30-Hour OSHA Hazard Recognition Training for the Construction Industry. He is a registered Professional Engineer in Pennsylvania and Maryland, as well as a Certified Floodplain Manager. Jeff has a Bachelor of Arts in Physics from Lycoming College and a Bachelor of Science in Civil Engineering from The Pennsylvania State University.",
+      "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791396653/staff/Jeff_hzq2np.jpg"
     },
     {
       "name": "Rob Raquet",
       "title": "Senior Construction Manager",
-      "bio": "Rob has over 35 years of experience in site construction, land acquisition, land development approvals and municipal construction processes. While working with major site development contracting firms in the greater Philadelphia region, Rob sharpened his skills to determine what construction techniques and methods can be utilized to reduce cost to the clients by developing efficient designs, with the most economical materials, and reducing construction timelines to deliver projects to the client on time and below budget. This value engineering approach has resulted in millions of dollars in cost savings over his career, and has helped Rob develop and maintain strong relationships with many of the Civil Engineering and Land Development firms throughout the region. His deep experience in residential, commercial, industrial design and construction provides the foundation of knowledge of the site construction industry, and Rob is viewed as a trusted resource for Engineering Firms, advising them on construction means and methods, material selections, and other field engineering questions. Rob feels that open discussions on ways to reduce costs thru value engineering results in a win-win situation for the design engineer, site contractor and ultimately for the client. Rob is a graduate of Spring Garden College with a degree in Civil Engineering."
+      "credentials": [
+        "Spring Garden College, Civil Engineering"
+      ],
+      "bio": "Rob has over 35 years of experience in site construction, land acquisition, land development approvals and municipal construction processes. While working with major site development contracting firms in the greater Philadelphia region, Rob sharpened his skills to determine what construction techniques and methods can be utilized to reduce cost to the clients by developing efficient designs, with the most economical materials, and reducing construction timelines to deliver projects to the client on time and below budget. This value engineering approach has resulted in millions of dollars in cost savings over his career, and has helped Rob develop and maintain strong relationships with many of the Civil Engineering and Land Development firms throughout the region. His deep experience in residential, commercial, industrial design and construction provides the foundation of knowledge of the site construction industry, and Rob is viewed as a trusted resource for Engineering Firms, advising them on construction means and methods, material selections, and other field engineering questions. Rob feels that open discussions on ways to reduce costs thru value engineering results in a win-win situation for the design engineer, site contractor and ultimately for the client. Rob is a graduate of Spring Garden College with a degree in Civil Engineering.",
+      "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791397259/staff/Rob-Raquet_wcd3le.jpg"
     },
     {
       "name": "Shaun Barot",
@@ -48,18 +58,20 @@
     {
       "name": "Derek Clouser",
       "title": "Senior Construction Manager",
-      "bio": "Derek joins the PH&C team in Nov 2024 and brings over 15 years of leadership and expertise in construction and project management, with a proven track record of managing high-value projects across various sectors. His extensive experience includes overseeing multi-million-dollar developments, managing teams, and ensuring projects are completed on time, within budget, and to the highest standards of quality. As Vice President of Construction at a real estate development company, Derek spearheaded the creation and growth of the construction division, overseeing all operational aspects and delivering strategic results. He has also led construction operations and field teams at prominent companies, including Ryan Homes and Toll Brothers, where he developed a reputation for meticulous planning, strong financial oversight, and strategic problem-solving. Passionate about quality and client satisfaction, Derek also draws on his background in sports, bringing discipline, teamwork, and a results-driven focus to every project. With a hands-on approach to managing every project phase including pre-construction scope development, value engineering, close-out and post-construction reviews, Derek is committed to achieving operational excellence and fostering positive relationships with clients and stakeholders. Derek is a proud graduate of Mount St. Mary's University in Emmitsburg, MD, where he earned a Bachelor of Science in Business Administration."
+      "credentials": [
+        "Mount St. Mary's University, Bachelor of Science, Business Administration"
+      ],
+      "bio": "Derek joins the PH&C team in Nov 2024 and brings over 15 years of leadership and expertise in construction and project management, with a proven track record of managing high-value projects across various sectors. His extensive experience includes overseeing multi-million-dollar developments, managing teams, and ensuring projects are completed on time, within budget, and to the highest standards of quality. As Vice President of Construction at a real estate development company, Derek spearheaded the creation and growth of the construction division, overseeing all operational aspects and delivering strategic results. He has also led construction operations and field teams at prominent companies, including Ryan Homes and Toll Brothers, where he developed a reputation for meticulous planning, strong financial oversight, and strategic problem-solving. Passionate about quality and client satisfaction, Derek also draws on his background in sports, bringing discipline, teamwork, and a results-driven focus to every project. With a hands-on approach to managing every project phase including pre-construction scope development, value engineering, close-out and post-construction reviews, Derek is committed to achieving operational excellence and fostering positive relationships with clients and stakeholders. Derek is a proud graduate of Mount St. Mary's University in Emmitsburg, MD, where he earned a Bachelor of Science in Business Administration.",
+      "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791396895/staff/Derek_kjc3q6.jpg"
     },
     {
       "name": "Alexa Karakitsios",
       "title": "Construction Manager",
-      "bio": "Alexa joins the PH&C team in Feb 2026 as a Construction Manager. She has a background in Architecture and Real Estate Development. With five years of experience in ground-up commercial development, she brings a strong understanding of both construction management and design to every project. Prior to joining PH&C, she worked for a private developer managing site development and building construction for a variety of projects, including pad site developments, retail buildings, medical spaces, and multi-tenant shopping centers. Alexa is a graduate of Philadelphia University, where she earned a bachelor's degree in Architecture."
-    },
-    {
-      "name": "Rich Rycharski",
-      "title": "Senior Development Manager of Construction (In Memoriam)",
-      "bio": "Rich spent almost 6 years with us as a Senior Development Manager of Construction. He was a one-of-a-kind person and was a true leader in his field. He left an indelible mark on PH&C as well as our clients and partners. Rich had over 40 years of direct decision-making responsibility as an owner's representative in the private real estate developer marketplace. Rich received his degree from Temple University's College of Engineering. Godspeed to Rich and his family.",
-      "note": "In Memoriam - September 16, 1957 – October 4, 2024"
+      "credentials": [
+        "Philadelphia University, Bachelor's in Architecture"
+      ],
+      "bio": "Alexa joins the PH&C team in Feb 2026 as a Construction Manager. She has a background in Architecture and Real Estate Development. With five years of experience in ground-up commercial development, she brings a strong understanding of both construction management and design to every project. Prior to joining PH&C, she worked for a private developer managing site development and building construction for a variety of projects, including pad site developments, retail buildings, medical spaces, and multi-tenant shopping centers. Alexa is a graduate of Philadelphia University, where she earned a bachelor's degree in Architecture.",
+      "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791397110/staff/Alexa_hwpc7p.jpg"
     }
   ]
 }
