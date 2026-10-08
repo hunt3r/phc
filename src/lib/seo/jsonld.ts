@@ -71,7 +71,7 @@ export function toAbsoluteUrl(value: string, site: string): string {
 }
 
 export function createOrganizationSchema(site: string, options?: { logoPath?: string }): JsonLdNode {
-  const logo = toAbsoluteUrl(options?.logoPath ?? "/images/logo-light.png", site);
+  const logo = toAbsoluteUrl(options?.logoPath ?? "/images/logo-color.png", site);
   return compact({
     "@type": ["Organization", "ProfessionalService"],
     "@id": `${site}${ORG_ID}`,
