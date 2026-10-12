@@ -26,7 +26,8 @@
       "layout": "horizontal",
       "width": "full",
       "backgroundColor": "brand-blue",
-      "textSize": "lg"
+      "textSize": "lg",
+      "matchImageHeight": true
     },
     {
       "title": "Project Planning & Coordination",
