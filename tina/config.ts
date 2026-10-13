@@ -1,7 +1,9 @@
 import { defineConfig } from 'tinacms';
+import './guide-list-order';
 // Sectors/Services options are fetched live from the tags collection by a custom
 // admin field component, so no tag data is baked into the schema.
 import { TagCheckboxGroup } from './fields/TagCheckboxGroup';
+import { GuidePreview } from './fields/GuidePreview';
 // Precomputed tag slug -> public URL map for the tags collection router.
 // Regenerate with `npm run generate:tag-routes`.
 import { tagRoutes } from './tag-routes';
@@ -147,11 +149,14 @@ export default defineConfig({
         // Reference docs for the PH&C team. Not registered as an Astro
         // collection and given no router, so they never become public pages.
         // Create and delete stay off; the articles are maintained with the site.
-        ui: { allowedActions: { create: false, delete: false } },
+        ui: {
+          allowedActions: { create: false, delete: false },
+          itemProps: (item) => ({ label: item?.title || 'Guide' }),
+        },
         fields: [
-          { type: 'string', name: 'title', label: 'Title', required: true },
-          { type: 'number', name: 'order', label: 'Order', description: 'Reading order in this guide. Lower numbers come first.' },
-          { type: 'rich-text', name: 'body', label: 'Guide', isBody: true },
+          { type: 'string', name: 'title', label: 'Title', required: true, isTitle: true, ui: { component: 'hidden' } },
+          { type: 'number', name: 'order', label: 'Order', ui: { component: 'hidden' } },
+          { type: 'rich-text', name: 'body', label: 'Guide', isBody: true, ui: { component: GuidePreview as any } },
         ],
       },
       {
