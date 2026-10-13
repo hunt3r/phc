@@ -1,0 +1,12 @@
+---
+description: Keep the PH&C Tina site guide in sync when editor-facing behavior changes
+alwaysApply: true
+---
+
+# Site guide
+
+The PH&C team reads how to operate the site in Tina under **How to use this site** (`src/content/guides/`). Those articles are not public pages. Do not register them in `src/content.config.ts`, add a route, or give the collection a `router`.
+
+When a change affects what an editor does in Tina, or what visitors see because of those edits, update the matching guide in the same task. Follow the `update-site-guide` skill.
+
+Skip the guide for internal refactors that do not change editor steps or on-site results.
