@@ -3,7 +3,7 @@ title: About, staff, and other pages
 order: 5
 ---
 
-This guide is kept up to date with the website. Please read it here, and don't edit it. If something no longer matches the site, ask the person who manages the website.
+This guide is kept up to date with the website. It opens for reading. Use **Edit**, then **Save**, to correct the article. If something no longer matches the site, ask the person who manages the website.
 
 ## About Us
 
@@ -25,7 +25,7 @@ Open **Staff** to add, remove, or reorder people. Drag a person to change where 
 - **Name** is required. It is also used for their profile address. "Paul Harris" becomes a page at `/about/paul-harris`. If two people would get the same address, the second one gets a `-2` on the end.
 - **Title** is their role, shown on the card and the profile.
 - **Credentials** are licenses, degrees, and certifications. Add one per item.
-- **Bio** is the profile writeup. The first paragraph is also used as the short description when the profile is shared.
+- **Bio** is the profile writeup. The first paragraph is also used as the short description when the profile is shared. See **Search engines and AI**.
 - **Profile Photo** is optional. Upload it from the media library.
 - **Note** is an optional short line on the profile, such as an in-memoriam note. It is not shown on the About page card.
 

@@ -3,14 +3,14 @@ title: Contact, menus, and footer
 order: 6
 ---
 
-This guide is kept up to date with the website. Please read it here, and don't edit it. If something no longer matches the site, ask the person who manages the website.
+This guide is kept up to date with the website. It opens for reading. Use **Edit**, then **Save**, to correct the article. If something no longer matches the site, ask the person who manages the website.
 
 ## Contact
 
 **Contact** in the left menu is the Contact page. There is only one, and it cannot be deleted.
 
 - **Title** is the page heading.
-- **Description** is the line under the heading on the banner, and the preview text when the page is shared.
+- **Description** is the line under the heading on the banner, and the preview text when the page is shared. See **Search engines and AI**.
 - **Featured Image** is the photo behind that banner.
 - **Contact Info (footer)** is the address block. It appears in the footer on every page and in the contact card on the Contact page. You can use bold text and links, including an email link such as `info@phandc.net`.
 - **Videos** and **Content Cards** appear on the Contact page. See **Photos, videos, and content cards**.

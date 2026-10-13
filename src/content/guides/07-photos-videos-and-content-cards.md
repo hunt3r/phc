@@ -3,7 +3,7 @@ title: Photos, videos, and content cards
 order: 7
 ---
 
-This guide is kept up to date with the website. Please read it here, and don't edit it. If something no longer matches the site, ask the person who manages the website.
+This guide is kept up to date with the website. It opens for reading. Use **Edit**, then **Save**, to correct the article. If something no longer matches the site, ask the person who manages the website.
 
 Photos, videos, and content cards show up on many sections. They work the same way wherever you see them.
 
@@ -20,6 +20,8 @@ Where images show up:
 - A tag's **Image** is used on that sector or service page.
 - **Featured Image** on About, Contact, and Pages is the banner at the top.
 - A **Profile Photo** on a staff member is optional.
+
+The same main photo is the image used when the page is shared. See **Search engines and AI**.
 
 ## Videos
 

@@ -3,7 +3,7 @@ title: Portfolio projects
 order: 3
 ---
 
-This guide is kept up to date with the website. Please read it here, and don't edit it. If something no longer matches the site, ask the person who manages the website.
+This guide is kept up to date with the website. It opens for reading. Use **Edit**, then **Save**, to correct the article. If something no longer matches the site, ask the person who manages the website.
 
 Open **Portfolio** in the left menu to add or edit a project. Each project is its own page on the site.
 
@@ -18,7 +18,7 @@ Project cards on the Portfolio page and on the homepage use the title, the short
 ## The fields
 
 - **Title** is the project name. It is the page heading and the name on cards.
-- **Description** is the short summary. It appears on project cards, in the homepage slideshow, and as the preview text when the page is shared.
+- **Description** is the short summary. It appears on project cards, in the homepage slideshow, and as the preview text when the page is shared. See **Search engines and AI**.
 - **Location**, **Client**, and **Date** appear under the title. Date can be a year, such as 2020, or a longer date.
 - **Project Cost**, **Size**, **Architect**, and **Contractor** appear in the Project Details box. Examples: `$145M` and `166,000 SF`. Leave a field blank to hide that line.
 - **Hero / cover image** is the main photo. It is required if you want the project in the homepage slideshow. Upload it from the media library. See **Photos, videos, and content cards**.

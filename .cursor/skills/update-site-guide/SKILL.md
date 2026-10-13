@@ -14,8 +14,9 @@ Write for the PH&C team, not developers.
 - Use the Tina sidebar labels and field labels as they appear in the admin.
 - Say what to click, what the field changes on the site, and what happens if it is left blank.
 - No file paths, code, commands, or setup steps.
-- Keep the opening note on every article: the guide is maintained with the website and should not be edited in the admin.
+- Keep the opening note on every article: the guide is maintained with the website, it opens for reading, and **Edit** then **Save** is how a correction is made.
 - Numbered filenames and the `order` field set reading order. Do not renumber unless an article is added or removed.
+- When an article points at another, use that article's title exactly, such as **Photos, videos, and content cards**. The reading view turns that title into a link.
 
 ## Which article to edit
 
@@ -26,6 +27,7 @@ Write for the PH&C team, not developers.
 - `05-about-staff-and-pages.md` — About Us, Staff, profile pages, and Pages.
 - `06-contact-menus-and-footer.md` — Contact, the footer contact block, header and footer links, and the footer description.
 - `07-photos-videos-and-content-cards.md` — uploads, YouTube videos, Promote to home page, and content card options.
+- `08-search-engines-and-ai.md` — search titles and descriptions, share previews, the company summary, and the AI text pages.
 
 A change that spans two areas updates both articles. Add a new article only when a new editor-facing area does not fit these. Put it last, give it the next number, and add it to this list and to Start here.
 
