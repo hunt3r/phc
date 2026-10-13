@@ -35,7 +35,7 @@ photos/headshots/Staff Headshots FINAL/
 *.swp
 *.swo
 *~
-
+*.tmp
 # Optional: uncomment to avoid committing scraped site data
 # scraped/
 
