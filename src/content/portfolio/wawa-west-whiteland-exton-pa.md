@@ -2,7 +2,11 @@
 title: 'Wawa - West Whiteland Township (Exton), PA'
 description: 'We continue our assistance in developing Wawa stores with this store opening in December 2024. Our work for an individual land owner client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. This project included remediation and demolition of an existing gas station'
 location: 'West Whiteland Township (Exton), PA'
+client: 'Whitford Property, Inc'
+date: '2024'
 size: '5,585 SF'
+architect: Architectural Concepts
+contractor: Lyons & Hull
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692821/images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.07.49-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692821/images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.07.49-scaled.jpg'
@@ -23,7 +27,44 @@ services:
   - remediation
   - demolition
   - project-management
+  - building-construction-permits
+  - construction-coordination-supervision
+  - cash-flow-analysis
+  - construction-management-services
+  - contractor-bidding-selection
+  - contractor-negotiations-contracts
+  - drone-technologies
+  - project-estimating-value-engineering
+  - environmental-assessments
+  - environmental-permitting-requirements
+  - escrow-letter-of-credit-reductions
+  - existing-utility-identification
+  - geotechnical-investigations
+  - government-agency-coordination
+  - highway-access
+  - highway-permitting
+  - land-development-zoning-approvals
+  - landscaping
+  - npdes-permitting
+  - owners-representation
+  - pre-construction-meetings
+  - pre-construction-services
+  - proforma-analysis-budgeting
+  - project-contractor-procurement
+  - project-planning-coordination
+  - feasibility-project-schedule
+  - project-schedule
+  - project-schedule-management
+  - requests-for-information
+  - rfp-development
+  - site-analysis-feasibility
+  - tenant-delivery-coordination
+  - landlord-tenant-lease-requirements
+  - testing-agency-coordination
+  - utility-coordination
+  - utility-service-coordination
 order: 9
+featured: true
 ---
 
 We continue our assistance in developing Wawa stores with this store opening in December 2024. Our work for an individual land owner client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction.
