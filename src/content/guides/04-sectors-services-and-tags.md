@@ -3,7 +3,7 @@ title: Sectors, services, and tags
 order: 4
 ---
 
-This guide is kept up to date with the website. Please read it here, and don't edit it. If something no longer matches the site, ask the person who manages the website.
+This guide is kept up to date with the website. It opens for reading. Use **Edit**, then **Save**, to correct the article. If something no longer matches the site, ask the person who manages the website.
 
 **Tags** are the labels that organize the site. The same list holds both portfolio sectors (Retail, Healthcare, and so on) and the services PH&C offers. Where a tag sits depends on its **Parent Tag**.
 
@@ -19,7 +19,7 @@ A new sector should use **Portfolio** as its parent, or another sector if it bel
 ## What each field does
 
 - **Label** is the name visitors see, such as Retail.
-- **Description** is the short text under the title on that tag's page, and on the banner when the tag is used as a page header.
+- **Description** is the short text under the title on that tag's page, and on the banner when the tag is used as a page header. Search results and AI summaries use it too. See **Search engines and AI**.
 - **Image** is the photo on the tag's page and on cards that feature it.
 - **Parent Tag** decides which group this tag belongs to, as described above.
 - **Order** sorts the tag among its siblings. A smaller number comes first. On the Services page, a missing Order also means the tag is hidden from that page.

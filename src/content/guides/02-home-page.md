@@ -3,7 +3,7 @@ title: Home page
 order: 2
 ---
 
-This guide is kept up to date with the website. Please read it here, and don't edit it. If something no longer matches the site, ask the person who manages the website.
+This guide is kept up to date with the website. It opens for reading. Use **Edit**, then **Save**, to correct the article. If something no longer matches the site, ask the person who manages the website.
 
 The homepage is built from two places: the **Home** item in the left menu, and the projects, quotes, and videos you mark elsewhere.
 
@@ -40,4 +40,4 @@ Size, overlay opacity, and overlay color apply to this banner too.
 
 ## Page Title
 
-**Page Title** on **Home** is the name shown in the browser tab and in search results for the homepage. It does not appear as a heading on the page itself.
+**Page Title** on **Home** is the name shown in the browser tab and in search results for the homepage. It does not appear as a heading on the page itself. The sentence search engines use for the homepage is the Hero **Subtitle**. See **Search engines and AI**.
