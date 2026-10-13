@@ -40,9 +40,13 @@ export const ALL: APIRoute = async ({ request, params, url }) => {
   req.query = Object.fromEntries(url.searchParams.entries());
 
   // DELETE hits /api/cloudinary/media/<publicId>; the handler expects
-  // req.query.media = ['media', publicId].
+  // req.query.media = ['media', publicId]. Tina encodes the id with
+  // encodeURIComponent, so a folder id arrives as "staff%2Fphoto". The dev
+  // server and Netlify decode other escapes in the path, but they leave %2F
+  // encoded so a slash cannot retarget the route. Decode it here. A second
+  // decode would break a literal "%" that was already turned back from %25.
   if (request.method === 'DELETE') {
-    const publicId = (params.media ?? '').replace(/^media\/?/, '');
+    const publicId = (params.media ?? '').replace(/^media\/?/, '').replace(/%2F/gi, '/');
     req.query.media = ['media', publicId];
   }
 
