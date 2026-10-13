@@ -1,0 +1,45 @@
+---
+/**
+ * Full-width project cover, the same edge-to-edge banner a service page uses.
+ * The title sits under the photo.
+ */
+import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
+
+interface Props {
+  image?: string | null;
+  title: string;
+  imageField?: string;
+  titleField?: string;
+}
+
+const { image, title, imageField, titleField } = Astro.props;
+
+const HERO_WIDTHS = [640, 960, 1280, 1600, 1920, 2560];
+const imageUrl = image ? getImageUrl(image, { width: 1920, quality: 'auto:eco' }) : undefined;
+const imageSrcSet = image ? getImageSrcSet(image, HERO_WIDTHS, { quality: 'auto:eco' }) : undefined;
+---
+
+<div class="space-y-0">
+  {imageUrl && (
+    <div
+      class="relative left-1/2 min-h-[43vw] w-screen -translate-x-1/2 overflow-hidden"
+      data-tina-field={imageField}
+    >
+      <img
+        src={imageUrl}
+        srcset={imageSrcSet}
+        sizes="100vw"
+        alt={title}
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+    </div>
+  )}
+  <h1 class="pt-8 text-3xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={titleField}>
+    {title}
+  </h1>
+</div>

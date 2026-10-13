@@ -11,8 +11,11 @@
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
 import { tinaField } from '@tinacms/astro/tina-field';
 import { getImageUrl } from '@/lib/cloudinary';
+import { getTagMap, resolveTagsGrouped } from '@/lib/tags';
 import ProjectSpecs from '../ProjectSpecs.astro';
+import ProjectTagLinks from '../ProjectTagLinks.astro';
 import ContentCardsBody from './ContentCardsBody.astro';
+import type { CollectionEntry } from 'astro:content';
 import type { PortfolioQuery } from '../../../tina/__generated__/types';
 
 interface Props {
@@ -22,29 +25,16 @@ interface Props {
 const { data } = Astro.props;
 
 const gallery = (data?.gallery ?? []).filter((img): img is NonNullable<typeof img> => Boolean(img?.src));
+const tagGroups = data
+  ? resolveTagsGrouped(
+      { data: { sectors: data.sectors ?? [], services: data.services ?? [] } } as CollectionEntry<'portfolio'>,
+      await getTagMap(),
+    )
+  : [];
 ---
 
 {data && (
-  <article class="pt-8 space-y-8">
-    <header class="space-y-3">
-      <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={tinaField(data, 'title')}>
-        {data.title}
-      </h1>
-      {data.description && (
-        <p class="text-gray-600 dark:text-gray-300" data-tina-field={tinaField(data, 'description')}>
-          {data.description}
-        </p>
-      )}
-      {data.image && (
-        <img
-          src={data.image}
-          alt={data.title ?? ''}
-          class="mt-4 w-full rounded-lg object-cover"
-          data-tina-field={tinaField(data, 'image')}
-        />
-      )}
-    </header>
-
+  <article class="space-y-8 pt-8">
     <section class="prose-content [&::after]:clear-both [&::after]:table [&::after]:content-['']">
       <ProjectSpecs
         location={data.location}
@@ -114,5 +104,7 @@ const gallery = (data?.gallery ?? []).filter((img): img is NonNullable<typeof im
         </div>
       </section>
     )}
+
+    <ProjectTagLinks groups={tagGroups} />
   </article>
 )}

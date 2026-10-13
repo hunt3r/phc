@@ -25,6 +25,7 @@ import type {
 } from '../../tina/__generated__/types';
 
 import PortfolioBody from '../components/islands/PortfolioBody.astro';
+import PortfolioHero from '../components/islands/PortfolioHero.astro';
 import TagBody from '../components/islands/TagBody.astro';
 import TagHero from '../components/islands/TagHero.astro';
 import AboutBody from '../components/islands/AboutBody.astro';
@@ -49,6 +50,14 @@ export const islands: IslandRegistry = {
   portfolio: {
     fetch: (_request, params) => getPortfolio(params.get('slug') ?? ''),
     component: PortfolioBody,
+    wrapper: { tag: 'div' },
+    propsFromData: (data) => ({
+      data: (data as QueryResult<PortfolioQuery>).data?.portfolio,
+    }),
+  },
+  portfolioHero: {
+    fetch: (_request, params) => getPortfolio(params.get('slug') ?? ''),
+    component: PortfolioHero,
     wrapper: { tag: 'div' },
     propsFromData: (data) => ({
       data: (data as QueryResult<PortfolioQuery>).data?.portfolio,

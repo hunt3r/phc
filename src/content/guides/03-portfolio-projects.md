@@ -11,7 +11,7 @@ To add one, create a new Portfolio item. Tina asks for a file name before the fo
 
 ## What visitors see
 
-The project page shows the title, then location, client, and date when you fill those in. Sector and service labels appear as links to their pages. The cover image sits under that. The written body follows, with a **Project Details** box (cost, size, architect, contractor) beside it when any of those are filled in. Content cards, the photo gallery, quotes, and videos come after the writeup.
+The project page opens with the cover image across the full width of the window, the same kind of banner a service page uses. The title sits under that image. The written body follows, with a **Project Details** box (cost, size, architect, engineer, contractor) beside it when any of those are filled in. Content cards, the photo gallery, quotes, and videos come after the writeup. Sector and service labels appear as links at the bottom of the page.
 
 Project cards on the Portfolio page and on the homepage use the title, the short description, the cover image, and the date.
 
@@ -19,12 +19,12 @@ Project cards on the Portfolio page and on the homepage use the title, the short
 
 - **Title** is the project name. It is the page heading and the name on cards.
 - **Description** is the short summary. It appears on project cards, in the homepage slideshow, and as the preview text when the page is shared. See **Search engines and AI**.
-- **Location**, **Client**, and **Date** appear under the title. Date can be a year, such as 2020, or a longer date.
-- **Project Cost**, **Size**, **Architect**, and **Contractor** appear in the Project Details box. Examples: `$145M` and `166,000 SF`. Leave a field blank to hide that line.
-- **Hero / cover image** is the main photo. It is required if you want the project in the homepage slideshow. Upload it from the media library. See **Photos, videos, and content cards**.
+- **Location**, **Client**, and **Date** appear in the Project Details box. Date can be a year, such as 2020, or a longer date.
+- **Project Cost**, **Size**, **Architect**, **Engineer**, and **Contractor** appear in that same box. Examples: `$145M` and `166,000 SF`. Leave a field blank to hide that line.
+- **Hero / cover image** is the full-width photo at the top of the project page. The title sits under it. It is also required if you want the project in the homepage slideshow. Upload it from the media library. See **Photos, videos, and content cards**.
 - **Gallery** is the set of photos lower on the page. Visitors can open them larger. Each image can have **Alt text** (a short description of the photo), an optional **Link URL** (for example, to send someone to another project), and an optional **Link button label**. If you leave the gallery empty but set a cover image, the cover image is shown in the gallery instead.
 - **Customer Quotes** are testimonials on this project. **Quote** is the words, **Author** is the person's name, and **Role / Company** is their title or organization. Turn on **Promote to home page** to also show that quote on the homepage. Every quote on every project is listed on the Testimonials page, whether or not it is promoted.
-- **Sectors** and **Services** are checklists. Check every sector and service that applies. Those choices link the project to the matching pages and include it in their project lists. The choices come from **Tags**. A tag you create there shows up in these lists right away. See **Sectors, services, and tags**.
+- **Sectors** and **Services** are checklists. Check every sector and service that applies. Those choices link the project to the matching pages, include it in their project lists, and show up as links at the bottom of the project page. The choices come from **Tags**. A tag you create there shows up in these lists right away. See **Sectors, services, and tags**.
 - **Order** controls where the project sits in lists. A smaller number appears first. On the Portfolio page, a blank Order is treated as 0, so those projects group at the front. On the homepage Latest projects section, a blank Order is placed last.
 - **Featured** puts the project in the homepage slideshow. It also needs a cover image. The slideshow holds up to five featured projects, using the same Order.
 - **Videos** are YouTube clips on this project page. See **Photos, videos, and content cards**.

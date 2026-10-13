@@ -1,0 +1,23 @@
+---
+/**
+ * Editable cover for a project page: the full-width photo, then the title.
+ */
+import { tinaField } from '@tinacms/astro/tina-field';
+import ProjectCover from '../ProjectCover.astro';
+import type { PortfolioQuery } from '../../../tina/__generated__/types';
+
+interface Props {
+  data?: PortfolioQuery['portfolio'] | null;
+}
+
+const { data } = Astro.props;
+---
+
+{data && (
+  <ProjectCover
+    image={data.image}
+    title={data.title ?? ''}
+    imageField={data.image ? tinaField(data, 'image') : undefined}
+    titleField={tinaField(data, 'title')}
+  />
+)}
