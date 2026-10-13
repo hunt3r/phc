@@ -2,6 +2,10 @@
 title: 'LiDL US - Bear, Delaware'
 description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores! On July 11, 2025, we participated in our 5th store grand opening, which occurred in'
 location: 'Bear, Delaware'
+client: 'Lidl US, LLC'
+date: '2025'
+architect: 'CUHACI & PETERSON, INC.'
+contractor: New Age Development Group LLC
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204197/images/portfolio/lidl-us-llc-bear-delaware/2025-07-11-07.51.30-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204197/images/portfolio/lidl-us-llc-bear-delaware/2025-07-11-07.51.30-scaled.jpg'
