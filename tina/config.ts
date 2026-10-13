@@ -140,6 +140,21 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        name: 'guides',
+        label: 'How to use this site',
+        path: 'src/content/guides',
+        format: 'md',
+        // Reference docs for the PH&C team. Not registered as an Astro
+        // collection and given no router, so they never become public pages.
+        // Create and delete stay off; the articles are maintained with the site.
+        ui: { allowedActions: { create: false, delete: false } },
+        fields: [
+          { type: 'string', name: 'title', label: 'Title', required: true },
+          { type: 'number', name: 'order', label: 'Order', description: 'Reading order in this guide. Lower numbers come first.' },
+          { type: 'rich-text', name: 'body', label: 'Guide', isBody: true },
+        ],
+      },
+      {
         name: 'portfolio',
         label: 'Portfolio',
         path: 'src/content/portfolio',
