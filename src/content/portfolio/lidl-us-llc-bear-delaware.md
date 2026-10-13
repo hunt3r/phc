@@ -14,13 +14,26 @@ gallery:
     alt: 'LiDL US - Bear, Delaware - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204199/images/portfolio/lidl-us-llc-bear-delaware/Screenshot-2026-06-16-at-10.40.05-AM-scaled.png'
     alt: 'LiDL US - Bear, Delaware - image 5'
-order: 1
-featured: true
 sectors:
   - retail
   - grocery
 services:
   - project-management
+  - building-construction-permits
+  - construction-coordination-supervision
+  - construction-management-services
+  - contract-budget-management
+  - contractor-bidding-selection
+  - contractor-negotiations-contracts
+  - drone-technologies
+  - environmental-permitting
+  - government-agency-coordination
+  - owners-representation
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - tenant-delivery-coordination
+order: 1
+featured: true
 ---
 
 Starting in 2023, PH\&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores!
