@@ -13,7 +13,7 @@ Open the website and add `/admin` to the end of the address, then sign in with t
 
 Each item in the left menu is a section of the website:
 
-- **How to use this site** is this guide. Start with this article, then open the others as you need them.
+- **How to use this site** is this guide. These articles open for reading, and this section has nothing to edit or save. Start with this article, then open the others as you need them.
 - **Portfolio** is the project pages.
 - **Tags** are the sectors and services. They power the Portfolio menu, the Services page, and the checkboxes on each project.
 - **About Us** is the About page.
