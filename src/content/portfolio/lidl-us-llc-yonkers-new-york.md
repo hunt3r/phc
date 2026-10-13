@@ -2,6 +2,10 @@
 title: 'LiDL US - Yonkers, New York'
 description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. In 2025 they asked us to expand our reach into New York state and we were excited to accept this opportunity! On October 22, 2025, we participated in'
 location: 'Yonkers, New York'
+client: 'Lidl US, LLC'
+date: '2025'
+architect: NORR
+contractor: ENF Construction
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204210/images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.52.57-AM-1024x755.png'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204210/images/portfolio/lidl-us-llc-yonkers-new-york/Screenshot-2026-06-11-at-9.52.57-AM-1024x755.png'
@@ -20,7 +24,6 @@ gallery:
     alt: 'LiDL US - Yonkers, New York - image 7'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788204207/images/portfolio/lidl-us-llc-yonkers-new-york/Photo-Dec-20-2024-12-04-47-PM-scaled.jpg'
     alt: 'LiDL US - Yonkers, New York - image 8'
-order: 2
 sectors:
   - retail
   - grocery
@@ -28,8 +31,10 @@ services:
   - remediation
   - demolition
   - project-management
+order: 2
 ---
-Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.
+
+Starting in 2023, PH\&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.
 
 In 2025 they asked us to expand our reach into **New York state** and we were excited to accept this opportunity!
 
@@ -39,21 +44,13 @@ Our team worked with the Architect and Engineers to value engineer designs for m
 
 Key tasks and functions included:
 
-*   Manage demolition bidding process following LiDL US protocols, negotiate GC bids and prepare Award Recommendation to provide to the LiDL regional responsible party for review and execution.
-    
-*   Manage, coordinate, and administer all aspects of demolition project and contract administration to LiDL process standards.
-    
-*   Routinely maintain and update LiDL’s project management system and programs.
-    
-*   Communicate schedule updates, project milestones and timeline changes to the Lidl regional responsible party on a weekly basis.
-    
-*   Manage all activities and communications between general contractors, stakeholders, and consultants to deliver stores within scheduled timeframes and budgets.
-    
-*   Complete quality assurance steps throughout the construction phase utilizing LiDL standard Checklists.
-    
-*   Conduct final punch inspections, coordinate design team punch items and assemble one consolidated punch list. Manage punch closeout to completion.
-    
-*   Complete project closeout. Assemble and review contractor warranties, O&M manuals and as-built drawings as required in the project specifications. Complete LiDL final acceptance and closeout documentation.
-    
+* Manage demolition bidding process following LiDL US protocols, negotiate GC bids and prepare Award Recommendation to provide to the LiDL regional responsible party for review and execution.
+* Manage, coordinate, and administer all aspects of demolition project and contract administration to LiDL process standards.
+* Routinely maintain and update LiDL’s project management system and programs.
+* Communicate schedule updates, project milestones and timeline changes to the Lidl regional responsible party on a weekly basis.
+* Manage all activities and communications between general contractors, stakeholders, and consultants to deliver stores within scheduled timeframes and budgets.
+* Complete quality assurance steps throughout the construction phase utilizing LiDL standard Checklists.
+* Conduct final punch inspections, coordinate design team punch items and assemble one consolidated punch list. Manage punch closeout to completion.
+* Complete project closeout. Assemble and review contractor warranties, O\&M manuals and as-built drawings as required in the project specifications. Complete LiDL final acceptance and closeout documentation.
 
 We’re working hard on many more new store projects, so stay tuned for the next grand opening!
