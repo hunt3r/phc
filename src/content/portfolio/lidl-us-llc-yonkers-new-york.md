@@ -31,6 +31,16 @@ services:
   - remediation
   - demolition
   - project-management
+  - bank-billing-inspection-coordination
+  - construction-coordination-supervision
+  - construction-management-services
+  - contractor-bidding-selection
+  - drone-technologies
+  - landlord-tenant-lease-requirements
+  - owners-representation
+  - pre-construction-meetings
+  - feasibility-project-schedule
+  - project-schedule
 order: 2
 ---
 
