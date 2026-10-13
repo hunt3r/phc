@@ -2,6 +2,8 @@
 
 Astro + Tina CMS + Tailwind portfolio site for phandc.net, with tooling to scrape the existing WordPress site into a structured format for content migration.
 
+How the pieces fit together, from a Tina save through GitHub and Netlify, is documented in [Architecture.md](Architecture.md).
+
 ## Site (Astro + Tina + Tailwind)
 
 The site is a minimal responsive portfolio built with:

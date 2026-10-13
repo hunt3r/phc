@@ -140,6 +140,7 @@ const GUIDES = [
   { title: 'Contact, menus, and footer', slug: '06-contact-menus-and-footer' },
   { title: 'Photos, videos, and content cards', slug: '07-photos-videos-and-content-cards' },
   { title: 'Search engines and AI', slug: '08-search-engines-and-ai' },
+  { title: 'How the website is put together', slug: '09-how-the-website-is-put-together' },
 ];
 
 const RELATED: Record<string, string[]> = {
@@ -164,6 +165,12 @@ const RELATED: Record<string, string[]> = {
     '05-about-staff-and-pages',
     '06-contact-menus-and-footer',
     '07-photos-videos-and-content-cards',
+  ],
+  '09-how-the-website-is-put-together': [
+    '01-start-here',
+    '06-contact-menus-and-footer',
+    '07-photos-videos-and-content-cards',
+    '08-search-engines-and-ai',
   ],
 };
 

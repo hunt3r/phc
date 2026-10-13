@@ -28,6 +28,7 @@ Write for the PH&C team, not developers.
 - `06-contact-menus-and-footer.md` — Contact, the footer contact block, header and footer links, and the footer description.
 - `07-photos-videos-and-content-cards.md` — uploads, YouTube videos, Promote to home page, and content card options.
 - `08-search-engines-and-ai.md` — search titles and descriptions, share previews, the company summary, and the AI text pages.
+- `09-how-the-website-is-put-together.md` — the services behind the site, the logins to keep, pricing pages, and what happens after Save.
 
 A change that spans two areas updates both articles. Add a new article only when a new editor-facing area does not fit these. Put it last, give it the next number, and add it to this list and to Start here.
 
