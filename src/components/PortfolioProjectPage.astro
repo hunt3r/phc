@@ -72,26 +72,6 @@ const jsonLdNodes = [
   <article class="pt-8 space-y-8">
     <header class="space-y-3">
       <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">{entry.data.title}</h1>
-      <dl class="mt-2 grid gap-4 text-sm text-gray-600 dark:text-gray-300 sm:grid-cols-3">
-        {entry.data.location && (
-          <div>
-            <dt class="font-medium text-gray-900 dark:text-gray-100">Location</dt>
-            <dd>{entry.data.location}</dd>
-          </div>
-        )}
-        {entry.data.client && (
-          <div>
-            <dt class="font-medium text-gray-900 dark:text-gray-100">Client</dt>
-            <dd>{entry.data.client}</dd>
-          </div>
-        )}
-        {entry.data.date && (
-          <div>
-            <dt class="font-medium text-gray-900 dark:text-gray-100">Date</dt>
-            <dd>{entry.data.date}</dd>
-          </div>
-        )}
-      </dl>
       <div class="mt-2 space-y-2">
         {tagGroups.map((group) => (
           <div class="flex flex-wrap items-center gap-2">
@@ -127,9 +107,13 @@ const jsonLdNodes = [
 
     <section class="prose-content [&::after]:clear-both [&::after]:table [&::after]:content-['']">
       <ProjectSpecs
+        location={entry.data.location}
+        client={entry.data.client}
+        date={entry.data.date}
         projectCost={entry.data.projectCost}
         size={entry.data.size}
         architect={entry.data.architect}
+        engineer={entry.data.engineer}
         contractor={entry.data.contractor}
         class="mb-4 w-full md:float-right md:mb-3 md:ml-6 md:w-72 lg:w-80"
       />

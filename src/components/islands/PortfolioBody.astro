@@ -11,6 +11,7 @@
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
 import { tinaField } from '@tinacms/astro/tina-field';
 import { getImageUrl } from '@/lib/cloudinary';
+import ProjectSpecs from '../ProjectSpecs.astro';
 import ContentCardsBody from './ContentCardsBody.astro';
 import type { PortfolioQuery } from '../../../tina/__generated__/types';
 
@@ -34,26 +35,6 @@ const gallery = (data?.gallery ?? []).filter((img): img is NonNullable<typeof im
           {data.description}
         </p>
       )}
-      <dl class="mt-2 grid gap-4 text-sm text-gray-600 dark:text-gray-300 sm:grid-cols-3">
-        {data.location && (
-          <div>
-            <dt class="font-medium text-gray-900 dark:text-gray-100">Location</dt>
-            <dd data-tina-field={tinaField(data, 'location')}>{data.location}</dd>
-          </div>
-        )}
-        {data.client && (
-          <div>
-            <dt class="font-medium text-gray-900 dark:text-gray-100">Client</dt>
-            <dd data-tina-field={tinaField(data, 'client')}>{data.client}</dd>
-          </div>
-        )}
-        {data.date && (
-          <div>
-            <dt class="font-medium text-gray-900 dark:text-gray-100">Date</dt>
-            <dd data-tina-field={tinaField(data, 'date')}>{data.date}</dd>
-          </div>
-        )}
-      </dl>
       {data.image && (
         <img
           src={data.image}
@@ -64,8 +45,31 @@ const gallery = (data?.gallery ?? []).filter((img): img is NonNullable<typeof im
       )}
     </header>
 
-    <section class="prose-content" data-tina-field={tinaField(data, 'body')}>
-      <TinaMarkdown content={data.body} />
+    <section class="prose-content [&::after]:clear-both [&::after]:table [&::after]:content-['']">
+      <ProjectSpecs
+        location={data.location}
+        client={data.client}
+        date={data.date}
+        projectCost={data.projectCost}
+        size={data.size}
+        architect={data.architect}
+        engineer={data.engineer}
+        contractor={data.contractor}
+        fields={{
+          location: tinaField(data, 'location'),
+          client: tinaField(data, 'client'),
+          date: tinaField(data, 'date'),
+          projectCost: tinaField(data, 'projectCost'),
+          size: tinaField(data, 'size'),
+          architect: tinaField(data, 'architect'),
+          engineer: tinaField(data, 'engineer'),
+          contractor: tinaField(data, 'contractor'),
+        }}
+        class="mb-4 w-full md:float-right md:mb-3 md:ml-6 md:w-72 lg:w-80"
+      />
+      <div data-tina-field={tinaField(data, 'body')}>
+        <TinaMarkdown content={data.body} />
+      </div>
     </section>
 
     <ContentCardsBody cards={data.contentCards} sectionId="portfolio-card" allowFullBleed={true} />

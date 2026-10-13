@@ -134,6 +134,7 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
       if (data.size) facts.push(`Size: ${data.size}`);
       if (data.projectCost) facts.push(`Project cost: ${data.projectCost}`);
       if (data.architect) facts.push(`Architect: ${data.architect}`);
+      if (data.engineer) facts.push(`Engineer: ${data.engineer}`);
       if (data.contractor) facts.push(`Contractor: ${data.contractor}`);
       if (facts.length) lines.push(facts.join(' | '));
       if (data.description) {

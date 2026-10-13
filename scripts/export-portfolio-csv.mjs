@@ -5,7 +5,7 @@
  * Reads every markdown file in src/content/portfolio and writes portfolio-data.csv
  * at the repo root. Known values (title, location, description, tags) are pre-filled;
  * columns the client needs to complete (client, date, size, projectCost, architect,
- * contractor) are included and left blank when unknown.
+ * engineer, contractor) are included and left blank when unknown.
  *
  * After the client fills it in, run `npm run import:portfolio` to merge values back.
  *
@@ -35,6 +35,7 @@ const COLUMNS = [
   "size",
   "projectCost",
   "architect",
+  "engineer",
   "contractor",
   "description",
   "tags",
@@ -92,6 +93,7 @@ async function main() {
       size: data.size ?? "",
       projectCost: data.projectCost ?? "",
       architect: data.architect ?? "",
+      engineer: data.engineer ?? "",
       contractor: data.contractor ?? "",
       description: data.description ?? "",
       tags: formatTags([

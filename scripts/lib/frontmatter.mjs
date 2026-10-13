@@ -8,7 +8,7 @@
  * only the fields we intend to change actually change.
  *
  * Scope: top-level, single-line scalar fields only (title, location, client,
- * date, size, projectCost, architect, contractor, description). That covers
+ * date, size, projectCost, architect, engineer, contractor, description). That covers
  * every field the CSV workflow and description cleanup touch.
  */
 

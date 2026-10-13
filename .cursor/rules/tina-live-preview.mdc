@@ -1,0 +1,19 @@
+---
+description: Keep Tina live preview in sync with visitor-visible fields
+alwaysApply: true
+---
+
+# Tina live preview fields
+
+Visitor-visible content is rendered twice: the public page (from `astro:content`) and the Tina island in `src/components/islands/` (live edit). A field only shows in the admin preview, and only focuses its form input on click, when the island renders it with `tinaField`.
+
+When you add or change a field that visitors see:
+
+1. Add it to the Tina collection in `tina/config.ts` and the Astro schema in `src/content.config.ts`.
+2. Render it on the public page.
+3. Render the same value in the matching island, with `tinaField(data, 'fieldName')` on the element that shows the value. Hide it when empty.
+4. Keep the label and order aligned with the public page.
+
+Portfolio project details (location, client, date, project cost, size, architect, engineer, contractor) go through `ProjectSpecs`. Pass `fields` from `PortfolioBody` so each value stays click-to-edit.
+
+Do not stop at the form. If the island does not render the field, editors will not see it update in the live preview.

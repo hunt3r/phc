@@ -63,6 +63,7 @@ const portfolio = defineCollection({
       projectCost: z.string().optional(),
       size: z.string().optional(),
       architect: z.string().optional(),
+      engineer: z.string().optional(),
       contractor: z.string().optional(),
       image: z.string().optional(),
       sectors: z.array(z.string()).optional(),

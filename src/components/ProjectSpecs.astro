@@ -1,19 +1,49 @@
 ---
 interface Props {
-  projectCost?: string;
-  size?: string;
-  architect?: string;
-  contractor?: string;
+  location?: string | null;
+  client?: string | null;
+  date?: string | null;
+  projectCost?: string | null;
+  size?: string | null;
+  architect?: string | null;
+  engineer?: string | null;
+  contractor?: string | null;
   class?: string;
+  /** `data-tina-field` values so the live preview can focus each spec. */
+  fields?: {
+    location?: string;
+    client?: string;
+    date?: string;
+    projectCost?: string;
+    size?: string;
+    architect?: string;
+    engineer?: string;
+    contractor?: string;
+  };
 }
 
-const { projectCost, size, architect, contractor, class: className } = Astro.props as Props;
+const {
+  location,
+  client,
+  date,
+  projectCost,
+  size,
+  architect,
+  engineer,
+  contractor,
+  class: className,
+  fields,
+} = Astro.props as Props;
 
 const specs = [
-  { label: 'Project Cost', value: projectCost },
-  { label: 'Size', value: size },
-  { label: 'Architect', value: architect },
-  { label: 'Contractor', value: contractor },
+  { label: 'Location', value: location, field: fields?.location },
+  { label: 'Client', value: client, field: fields?.client },
+  { label: 'Date', value: date, field: fields?.date },
+  { label: 'Project Cost', value: projectCost, field: fields?.projectCost },
+  { label: 'Size', value: size, field: fields?.size },
+  { label: 'Architect', value: architect, field: fields?.architect },
+  { label: 'Engineer', value: engineer, field: fields?.engineer },
+  { label: 'Contractor', value: contractor, field: fields?.contractor },
 ].filter((spec) => spec.value && spec.value.trim().length > 0);
 ---
 
@@ -29,7 +59,7 @@ const specs = [
       {specs.map((spec) => (
         <div class="flex items-baseline justify-between gap-4 px-6 py-4">
           <dt class="text-sm font-semibold uppercase tracking-wide text-primary">{spec.label}</dt>
-          <dd class="text-base font-medium text-white text-right">{spec.value}</dd>
+          <dd class="text-base font-medium text-white text-right" data-tina-field={spec.field}>{spec.value}</dd>
         </div>
       ))}
     </dl>

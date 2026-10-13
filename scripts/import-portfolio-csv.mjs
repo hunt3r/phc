@@ -34,6 +34,7 @@ const WRITABLE_FIELDS = [
   "size",
   "projectCost",
   "architect",
+  "engineer",
   "contractor",
 ];
 
