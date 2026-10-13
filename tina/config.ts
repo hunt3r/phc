@@ -1,5 +1,6 @@
 import { defineConfig } from 'tinacms';
 import './guide-list-order';
+import './guide-history';
 // Sectors/Services options are fetched live from the tags collection by a custom
 // admin field component, so no tag data is baked into the schema.
 import { TagCheckboxGroup } from './fields/TagCheckboxGroup';
