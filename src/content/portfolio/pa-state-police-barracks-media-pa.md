@@ -19,23 +19,45 @@ gallery:
     alt: 'PA State Police Barracks - Media, PA - image 6'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692486/images/portfolio/pa-state-police-barracks-media-pa/Photo-May-01-10-28-30-AM-scaled-e1601571306939.jpg'
     alt: 'PA State Police Barracks - Media, PA - image 7'
-order: 14
 sectors:
   - office
   - government
   - institutional
 services:
-  - remediation
   - demolition
   - grant
+  - utility-service-coordination
+  - testing-agency-coordination
+  - tenant-delivery-coordination
+  - project-schedule-management
+  - pre-construction-services
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - project-management
+  - project-schedule
+  - highway-access
+  - highway-permitting
+  - landlord-tenant-lease-requirements
+  - npdes-permitting
+  - landscaping
+  - government-agency-coordination
+  - geotechnical-investigations
+  - contractor-negotiations-contracts
+  - contractor-bidding-selection
+  - contract-budget-management
+  - construction-management-services
+  - construction-coordination-supervision
+order: 14
+featured: true
 ---
+
 As part of a much larger re-development project in Delaware County PA around the old Franklin Mint property, the State Police required a new building to replace their antiquated building with a larger, state-of-the-art facility.  Site development, remediation and demolition of their old facility was included in the project scope. This project was awarded an $5M RACP grant to offset significant infrastructure costs. 
 
 **Key Features:**
 
-*   17,490 SF Pre-Engineered Metal Building with CMU Split Face/Stone Veneer Façade and a Standing Seam Metal Roof.
-*   Site work included:
-    *   (2) Stormwater Management Basins
-    *   Rock drilling and blasting
+* 17,490 SF Pre-Engineered Metal Building with CMU Split Face/Stone Veneer Façade and a Standing Seam Metal Roof.
+* Site work included:
+  * (2) Stormwater Management Basins
+  * Rock drilling and blasting
 
-Check our their full site **[here](https://www.psp.pa.gov/troop%20directory/Pages/Troop-K.aspx)**. Return back to our [**Office/Warehouse Overview**](https://phandc.net/office-overview/).
+Check our their full site **[here](https://www.psp.pa.gov/troop%20directory/Pages/Troop-K.aspx)**. Return back to our **[Office/Warehouse Overview](https://phandc.net/office-overview/)**.
