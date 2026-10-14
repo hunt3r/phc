@@ -23,10 +23,23 @@ sectors:
   - grocery
 services:
   - remediation
-  - demolition
   - project-management
-  - highway-access
+  - utility-service-coordination
+  - utility-coordination
+  - testing-agency-coordination
+  - tenant-delivery-coordination
+  - bank-billing-inspection-coordination
+  - construction-coordination-supervision
+  - construction-management-services
+  - contract-budget-management
+  - contractor-bidding-selection
+  - contractor-negotiations-contracts
+  - demolition
+  - drone-technologies
+  - government-agency-coordination
+  - landlord-tenant-lease-requirements
 order: 6
+featured: false
 ---
 
 Starting in 2023, PH\&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.
