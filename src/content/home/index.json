@@ -27,7 +27,7 @@
       "width": "full",
       "backgroundColor": "brand-blue",
       "textSize": "base",
-      "matchImageHeight": false
+      "matchImageHeight": true
     },
     {
       "title": "Project Planning & Coordination",
