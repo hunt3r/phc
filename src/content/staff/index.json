@@ -26,15 +26,6 @@
       "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791396653/staff/Jeff_hzq2np.jpg"
     },
     {
-      "name": "Rob Raquet",
-      "title": "Senior Construction Manager",
-      "credentials": [
-        "Spring Garden College, Civil Engineering"
-      ],
-      "bio": "Rob has over 35 years of experience in site construction, land acquisition, land development approvals and municipal construction processes. While working with major site development contracting firms in the greater Philadelphia region, Rob sharpened his skills to determine what construction techniques and methods can be utilized to reduce cost to the clients by developing efficient designs, with the most economical materials, and reducing construction timelines to deliver projects to the client on time and below budget. This value engineering approach has resulted in millions of dollars in cost savings over his career, and has helped Rob develop and maintain strong relationships with many of the Civil Engineering and Land Development firms throughout the region. His deep experience in residential, commercial, industrial design and construction provides the foundation of knowledge of the site construction industry, and Rob is viewed as a trusted resource for Engineering Firms, advising them on construction means and methods, material selections, and other field engineering questions. Rob feels that open discussions on ways to reduce costs thru value engineering results in a win-win situation for the design engineer, site contractor and ultimately for the client. Rob is a graduate of Spring Garden College with a degree in Civil Engineering.",
-      "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791397259/staff/Rob-Raquet_wcd3le.jpg"
-    },
-    {
       "name": "Shaun Barot",
       "title": "Senior Construction Manager",
       "credentials": [
@@ -54,10 +45,13 @@
       "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791395593/staff/Lou_n5apee.jpg"
     },
     {
-      "name": "Noah Lynch",
-      "title": "Construction Coordinator & Licensed Drone Pilot",
-      "bio": "Noah spent over 2 years helping manage the development of 300+ single and multifamily residential rental units in many aspects of the project. Noah has been with PH&C since August 2020, documenting and administering numerous construction projects with site visit reports, managing drawings, submittals, RFI logs, utility coordination and investigations, and general project management. Noah is a certified FAA Remote Pilot and routinely pilots our DJI drone taking aerial photos, videos and 3D imaging using 3rd party software to help quantify materials on our job sites. Noah holds OSHA 30-hour certification and is a competent person when visiting job sites. Noah is a graduate of Temple University's Fox School of Business in Philadelphia, PA, with a Bachelor of Business Administration, majoring in risk management and insurance.",
-      "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791394057/staff/Noah_zpdsh5.jpg"
+      "name": "Rob Raquet",
+      "title": "Senior Construction Manager",
+      "credentials": [
+        "Spring Garden College, Civil Engineering"
+      ],
+      "bio": "Rob has over 35 years of experience in site construction, land acquisition, land development approvals and municipal construction processes. While working with major site development contracting firms in the greater Philadelphia region, Rob sharpened his skills to determine what construction techniques and methods can be utilized to reduce cost to the clients by developing efficient designs, with the most economical materials, and reducing construction timelines to deliver projects to the client on time and below budget. This value engineering approach has resulted in millions of dollars in cost savings over his career, and has helped Rob develop and maintain strong relationships with many of the Civil Engineering and Land Development firms throughout the region. His deep experience in residential, commercial, industrial design and construction provides the foundation of knowledge of the site construction industry, and Rob is viewed as a trusted resource for Engineering Firms, advising them on construction means and methods, material selections, and other field engineering questions. Rob feels that open discussions on ways to reduce costs thru value engineering results in a win-win situation for the design engineer, site contractor and ultimately for the client. Rob is a graduate of Spring Garden College with a degree in Civil Engineering.",
+      "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791397259/staff/Rob-Raquet_wcd3le.jpg"
     },
     {
       "name": "Derek Clouser",
@@ -76,6 +70,12 @@
       ],
       "bio": "Alexa joins the PH&C team in Feb 2026 as a Construction Manager. She has a background in Architecture and Real Estate Development. With five years of experience in ground-up commercial development, she brings a strong understanding of both construction management and design to every project. Prior to joining PH&C, she worked for a private developer managing site development and building construction for a variety of projects, including pad site developments, retail buildings, medical spaces, and multi-tenant shopping centers. Alexa is a graduate of Philadelphia University, where she earned a bachelor's degree in Architecture.",
       "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791397110/staff/Alexa_hwpc7p.jpg"
+    },
+    {
+      "name": "Noah Lynch",
+      "title": "Construction Coordinator & Licensed Drone Pilot",
+      "bio": "Noah spent over 2 years helping manage the development of 300+ single and multifamily residential rental units in many aspects of the project. Noah has been with PH&C since August 2020, documenting and administering numerous construction projects with site visit reports, managing drawings, submittals, RFI logs, utility coordination and investigations, and general project management. Noah is a certified FAA Remote Pilot and routinely pilots our DJI drone taking aerial photos, videos and 3D imaging using 3rd party software to help quantify materials on our job sites. Noah holds OSHA 30-hour certification and is a competent person when visiting job sites. Noah is a graduate of Temple University's Fox School of Business in Philadelphia, PA, with a Bachelor of Business Administration, majoring in risk management and insurance.",
+      "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791394057/staff/Noah_zpdsh5.jpg"
     },
     {
       "name": "Virginia Gonzalez",
