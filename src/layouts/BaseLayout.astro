@@ -58,6 +58,8 @@ const ogImageSource = image
   ? getImageUrl(image, { width: 1200, height: 630, crop: 'fill', quality: 'auto:eco' })
   : '/images/logo-color.png';
 const absoluteImageUrl = toAbsoluteUrl(ogImageSource, site);
+const googleAnalyticsId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID;
+const gaMeasurementId = /^G-[A-Z0-9]+$/.test(googleAnalyticsId ?? '') ? googleAnalyticsId : '';
 const baseJsonLd = createGraphSchema([
   createOrganizationSchema(site),
   createWebSiteSchema(site),
@@ -124,6 +126,17 @@ const baseJsonLd = createGraphSchema([
       }
     </style>
     <meta name="generator" content={Astro.generator} />
+    {gaMeasurementId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+        <script is:inline define:vars={{ gaMeasurementId }}>
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaMeasurementId);
+        </script>
+      </>
+    )}
     <title>{displayTitle}</title>
     {baseJsonLd && <JsonLd nodes={[baseJsonLd]} />}
     <script is:inline>

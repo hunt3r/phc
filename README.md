@@ -32,6 +32,7 @@ Image fields in Tina (portfolio hero image, gallery, home hero background) use t
    - `CLOUDINARY_API_KEY`
    - `CLOUDINARY_API_SECRET`
    Optional for Tina Cloud: `NEXT_PUBLIC_TINA_CLIENT_ID`, `TINA_TOKEN`.
+   Optional for Google Analytics: `PUBLIC_GOOGLE_ANALYTICS_ID` (measurement ID `G-YZVS3RE5GW`). It is read at build time, so changing it requires a rebuild. Leave it unset to omit the tag. Set the same variable in the Netlify dashboard for production.
 
 2. **Media API** – The Tina admin talks to `/api/cloudinary/media` to upload, list, and delete assets. This is served by a native Astro on-demand route at `src/pages/api/cloudinary/[...media].ts`:
    - **Local dev**: Run `npm run dev` (Tina + Astro). The route runs on the Astro dev server, so uploads work without a separate API process or proxy.
