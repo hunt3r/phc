@@ -5,7 +5,7 @@ import { getAllVideos } from '@/lib/videos';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 const videos = await getAllVideos();
-const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Videos', path: '/videos' },

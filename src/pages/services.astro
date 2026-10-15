@@ -14,7 +14,7 @@ import {
   createBreadcrumbListSchema,
 } from '@/lib/seo/jsonld';
 
-const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 
 const tagMap = await getTagMap();
 const servicesRoot = tagMap.get('services');

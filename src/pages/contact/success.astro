@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
-const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Contact', path: '/contact' },
@@ -13,6 +13,7 @@ const breadcrumbs = [
 <BaseLayout
   title="Message Sent"
   description="Thank you for contacting PH&C. We'll be in touch soon."
+  robots="noindex"
   jsonLdNodes={[createBreadcrumbListSchema(site, breadcrumbs)]}
   breadcrumbs={breadcrumbs}
 >

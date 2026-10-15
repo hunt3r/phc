@@ -3,3 +3,17 @@
 
 [functions]
   node_bundler = "esbuild"
+
+# Astro writes sitemap-index.xml. These names are what people and the old
+# WordPress robots.txt request. Force the redirect so a static file cannot shadow it.
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sitemap_index.xml"
+  to = "/sitemap-index.xml"
+  status = 301
+  force = true

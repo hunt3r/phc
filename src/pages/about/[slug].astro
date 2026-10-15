@@ -29,7 +29,7 @@ interface Props {
 }
 
 const { member } = Astro.props;
-const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const path = `/about/${member.slug}`;
 const firstParagraph = member.bio.split(/\n\n+/).find(Boolean)?.trim();
 const description = firstParagraph || `${member.name}, ${member.title} at PH&C.`;

@@ -23,7 +23,7 @@ const videos = toVideoViews(entry.data.videos, 'about');
 
 const ogImage = entry.data.featuredImage;
 const ogDescription = entry.data.description ?? 'Our team, our values, and our commitment to delivering quality construction and development services.';
-const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
+const site = Astro.url.origin || import.meta.env.SITE || "https://www.phandc.net";
 const breadcrumbs = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },

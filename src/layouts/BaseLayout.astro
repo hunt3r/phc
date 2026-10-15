@@ -35,6 +35,7 @@ interface Props {
   ogType?: string;
   datePublished?: string;
   dateModified?: string;
+  robots?: string;
 }
 
 const {
@@ -46,11 +47,12 @@ const {
   ogType = 'website',
   datePublished,
   dateModified,
+  robots,
 } = Astro.props as Props;
 import '../styles/global.css';
 
 const displayTitle = title.startsWith('PH&C - ') || title.startsWith('PH&C – ') ? title : `PH&C - ${title}`;
-const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const canonicalUrl = new URL(Astro.url.pathname, site).href.replace(/\/$/, '') || site;
 const ogImageSource = image
   ? getImageUrl(image, { width: 1200, height: 630, crop: 'fill', quality: 'auto:eco' })
@@ -83,6 +85,7 @@ const baseJsonLd = createGraphSchema([
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     {description && <meta name="description" content={description} />}
+    {robots && <meta name="robots" content={robots} />}
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:site_name" content="PH&C" />
     <meta property="og:title" content={displayTitle} />

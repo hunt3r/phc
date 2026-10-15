@@ -39,7 +39,7 @@ Local names for those env vars are listed in [.env.example](.env.example). `TINA
 
 ## Runtime
 
-[astro.config.mjs](astro.config.mjs) sets `output: 'static'`, `site: 'https://phandc.net'`, `trailingSlash: 'ignore'`, the Netlify adapter, the Tina integration, and `@astrojs/sitemap`. Tailwind 4 is a Vite plugin and styles the pages. It has no content or deploy role.
+[astro.config.mjs](astro.config.mjs) sets `output: 'static'`, `site: 'https://www.phandc.net'`, `trailingSlash: 'ignore'`, the Netlify adapter, the Tina integration, and `@astrojs/sitemap`. Tailwind 4 is a Vite plugin and styles the pages. It has no content or deploy role.
 
 [netlify.toml](netlify.toml) runs `npm run build:admin && npm run build`. The adapter publishes the static files and turns each `prerender = false` route into a Netlify Function. Two routes opt out of prerender:
 
@@ -150,7 +150,7 @@ The contact form in [src/components/ContactForm.astro](src/components/ContactFor
 
 [BaseLayout.astro](src/layouts/BaseLayout.astro) sets the document title to `PH&C - <page title>`, a canonical URL, and an Open Graph image. The image is the page image run through Cloudinary at 1200 by 630, or `/images/logo-color.png` when the page has none. The layout also emits a JSON-LD graph: organization, website, and web page from [src/lib/seo/jsonld.ts](src/lib/seo/jsonld.ts), plus whatever extra nodes the page passes (breadcrumbs, a person, a creative work, services, FAQ).
 
-The sitemap integration sets `changefreq: weekly` and raises priority for `/`, `/portfolio`, `/about`, project URLs, and category or tag URLs.
+The sitemap integration writes `sitemap-index.xml` (and `sitemap-0.xml`) with one canonical URL per public page, without a trailing slash, `lastmod`, `changefreq`, or `priority`. `/contact/success` is omitted. `/sitemap.xml` and `/sitemap_index.xml` redirect to the index.
 
 `/llms.txt` and `/llms-full.txt` are built by [src/lib/llms.ts](src/lib/llms.ts) from the content collections. The short file is a link map. The full file inlines page and project text. Both follow the llms.txt convention: an H1, a one-line summary, then H2 sections of links.
 

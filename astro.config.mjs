@@ -1,3 +1,5 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -6,8 +8,45 @@ import tina from '@tinacms/astro/integration';
 import { tinaAdminDevRedirect } from '@tinacms/astro/vite';
 import { rehypeLazyImages } from './src/lib/rehypeLazyImages.ts';
 
+const site = 'https://www.phandc.net';
+
+/** Canonical path: no trailing slash. Homepage is `/`. */
+function canonicalPath(page) {
+  const path = new URL(page).pathname.replace(/\/$/, '') || '/';
+  return path;
+}
+
+/**
+ * Match `BaseLayout` canonicals: no trailing slash. With `trailingSlash: 'ignore'`
+ * the sitemap integration can emit both slash forms; keep the first and drop the rest.
+ * The homepage is rewritten after the file is written: `new URL` always
+ * serializes the root as `https://www.phandc.net/`.
+ */
+function canonicalLoc(page) {
+  const url = new URL(page);
+  const path = canonicalPath(page);
+  return path === '/' ? url.origin : `${url.origin}${path}`;
+}
+
+/** `sitemap` rewrites the root loc to include a slash. Put the canonical form back. */
+function canonicalizeSitemapHome() {
+  return {
+    name: 'sitemap-canonical-home',
+    hooks: {
+      'astro:build:done': async ({ dir }) => {
+        const path = fileURLToPath(new URL('sitemap-0.xml', dir));
+        const xml = await readFile(path, 'utf8');
+        const next = xml.replace(`<loc>${site}/</loc>`, `<loc>${site}</loc>`);
+        if (next !== xml) await writeFile(path, next);
+      },
+    },
+  };
+}
+
+const seenSitemapPaths = new Set();
+
 export default defineConfig({
-  site: 'https://phandc.net',
+  site,
   trailingSlash: 'ignore',
   server: {
     host: true,
@@ -25,22 +64,25 @@ export default defineConfig({
   integrations: [
     tina(),
     sitemap({
-      changefreq: 'weekly',
-      priority: 0.7,
+      filter(page) {
+        const path = canonicalPath(page);
+        if (path === '/contact/success') return false;
+        if (seenSitemapPaths.has(path)) return false;
+        seenSitemapPaths.add(path);
+        return true;
+      },
       serialize(item) {
-        const path = new URL(item.url).pathname.replace(/\/$/, '') || '/';
-        if (path === '/') {
-          item.priority = 1.0;
-        } else if (path === '/portfolio' || path === '/about') {
-          item.priority = 0.9;
-        } else if (path.startsWith('/portfolio/')) {
-          item.priority = 0.8;
-        } else if (path.startsWith('/category/') || path.startsWith('/tags/')) {
-          item.priority = 0.6;
-        }
+        item.url = canonicalLoc(item.url);
         return item;
       },
+      namespaces: {
+        news: false,
+        xhtml: false,
+        image: false,
+        video: false,
+      },
     }),
+    canonicalizeSitemapHome(),
   ],
   vite: {
     plugins: [tailwindcss(), tinaAdminDevRedirect()],

@@ -14,7 +14,7 @@ const sorted = portfolio.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0
 const portfolioTag = await getEntry('tags', 'portfolio');
 // Portfolio is a root tag; use its label as the page title.
 const portfolioTitle = portfolioTag?.data.label ?? 'Portfolio';
-const site = Astro.url.origin || import.meta.env.SITE || "https://phandc.net";
+const site = Astro.url.origin || import.meta.env.SITE || "https://www.phandc.net";
 const breadcrumbs = [
   { name: "Home", path: "/" },
   { name: portfolioTitle, path: "/portfolio" },

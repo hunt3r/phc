@@ -46,7 +46,7 @@ const label = breadcrumbLabel ?? entry.data.title;
 const ogDescription =
   entry.data.description ??
   `${label} — PH&C construction and real estate development consulting.`;
-const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: label, path },

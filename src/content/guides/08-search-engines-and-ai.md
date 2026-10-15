@@ -57,7 +57,7 @@ The Services page also includes the five core services and a short set of common
 
 Those company facts, the five services, and the questions are part of the website. Ask the person who manages the website if they need to change. The address and email visitors see in the footer are edited on **Contact**, in **Contact Info (footer)**.
 
-The site also publishes a list of its public pages so search engines can find them. The homepage, Portfolio, About, and project pages are treated as the most important. This guide stays inside the admin, so that public list leaves it out.
+The site also publishes a list of its public pages so search engines can find them. The thank-you page after a contact message is left off that list. This guide stays inside the admin, so that public list leaves it out.
 
 ## What AI tools can read
 

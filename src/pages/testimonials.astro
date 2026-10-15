@@ -5,7 +5,7 @@ import { getAllQuotes } from '@/lib/quotes';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 const quotes = await getAllQuotes();
-const site = Astro.url.origin || import.meta.env.SITE || 'https://phandc.net';
+const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Testimonials', path: '/testimonials' },
