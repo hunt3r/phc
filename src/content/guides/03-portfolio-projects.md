@@ -11,7 +11,7 @@ To add one, create a new Portfolio item. Tina asks for a file name before the fo
 
 ## What visitors see
 
-The project page opens with the cover image across the full width of the window, the same kind of banner a service page uses. The title sits under that image. The written body follows, with a **Project Details** box (cost, size, architect, engineer, contractor) beside it when any of those are filled in. Content cards, the photo gallery, quotes, and videos come after the writeup. Sector and service labels appear as links at the bottom of the page.
+The project page opens with the cover image across the full width of the window, the same kind of banner a service page uses. Under the image are the Home / Portfolio links, then the title. The written body follows, with a **Project Details** box (cost, size, architect, engineer, contractor) beside it when any of those are filled in. Content cards, the photo gallery, quotes, and videos come after the writeup. Sector and service labels appear as links at the bottom of the page.
 
 Project cards on the Portfolio page and on the homepage use the title, the short description, the cover image, and the date.
 
@@ -21,7 +21,7 @@ Project cards on the Portfolio page and on the homepage use the title, the short
 - **Description** is the short summary. It appears on project cards, in the homepage slideshow, and as the preview text when the page is shared. See **Search engines and AI**.
 - **Location**, **Client**, and **Date** appear in the Project Details box. Date can be a year, such as 2020, or a longer date.
 - **Project Cost**, **Size**, **Architect**, **Engineer**, and **Contractor** appear in that same box. Examples: `$145M` and `166,000 SF`. Leave a field blank to hide that line.
-- **Hero / cover image** is the full-width photo at the top of the project page. The title sits under it. It is also required if you want the project in the homepage slideshow. Upload it from the media library. See **Photos, videos, and content cards**.
+- **Hero / cover image** is the full-width photo at the top of the project page. Under it, visitors see the Home / Portfolio links, then the title. It is also required if you want the project in the homepage slideshow. Upload it from the media library. See **Photos, videos, and content cards**.
 - **Gallery** is the set of photos lower on the page. Visitors can open them larger. Each image can have **Alt text** (a short description of the photo), an optional **Link URL** (for example, to send someone to another project), and an optional **Link button label**. If you leave the gallery empty but set a cover image, the cover image is shown in the gallery instead.
 - **Customer Quotes** are testimonials on this project. **Quote** is the words, **Author** is the person's name, and **Role / Company** is their title or organization. Turn on **Promote to home page** to also show that quote on the homepage. Every quote on every project is listed on the Testimonials page, whether or not it is promoted.
 - **Sectors** and **Services** are checklists. Check every sector and service that applies. Those choices link the project to the matching pages, include it in their project lists, and show up as links at the bottom of the project page. The choices come from **Tags**. A tag you create there shows up in these lists right away. See **Sectors, services, and tags**.

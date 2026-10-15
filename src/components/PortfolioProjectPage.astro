@@ -67,7 +67,8 @@ const jsonLdNodes = [
     <ProjectCover image={entry.data.image} title={entry.data.title} />
   </TinaIsland>
   <TinaIsland name="portfolio" wrapper={islands.portfolio.wrapper} params={{ slug: entry.id }} primary>
-  <article class="space-y-8 pt-8">
+  <article class="space-y-8">
+    <h1 class="mt-4 text-3xl font-bold text-gray-900 dark:text-gray-100">{entry.data.title}</h1>
     <section class="prose-content [&::after]:clear-both [&::after]:table [&::after]:content-['']">
       <ProjectSpecs
         location={entry.data.location}
@@ -78,7 +79,7 @@ const jsonLdNodes = [
         architect={entry.data.architect}
         engineer={entry.data.engineer}
         contractor={entry.data.contractor}
-        class="mb-4 w-full md:float-right md:mb-3 md:ml-6 md:w-72 lg:w-80"
+        class="mb-6 w-full md:float-right md:mb-4 md:ml-8 md:w-80 lg:w-96"
       />
       <Content />
     </section>

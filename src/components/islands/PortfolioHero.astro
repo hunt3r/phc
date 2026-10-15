@@ -1,6 +1,7 @@
 ---
 /**
- * Editable cover for a project page: the full-width photo, then the title.
+ * Editable cover for a project page: the full-width photo.
+ * The title is rendered with the page body, under the breadcrumb.
  */
 import { tinaField } from '@tinacms/astro/tina-field';
 import ProjectCover from '../ProjectCover.astro';
@@ -18,6 +19,5 @@ const { data } = Astro.props;
     image={data.image}
     title={data.title ?? ''}
     imageField={data.image ? tinaField(data, 'image') : undefined}
-    titleField={tinaField(data, 'title')}
   />
 )}

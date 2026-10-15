@@ -49,17 +49,31 @@ const specs = [
 
 {specs.length > 0 && (
   <aside
-    class={`overflow-hidden rounded-xl border border-gray-700 bg-gray-900 text-gray-100 shadow-sm ${className ?? ''}`}
+    class:list={[
+      'not-prose @container overflow-hidden rounded-xl border border-[#2a4258] bg-[#101922] text-[#f7f4ee] shadow-md shadow-black/15',
+      className,
+    ]}
     aria-label="Project details"
   >
-    <h2 class="font-heading border-b border-white/10 px-6 py-4 text-xl font-bold text-white">
+    <h2 class="font-heading relative m-0 bg-gradient-to-b from-[#14588a] via-[#0d3f66] to-[#101922] px-5 pb-3.5 pt-4 text-lg font-semibold tracking-tight text-white">
       Project Details
+      <span
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#e8d49a] to-transparent"
+      />
     </h2>
-    <dl class="divide-y divide-white/10">
+    <dl class="m-0 divide-y divide-white/10">
       {specs.map((spec) => (
-        <div class="flex items-baseline justify-between gap-4 px-6 py-4">
-          <dt class="text-sm font-semibold uppercase tracking-wide text-primary">{spec.label}</dt>
-          <dd class="text-base font-medium text-white text-right" data-tina-field={spec.field}>{spec.value}</dd>
+        <div class="bg-[#101922] px-5 py-3 @min-[18.5rem]:flex @min-[18.5rem]:items-baseline @min-[18.5rem]:gap-3">
+          <dt class="subheading m-0 text-[0.6875rem] font-semibold leading-5 text-[#f0e0b0] @min-[18.5rem]:w-[6.75rem] @min-[18.5rem]:shrink-0">
+            {spec.label}
+          </dt>
+          <dd
+            class="m-0 mt-0.5 min-w-0 text-[0.9375rem] leading-snug font-medium break-words text-[#f7f4ee] @min-[18.5rem]:mt-0 @min-[18.5rem]:flex-1"
+            data-tina-field={spec.field}
+          >
+            {spec.value}
+          </dd>
         </div>
       ))}
     </dl>
