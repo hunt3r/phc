@@ -70,11 +70,14 @@ const tagGroups = data
 
     {gallery.length > 0 && (
       <section class="mt-8" data-tina-field={tinaField(data, 'gallery')}>
-        <h2 class="mb-4 text-lg font-semibold text-gray-900 dark:text-gray-100">Project gallery</h2>
-        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div class="rounded-xl bg-[#f4f2ee] px-4 py-6 ring-1 ring-[#e4dfd6] sm:px-6 dark:bg-[#161616] dark:ring-gray-700">
+        <h2 class="font-heading mb-5 text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+          Project gallery
+        </h2>
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
           {gallery.map((img) => (
             <div
-              class="overflow-hidden rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800"
+              class="overflow-hidden rounded-lg bg-gray-50 ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-700"
               data-tina-field={tinaField(img, 'src')}
             >
               <img
@@ -84,10 +87,11 @@ const tagGroups = data
                 height="360"
                 loading="lazy"
                 decoding="async"
-                class="h-40 w-full object-cover"
+                class="aspect-[3/2] w-full object-cover"
               />
             </div>
           ))}
+        </div>
         </div>
       </section>
     )}

@@ -27,7 +27,7 @@ const {
   galleryId = "default",
   heading = "Project gallery",
   class: sectionClass = "mt-8",
-  columnsClass = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
+  columnsClass = "grid-cols-2 md:grid-cols-3 xl:grid-cols-4",
 } = Astro.props as Props
 const rootId = `portfolio-gallery-${galleryId}`
 const lightboxId = `portfolio-lightbox-${galleryId}`
@@ -36,7 +36,7 @@ const lightboxImageId = `portfolio-lightbox-image-${galleryId}`
 const THUMB_OPTIONS = { width: 400, quality: "auto:eco" as const };
 const LIGHTBOX_OPTIONS = { width: 1200, quality: "auto:eco" as const };
 const THUMB_WIDTHS = [320, 400, 640, 800];
-const THUMB_SIZES = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
+const THUMB_SIZES = "(max-width: 767px) 50vw, (max-width: 1279px) 33vw, 25vw";
 const LIGHTBOX_WIDTHS = [640, 960, 1280, 1600, 1920, 2560];
 const thumbImages = images.map((img) => ({
   src: getImageUrl(img.src, THUMB_OPTIONS),
@@ -56,18 +56,23 @@ const lightboxImages = images.map((img) => ({
 
 {images && images.length > 0 && (
   <section class={sectionClass}>
-    {heading && <h2 class="mb-4 text-lg font-semibold text-gray-900">{heading}</h2>}
+    <div class:list={[heading && "rounded-xl bg-[#f4f2ee] px-4 py-6 ring-1 ring-[#e4dfd6] sm:px-6 dark:bg-[#161616] dark:ring-gray-700"]}>
+    {heading && (
+      <h2 class="font-heading mb-5 text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+        {heading}
+      </h2>
+    )}
     <div
       id={rootId}
-      class={`grid gap-3 ${columnsClass}`}
+      class={`grid gap-4 ${columnsClass}`}
       data-images={JSON.stringify(lightboxImages)}
       data-gallery-id={galleryId}
     >
       {thumbImages.map((image, index) => (
-        <div class="group relative overflow-hidden rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
+        <div class="group relative overflow-hidden rounded-lg bg-gray-50 ring-1 ring-gray-200 transition hover:ring-brand-burnt has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-burnt dark:bg-gray-800 dark:ring-gray-700">
           <button
             type="button"
-            class="block w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            class="block w-full focus-visible:outline-none"
             data-index={index}
             aria-label={image.alt ? `View image: ${image.alt}` : "View image"}
           >
@@ -80,7 +85,7 @@ const lightboxImages = images.map((img) => ({
               height="360"
               loading="lazy"
               decoding="async"
-              class="h-40 w-full object-cover transition-transform duration-200 group-hover:scale-105"
+              class="aspect-[3/2] w-full object-cover transition-transform duration-200 group-hover:scale-105"
             />
           </button>
           {image.href && (
@@ -94,10 +99,11 @@ const lightboxImages = images.map((img) => ({
         </div>
       ))}
     </div>
+    </div>
 
     <div
       id={lightboxId}
-      class="pointer-events-none fixed inset-0 z-[60] flex items-center justify-center bg-black/70 opacity-0 transition-opacity duration-150"
+      class="pointer-events-none fixed inset-0 z-[60] flex items-center justify-center bg-black/90 opacity-0 transition-opacity duration-150"
       role="dialog"
       aria-modal="true"
       aria-label="Image gallery"
@@ -105,20 +111,10 @@ const lightboxImages = images.map((img) => ({
       hidden
       inert
     >
-      <div class="relative flex h-full w-full max-w-none flex-col rounded-none bg-black/80 p-2 text-white shadow-xl sm:p-4" id={`${lightboxId}-focus-root`} tabindex="-1">
+      <div class="relative flex h-full w-full max-w-none flex-col text-white" id={`${lightboxId}-focus-root`} tabindex="-1">
         <button
           type="button"
-          class="absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-3 sm:top-3"
-          data-role="close"
-          aria-label="Close gallery"
-        >
-          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 6 6 18M6 6l12 12" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          class="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-3"
+          class="absolute left-8 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-brand-burnt text-white hover:bg-brand-burnt/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-16"
           data-role="prev"
           aria-label="Previous image"
         >
@@ -128,7 +124,7 @@ const lightboxImages = images.map((img) => ({
         </button>
         <button
           type="button"
-          class="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-3"
+          class="absolute right-8 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-brand-burnt text-white hover:bg-brand-burnt/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-16"
           data-role="next"
           aria-label="Next image"
         >
@@ -136,21 +132,62 @@ const lightboxImages = images.map((img) => ({
             <path d="m9 18 6-6-6-6" />
           </svg>
         </button>
-        <div class="flex h-full flex-1 items-center justify-center">
-          <img
-            id={lightboxImageId}
-            src=""
-            sizes="(min-width: 640px) calc(100vw - 2rem), calc(100vw - 1rem)"
-            alt=""
-            class="max-h-full w-auto max-w-full rounded-md object-contain"
-          />
+        <div data-role="stage" class="absolute inset-0 z-0 overflow-hidden touch-none">
+          <div data-role="track" class="absolute inset-0 flex touch-none">
+            <div class="relative h-full w-full min-w-0 shrink-0 grow-0 basis-full overflow-hidden">
+              <img data-slot="side" src="" alt="" aria-hidden="true" draggable="false" class="absolute top-1/2 left-1/2 max-w-none touch-none select-none" />
+            </div>
+            <div class="relative h-full w-full min-w-0 shrink-0 grow-0 basis-full overflow-hidden">
+              <img
+                id={lightboxImageId}
+                data-slot="current"
+                src=""
+                sizes="100vw"
+                alt=""
+                draggable="false"
+                class="absolute top-1/2 left-1/2 max-w-none touch-none select-none"
+              />
+            </div>
+            <div class="relative h-full w-full min-w-0 shrink-0 grow-0 basis-full overflow-hidden">
+              <img data-slot="side" src="" alt="" aria-hidden="true" draggable="false" class="absolute top-1/2 left-1/2 max-w-none touch-none select-none" />
+            </div>
+          </div>
         </div>
-        <a
-          data-role="cta"
-          href="#"
-          class="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-          hidden
-        >View project</a>
+        <div data-role="details" class="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-center gap-3 bg-gradient-to-t from-black/80 to-transparent px-4 pt-8 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-6 sm:pb-[max(2rem,env(safe-area-inset-bottom))]">
+          <p data-role="count" aria-hidden="true" class="shrink-0 text-sm font-medium text-white"></p>
+          <p data-role="caption" class="min-w-0 flex-1 truncate text-sm text-white/80" hidden></p>
+          <a
+            data-role="cta"
+            href="#"
+            class="pointer-events-auto shrink-0 rounded-full bg-brand-burnt px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-burnt/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            hidden
+          >View project</a>
+          <div class="pointer-events-auto ml-auto flex shrink-0 items-center gap-2">
+            <button
+              type="button"
+              class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-burnt text-white hover:bg-brand-burnt/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              data-role="expand"
+              aria-label="Fill the height"
+            >
+              <svg data-icon="height" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 5v14M7 9l5-5 5 5M7 15l5 5 5-5" />
+              </svg>
+              <svg data-icon="width" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+                <path d="M5 12h14M9 7l-5 5 5 5M15 7l5 5-5 5" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-burnt text-white hover:bg-brand-burnt/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              data-role="close"
+              aria-label="Close gallery"
+            >
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
         <div aria-live="polite" aria-atomic="true" class="sr-only" data-role="counter"></div>
       </div>
     </div>
@@ -191,17 +228,210 @@ const lightboxImages = images.map((img) => ({
     const lightbox = document.getElementById(`portfolio-lightbox-${galleryId}`);
     const lightboxImg = document.getElementById(`portfolio-lightbox-image-${galleryId}`);
     const focusRoot = document.getElementById(`portfolio-lightbox-${galleryId}-focus-root`);
+    const stage = lightbox?.querySelector("[data-role=stage]");
+    const track = lightbox?.querySelector("[data-role=track]");
     const counterEl = lightbox?.querySelector("[data-role=counter]");
+    const countEl = lightbox?.querySelector("[data-role=count]");
+    const captionEl = lightbox?.querySelector("[data-role=caption]");
     const ctaEl = lightbox?.querySelector("[data-role=cta]");
-    if (!lightbox || !lightboxImg || !focusRoot) return;
+    if (!lightbox || !lightboxImg || !focusRoot || !stage || !track) return;
 
     const images = JSON.parse(galleryRoot.dataset.images || "[]");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let currentIndex = 0;
     let lastActiveThumb = null;
     let keyHandler = null;
+    let ignoreClick = false;
+
+    function suppressFollowUpClick() {
+      ignoreClick = true;
+      window.setTimeout(() => {
+        ignoreClick = false;
+      }, 400);
+    }
+    let animating = false;
+    let finishTimer = 0;
+    let motion = null;
+    let motionGeneration = 0;
+    let fitMode = "width";
+    let zoom = 1;
+    let panX = 0;
+    let panY = 0;
+    let pointers = new Map();
+    let gesture = null;
+    const expandBtn = lightbox.querySelector("[data-role=expand]");
+
+    function slideWidth() {
+      return stage.getBoundingClientRect().width || window.innerWidth;
+    }
+
+    function stopMotion() {
+      window.clearTimeout(finishTimer);
+      motionGeneration += 1;
+      if (!motion) return;
+      motion.cancel();
+      motion = null;
+    }
+
+    function currentX() {
+      const value = getComputedStyle(track).transform;
+      if (!value || value === "none") return 0;
+      return new DOMMatrix(value).m41;
+    }
+
+    function placeTrack(x, animate, onDone) {
+      const from = currentX();
+      stopMotion();
+      track.style.transition = "none";
+      if (!animate || reduceMotion || Math.abs(from - x) < 0.5) {
+        track.style.transform = `translate3d(${x}px, 0, 0)`;
+        if (onDone) onDone();
+        return;
+      }
+      track.style.transform = `translate3d(${from}px, 0, 0)`;
+      const generation = motionGeneration;
+      requestAnimationFrame(() => {
+        if (generation !== motionGeneration) return;
+        motion = track.animate(
+          [{ transform: `translate3d(${from}px, 0, 0)` }, { transform: `translate3d(${x}px, 0, 0)` }],
+          { duration: 320, easing: "ease-out", fill: "forwards" },
+        );
+        let settled = false;
+        const done = () => {
+          if (settled || generation !== motionGeneration) return;
+          settled = true;
+          window.clearTimeout(finishTimer);
+          if (motion) {
+            try {
+              motion.commitStyles();
+            } catch {
+              // The animation already matches the inline transform.
+            }
+            motion.cancel();
+            motion = null;
+          }
+          track.style.transform = `translate3d(${x}px, 0, 0)`;
+          if (onDone) onDone();
+        };
+        motion.onfinish = done;
+        finishTimer = window.setTimeout(done, 400);
+      });
+    }
+
+    function slideAt(position) {
+      return track.children[position]?.querySelector("img");
+    }
+
+    function fillSlide(el, index, isCurrent) {
+      if (!el) return;
+      const item = images[(index + images.length) % images.length];
+      if (!item) return;
+      if (el.getAttribute("src") !== item.src) el.src = item.src;
+      if (item.srcset) {
+        if (el.getAttribute("srcset") !== item.srcset) el.srcset = item.srcset;
+      } else {
+        el.removeAttribute("srcset");
+      }
+      if (isCurrent) {
+        el.alt = item.alt || "";
+        el.removeAttribute("aria-hidden");
+      } else {
+        el.alt = "";
+        el.setAttribute("aria-hidden", "true");
+      }
+    }
+
+    function resetZoom() {
+      zoom = 1;
+      panX = 0;
+      panY = 0;
+    }
+
+    function panLimits() {
+      const img = slideAt(1);
+      if (!img) return { maxX: 0, maxY: 0 };
+      const stageRect = stage.getBoundingClientRect();
+      return {
+        maxX: Math.max(0, (img.offsetWidth * zoom - stageRect.width) / 2),
+        maxY: Math.max(0, (img.offsetHeight * zoom - stageRect.height) / 2),
+      };
+    }
+
+    function clampPan() {
+      const { maxX, maxY } = panLimits();
+      panX = Math.min(maxX, Math.max(-maxX, panX));
+      panY = Math.min(maxY, Math.max(-maxY, panY));
+    }
+
+    function canPanX() {
+      return panLimits().maxX > 1;
+    }
+
+    function canPanY() {
+      return panLimits().maxY > 1;
+    }
+
+    function updateExpand() {
+      if (!expandBtn) return;
+      const fillHeight = fitMode === "width";
+      expandBtn.setAttribute("aria-label", fillHeight ? "Fill the height" : "Fit the width");
+      expandBtn.querySelector("[data-icon=height]")?.toggleAttribute("hidden", !fillHeight);
+      expandBtn.querySelector("[data-icon=width]")?.toggleAttribute("hidden", fillHeight);
+    }
+
+    function applyView() {
+      const current = slideAt(1);
+      for (const img of track.querySelectorAll("img")) {
+        img.style.width = fitMode === "width" ? "100%" : "auto";
+        img.style.height = fitMode === "height" ? "100%" : "auto";
+        img.style.maxWidth = "none";
+        img.style.transformOrigin = "center center";
+        const x = img === current ? panX : 0;
+        const y = img === current ? panY : 0;
+        const scale = img === current ? zoom : 1;
+        img.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(${scale})`;
+      }
+      const limits = panLimits();
+      stage.style.cursor = limits.maxX > 1 || limits.maxY > 1 ? "grab" : "";
+      updateExpand();
+    }
+
+    function zoomAt(clientX, clientY, nextZoom) {
+      const stageRect = stage.getBoundingClientRect();
+      const fx = clientX - (stageRect.left + stageRect.width / 2);
+      const fy = clientY - (stageRect.top + stageRect.height / 2);
+      const ratio = zoom ? nextZoom / zoom : 1;
+      panX = fx - (fx - panX) * ratio;
+      panY = fy - (fy - panY) * ratio;
+      zoom = nextZoom;
+      clampPan();
+      applyView();
+    }
+
+    function syncSlides() {
+      fillSlide(slideAt(0), currentIndex - 1, false);
+      fillSlide(slideAt(1), currentIndex, true);
+      fillSlide(slideAt(2), currentIndex + 1, false);
+      applyView();
+      placeTrack(-slideWidth(), false);
+      updateCounter();
+      updateCaption();
+      updateCta();
+    }
 
     function updateCounter() {
-      if (counterEl && images.length) counterEl.textContent = `Image ${currentIndex + 1} of ${images.length}`;
+      if (!images.length) return;
+      const label = `${currentIndex + 1} of ${images.length}`;
+      if (counterEl) counterEl.textContent = `Image ${label}`;
+      if (countEl) countEl.textContent = label;
+    }
+
+    function updateCaption() {
+      if (!captionEl) return;
+      const alt = (images[currentIndex]?.alt || "").trim();
+      captionEl.textContent = alt;
+      if (alt) captionEl.removeAttribute("hidden");
+      else captionEl.setAttribute("hidden", "");
     }
 
     function updateCta() {
@@ -220,18 +450,17 @@ const lightboxImages = images.map((img) => ({
     function openLightbox(index, thumb) {
       currentIndex = index;
       lastActiveThumb = thumb;
-      const img = images[currentIndex];
-      lightboxImg.src = img.src;
-      if (img.srcset) lightboxImg.srcset = img.srcset;
-      else lightboxImg.removeAttribute("srcset");
-      lightboxImg.alt = img.alt || "";
-      updateCounter();
-      updateCta();
+      animating = false;
+      fitMode = "width";
+      resetZoom();
+      gesture = null;
+      pointers.clear();
       lightbox.removeAttribute("hidden");
       lightbox.removeAttribute("inert");
       lightbox.classList.remove("pointer-events-none");
       lightbox.setAttribute("aria-hidden", "false");
       lightbox.classList.add("opacity-100");
+      syncSlides();
       document.body.style.overflow = "hidden";
       document.addEventListener("keydown", (keyHandler = (e) => {
         if (e.key === "Escape") {
@@ -257,21 +486,40 @@ const lightboxImages = images.map((img) => ({
       lightbox.setAttribute("inert", "");
       lightbox.setAttribute("hidden", "");
       document.body.style.overflow = "";
+      gesture = null;
+      pointers.clear();
+      animating = false;
+      fitMode = "width";
+      resetZoom();
+      stopMotion();
       if (keyHandler) document.removeEventListener("keydown", keyHandler);
       keyHandler = null;
       if (lastActiveThumb) lastActiveThumb.focus();
     }
 
+    function finishMove(step) {
+      if (!animating) return;
+      const kids = [...track.children];
+      if (step > 0) track.appendChild(kids[0]);
+      else track.insertBefore(kids[2], kids[0]);
+      currentIndex = (currentIndex + step + images.length) % images.length;
+      animating = false;
+      resetZoom();
+      syncSlides();
+    }
+
     function showNext(delta) {
-      if (images.length === 0) return;
-      currentIndex = (currentIndex + delta + images.length) % images.length;
-      const img = images[currentIndex];
-      lightboxImg.src = img.src;
-      if (img.srcset) lightboxImg.srcset = img.srcset;
-      else lightboxImg.removeAttribute("srcset");
-      lightboxImg.alt = img.alt || "";
-      updateCounter();
-      updateCta();
+      if (animating || images.length < 2) return;
+      const step = delta > 0 ? 1 : -1;
+      const width = slideWidth();
+      if (reduceMotion) {
+        currentIndex = (currentIndex + step + images.length) % images.length;
+        resetZoom();
+        syncSlides();
+        return;
+      }
+      animating = true;
+      placeTrack(step > 0 ? -2 * width : 0, true, () => finishMove(step));
     }
 
     galleryRoot.addEventListener("click", (event) => {
@@ -283,12 +531,174 @@ const lightboxImages = images.map((img) => ({
       openLightbox(index, button);
     });
 
+    stage.addEventListener("dragstart", (event) => event.preventDefault());
+
+    function pointerMidpoint() {
+      const pts = [...pointers.values()];
+      return {
+        x: (pts[0].x + pts[1].x) / 2,
+        y: (pts[0].y + pts[1].y) / 2,
+        dist: Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y),
+      };
+    }
+
+    function beginPinch() {
+      if (gesture?.type === "swipe") placeTrack(-slideWidth(), false);
+      const mid = pointerMidpoint();
+      gesture = { type: "pinch", zoom, panX, panY, dist: mid.dist || 1, midX: mid.x, midY: mid.y };
+    }
+
+    function updatePinch() {
+      if (!gesture || gesture.type !== "pinch") return;
+      const mid = pointerMidpoint();
+      const nextZoom = Math.min(4, Math.max(1, gesture.zoom * (mid.dist / gesture.dist)));
+      const stageRect = stage.getBoundingClientRect();
+      const fx = gesture.midX - (stageRect.left + stageRect.width / 2);
+      const fy = gesture.midY - (stageRect.top + stageRect.height / 2);
+      const ratio = gesture.zoom ? nextZoom / gesture.zoom : 1;
+      panX = fx - (fx - gesture.panX) * ratio + (mid.x - gesture.midX);
+      panY = fy - (fy - gesture.panY) * ratio + (mid.y - gesture.midY);
+      zoom = nextZoom;
+      clampPan();
+      applyView();
+    }
+
+    stage.addEventListener("pointerdown", (event) => {
+      if (animating) return;
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      if (event.target.closest("button, a")) return;
+      pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+      try {
+        stage.setPointerCapture(event.pointerId);
+      } catch {
+        // Synthetic or already-released pointers cannot be captured.
+      }
+      if (pointers.size >= 2) {
+        beginPinch();
+        return;
+      }
+      gesture = { type: "pending", id: event.pointerId, x: event.clientX, y: event.clientY, panX, panY, overscroll: 0 };
+    });
+
+    stage.addEventListener("pointermove", (event) => {
+      const point = pointers.get(event.pointerId);
+      if (!point || animating) return;
+      point.x = event.clientX;
+      point.y = event.clientY;
+      if (pointers.size >= 2) {
+        if (gesture?.type !== "pinch") beginPinch();
+        updatePinch();
+        return;
+      }
+      if (!gesture || gesture.type === "pinch" || gesture.id !== event.pointerId) return;
+      const dx = event.clientX - gesture.x;
+      const dy = event.clientY - gesture.y;
+      if (gesture.type === "pending") {
+        if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+        const horizontal = Math.abs(dx) >= Math.abs(dy);
+        if (horizontal && canPanX()) gesture.type = "pan";
+        else if (!horizontal && canPanY()) gesture.type = "pan";
+        else if (horizontal && images.length > 1) gesture.type = "swipe";
+        else {
+          gesture = null;
+          return;
+        }
+      }
+      if (gesture.type === "pan") {
+        const limits = panLimits();
+        const rawX = gesture.panX + dx;
+        const rawY = gesture.panY + dy;
+        panY = Math.min(limits.maxY, Math.max(-limits.maxY, rawY));
+        let overscroll = 0;
+        if (rawX < -limits.maxX) {
+          panX = -limits.maxX;
+          overscroll = rawX + limits.maxX;
+        } else if (rawX > limits.maxX) {
+          panX = limits.maxX;
+          overscroll = rawX - limits.maxX;
+        } else {
+          panX = rawX;
+        }
+        gesture.overscroll = images.length > 1 ? overscroll : 0;
+        applyView();
+        stage.style.cursor = "grabbing";
+        if (gesture.overscroll) placeTrack(-slideWidth() + gesture.overscroll, false);
+        else if (overscroll === 0) placeTrack(-slideWidth(), false);
+      } else if (gesture.type === "swipe") {
+        placeTrack(-slideWidth() + dx, false);
+      }
+    });
+
+    function endGesture(event, cancel) {
+      pointers.delete(event.pointerId);
+      if (gesture?.type === "pinch") {
+        if (pointers.size >= 2) return;
+        gesture = null;
+        suppressFollowUpClick();
+        applyView();
+        return;
+      }
+      if (!gesture || gesture.id !== event.pointerId) return;
+      const ended = gesture;
+      gesture = null;
+      if (ended.type === "swipe") {
+        const dx = event.clientX - ended.x;
+        suppressFollowUpClick();
+        if (cancel || Math.abs(dx) < 48) placeTrack(-slideWidth(), true);
+        else showNext(dx < 0 ? 1 : -1);
+      } else if (ended.type === "pan") {
+        suppressFollowUpClick();
+        const overscroll = ended.overscroll || 0;
+        if (!cancel && images.length > 1 && Math.abs(overscroll) >= 48) {
+          showNext(overscroll < 0 ? 1 : -1);
+        } else if (overscroll) {
+          placeTrack(-slideWidth(), true);
+          applyView();
+        } else {
+          applyView();
+        }
+      }
+    }
+
+    window.addEventListener("resize", () => {
+      if (lightbox.hasAttribute("hidden") || animating || gesture) return;
+      clampPan();
+      applyView();
+      placeTrack(-slideWidth(), false);
+    });
+
+    stage.addEventListener("pointerup", (event) => endGesture(event, false));
+    stage.addEventListener("pointercancel", (event) => endGesture(event, true));
+
+    stage.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      const dy = event.deltaMode === 1 ? event.deltaY * 16 : event.deltaY;
+      const nextZoom = Math.min(4, Math.max(1, zoom * Math.exp(-dy * 0.002)));
+      zoomAt(event.clientX, event.clientY, nextZoom);
+    }, { passive: false });
+
+    track.addEventListener("load", (event) => {
+      if (event.target?.tagName !== "IMG" || lightbox.hasAttribute("hidden") || gesture) return;
+      clampPan();
+      applyView();
+    }, true);
+
     lightbox.addEventListener("click", (event) => {
+      if (ignoreClick) {
+        ignoreClick = false;
+        if (!event.target.closest("button, a")) return;
+      }
       const target = event.target;
       if (!target) return;
       const control = target.closest("[data-role]");
       if (control?.dataset.role === "close") {
         closeLightbox();
+        return;
+      }
+      if (control?.dataset.role === "expand") {
+        fitMode = fitMode === "width" ? "height" : "width";
+        resetZoom();
+        applyView();
         return;
       }
       if (control?.dataset.role === "next") {
@@ -299,9 +709,8 @@ const lightboxImages = images.map((img) => ({
         showNext(-1);
         return;
       }
-      if (target === lightbox) {
-        closeLightbox();
-      }
+      if (target.closest("button, a, img")) return;
+      closeLightbox();
     });
   });
   }
