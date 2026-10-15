@@ -43,6 +43,7 @@ const resolvedImageSrcSet = imageSrc ? getImageSrcSet(imageSrc, CARD_WIDTHS, { q
           sizes={CARD_SIZES}
           alt={imageAlt || title}
           loading="lazy"
+          decoding="async"
           class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
           width="960"
           height="540"

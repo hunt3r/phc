@@ -7,6 +7,7 @@
  * accepts either and returns an HTML string.
  */
 import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import { rehypeLazyImages } from './rehypeLazyImages';
 
 export interface ContentCardData {
   title?: string;
@@ -57,7 +58,11 @@ export const TEXT_SIZE_REM: Record<NonNullable<ContentCardData['textSize']>, str
 let processorPromise: ReturnType<typeof createMarkdownProcessor> | null = null;
 function getProcessor() {
   if (!processorPromise) {
-    processorPromise = createMarkdownProcessor({ gfm: true, smartypants: true });
+    processorPromise = createMarkdownProcessor({
+      gfm: true,
+      smartypants: true,
+      rehypePlugins: [rehypeLazyImages],
+    });
   }
   return processorPromise;
 }
@@ -121,7 +126,7 @@ function serializeRichText(node: any): string {
         node.title ? ` title="${escapeHtml(node.title)}"` : ''
       }>${children}</a>`;
     case 'img':
-      return `<img src="${escapeHtml(node.url ?? '')}" alt="${escapeHtml(node.alt ?? '')}" />`;
+      return `<img src="${escapeHtml(node.url ?? '')}" alt="${escapeHtml(node.alt ?? '')}" loading="lazy" decoding="async" />`;
     case 'code_block':
       return `<pre><code>${escapeHtml(node.value ?? '')}</code></pre>`;
     case 'hr':

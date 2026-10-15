@@ -6,6 +6,7 @@
  * from `astro:content`.
  */
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
+import { tinaMarkdownComponents } from '@/lib/tinaMarkdown';
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { AboutQuery } from '../../../tina/__generated__/types';
 
@@ -40,7 +41,7 @@ const { data } = Astro.props;
     </section>
 
     <section class="prose-content prose-img:rounded-lg" data-tina-field={tinaField(data, 'body')}>
-      <TinaMarkdown content={data.body} />
+      <TinaMarkdown content={data.body} components={tinaMarkdownComponents} />
     </section>
   </div>
 )}

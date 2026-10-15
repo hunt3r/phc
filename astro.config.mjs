@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import netlify from '@astrojs/netlify';
 import tina from '@tinacms/astro/integration';
 import { tinaAdminDevRedirect } from '@tinacms/astro/vite';
+import { rehypeLazyImages } from './src/lib/rehypeLazyImages.ts';
 
 export default defineConfig({
   site: 'https://phandc.net',
@@ -18,6 +19,9 @@ export default defineConfig({
   // on-demand route as a Netlify Function.
   output: 'static',
   adapter: netlify(),
+  markdown: {
+    rehypePlugins: [rehypeLazyImages],
+  },
   integrations: [
     tina(),
     sitemap({

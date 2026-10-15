@@ -4,7 +4,7 @@
  * `contactInfo` rich-text (stored as markdown) into a card that floats to the
  * right of the body copy on larger screens and stacks above it on mobile.
  */
-import { marked } from 'marked';
+import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
   contactInfo: string;
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const { contactInfo, heading = 'Reach us' } = Astro.props;
-const html = marked.parse(contactInfo);
+const html = renderMarkdown(contactInfo);
 ---
 
 <aside

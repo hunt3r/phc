@@ -9,6 +9,7 @@
  * form, which loads as the primary form on these pages.
  */
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
+import { tinaMarkdownComponents } from '@/lib/tinaMarkdown';
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { TagsQuery } from '../../../tina/__generated__/types';
 
@@ -21,6 +22,6 @@ const { data } = Astro.props;
 
 {data && (
   <section class="prose-content" data-tina-field={tinaField(data, 'body')}>
-    <TinaMarkdown content={data.body} />
+    <TinaMarkdown content={data.body} components={tinaMarkdownComponents} />
   </section>
 )}

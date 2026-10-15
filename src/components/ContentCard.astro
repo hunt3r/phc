@@ -3,6 +3,7 @@ import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
 import { BG_CLASS, DARK_BACKGROUNDS, TEXT_SIZE_REM, type ContentCardData } from '@/lib/contentCard';
 import PortfolioGallery from '@/components/PortfolioGallery.astro';
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
+import { tinaMarkdownComponents } from '@/lib/tinaMarkdown';
 import { tinaField } from '@tinacms/astro/tina-field';
 
 interface Props {
@@ -160,7 +161,7 @@ const galleryBelow = hasGallery && !galleryInColumn;
           )}
           {tinaCard ? (
             <div class={proseClass} style={rootFontStyle} data-tina-field={tf('content')}>
-              <TinaMarkdown content={tinaCard.content} />
+              <TinaMarkdown content={tinaCard.content} components={tinaMarkdownComponents} />
             </div>
           ) : (
             <div class={proseClass} style={rootFontStyle} set:html={contentHtml} />
@@ -194,7 +195,7 @@ const galleryBelow = hasGallery && !galleryInColumn;
           )}
           {tinaCard ? (
             <div class={`${proseClass} text-center`} style={rootFontStyle} data-tina-field={tf('content')}>
-              <TinaMarkdown content={tinaCard.content} />
+              <TinaMarkdown content={tinaCard.content} components={tinaMarkdownComponents} />
             </div>
           ) : (
             <div class={`${proseClass} text-center`} style={rootFontStyle} set:html={contentHtml} />

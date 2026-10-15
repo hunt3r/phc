@@ -9,6 +9,7 @@
  * from `astro:content`; this component is the live-overlay counterpart.
  */
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
+import { tinaMarkdownComponents } from '@/lib/tinaMarkdown';
 import { tinaField } from '@tinacms/astro/tina-field';
 import { getImageUrl } from '@/lib/cloudinary';
 import { getTagMap, resolveTagsGrouped } from '@/lib/tags';
@@ -58,7 +59,7 @@ const tagGroups = data
         class="mb-4 w-full md:float-right md:mb-3 md:ml-6 md:w-72 lg:w-80"
       />
       <div data-tina-field={tinaField(data, 'body')}>
-        <TinaMarkdown content={data.body} />
+        <TinaMarkdown content={data.body} components={tinaMarkdownComponents} />
       </div>
     </section>
 
@@ -76,7 +77,10 @@ const tagGroups = data
               <img
                 src={getImageUrl(img.src, { width: 400, quality: 'auto:eco' })}
                 alt={img.alt ?? ''}
+                width="640"
+                height="360"
                 loading="lazy"
+                decoding="async"
                 class="h-40 w-full object-cover"
               />
             </div>

@@ -71,11 +71,15 @@ const multiple = resolvedSlides.length > 1;
         aria-hidden={index === 0 ? 'false' : 'true'}
       >
         <img
-          src={slide.imageUrl}
-          srcset={slide.imageSrcSet}
+          src={index === 0 ? slide.imageUrl : undefined}
+          srcset={index === 0 ? slide.imageSrcSet : undefined}
+          data-src={slide.imageUrl}
+          data-srcset={slide.imageSrcSet}
           sizes="100vw"
           alt=""
           aria-hidden="true"
+          width="1920"
+          height="1080"
           fetchpriority={index === 0 ? 'high' : undefined}
           loading={index === 0 ? 'eager' : 'lazy'}
           decoding="async"
@@ -164,9 +168,24 @@ const multiple = resolvedSlides.length > 1;
     let current = 0;
     let timer: number | undefined;
 
+    // Hidden slides sit in the hero, so loading="lazy" does not defer them.
+    // Leave src empty until a slide is on screen or is the next one.
+    const ensureLoaded = (index: number) => {
+      const total = slides.length;
+      const i = ((index % total) + total) % total;
+      const img = slides[i]?.querySelector('img');
+      if (!(img instanceof HTMLImageElement) || img.getAttribute('src')) return;
+      const src = img.dataset.src;
+      if (!src) return;
+      if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+      img.src = src;
+    };
+
     const show = (next: number) => {
       const total = slides.length;
       const index = ((next % total) + total) % total;
+      ensureLoaded(index);
+      ensureLoaded(index + 1);
       slides.forEach((slide, i) => {
         const active = i === index;
         slide.classList.toggle('relative', active);
@@ -199,6 +218,7 @@ const multiple = resolvedSlides.length > 1;
     };
 
     root.querySelector('[data-hero-prev]')?.addEventListener('click', () => {
+      ensureLoaded(current - 1);
       show(current - 1);
       start();
     });
@@ -218,6 +238,7 @@ const multiple = resolvedSlides.length > 1;
     root.addEventListener('focusin', stop);
     root.addEventListener('focusout', start);
 
+    ensureLoaded(1);
     start();
   });
 </script>

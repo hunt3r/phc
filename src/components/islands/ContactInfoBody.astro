@@ -6,6 +6,7 @@
  * public build renders `ContactInfoCard` (from the markdown string) instead.
  */
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
+import { tinaMarkdownComponents } from '@/lib/tinaMarkdown';
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { ContactQuery } from '../../../tina/__generated__/types';
 
@@ -28,7 +29,7 @@ const { data, heading = 'Reach us' } = Astro.props;
       class="space-y-2 whitespace-pre-line text-sm text-gray-600 dark:text-gray-400 [&_a]:text-primary hover:[&_a]:text-primary/80 [&_strong]:font-medium [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100"
       data-tina-field={tinaField(data, 'contactInfo')}
     >
-      <TinaMarkdown content={data.contactInfo} />
+      <TinaMarkdown content={data.contactInfo} components={tinaMarkdownComponents} />
     </div>
   </aside>
 )}

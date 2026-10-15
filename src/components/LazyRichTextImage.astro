@@ -1,0 +1,14 @@
+---
+import { sanitizeImageSrc } from '@tinacms/astro/sanitize';
+
+interface Props {
+  url?: string;
+  alt?: string;
+  caption?: string;
+}
+
+const { url, alt } = Astro.props;
+const src = sanitizeImageSrc(url);
+---
+
+{src && <img src={src} alt={alt ?? ''} loading="lazy" decoding="async" />}

@@ -1,6 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
-import { marked } from 'marked';
+import { renderMarkdown } from '@/lib/markdown';
 
 const year = new Date().getFullYear();
 
@@ -29,7 +29,7 @@ const contactEntry = await getEntry('contact', 'contact');
 const contactInfo =
   contactEntry?.data?.contactInfo ??
   '**PH&C, LLC**\n\n998 Old Eagle School Road, Suite 1210\n\nWayne, PA 19087\n\n[info@phandc.net](mailto:info@phandc.net)';
-const contactInfoHtml = marked.parse(contactInfo);
+const contactInfoHtml = renderMarkdown(contactInfo);
 ---
 
 <footer class="border-t border-gray-200 bg-white dark:border-gray-700 dark:bg-[#0a0a0a]">
@@ -38,7 +38,7 @@ const contactInfoHtml = marked.parse(contactInfo);
       <!-- Brand + social -->
       <div class="lg:col-span-2">
         <a href="/" class="inline-flex items-center gap-2" aria-label="PHC Home">
-          <img src="/images/logo-color.png" alt="PH&C" class="h-10 w-auto" width="1462" height="284" />
+          <img src="/images/logo-color.png" alt="PH&C" class="h-10 w-auto" width="1462" height="284" loading="lazy" decoding="async" />
         </a>
         <p class="mt-4 max-w-sm text-sm text-gray-600 dark:text-gray-400">
           {footerDescription}
