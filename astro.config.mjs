@@ -8,6 +8,9 @@ import { tinaAdminDevRedirect } from '@tinacms/astro/vite';
 export default defineConfig({
   site: 'https://phandc.net',
   trailingSlash: 'ignore',
+  server: {
+    host: true,
+  },
   // Static output for production; the Tina per-island refresh endpoint
   // (`src/pages/tina-island/[name].ts`) opts into on-demand rendering via
   // `export const prerender = false`, so only that route runs at request time.
