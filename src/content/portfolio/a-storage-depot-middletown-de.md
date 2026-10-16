@@ -22,7 +22,25 @@ gallery:
     alt: 'A Storage Depot - Middletown, DE - image 5'
 sectors:
   - self-storage
+  - retail
+services:
+  - building-construction-permits
+  - bank-billing-inspection-coordination
+  - construction-coordination-supervision
+  - construction-management-services
+  - contractor-negotiations-contracts
+  - landscaping
+  - pre-construction-meetings
+  - pre-construction-services
+  - project-contractor-procurement
+  - project-management
+  - project-schedule
+  - project-schedule-management
+  - signage
+  - utility-coordination
+  - utility-service-coordination
 order: 41
+featured: true
 ---
 
 **Key Features:**
