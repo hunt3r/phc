@@ -1,9 +1,8 @@
 ---
 /**
  * Editable island renderer for the Home document. Exposes the hero fields the
- * homepage renders from its own document; the aggregated sections (latest
- * projects, featured videos/quotes) are derived from other collections and are
- * not editable in place.
+ * homepage renders from its own document, including custom slides. Featured
+ * projects and tags are edited on those documents.
  */
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { HomeQuery } from '../../../tina/__generated__/types';
@@ -14,24 +13,53 @@ interface Props {
 
 const { data } = Astro.props;
 const hero = data?.hero;
+const slides = (hero?.slides ?? []).filter((slide) => slide != null);
 ---
 
-{data && (
-  <section class="space-y-4 py-8 text-center">
-    {hero?.eyebrow && (
-      <p class="text-sm font-semibold uppercase tracking-wider text-primary" data-tina-field={tinaField(hero, 'eyebrow')}>
-        {hero.eyebrow}
-      </p>
-    )}
-    {hero?.tagline && (
-      <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={tinaField(hero, 'tagline')}>
-        {hero.tagline}
-      </h1>
-    )}
-    {hero?.subtitle && (
-      <p class="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300" data-tina-field={tinaField(hero, 'subtitle')}>
-        {hero.subtitle}
-      </p>
-    )}
-  </section>
+{data && slides.length > 0 && (
+  <div class="space-y-10 py-8 text-center">
+    {slides.map((slide) => {
+      const isBanner = slide.design === 'banner';
+      return (
+        <section class="mx-auto max-w-2xl space-y-4">
+          <p class="text-xs font-semibold uppercase tracking-wider text-primary" data-tina-field={tinaField(slide, 'design')}>
+            {isBanner ? 'Banner' : 'Slide'}
+          </p>
+          {isBanner && slide.eyebrow && (
+            <p class="text-sm font-semibold uppercase tracking-wider text-primary" data-tina-field={tinaField(slide, 'eyebrow')}>
+              {slide.eyebrow}
+            </p>
+          )}
+          {slide.title && (
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={tinaField(slide, 'title')}>
+              {slide.title}
+            </h1>
+          )}
+          {slide.description && (
+            <p class="text-lg text-gray-600 dark:text-gray-300" data-tina-field={tinaField(slide, 'description')}>
+              {slide.description}
+            </p>
+          )}
+          {slide.image && (
+            <img
+              src={slide.image}
+              alt=""
+              class="mx-auto max-h-48 w-full object-cover"
+              data-tina-field={tinaField(slide, 'image')}
+            />
+          )}
+          {slide.ctaText && (
+            <p>
+              <span class="btn btn-primary" data-tina-field={tinaField(slide, 'ctaText')}>{slide.ctaText}</span>
+            </p>
+          )}
+          {isBanner && slide.ctaSecondaryText && (
+            <p>
+              <span class="btn btn-secondary" data-tina-field={tinaField(slide, 'ctaSecondaryText')}>{slide.ctaSecondaryText}</span>
+            </p>
+          )}
+        </section>
+      );
+    })}
+  </div>
 )}

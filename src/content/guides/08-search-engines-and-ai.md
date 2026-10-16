@@ -22,8 +22,8 @@ Each public page has one official address, and search engines are pointed at tha
 **Home**
 
 - **Page Title** is the homepage name in the browser tab and in search results. If you leave it blank, the name is Home.
-- **Subtitle**, under **Hero**, is the homepage summary in search results and in link previews. If you leave it blank, the site uses a standard sentence about PH&C. That subtitle is used even when the top of the homepage is the project slideshow.
-- The share photo is the cover image of the first featured project. If none is featured, it is the Hero **Background Image**. See **Home page**.
+- **Description** is the homepage summary in search results and in link previews. If you leave it blank, the site uses a standard sentence about PH&C.
+- The share photo is the image of the first hero slide. If that slide has no image, the preview uses the PH&C logo. See **Home page**.
 
 **Portfolio**
 

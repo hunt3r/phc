@@ -91,6 +91,7 @@ const portfolio = defineCollection({
         .optional(),
       order: z.number().optional(),
       featured: z.boolean().optional(),
+      heroOrder: z.number().optional(),
       videos: z.array(inlineVideoSchema).optional(),
       contentCards: contentCardsSchema,
     }),
@@ -111,22 +112,41 @@ const home = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/home' }),
   schema: z.object({
     title: z.string().optional(),
+    description: z.string().optional(),
     maxProjects: z.number().optional(),
     maxTestimonials: z.number().optional(),
     maxVideos: z.number().optional(),
     hero: z
       .object({
         size: z.enum(['full', 'compact']).optional(),
-        eyebrow: z.string().optional(),
-        tagline: z.string().optional(),
-        subtitle: z.string().optional(),
-        ctaPrimaryText: z.string().optional(),
-        ctaPrimaryHref: z.string().optional(),
-        ctaSecondaryText: z.string().optional(),
-        ctaSecondaryHref: z.string().optional(),
-        backgroundImage: z.string().optional(),
         overlayOpacity: z.number().optional(),
         overlayColor: z.enum(['dark', 'light']).optional(),
+        showFeaturedProjects: z.boolean().optional(),
+        showFeaturedTags: z.boolean().optional(),
+        groupOrder: z
+          .array(
+            z.object({
+              type: optionalEnum(['slides', 'tags', 'projects']),
+            })
+          )
+          .optional(),
+        maxHeroSlides: z.number().optional(),
+        slides: z
+          .array(
+            z.object({
+              design: optionalEnum(['slide', 'banner']),
+              heroOrder: z.number().optional(),
+              eyebrow: z.string().optional(),
+              title: z.string().optional(),
+              description: z.string().optional(),
+              image: z.string().optional(),
+              ctaText: z.string().optional(),
+              ctaHref: z.string().optional(),
+              ctaSecondaryText: z.string().optional(),
+              ctaSecondaryHref: z.string().optional(),
+            })
+          )
+          .optional(),
       })
       .optional(),
     contentCards: contentCardsSchema,
@@ -142,6 +162,8 @@ const tags = defineCollection({
       image: z.string().optional(),
       parent: z.string().optional(),
       order: z.number().optional(),
+      featured: z.boolean().optional(),
+      heroOrder: z.number().optional(),
       videos: z.array(inlineVideoSchema).optional(),
       contentCards: contentCardsSchema,
     }),

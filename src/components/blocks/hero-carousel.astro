@@ -2,17 +2,21 @@
 import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
 
 export interface HeroSlide {
+  design?: 'slide' | 'banner';
   title: string;
   description?: string;
-  href: string;
-  image: string;
+  eyebrow?: string;
+  href?: string;
+  ctaText?: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryHref?: string;
+  image?: string;
 }
 
 interface Props {
   id?: string;
   size?: 'full' | 'compact';
   slides: HeroSlide[];
-  ctaText?: string;
   overlayOpacity?: number;
   overlayColor?: 'dark' | 'light';
   autoplayMs?: number;
@@ -22,7 +26,6 @@ const {
   id = 'hero',
   size = 'full',
   slides,
-  ctaText = 'View project',
   overlayOpacity = 85,
   overlayColor = 'dark',
   autoplayMs = 6000,
@@ -33,20 +36,43 @@ const HERO_WIDTHS = [640, 960, 1280, 1600, 1920, 2560];
 const clampedOpacity = Math.min(Math.max(overlayOpacity ?? 85, 0), 100);
 const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
 const overlayIsDark = overlayColor === 'dark';
-const textClass = overlayIsDark ? 'text-white' : 'text-gray-900';
-const mutedClass = overlayIsDark ? 'text-white/80' : 'text-gray-900/80';
 const controlClass = 'text-white bg-primary hover:bg-primary/90 focus:ring-primary';
+const textClassFor = (hasImage: boolean) =>
+  hasImage ? (overlayIsDark ? 'text-white' : 'text-gray-900') : 'text-gray-900 dark:text-gray-100';
+const mutedClassFor = (hasImage: boolean) =>
+  hasImage ? (overlayIsDark ? 'text-white/80' : 'text-gray-900/80') : 'text-gray-600 dark:text-gray-400';
+const secondaryClassFor = (hasImage: boolean) => {
+  if (!hasImage) return 'btn btn-secondary';
+  return overlayIsDark
+    ? 'btn border-2 border-white/80 text-white hover:bg-white/10 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent'
+    : 'btn border-2 border-gray-900/80 text-gray-900 hover:bg-gray-900/10 focus:ring-gray-900 focus:ring-offset-2 focus:ring-offset-transparent';
+};
 
 const wrapperClass =
   size === 'full'
     ? 'relative min-h-[80vh] flex flex-col justify-center overflow-hidden'
     : 'relative flex flex-col justify-center overflow-hidden py-16 md:py-24';
 
-const resolvedSlides = slides.map((slide) => ({
-  ...slide,
-  imageUrl: getImageUrl(slide.image, HERO_IMAGE_OPTIONS),
-  imageSrcSet: getImageSrcSet(slide.image, HERO_WIDTHS, { quality: 'auto:eco' }),
-}));
+const resolvedSlides = slides.map((slide) => {
+  const design = slide.design === 'banner' ? 'banner' : 'slide';
+  const image = slide.image?.trim() || undefined;
+  const imageUrl = image ? getImageUrl(image, HERO_IMAGE_OPTIONS) : undefined;
+  const primaryText = slide.ctaText?.trim() || (design === 'slide' ? 'Learn more' : '');
+  const showPrimary = Boolean(slide.href && primaryText);
+  const showSecondary = design === 'banner' && Boolean(slide.ctaSecondaryText && slide.ctaSecondaryHref);
+  return {
+    ...slide,
+    design,
+    image,
+    imageUrl,
+    imageSrcSet: image ? getImageSrcSet(image, HERO_WIDTHS, { quality: 'auto:eco' }) : undefined,
+    hasImage: Boolean(imageUrl),
+    showPrimary,
+    primaryText,
+    showSecondary,
+    label: slide.title || slide.eyebrow || 'Slide',
+  };
+});
 const multiple = resolvedSlides.length > 1;
 ---
 
@@ -56,7 +82,7 @@ const multiple = resolvedSlides.length > 1;
   data-hero-carousel
   data-autoplay={multiple ? autoplayMs : 0}
   aria-roledescription="carousel"
-  aria-label="Featured projects"
+  aria-label="Featured"
 >
   <div class="relative w-full">
     {resolvedSlides.map((slide, index) => (
@@ -67,44 +93,64 @@ const multiple = resolvedSlides.length > 1;
         data-active={index === 0 ? 'true' : 'false'}
         role="group"
         aria-roledescription="slide"
-        aria-label={`${index + 1} of ${resolvedSlides.length}: ${slide.title}`}
+        aria-label={`${index + 1} of ${resolvedSlides.length}: ${slide.label}`}
         aria-hidden={index === 0 ? 'false' : 'true'}
       >
-        <img
-          src={index === 0 ? slide.imageUrl : undefined}
-          srcset={index === 0 ? slide.imageSrcSet : undefined}
-          data-src={slide.imageUrl}
-          data-srcset={slide.imageSrcSet}
-          sizes="100vw"
-          alt=""
-          aria-hidden="true"
-          width="1920"
-          height="1080"
-          fetchpriority={index === 0 ? 'high' : undefined}
-          loading={index === 0 ? 'eager' : 'lazy'}
-          decoding="async"
-          class="absolute inset-0 h-full w-full object-cover"
-        />
-        <div
-          class="absolute inset-0"
-          style={`background: linear-gradient(to bottom, oklch(${baseColor} / ${clampedOpacity / 100}) 0%, oklch(${baseColor} / 0) 100%)`}
-          aria-hidden="true"
-        />
+        {slide.imageUrl && (
+          <img
+            src={index === 0 ? slide.imageUrl : undefined}
+            srcset={index === 0 ? slide.imageSrcSet : undefined}
+            data-src={slide.imageUrl}
+            data-srcset={slide.imageSrcSet}
+            sizes="100vw"
+            alt=""
+            aria-hidden="true"
+            width="1920"
+            height="1080"
+            fetchpriority={index === 0 ? 'high' : undefined}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            decoding="async"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        )}
+        {slide.hasImage && (
+          <div
+            class="absolute inset-0"
+            style={`background: linear-gradient(to bottom, oklch(${baseColor} / ${clampedOpacity / 100}) 0%, oklch(${baseColor} / 0) 100%)`}
+            aria-hidden="true"
+          />
+        )}
         <div class={`relative flex ${size === 'full' ? 'min-h-[80vh]' : ''} flex-col justify-center items-center text-center px-4 py-12 md:py-16`}>
           <div class="mx-auto max-w-8xl w-full">
-            <h1 class={`text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl ${textClass}`}>
-              {slide.title}
-            </h1>
+            {slide.design === 'banner' && slide.eyebrow && (
+              <p class={`text-sm font-medium uppercase tracking-wider ${mutedClassFor(slide.hasImage)}`}>
+                {slide.eyebrow}
+              </p>
+            )}
+            {slide.title && (
+              <h1 class={`text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl ${textClassFor(slide.hasImage)} ${slide.design === 'banner' && slide.eyebrow ? 'mt-2' : ''}`}>
+                {slide.title}
+              </h1>
+            )}
             {slide.description && (
-              <p class={`mt-4 text-lg max-w-2xl mx-auto line-clamp-3 ${mutedClass}`}>
+              <p class={`mt-4 text-lg max-w-2xl mx-auto ${slide.design === 'slide' ? 'line-clamp-3' : ''} ${mutedClassFor(slide.hasImage)}`}>
                 {slide.description}
               </p>
             )}
-            <div class="mt-8 flex flex-wrap justify-center gap-3">
-              <a href={slide.href} class="btn btn-primary">
-                {ctaText}
-              </a>
-            </div>
+            {(slide.showPrimary || slide.showSecondary) && (
+              <div class="mt-8 flex flex-wrap justify-center gap-3">
+                {slide.showPrimary && (
+                  <a href={slide.href} class="btn btn-primary">
+                    {slide.primaryText}
+                  </a>
+                )}
+                {slide.showSecondary && (
+                  <a href={slide.ctaSecondaryHref} class={secondaryClassFor(slide.hasImage)}>
+                    {slide.ctaSecondaryText}
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -132,7 +178,7 @@ const multiple = resolvedSlides.length > 1;
               data-active={index === 0 ? 'true' : 'false'}
               role="tab"
               aria-selected={index === 0 ? 'true' : 'false'}
-              aria-label={`Go to slide ${index + 1}: ${slide.title}`}
+              aria-label={`Go to slide ${index + 1}: ${slide.label}`}
             >
               <span
                 class="h-2.5 w-2.5 rounded-full bg-white/50 transition group-hover:bg-white/80 group-data-[active=true]:bg-white"

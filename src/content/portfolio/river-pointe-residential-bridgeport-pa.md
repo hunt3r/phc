@@ -35,6 +35,7 @@ services:
   - utility-coordination
 order: 11
 featured: true
+heroOrder: 11
 videos:
   - title: 'River Pointe Residential - Bridgeport, PA'
     youtube: 'https://www.youtube.com/watch?v=tK7IUFDWB3w'

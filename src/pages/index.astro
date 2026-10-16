@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TinaIsland from '@tinacms/astro/TinaIsland.astro';
 import { islands } from '@/lib/islands';
-import HeroPage from '../components/blocks/hero-page.astro';
 import HeroCarousel from '../components/blocks/hero-carousel.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import VideoGrid from '../components/VideoGrid.astro';
@@ -10,7 +9,9 @@ import QuoteCard from '../components/QuoteCard.astro';
 import ContentCards from '../components/ContentCards.astro';
 import { getFeaturedQuotes } from '@/lib/quotes';
 import { getFeaturedVideos } from '@/lib/videos';
+import { getTagMap, tagHref } from '@/lib/tags';
 import { getEntry, getCollection } from 'astro:content';
+import type { HeroSlide } from '../components/blocks/hero-carousel.astro';
 
 const homeEntry = await getEntry('home', 'index');
 const data = homeEntry?.data;
@@ -27,50 +28,118 @@ const byOrderThenTitle = (a: any, b: any) => {
 const maxProjects = data?.maxProjects ?? 3;
 const maxTestimonials = data?.maxTestimonials ?? 8;
 const maxVideos = data?.maxVideos ?? 8;
+const maxHeroSlides = hero?.maxHeroSlides ?? 5;
+const showFeaturedProjects = hero?.showFeaturedProjects !== false;
+const showFeaturedTags = hero?.showFeaturedTags !== false;
 
 const latestProjects = [...portfolioEntries].sort(byOrderThenTitle).slice(0, maxProjects);
 
 const featuredQuotes = (await getFeaturedQuotes()).slice(0, maxTestimonials);
 const featuredVideos = (await getFeaturedVideos()).slice(0, maxVideos);
 
-// Promoted items: featured and with a hero/cover image. Items missing an
-// image are soft-skipped so a stray `featured: true` never breaks the build.
-const promotedSlides = [...portfolioEntries]
-  .filter((e) => (e.data as any).featured && (e.data as any).image)
-  .sort(byOrderThenTitle)
-  .slice(0, 5)
-  .map((entry) => ({
-    title: (entry.data as any).title,
-    description: (entry.data as any).description ?? '',
-    href: `/portfolio/${entry.id}`,
-    image: (entry.data as any).image as string,
-  }));
+// Within a group, a set Hero order comes first. A blank one keeps list order
+// for custom slides and falls back to title for projects and tags.
+const heroRank = (order: number | undefined) => (order == null ? Number.POSITIVE_INFINITY : order);
+const byHeroThenList = (
+  a: { heroOrder?: number; title: string; listIndex: number },
+  b: { heroOrder?: number; title: string; listIndex: number },
+) => {
+  const rankA = heroRank(a.heroOrder);
+  const rankB = heroRank(b.heroOrder);
+  if (rankA !== rankB) return rankA - rankB;
+  if (a.listIndex !== b.listIndex) return a.listIndex - b.listIndex;
+  return a.title.localeCompare(b.title);
+};
 
-const ogDescription = hero?.subtitle ?? "PH&C facilitates Real Estate Development as the tri-state area's premiere Owner's Representation, Construction Management, and Fee Development firm.";
-const ogImage = promotedSlides[0]?.image ?? (typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : undefined);
+const HERO_GROUPS = ['slides', 'tags', 'projects'] as const;
+type HeroGroup = (typeof HERO_GROUPS)[number];
+const isHeroGroup = (type: string | undefined): type is HeroGroup =>
+  type === 'slides' || type === 'tags' || type === 'projects';
+const savedGroups = (hero?.groupOrder ?? [])
+  .map((item) => item.type)
+  .filter(isHeroGroup)
+  .filter((type, index, all) => all.indexOf(type) === index);
+const orderedGroups: HeroGroup[] = [
+  ...savedGroups,
+  ...HERO_GROUPS.filter((type) => !savedGroups.includes(type)),
+];
+
+type HeroCandidate = HeroSlide & { heroOrder?: number; listIndex: number };
+
+const projectSlides: HeroCandidate[] = showFeaturedProjects ? portfolioEntries
+  .filter((entry) => entry.data.featured && entry.data.image)
+  .map((entry) => ({
+    design: 'slide',
+    title: entry.data.title,
+    description: entry.data.description ?? '',
+    href: `/portfolio/${entry.id}`,
+    ctaText: 'View project',
+    image: entry.data.image,
+    heroOrder: entry.data.heroOrder,
+    listIndex: 0,
+  })) : [];
+
+const tagMap = await getTagMap();
+const tagSlides: HeroCandidate[] = showFeaturedTags ? [...tagMap.values()]
+  .filter((entry) => entry.data.featured && entry.data.image)
+  .map((entry) => ({
+    design: 'slide',
+    title: entry.data.label,
+    description: entry.data.description ?? '',
+    href: tagHref(entry.id, tagMap),
+    ctaText: 'Learn more',
+    image: entry.data.image,
+    heroOrder: entry.data.heroOrder,
+    listIndex: 0,
+  })) : [];
+
+const customSlides: HeroCandidate[] = (hero?.slides ?? []).flatMap((slide, listIndex) => {
+  const hasBannerFields = Boolean(slide.eyebrow?.trim() || slide.ctaSecondaryText?.trim() || slide.ctaSecondaryHref?.trim());
+  const design = slide.design === 'banner' || slide.design === 'slide'
+    ? slide.design
+    : hasBannerFields
+      ? 'banner'
+      : 'slide';
+  const image = typeof slide.image === 'string' ? slide.image.trim() : '';
+  const title = slide.title?.trim() ?? '';
+  const hasBannerContent = Boolean(title || slide.description?.trim() || slide.eyebrow?.trim() || image);
+  if (design === 'slide' && !image) return [];
+  if (design === 'banner' && !hasBannerContent) return [];
+  return [{
+    design,
+    title,
+    description: slide.description,
+    eyebrow: slide.eyebrow,
+    href: slide.ctaHref,
+    ctaText: slide.ctaText,
+    ctaSecondaryText: slide.ctaSecondaryText,
+    ctaSecondaryHref: slide.ctaSecondaryHref,
+    image: image || undefined,
+    heroOrder: slide.heroOrder,
+    listIndex,
+  }];
+});
+
+const slidesByGroup: Record<HeroGroup, HeroCandidate[]> = {
+  slides: customSlides.sort(byHeroThenList),
+  tags: tagSlides.sort(byHeroThenList),
+  projects: projectSlides.sort(byHeroThenList),
+};
+const promotedSlides = orderedGroups
+  .flatMap((group) => slidesByGroup[group])
+  .slice(0, Math.max(0, maxHeroSlides));
+
+const ogDescription = data?.description ?? "PH&C facilitates Real Estate Development as the tri-state area's premiere Owner's Representation, Construction Management, and Fee Development firm.";
+const ogImage = promotedSlides[0]?.image;
 ---
 
 <BaseLayout title={data?.title ?? 'Home'} description={ogDescription} image={ogImage}>
   <TinaIsland name="home" wrapper={islands.home.wrapper} primary>
-  {promotedSlides.length > 0 ? (
+  {promotedSlides.length > 0 && (
     <HeroCarousel
       size={hero?.size ?? 'full'}
       slides={promotedSlides}
       overlayOpacity={hero?.overlayOpacity ?? 85}
-      overlayColor={hero?.overlayColor ?? 'dark'}
-    />
-  ) : (
-    <HeroPage
-      size={hero?.size ?? 'full'}
-      eyebrow={hero?.eyebrow}
-      tagline={hero?.tagline ?? 'Welcome to PHC'}
-      subtitle={hero?.subtitle ?? 'Construction and renovation expertise.'}
-      ctaPrimaryText={hero?.ctaPrimaryText}
-      ctaPrimaryHref={hero?.ctaPrimaryHref}
-      ctaSecondaryText={hero?.ctaSecondaryText}
-      ctaSecondaryHref={hero?.ctaSecondaryHref}
-      backgroundImage={typeof hero?.backgroundImage === 'string' ? hero.backgroundImage : undefined}
-      overlayOpacity={hero?.overlayOpacity ?? 70}
       overlayColor={hero?.overlayColor ?? 'dark'}
     />
   )}

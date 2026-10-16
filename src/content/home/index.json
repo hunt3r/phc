@@ -1,20 +1,39 @@
 {
   "title": "Construction and Real Estate Development Consulting Services",
-  "maxProjects": 8,
-  "maxTestimonials": 6,
-  "maxVideos": 3,
+  "description": "PH&C facilitates Real Estate Development as the tri-state area’s premiere Owner’s Representation, Construction Management, Land Development and Fee Development firm.",
+  "maxProjects": 4,
+  "maxTestimonials": 4,
+  "maxVideos": 4,
   "hero": {
     "size": "full",
-    "eyebrow": "",
-    "tagline": "Welcome to PH&C",
-    "subtitle": "PH&C facilitates Real Estate Development as the tri-state area’s premiere Owner’s Representation, Construction Management, Land Development and Fee Development firm.\n\n",
-    "ctaPrimaryText": "Portfolio",
-    "ctaPrimaryHref": "/portfolio",
-    "ctaSecondaryText": "About Us",
-    "ctaSecondaryHref": "/about",
-    "backgroundImage": "https://res.cloudinary.com/djkpy86pu/image/upload/v1773690427/shivendu-shukla-3yoTPuYR9ZY-unsplash_rpze0g.jpg",
     "overlayOpacity": 85,
-    "overlayColor": "dark"
+    "overlayColor": "dark",
+    "showFeaturedProjects": true,
+    "showFeaturedTags": true,
+    "groupOrder": [
+      {
+        "type": "slides"
+      },
+      {
+        "type": "tags"
+      },
+      {
+        "type": "projects"
+      }
+    ],
+    "maxHeroSlides": 8,
+    "slides": [
+      {
+        "eyebrow": "We Are",
+        "title": "Land Development Specialists",
+        "description": "We facilitate Real Estate Development as the  premiere Owner’s Representation, Construction Management, and Fee Development firm.\nWe are a construction management firm that works on the owner’s side of the table. We are your advisor, not your contractor, and we bring independent judgment to every phase of a project, from early due diligence through design, procurement, construction, and closeout.\n",
+        "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1788361735/geotechnical-investigations_v1plzo.jpg",
+        "ctaText": "About Us",
+        "ctaHref": "/about",
+        "ctaSecondaryText": "Contact",
+        "ctaSecondaryHref": "/contact"
+      }
+    ]
   },
   "contentCards": [
     {

@@ -41,6 +41,7 @@ services:
   - tenant-delivery-coordination
 order: 1
 featured: true
+heroOrder: 1
 ---
 
 Starting in 2023, PH\&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores!

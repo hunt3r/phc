@@ -22,7 +22,7 @@ Each item in the left menu is a section of the website:
 - **Pages** are extra pages such as the privacy policy. Each one gets its own address on the site.
 - **Staff** is the people shown on the About page. Each person also gets a profile page.
 - **Site Settings** is the header menu, the footer menu, and the short description under the logo in the footer.
-- **Home** is the homepage: how many projects, quotes, and videos to show, and the backup banner used when no project is featured.
+- **Home** is the homepage: how many projects, quotes, videos, and hero slides to show, and the hero slideshow.
 
 ## Making a change
 
@@ -39,7 +39,7 @@ Many sections also open the live page while you edit, so you can click the part 
 
 - A project: open **Portfolio**.
 - A client, architect, engineer, or contractor: open **Entities** to change the name, website, or logo. To put one on a project, open the project in **Portfolio**. See **Portfolio projects**.
-- Which projects appear in the top slideshow: open the project in **Portfolio** and turn on **Featured**. The project also needs a cover image.
+- Which projects appear in the top slideshow: open the project in **Portfolio** and turn on **Featured**. The project also needs a cover image. On **Home**, under **Hero**, **Show featured projects** includes that group. **Show featured tags** does the same for tags.
 - A sector or a service page: open **Tags**.
 - The About writeup: open **About Us**.
 - A person on the team: open **Staff**.

@@ -20,9 +20,11 @@ A new sector should use **Portfolio** as its parent, or another sector if it bel
 
 - **Label** is the name visitors see, such as Retail.
 - **Description** is the short text under the title on that tag's page, and on the banner when the tag is used as a page header. Search results and AI summaries use it too. See **Search engines and AI**.
-- **Image** is the photo on the tag's page and on cards that feature it.
+- **Image** is the photo on the tag's page, on cards that feature it, and in the homepage hero when **Featured** is on.
 - **Parent Tag** decides which group this tag belongs to, as described above.
 - **Order** sorts the tag among its siblings. A smaller number comes first. On the Services page, a missing Order also means the tag is hidden from that page.
+- **Featured** puts the tag in the homepage hero when **Show featured tags** is on under **Hero** on **Home**. It also needs an image. The slide uses the label, description, and image, and links to this tag's page. The button says Learn more.
+- **Hero order** sets where the tag sits among the other featured tags in the homepage hero. A smaller number comes first. Leave it blank to place the tag after every numbered tag. Whether tags come before slides or projects is the **Order** list on **Home**. This does not change **Order** in the menus. See **Home page**.
 - **Videos** and **Content Cards** appear on the tag's page. See **Photos, videos, and content cards**.
 - **Body** is the longer writeup on the tag's page.
 
