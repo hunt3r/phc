@@ -2,7 +2,12 @@
 title: 'A Storage Depot - Middletown, DE'
 description: '103,350 SF / 3 story climate controlled self storage facility 6000 square feet of covered parking. Light gauge framing building with standing seam metal roof. Coordination of door and corridor contractor. EIFS, brick and metal panel exterior'
 location: 'Middletown, DE'
+client:
+  - entity: src/content/entities/the-mckee-group.md
+date: '2019'
 size: '103,350 SF'
+architect:
+  - entity: src/content/entities/saa-architects.md
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692374/images/portfolio/a-storage-depot-middletown-de/2020-05-29-10.26.42-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692374/images/portfolio/a-storage-depot-middletown-de/2020-05-29-10.26.42-scaled.jpg'
@@ -15,16 +20,17 @@ gallery:
     alt: 'A Storage Depot - Middletown, DE - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692373/images/portfolio/a-storage-depot-middletown-de/2020-01-14-11.06.51-scaled-e1600892365404.jpg'
     alt: 'A Storage Depot - Middletown, DE - image 5'
-order: 41
 sectors:
   - self-storage
+order: 41
 ---
+
 **Key Features:**
 
-*   103,350 SF / 3 story climate controlled self storage facility
-*   6000 square feet of covered parking.
-*   Light gauge framing building with standing seam metal roof.
-*   Coordination of door and corridor contractor.
-*   EIFS, brick and metal panel exterior.
+* 103,350 SF / 3 story climate controlled self storage facility
+* 6000 square feet of covered parking.
+* Light gauge framing building with standing seam metal roof.
+* Coordination of door and corridor contractor.
+* EIFS, brick and metal panel exterior.
 
 [https://astoragedepot.com/](https://astoragedepot.com/)
