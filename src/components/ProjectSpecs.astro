@@ -1,13 +1,16 @@
 ---
+import { getImageUrl } from '@/lib/cloudinary';
+import type { EntityCredit } from '@/lib/entities';
+
 interface Props {
   location?: string | null;
-  client?: string | null;
+  client?: EntityCredit[] | null;
   date?: string | null;
   projectCost?: string | null;
   size?: string | null;
-  architect?: string | null;
-  engineer?: string | null;
-  contractor?: string | null;
+  architect?: EntityCredit[] | null;
+  engineer?: EntityCredit[] | null;
+  contractor?: EntityCredit[] | null;
   class?: string;
   /** `data-tina-field` values so the live preview can focus each spec. */
   fields?: {
@@ -36,15 +39,15 @@ const {
 } = Astro.props as Props;
 
 const specs = [
-  { label: 'Location', value: location, field: fields?.location },
-  { label: 'Client', value: client, field: fields?.client },
-  { label: 'Date', value: date, field: fields?.date },
-  { label: 'Project Cost', value: projectCost, field: fields?.projectCost },
-  { label: 'Size', value: size, field: fields?.size },
-  { label: 'Architect', value: architect, field: fields?.architect },
-  { label: 'Engineer', value: engineer, field: fields?.engineer },
-  { label: 'Contractor', value: contractor, field: fields?.contractor },
-].filter((spec) => spec.value && spec.value.trim().length > 0);
+  { label: 'Location', text: location, credits: undefined as EntityCredit[] | undefined, field: fields?.location },
+  { label: 'Client', text: undefined as string | null | undefined, credits: client ?? undefined, field: fields?.client },
+  { label: 'Date', text: date, credits: undefined as EntityCredit[] | undefined, field: fields?.date },
+  { label: 'Project Cost', text: projectCost, credits: undefined as EntityCredit[] | undefined, field: fields?.projectCost },
+  { label: 'Size', text: size, credits: undefined as EntityCredit[] | undefined, field: fields?.size },
+  { label: 'Architect', text: undefined as string | null | undefined, credits: architect ?? undefined, field: fields?.architect },
+  { label: 'Engineer', text: undefined as string | null | undefined, credits: engineer ?? undefined, field: fields?.engineer },
+  { label: 'Contractor', text: undefined as string | null | undefined, credits: contractor ?? undefined, field: fields?.contractor },
+].filter((spec) => (spec.credits ? spec.credits.length > 0 : Boolean(spec.text && spec.text.trim().length > 0)));
 ---
 
 {specs.length > 0 && (
@@ -70,9 +73,43 @@ const specs = [
           </dt>
           <dd
             class="m-0 mt-0.5 min-w-0 text-[0.9375rem] leading-snug font-medium break-words text-[#f7f4ee] @min-[18.5rem]:mt-0 @min-[18.5rem]:flex-1"
-            data-tina-field={spec.field}
+            data-tina-field={spec.credits ? undefined : spec.field}
           >
-            {spec.value}
+            {spec.credits ? (
+              <span class="inline-flex max-w-full flex-wrap items-center gap-x-1 gap-y-1">
+                {spec.credits.map((credit, index) => (
+                  <span class="inline-flex items-center gap-1.5" data-tina-field={credit.field}>
+                    {credit.logo && (
+                      <img
+                        src={getImageUrl(credit.logo, { width: 64, height: 64, crop: 'fit' })}
+                        alt=""
+                        width="20"
+                        height="20"
+                        class="h-5 w-5 shrink-0 rounded-sm bg-white object-contain p-0.5"
+                      />
+                    )}
+                    <span>
+                      {credit.url ? (
+                        <a
+                          href={credit.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="underline decoration-white/40 underline-offset-2 hover:decoration-white"
+                        >
+                          {credit.name}
+                          <span class="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      ) : (
+                        credit.name
+                      )}
+                      {index < spec.credits.length - 1 && ','}
+                    </span>
+                  </span>
+                ))}
+              </span>
+            ) : (
+              spec.text
+            )}
           </dd>
         </div>
       ))}

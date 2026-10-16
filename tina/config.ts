@@ -4,6 +4,8 @@ import './guide-history';
 // Sectors/Services options are fetched live from the tags collection by a custom
 // admin field component, so no tag data is baked into the schema.
 import { TagCheckboxGroup } from './fields/TagCheckboxGroup';
+import { EntityReferenceList, ENTITY_KINDS, entitySlug } from './fields/EntityReferenceList';
+import { keepProjectBackButton } from './entity-back';
 import { GuidePreview } from './fields/GuidePreview';
 // Precomputed tag slug -> public URL map for the tags collection router.
 // Regenerate with `npm run generate:tag-routes`.
@@ -114,6 +116,24 @@ const contentCardFields: any[] = [
   },
 ];
 
+const entityRoleField = (name: string, label: string) => ({
+  type: 'object' as const,
+  name,
+  label,
+  list: true,
+  description:
+    'Search for a party that already exists, or add a new one. Several can be listed. The order here is the order visitors see.',
+  ui: { component: EntityReferenceList as any },
+  fields: [
+    {
+      type: 'reference' as const,
+      name: 'entity',
+      label: 'Entity',
+      collections: ['entities'],
+    },
+  ],
+});
+
 const contentCardsField = {
   type: 'object' as const,
   name: 'contentCards',
@@ -134,6 +154,7 @@ export default defineConfig({
     outputFolder: 'admin',
     publicFolder: 'public',
   },
+  cmsCallback: (cms) => keepProjectBackButton(cms),
   media: {
     loadCustomStore: async () => {
       const pack = await import('next-tinacms-cloudinary');
@@ -169,13 +190,13 @@ export default defineConfig({
           { type: 'string', name: 'title', label: 'Title', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
           { type: 'string', name: 'location', label: 'Location' },
-          { type: 'string', name: 'client', label: 'Client' },
+          entityRoleField('client', 'Client'),
           { type: 'string', name: 'date', label: 'Date (e.g. 2020)' },
           { type: 'string', name: 'projectCost', label: 'Project Cost', description: 'e.g. $145M' },
           { type: 'string', name: 'size', label: 'Size', description: 'e.g. 166,000 SF' },
-          { type: 'string', name: 'architect', label: 'Architect' },
-          { type: 'string', name: 'engineer', label: 'Engineer' },
-          { type: 'string', name: 'contractor', label: 'Contractor' },
+          entityRoleField('architect', 'Architect'),
+          entityRoleField('engineer', 'Engineer'),
+          entityRoleField('contractor', 'Contractor'),
           { type: 'image', name: 'image', label: 'Hero / cover image', description: 'Upload via Cloudinary' },
           {
             type: 'object',
@@ -271,6 +292,42 @@ export default defineConfig({
           // Open the project page in the visual editor.
           router: ({ document }) => `/portfolio/${document._sys.filename}`,
         },
+      },
+      {
+        name: 'entities',
+        label: 'Entities',
+        path: 'src/content/entities',
+        format: 'md',
+        // Not a public page. Projects reference these records.
+        ui: {
+          allowedActions: { create: true, delete: true },
+          filename: {
+            slugify: (values) => entitySlug(values?.name ? String(values.name) : ''),
+          },
+        },
+        fields: [
+          { type: 'string', name: 'name', label: 'Name', required: true, isTitle: true },
+          {
+            type: 'string',
+            name: 'kind',
+            label: 'Kind',
+            required: true,
+            options: ENTITY_KINDS.map((option) => ({ value: option.value, label: option.label })),
+            ui: { component: 'select' },
+          },
+          {
+            type: 'string',
+            name: 'url',
+            label: 'Website',
+            description: 'Optional. On a project, the name links to this address and opens in a new tab.',
+          },
+          {
+            type: 'image',
+            name: 'logo',
+            label: 'Logo',
+            description: 'Optional. A small logo is shown beside the name on a project.',
+          },
+        ],
       },
       {
         name: 'tags',

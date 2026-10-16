@@ -15,6 +15,7 @@ Each item in the left menu is a section of the website:
 
 - **How to use this site** is this guide. An article opens for reading. Click **Edit** to change it, then **Save** to update it. Names of the other articles are links, so you can open one without going back to the list. Start with this article, then open the others as you need them. **How the website is put together** explains the services behind the site and what happens after you save.
 - **Portfolio** is the project pages.
+- **Entities** are the companies, people, and organizations named on a project, such as the client, architect, engineer, or contractor. See **Portfolio projects**.
 - **Tags** are the sectors and services. They power the Portfolio menu, the Services page, and the checkboxes on each project.
 - **About Us** is the About page.
 - **Contact** is the Contact page, including the address and email that also appear in the footer.
@@ -37,6 +38,7 @@ Many sections also open the live page while you edit, so you can click the part 
 ## If you are not sure where something lives
 
 - A project: open **Portfolio**.
+- A client, architect, engineer, or contractor: open **Entities** to change the name, website, or logo. To put one on a project, open the project in **Portfolio**. See **Portfolio projects**.
 - Which projects appear in the top slideshow: open the project in **Portfolio** and turn on **Featured**. The project also needs a cover image.
 - A sector or a service page: open **Tags**.
 - The About writeup: open **About Us**.

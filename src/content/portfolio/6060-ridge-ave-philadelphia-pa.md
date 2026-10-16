@@ -2,9 +2,9 @@
 title: '6060 Ridge Ave - Philadelphia, PA'
 description: Complete Facade Renovation Interior Demolition and Redevelopment of existing Bank Branch Office Fit Out/ Medical Office (Vybe Urgent Care)
 location: 'Philadelphia, PA'
-client: Provco Group
+client:
+  - entity: src/content/entities/provco-group.md
 date: '2019'
-contractor: ''
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692369/images/portfolio/6060-ridge-ave-philadelphia-pa/6060-Ridge1-1024x683.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692369/images/portfolio/6060-ridge-ave-philadelphia-pa/6060-Ridge1-1024x683.jpg'

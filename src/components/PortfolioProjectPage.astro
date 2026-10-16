@@ -11,6 +11,7 @@ import QuoteCard from './QuoteCard.astro';
 import VideoGrid from './VideoGrid.astro';
 import ContentCards from './ContentCards.astro';
 import { getTagMap, resolveTags, resolveTagsGrouped } from '@/lib/tags';
+import { getEntityMap, resolveCredits } from '@/lib/entities';
 import { toVideoViews } from '@/lib/videos';
 import {
   createBreadcrumbListSchema,
@@ -26,8 +27,13 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 
 const tagMap = await getTagMap();
+const entityMap = await getEntityMap();
 const resolvedTags = resolveTags(entry, tagMap);
 const tagGroups = resolveTagsGrouped(entry, tagMap);
+const client = resolveCredits(entry.data.client, entityMap);
+const architect = resolveCredits(entry.data.architect, entityMap);
+const engineer = resolveCredits(entry.data.engineer, entityMap);
+const contractor = resolveCredits(entry.data.contractor, entityMap);
 
 const videos = toVideoViews(entry.data.videos, `portfolio-${entry.id}`);
 
@@ -56,7 +62,7 @@ const jsonLdNodes = [
     image: entry.data.image ? toAbsoluteUrl(entry.data.image, site) : undefined,
     date: entry.data.date,
     location: entry.data.location,
-    client: entry.data.client,
+    clients: client,
     tags: resolvedTags.map((t) => t.label),
   }),
 ];
@@ -72,13 +78,13 @@ const jsonLdNodes = [
     <section class="prose-content [&::after]:clear-both [&::after]:table [&::after]:content-['']">
       <ProjectSpecs
         location={entry.data.location}
-        client={entry.data.client}
+        client={client}
         date={entry.data.date}
         projectCost={entry.data.projectCost}
         size={entry.data.size}
-        architect={entry.data.architect}
-        engineer={entry.data.engineer}
-        contractor={entry.data.contractor}
+        architect={architect}
+        engineer={engineer}
+        contractor={contractor}
         class="mb-6 w-full md:float-right md:mb-4 md:ml-8 md:w-80 lg:w-96"
       />
       <Content />

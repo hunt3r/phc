@@ -2,11 +2,14 @@
 title: 'Wawa - West Whiteland Township (Exton), PA'
 description: 'We continue our assistance in developing Wawa stores with this store opening in December 2024. Our work for an individual land owner client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. This project included remediation and demolition of an existing gas station'
 location: 'West Whiteland Township (Exton), PA'
-client: 'Whitford Property, Inc'
+client:
+  - entity: src/content/entities/whitford-property.md
 date: '2024'
 size: '5,585 SF'
-architect: Architectural Concepts
-contractor: Lyons & Hull
+architect:
+  - entity: src/content/entities/architectural-concepts.md
+contractor:
+  - entity: src/content/entities/lyons-and-hull.md
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692821/images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.07.49-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692821/images/portfolio/wawa-west-whiteland-exton-pa/2024-12-16-14.07.49-scaled.jpg'

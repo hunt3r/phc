@@ -13,6 +13,7 @@ import { tinaMarkdownComponents } from '@/lib/tinaMarkdown';
 import { tinaField } from '@tinacms/astro/tina-field';
 import { getImageUrl } from '@/lib/cloudinary';
 import { getTagMap, resolveTagsGrouped } from '@/lib/tags';
+import { getEntityMap, resolveCredits, type EntityCredit } from '@/lib/entities';
 import ProjectSpecs from '../ProjectSpecs.astro';
 import ProjectTagLinks from '../ProjectTagLinks.astro';
 import ContentCardsBody from './ContentCardsBody.astro';
@@ -25,6 +26,27 @@ interface Props {
 
 const { data } = Astro.props;
 
+const entityMap = await getEntityMap();
+
+/**
+ * The role list itself is not a useful click target: Tina zooms into the
+ * list and the sidebar goes blank. Point each party at its own record so a
+ * click opens that entity.
+ */
+function previewCredits(value: unknown): EntityCredit[] {
+  if (!Array.isArray(value)) return [];
+  const credits: EntityCredit[] = [];
+  for (const item of value) {
+    const credit = resolveCredits([item], entityMap)[0];
+    if (!credit) continue;
+    const entity =
+      item && typeof item === 'object' && 'entity' in item ? (item as { entity?: unknown }).entity : item;
+    const field =
+      entity && typeof entity === 'object' ? tinaField(entity as Parameters<typeof tinaField>[0], 'name') : '';
+    credits.push(field ? { ...credit, field } : credit);
+  }
+  return credits;
+}
 const gallery = (data?.gallery ?? []).filter((img): img is NonNullable<typeof img> => Boolean(img?.src));
 const tagGroups = data
   ? resolveTagsGrouped(
@@ -42,22 +64,18 @@ const tagGroups = data
     <section class="prose-content [&::after]:clear-both [&::after]:table [&::after]:content-['']">
       <ProjectSpecs
         location={data.location}
-        client={data.client}
+        client={previewCredits(data.client)}
         date={data.date}
         projectCost={data.projectCost}
         size={data.size}
-        architect={data.architect}
-        engineer={data.engineer}
-        contractor={data.contractor}
+        architect={previewCredits(data.architect)}
+        engineer={previewCredits(data.engineer)}
+        contractor={previewCredits(data.contractor)}
         fields={{
           location: tinaField(data, 'location'),
-          client: tinaField(data, 'client'),
           date: tinaField(data, 'date'),
           projectCost: tinaField(data, 'projectCost'),
           size: tinaField(data, 'size'),
-          architect: tinaField(data, 'architect'),
-          engineer: tinaField(data, 'engineer'),
-          contractor: tinaField(data, 'contractor'),
         }}
         class="mb-6 w-full md:float-right md:mb-4 md:ml-8 md:w-80 lg:w-96"
       />

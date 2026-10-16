@@ -58,13 +58,13 @@ const portfolio = defineCollection({
       title: z.string(),
       description: z.string().optional(),
       location: z.string().optional(),
-      client: z.string().optional(),
+      client: z.array(z.object({ entity: z.string() })).optional(),
       date: z.string().optional(),
       projectCost: z.string().optional(),
       size: z.string().optional(),
-      architect: z.string().optional(),
-      engineer: z.string().optional(),
-      contractor: z.string().optional(),
+      architect: z.array(z.object({ entity: z.string() })).optional(),
+      engineer: z.array(z.object({ entity: z.string() })).optional(),
+      contractor: z.array(z.object({ entity: z.string() })).optional(),
       image: z.string().optional(),
       sectors: z.array(z.string()).optional(),
       services: z.array(z.string()).optional(),
@@ -94,6 +94,17 @@ const portfolio = defineCollection({
       videos: z.array(inlineVideoSchema).optional(),
       contentCards: contentCardsSchema,
     }),
+});
+
+// Companies, people, and organizations cited on projects. Not a public page.
+const entities = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/entities' }),
+  schema: z.object({
+    name: z.string(),
+    kind: optionalEnum(['person', 'company', 'organization']),
+    url: z.string().optional(),
+    logo: z.string().optional(),
+  }),
 });
 
 const home = defineCollection({
@@ -208,4 +219,4 @@ const site = defineCollection({
   }),
 });
 
-export const collections = { portfolio, tags, home, about, pages, contact, staff, site };
+export const collections = { portfolio, entities, tags, home, about, pages, contact, staff, site };

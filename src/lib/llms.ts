@@ -1,5 +1,6 @@
 import { getCollection, getEntry } from 'astro:content';
 import { childrenOf, getTagMap } from '@/lib/tags';
+import { creditNames, getEntityMap } from '@/lib/entities';
 import {
   CORE_SERVICES,
   ORG_ADDRESS,
@@ -35,6 +36,7 @@ function normalizeUrl(site: string, path: string): string {
 export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promise<string> {
   const { full } = opts;
   const portfolio = [...(await getCollection('portfolio'))].sort(byOrderThenTitle);
+  const entityMap = await getEntityMap();
   const about = await getEntry('about', 'index');
   const tagMap = await getTagMap();
   const serviceTags = childrenOf('services', tagMap).filter((t) => t.data.order != null);
@@ -73,7 +75,7 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
   for (const entry of portfolio) {
     const data = entry.data as Record<string, any>;
     const url = `${site}/portfolio/${entry.id}`;
-    const meta = [data.location, data.client, data.date].filter(Boolean).join(' - ');
+    const meta = [data.location, creditNames(data.client, entityMap), data.date].filter(Boolean).join(' - ');
     const summary = [meta, data.description].filter(Boolean).join(' - ');
     lines.push(`- [${data.title}](${url})${summary ? `: ${summary}` : ''}`);
   }
@@ -129,13 +131,17 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
       lines.push(`URL: ${url}`);
       const facts: string[] = [];
       if (data.location) facts.push(`Location: ${data.location}`);
-      if (data.client) facts.push(`Client: ${data.client}`);
+      const client = creditNames(data.client, entityMap);
+      const architect = creditNames(data.architect, entityMap);
+      const engineer = creditNames(data.engineer, entityMap);
+      const contractor = creditNames(data.contractor, entityMap);
+      if (client) facts.push(`Client: ${client}`);
       if (data.date) facts.push(`Date: ${data.date}`);
       if (data.size) facts.push(`Size: ${data.size}`);
       if (data.projectCost) facts.push(`Project cost: ${data.projectCost}`);
-      if (data.architect) facts.push(`Architect: ${data.architect}`);
-      if (data.engineer) facts.push(`Engineer: ${data.engineer}`);
-      if (data.contractor) facts.push(`Contractor: ${data.contractor}`);
+      if (architect) facts.push(`Architect: ${architect}`);
+      if (engineer) facts.push(`Engineer: ${engineer}`);
+      if (contractor) facts.push(`Contractor: ${contractor}`);
       if (facts.length) lines.push(facts.join(' | '));
       if (data.description) {
         lines.push('');

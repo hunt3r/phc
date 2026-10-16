@@ -8,6 +8,13 @@ export interface BreadcrumbItem {
   url?: string;
 }
 
+export interface PortfolioParty {
+  name: string;
+  url?: string;
+  logo?: string;
+  kind?: string;
+}
+
 export interface PortfolioSchemaInput {
   url: string;
   name: string;
@@ -15,7 +22,7 @@ export interface PortfolioSchemaInput {
   image?: string;
   date?: string;
   location?: string;
-  client?: string;
+  clients?: PortfolioParty[];
   tags?: string[];
 }
 
@@ -274,6 +281,21 @@ export function createBreadcrumbListSchema(site: string, items: BreadcrumbItem[]
   });
 }
 
+function sourceOrganizations(site: string, clients: Maybe<PortfolioParty[]>): JsonLdNode | JsonLdNode[] | undefined {
+  const parties = (clients ?? [])
+    .map((party) =>
+      compact({
+        "@type": party.kind === "person" ? "Person" : "Organization",
+        name: party.name,
+        url: party.url ? toAbsoluteUrl(party.url, site) : undefined,
+        logo: party.logo ? toAbsoluteUrl(party.logo, site) : undefined,
+      })
+    )
+    .filter((party) => typeof party.name === "string" && party.name.length > 0);
+  if (parties.length === 0) return undefined;
+  return parties.length === 1 ? parties[0] : parties;
+}
+
 function parseDateOrUndefined(value: Maybe<string>): string | undefined {
   if (!value) return undefined;
   const asDate = new Date(value);
@@ -299,12 +321,7 @@ export function createPortfolioCreativeWorkSchema(site: string, input: Portfolio
           name: input.location,
         }
       : undefined,
-    sourceOrganization: input.client
-      ? {
-          "@type": "Organization",
-          name: input.client,
-        }
-      : undefined,
+    sourceOrganization: sourceOrganizations(site, input.clients),
     author: {
       "@id": `${site}${ORG_ID}`,
     },
