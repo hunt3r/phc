@@ -2,7 +2,11 @@
 title: 'Doylestown Shopping Center Target - Doylestown, PA'
 description: We performed environmental remediation and demolished an out-parcel Sears Auto Center making a Chick-Fil-A restaurant and Chase Bank branch. We also performed a complete façade renewal and parking lot enhancements . PH&C oversaw the project’s execution in this open and operating shopping center
 location: 'Doylestown, PA'
+client: Robbins Companies
+date: '2024'
 architect: Bignell Watkins Hasser
+engineer: Bohler
+contractor: MidAtlantic Construction
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692409/images/portfolio/doylestown-shopping-center-target-doylestown-pa/2024-07-10-12.04.59-scaled-e1747420247122.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692409/images/portfolio/doylestown-shopping-center-target-doylestown-pa/2024-07-10-12.04.59-scaled-e1747420247122.jpg'
@@ -19,17 +23,46 @@ gallery:
     alt: 'Doylestown Shopping Center Target - Doylestown, PA - image 6'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692407/images/portfolio/doylestown-shopping-center-target-doylestown-pa/2023-09-28-11.46.09-scaled.jpg'
     alt: 'Doylestown Shopping Center Target - Doylestown, PA - image 7'
-order: 8
 sectors:
   - retail
+  - grocery
 services:
   - remediation
   - project-management
+  - bank-billing-inspection-coordination
+  - building-construction-permits
+  - construction-coordination-supervision
+  - construction-management-services
+  - contract-budget-management
+  - contractor-bidding-selection
+  - contractor-negotiations-contracts
+  - demolition
+  - project-estimating-value-engineering
+  - drone-technologies
+  - environmental-assessments
+  - environmental-permitting-requirements
+  - environmental-permitting
+  - existing-utility-identification
+  - geotechnical-investigations
+  - government-agency-coordination
+  - landlord-tenant-lease-requirements
+  - pre-construction-meetings
+  - pre-construction-services
+  - project-contractor-procurement
+  - project-schedule
+  - project-schedule-management
+  - tenant-delivery-coordination
+  - testing-agency-coordination
+  - utility-coordination
+  - utility-service-coordination
+order: 8
+featured: true
 ---
-Retail shopping center transformations continue as defunct retailers blossom into new opportunities for the latest and greatest companies. We assisted our client, the shopping center owner, to consolidate 3 separate spaces and transform them into a state-of-the-art [**Target**](https://www.target.com/sl/doylestown/3453) store that opened it doors for business in July 2024.
+
+Retail shopping center transformations continue as defunct retailers blossom into new opportunities for the latest and greatest companies. We assisted our client, the shopping center owner, to consolidate 3 separate spaces and transform them into a state-of-the-art **[Target](https://www.target.com/sl/doylestown/3453)** store that opened it doors for business in July 2024.
 
 We performed environmental remediation of the spaces and demolished the demising walls making way for Target’s GC to perform their fit-out. We also managed a completely unique flood wall protection system in the front of the store since this space is in a flood area and has flooded in the past. 
 
-PH&C oversaw the project’s execution in this operating shopping center, while saving the owner costs by value engineering certain design aspect, and prime contracting of various specialty contractors, ultimately revitalizing this shopping center to benefit the local communities.
+PH\&C oversaw the project’s execution in this operating shopping center, while saving the owner costs by value engineering certain design aspect, and prime contracting of various specialty contractors, ultimately revitalizing this shopping center to benefit the local communities.
 
 In conjunction with our work for the owner, we assisted with Permit Expediting at Doylestown Township and Bucks County Health Department for **[Target Stores](https://www.target.com/sl/doylestown/3453)** via their architect, **[Bignell Watkins Hasser](https://bigwaha.com/)**.
