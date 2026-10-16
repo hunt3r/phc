@@ -24,6 +24,7 @@
     "maxHeroSlides": 8,
     "slides": [
       {
+        "heroOrder": 0,
         "eyebrow": "We Are",
         "title": "Land Development Specialists",
         "description": "We facilitate Real Estate Development as the  premiere Owner’s Representation, Construction Management, and Fee Development firm.",
