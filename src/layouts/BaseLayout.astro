@@ -187,6 +187,7 @@ const baseJsonLd = createGraphSchema([
               class="inline-flex items-center justify-center rounded-lg p-2 text-primary hover:bg-primary/10 md:hidden"
               aria-label="Toggle menu"
               aria-expanded="false"
+              aria-controls="mobile-menu"
               data-mobile-menu-toggle
             >
               <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -195,17 +196,23 @@ const baseJsonLd = createGraphSchema([
             </button>
           </nav>
         </div>
-        <div class="hidden border-t border-primary/20 py-2 md:hidden" data-mobile-menu aria-hidden="true">
-          {headerLinks.map((link) => (
-            <a
-              href={link.href}
-              target={link.newTab ? '_blank' : undefined}
-              rel={link.newTab ? 'noopener noreferrer' : undefined}
-              class="block px-4 py-2 font-heading text-base font-semibold text-primary hover:bg-primary/10 dark:hover:bg-primary/20"
-            >
-              {link.label}
-            </a>
-          ))}
+      </div>
+      <div id="mobile-menu" class="mobile-menu" data-mobile-menu aria-hidden="true" inert>
+        <div class="mobile-menu-clip">
+          <div class="mobile-menu-surface">
+            <nav class="mx-auto max-w-8xl px-4 py-2 sm:px-6 lg:px-8" aria-label="Mobile">
+              {headerLinks.map((link) => (
+                <a
+                  href={link.href}
+                  target={link.newTab ? '_blank' : undefined}
+                  rel={link.newTab ? 'noopener noreferrer' : undefined}
+                  class="block px-4 py-2 font-heading text-base font-semibold text-primary hover:bg-primary/10 dark:hover:bg-primary/20"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
         </div>
       </div>
     </header>
@@ -222,8 +229,10 @@ const baseJsonLd = createGraphSchema([
         const menu = document.querySelector('[data-mobile-menu]');
         const btn = document.querySelector('[data-mobile-menu-toggle]');
         if (!menu || !btn) return;
-        const open = menu.classList.toggle('hidden');
-        btn.setAttribute('aria-expanded', String(!open));
+        const open = menu.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-hidden', String(!open));
+        menu.toggleAttribute('inert', !open);
       });
 
       document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
