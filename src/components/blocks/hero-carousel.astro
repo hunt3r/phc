@@ -31,8 +31,9 @@ const {
   autoplayMs = 6000,
 } = Astro.props;
 
-const HERO_IMAGE_OPTIONS = { width: 1920, quality: 'auto:eco' as const };
-const HERO_WIDTHS = [640, 960, 1280, 1600, 1920, 2560];
+const HERO_QUALITY = 'auto:low' as const;
+const HERO_IMAGE_OPTIONS = { width: 1920, quality: HERO_QUALITY, format: 'webp' as const };
+const HERO_WIDTHS = [640, 768, 960, 1280, 1600, 1920, 2560];
 const clampedOpacity = Math.min(Math.max(overlayOpacity ?? 85, 0), 100);
 const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
 const overlayIsDark = overlayColor === 'dark';
@@ -57,7 +58,8 @@ const resolvedSlides = slides.map((slide) => {
   const design = slide.design === 'banner' ? 'banner' : 'slide';
   const image = slide.image?.trim() || undefined;
   const imageUrl = image ? getImageUrl(image, HERO_IMAGE_OPTIONS) : undefined;
-  const primaryText = slide.ctaText?.trim() || (design === 'slide' ? 'Learn more' : '');
+  const title = slide.title?.trim() ?? '';
+  const primaryText = slide.ctaText?.trim() || (design === 'slide' && title ? `View ${title}` : '');
   const showPrimary = Boolean(slide.href && primaryText);
   const showSecondary = design === 'banner' && Boolean(slide.ctaSecondaryText && slide.ctaSecondaryHref);
   return {
@@ -65,7 +67,8 @@ const resolvedSlides = slides.map((slide) => {
     design,
     image,
     imageUrl,
-    imageSrcSet: image ? getImageSrcSet(image, HERO_WIDTHS, { quality: 'auto:eco' }) : undefined,
+    imageAvifSrcSet: image ? getImageSrcSet(image, HERO_WIDTHS, { quality: HERO_QUALITY, format: 'avif' }) : undefined,
+    imageWebpSrcSet: image ? getImageSrcSet(image, HERO_WIDTHS, { quality: HERO_QUALITY, format: 'webp' }) : undefined,
     hasImage: Boolean(imageUrl),
     showPrimary,
     primaryText,
@@ -97,21 +100,39 @@ const multiple = resolvedSlides.length > 1;
         aria-hidden={index === 0 ? 'false' : 'true'}
       >
         {slide.imageUrl && (
-          <img
-            src={index === 0 ? slide.imageUrl : undefined}
-            srcset={index === 0 ? slide.imageSrcSet : undefined}
-            data-src={slide.imageUrl}
-            data-srcset={slide.imageSrcSet}
-            sizes="100vw"
-            alt=""
-            aria-hidden="true"
-            width="1920"
-            height="1080"
-            fetchpriority={index === 0 ? 'high' : undefined}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            decoding="async"
-            class="absolute inset-0 h-full w-full object-cover"
-          />
+          <picture>
+            {slide.imageAvifSrcSet && (
+              <source
+                type="image/avif"
+                srcset={index === 0 ? slide.imageAvifSrcSet : undefined}
+                data-srcset={slide.imageAvifSrcSet}
+                sizes="100vw"
+              />
+            )}
+            {slide.imageWebpSrcSet && (
+              <source
+                type="image/webp"
+                srcset={index === 0 ? slide.imageWebpSrcSet : undefined}
+                data-srcset={slide.imageWebpSrcSet}
+                sizes="100vw"
+              />
+            )}
+            <img
+              src={index === 0 ? slide.imageUrl : undefined}
+              srcset={index === 0 ? slide.imageWebpSrcSet : undefined}
+              data-src={slide.imageUrl}
+              data-srcset={slide.imageWebpSrcSet}
+              sizes="100vw"
+              alt=""
+              aria-hidden="true"
+              width="1920"
+              height="1080"
+              fetchpriority={index === 0 ? 'high' : undefined}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+          </picture>
         )}
         {slide.hasImage && (
           <div
@@ -222,10 +243,14 @@ const multiple = resolvedSlides.length > 1;
     const ensureLoaded = (index: number) => {
       const total = slides.length;
       const i = ((index % total) + total) % total;
-      const img = slides[i]?.querySelector('img');
+      const slide = slides[i];
+      const img = slide?.querySelector('img');
       if (!(img instanceof HTMLImageElement) || img.getAttribute('src')) return;
       const src = img.dataset.src;
       if (!src) return;
+      slide?.querySelectorAll('source').forEach((source) => {
+        if (source.dataset.srcset) source.srcset = source.dataset.srcset;
+      });
       if (img.dataset.srcset) img.srcset = img.dataset.srcset;
       img.src = src;
     };

@@ -87,7 +87,7 @@ const tagSlides: HeroCandidate[] = showFeaturedTags ? [...tagMap.values()]
     title: entry.data.label,
     description: entry.data.description ?? '',
     href: tagHref(entry.id, tagMap),
-    ctaText: 'Learn more',
+    ctaText: `View ${entry.data.label}`,
     image: entry.data.image,
     heroOrder: entry.data.heroOrder,
     listIndex: 0,

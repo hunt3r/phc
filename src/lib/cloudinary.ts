@@ -18,15 +18,25 @@ export interface GetImageUrlOptions {
   height?: number;
   /** Crop mode, e.g. "fill" | "limit" | "scale". Default "limit" for responsive. */
   crop?: "fill" | "limit" | "scale" | "fit" | "thumb";
-  /** Cloudinary quality: "auto" or "auto:eco" (best compression). Default "auto:eco". */
-  quality?: "auto" | "auto:eco";
+  /** Cloudinary quality. Default "auto:eco". "auto:low" compresses further. */
+  quality?: "auto" | "auto:eco" | "auto:low";
+  /** Delivery format. Default "auto" (f_auto, chosen from the request Accept header). */
+  format?: "auto" | "avif" | "webp";
+}
+
+function qualityToken(quality: GetImageUrlOptions["quality"]): string {
+  if (quality === "auto") return "q_auto";
+  if (quality === "auto:low") return "q_auto:low";
+  return "q_auto:eco";
 }
 
 /**
- * Build Cloudinary transform segment: f_auto (best format), q_auto:eco (best compression), optional size.
+ * Build Cloudinary transform segment: format, quality, optional size.
+ * Default remains f_auto,q_auto:eco so existing images keep their delivery.
  */
 function buildTransform(options: GetImageUrlOptions): string {
-  const parts = ["f_auto", options.quality === "auto" ? "q_auto" : "q_auto:eco"];
+  const format = options.format && options.format !== "auto" ? `f_${options.format}` : "f_auto";
+  const parts = [format, qualityToken(options.quality)];
   const crop = options.crop ?? "limit";
   if (options.width) parts.push(`w_${options.width}`);
   if (options.height) {

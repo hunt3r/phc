@@ -157,7 +157,7 @@ const galleryBelow = hasGallery && !galleryInColumn;
         ) : null}
         <div class={hasImage || galleryInColumn ? '' : 'md:col-span-2'}>
           {hasTitle && (
-            <h3 class={`mb-4 font-heading text-2xl font-semibold tracking-tight ${titleClass}`} data-tina-field={tf('title')}>{card.title}</h3>
+            <h2 class={`mb-4 font-heading text-2xl font-semibold tracking-tight ${titleClass}`} data-tina-field={tf('title')}>{card.title}</h2>
           )}
           {tinaCard ? (
             <div class={proseClass} style={rootFontStyle} data-tina-field={tf('content')}>
@@ -191,7 +191,7 @@ const galleryBelow = hasGallery && !galleryInColumn;
         )}
         <div class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
           {hasTitle && (
-            <h3 class={`font-heading text-2xl font-semibold tracking-tight ${titleClass}`} data-tina-field={tf('title')}>{card.title}</h3>
+            <h2 class={`font-heading text-2xl font-semibold tracking-tight ${titleClass}`} data-tina-field={tf('title')}>{card.title}</h2>
           )}
           {tinaCard ? (
             <div class={`${proseClass} text-center`} style={rootFontStyle} data-tina-field={tf('content')}>

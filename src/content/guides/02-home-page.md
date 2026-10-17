@@ -12,7 +12,7 @@ The homepage is built from **Home** in the left menu, plus the projects, tags, q
 The top of the homepage is a slideshow. It mixes three kinds of slides:
 
 - A project marked **Featured** that has a cover image, when **Show featured projects** is on. The slide uses that project's title, short description, and cover image, and links to the project. The button says View project.
-- A tag marked **Featured** that has an image, when **Show featured tags** is on. The slide uses that tag's label, description, and image, and links to the tag's page. The button says Learn more. See **Sectors, services, and tags**.
+- A tag marked **Featured** that has an image, when **Show featured tags** is on. The slide uses that tag's label, description, and image, and links to the tag's page. The button says View, followed by the tag's label. See **Sectors, services, and tags**.
 - A custom slide you add on **Home**, under **Hero**, in **Slides**.
 
 **Order**, under **Hero**, is the sequence of the three groups. Drag a row to move that group. The default is **Slides**, then **Tags**, then **Projects**. A group that is missing from the list is added at the end in that same default order.
@@ -35,7 +35,7 @@ The slideshow uses three settings from **Home**, under **Hero**. They apply to e
 
 Add a slide under **Slides**. Each one has a **Design**:
 
-- **Slide** matches a project slide: an image, a **Title**, a **Description**, and one button. **Button text** and **Button link** are that button. The link can be a page on this site, such as `/contact`, or a full web address. If you set a link and leave the button text blank, the button says Learn more. A Slide with no image is left out.
+- **Slide** matches a project slide: an image, a **Title**, a **Description**, and one button. **Button text** and **Button link** are that button. The link can be a page on this site, such as `/contact`, or a full web address. If you set a link and leave the button text blank, the button says View, followed by the title. A Slide with no image is left out.
 - **Banner** matches the text banner: **Eyebrow** is a small line above the headline, **Title** is the headline, and **Description** is the sentence under it. **Button text** and **Button link** are the main button. **Second button text** and **Second button link** are the second button. **Image** is the photo behind the text. A Banner can appear without a photo. Fields that belong to the other design are ignored.
 
 **Hero order** on the slide places it among the other custom slides. Leave it blank to keep the order of this list.

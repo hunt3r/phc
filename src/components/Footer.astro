@@ -38,7 +38,17 @@ const contactInfoHtml = renderMarkdown(contactInfo);
       <!-- Brand + social -->
       <div class="lg:col-span-2">
         <a href="/" class="inline-flex items-center gap-2" aria-label="PHC Home">
-          <img src="/images/logo-color.png" alt="PH&C" class="h-10 w-auto" width="1462" height="284" loading="lazy" decoding="async" />
+          <img
+            src="/images/logo-color-372.webp"
+            srcset="/images/logo-color-372.webp 372w"
+            sizes="186px"
+            alt="PH&C"
+            class="h-10 w-auto"
+            width="372"
+            height="80"
+            loading="lazy"
+            decoding="async"
+          />
         </a>
         <p class="mt-4 max-w-sm text-sm text-gray-600 dark:text-gray-400">
           {footerDescription}
@@ -91,7 +101,7 @@ const contactInfoHtml = renderMarkdown(contactInfo);
       <!-- Contact -->
       <div>
         <h2 class="subheading text-sm text-gray-500 dark:text-gray-400">Contact</h2>
-        <address class="mt-4 space-y-2 whitespace-pre-line text-sm not-italic text-gray-600 dark:text-gray-400 [&_a]:text-primary hover:[&_a]:text-primary/80 [&_strong]:font-medium [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100" set:html={contactInfoHtml}></address>
+        <address class="mt-4 space-y-2 whitespace-pre-line text-sm not-italic text-gray-600 dark:text-gray-400 [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-primary/80 [&_strong]:font-medium [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100" set:html={contactInfoHtml}></address>
       </div>
     </div>
 

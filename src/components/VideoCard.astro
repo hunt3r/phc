@@ -14,7 +14,6 @@ const { video, index, class: className } = Astro.props as Props;
   type="button"
   data-index={index}
   class={`video-card group flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white text-left text-gray-900 shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 ${className ?? ''}`}
-  aria-label={`Play video: ${video.title}`}
 >
   <div class="relative aspect-video w-full shrink-0 overflow-hidden rounded-t-xl bg-gray-900">
     {video.thumbUrl && (
