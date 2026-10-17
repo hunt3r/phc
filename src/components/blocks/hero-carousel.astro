@@ -213,9 +213,12 @@ const multiple = resolvedSlides.length > 1;
     const autoplayMs = Number((root as HTMLElement).dataset.autoplay ?? 0);
     let current = 0;
     let timer: number | undefined;
+    let preloadTimer: number | undefined;
+    // Start the upcoming slide just before it fades in. The rest stay unloaded.
+    const PRELOAD_LEAD_MS = 1500;
 
-    // Hidden slides sit in the hero, so loading="lazy" does not defer them.
-    // Leave src empty until a slide is on screen or is the next one.
+    // Hidden slides cover the hero, so loading="lazy" does not defer them.
+    // Leave src empty until that slide is on screen.
     const ensureLoaded = (index: number) => {
       const total = slides.length;
       const i = ((index % total) + total) % total;
@@ -227,11 +230,24 @@ const multiple = resolvedSlides.length > 1;
       img.src = src;
     };
 
+    const cancelPreload = () => {
+      if (preloadTimer !== undefined) {
+        window.clearTimeout(preloadTimer);
+        preloadTimer = undefined;
+      }
+    };
+
+    const armPreload = () => {
+      cancelPreload();
+      if (reduceMotion || !autoplayMs) return;
+      const delay = Math.max(0, autoplayMs - PRELOAD_LEAD_MS);
+      preloadTimer = window.setTimeout(() => ensureLoaded(current + 1), delay);
+    };
+
     const show = (next: number) => {
       const total = slides.length;
       const index = ((next % total) + total) % total;
       ensureLoaded(index);
-      ensureLoaded(index + 1);
       slides.forEach((slide, i) => {
         const active = i === index;
         slide.classList.toggle('relative', active);
@@ -248,6 +264,7 @@ const multiple = resolvedSlides.length > 1;
         dot.setAttribute('aria-selected', active ? 'true' : 'false');
       });
       current = index;
+      armPreload();
     };
 
     const stop = () => {
@@ -255,16 +272,17 @@ const multiple = resolvedSlides.length > 1;
         window.clearInterval(timer);
         timer = undefined;
       }
+      cancelPreload();
     };
 
     const start = () => {
       if (reduceMotion || !autoplayMs) return;
       stop();
       timer = window.setInterval(() => show(current + 1), autoplayMs);
+      armPreload();
     };
 
     root.querySelector('[data-hero-prev]')?.addEventListener('click', () => {
-      ensureLoaded(current - 1);
       show(current - 1);
       start();
     });
@@ -282,9 +300,11 @@ const multiple = resolvedSlides.length > 1;
     root.addEventListener('mouseenter', stop);
     root.addEventListener('mouseleave', start);
     root.addEventListener('focusin', stop);
-    root.addEventListener('focusout', start);
+    root.addEventListener('focusout', (event) => {
+      if (root.contains((event as FocusEvent).relatedTarget as Node | null)) return;
+      start();
+    });
 
-    ensureLoaded(1);
     start();
   });
 </script>
