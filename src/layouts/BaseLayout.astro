@@ -11,6 +11,7 @@ import {
   type BreadcrumbItem,
 } from "@/lib/seo/jsonld";
 import { getImageUrl } from "@/lib/cloudinary";
+import { HERO_SIZES } from "@/lib/hero-image";
 import { getEntry } from "astro:content";
 
 const DEFAULT_HEADER_LINKS = [
@@ -36,6 +37,8 @@ interface Props {
   datePublished?: string;
   dateModified?: string;
   robots?: string;
+  /** AVIF srcset for the LCP hero, matching `resolveHeroImage()`. */
+  heroPreloadSrcSet?: string;
 }
 
 const {
@@ -48,6 +51,7 @@ const {
   datePublished,
   dateModified,
   robots,
+  heroPreloadSrcSet,
 } = Astro.props as Props;
 import '../styles/global.css';
 
@@ -81,6 +85,19 @@ const baseJsonLd = createGraphSchema([
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {heroPreloadSrcSet && (
+      <>
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link
+          rel="preload"
+          as="image"
+          type="image/avif"
+          imagesrcset={heroPreloadSrcSet}
+          imagesizes={HERO_SIZES}
+          fetchpriority="high"
+        />
+      </>
+    )}
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />

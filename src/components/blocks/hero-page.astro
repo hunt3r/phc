@@ -1,5 +1,5 @@
 ---
-import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
+import { HERO_SIZES, resolveHeroImage } from '@/lib/hero-image';
 
 interface Props {
   id?: string;
@@ -34,15 +34,10 @@ const {
   class: className,
 } = Astro.props;
 
-const HERO_IMAGE_OPTIONS = { width: 1920, quality: "auto:eco" as const };
-const HERO_WIDTHS = [640, 960, 1280, 1600, 1920, 2560];
-const backgroundImageUrl = backgroundImage ? getImageUrl(backgroundImage, HERO_IMAGE_OPTIONS) : undefined;
-const backgroundImageSrcSet = backgroundImage
-  ? getImageSrcSet(backgroundImage, HERO_WIDTHS, { quality: "auto:eco" })
-  : undefined;
+const heroImage = resolveHeroImage(backgroundImage);
 const clampedOpacity = Math.min(Math.max(overlayOpacity ?? 70, 0), 100);
 const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
-const hasOverlay = Boolean(backgroundImageUrl);
+const hasOverlay = Boolean(heroImage);
 const overlayIsDark = overlayColor === 'dark';
 const textClass = hasOverlay
   ? (overlayIsDark ? 'text-white' : 'text-gray-900')
@@ -65,20 +60,30 @@ const wrapperClass =
   id={id}
   class={`${wrapperClass} w-screen relative left-1/2 -translate-x-1/2${className ? ` ${className}` : ''}`}
 >
-  {backgroundImageUrl && (
-    <img
-      src={backgroundImageUrl}
-      srcset={backgroundImageSrcSet}
-      sizes="100vw"
-      alt=""
-      aria-hidden="true"
-      fetchpriority="high"
-      loading="eager"
-      decoding="async"
-      class="absolute inset-0 h-full w-full object-cover"
-    />
+  {heroImage && (
+    <picture class="absolute inset-0">
+      {heroImage.avifSrcSet && (
+        <source type="image/avif" srcset={heroImage.avifSrcSet} sizes={HERO_SIZES} />
+      )}
+      {heroImage.webpSrcSet && (
+        <source type="image/webp" srcset={heroImage.webpSrcSet} sizes={HERO_SIZES} />
+      )}
+      <img
+        src={heroImage.src}
+        srcset={heroImage.webpSrcSet}
+        sizes={HERO_SIZES}
+        alt=""
+        aria-hidden="true"
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        class="h-full w-full object-cover"
+      />
+    </picture>
   )}
-  {backgroundImageUrl && (
+  {heroImage && (
     <div
       class="absolute inset-0"
       style={`background: linear-gradient(to bottom, oklch(${baseColor} / ${clampedOpacity / 100}) 0%, oklch(${baseColor} / 0) 100%)`}
