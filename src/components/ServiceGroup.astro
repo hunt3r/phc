@@ -1,0 +1,238 @@
+---
+interface ServiceLink {
+  label: string;
+  href: string;
+}
+
+interface ServiceChild extends ServiceLink {
+  children: ServiceLink[];
+}
+
+interface Props {
+  id: string;
+  label: string;
+  href: string;
+  image?: {
+    src: string;
+    srcset: string;
+  };
+  /** Rendered markdown body for this root service. */
+  body?: any;
+  /** Place the photo on the right from the lg breakpoint. Banner layout only. */
+  imageOnEnd?: boolean;
+  /**
+   * `banner` is a full-width group with the photo beside the writeup.
+   * `card` stacks the photo above the writeup so two groups can share a row.
+   */
+  layout?: 'banner' | 'card';
+  children?: ServiceChild[];
+}
+
+const {
+  id,
+  label,
+  href,
+  image,
+  body,
+  imageOnEnd = false,
+  layout = 'banner',
+  children = [],
+} = Astro.props;
+
+const Body = body;
+
+type Block =
+  | { type: 'grid'; items: ServiceLink[] }
+  | { type: 'category'; label: string; href: string; items: ServiceLink[] };
+
+const blocks: Block[] = [];
+let pendingLeaves: ServiceLink[] = [];
+
+function flushLeaves() {
+  if (pendingLeaves.length === 0) return;
+  blocks.push({ type: 'grid', items: pendingLeaves });
+  pendingLeaves = [];
+}
+
+for (const child of children) {
+  if (child.children.length > 0) {
+    flushLeaves();
+    blocks.push({
+      type: 'category',
+      label: child.label,
+      href: child.href,
+      items: child.children,
+    });
+  } else {
+    pendingLeaves.push({ label: child.label, href: child.href });
+  }
+}
+flushLeaves();
+
+const isCard = layout === 'card';
+const headingId = `${id}-heading`;
+const imageSizes = isCard ? '(max-width: 1024px) 100vw, 40vw' : '(max-width: 1024px) 100vw, 28rem';
+
+const chipClass = [
+  'group/chip flex min-h-11 items-center justify-between gap-3 rounded-lg border border-gray-200 bg-white px-3 py-2',
+  'text-sm font-medium text-gray-800 no-underline shadow-sm transition',
+  'hover:border-primary hover:bg-primary/5 hover:text-primary hover:no-underline',
+  'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
+  'dark:border-gray-600 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-primary/10 dark:focus:ring-offset-gray-900',
+].join(' ');
+
+const gridClass = 'grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
+---
+
+<section
+  id={id}
+  aria-labelledby={headingId}
+  class:list={[
+    'group/card scroll-mt-24 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm md:scroll-mt-32 dark:border-gray-700 dark:bg-gray-900',
+    isCard && 'flex h-full flex-col',
+  ]}
+>
+  <div
+    class:list={[
+      isCard
+        ? 'flex flex-1 flex-col'
+        : [
+            'grid',
+            image &&
+              (imageOnEnd
+                ? 'lg:grid-cols-[minmax(0,1fr)_min(40%,26rem)]'
+                : 'lg:grid-cols-[min(40%,26rem)_minmax(0,1fr)]'),
+          ],
+    ]}
+  >
+    {
+      image && (
+        <a
+          href={href}
+          class:list={[
+            'relative block overflow-hidden bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-gray-800',
+            imageOnEnd && !isCard && 'lg:order-2',
+          ]}
+        >
+          <div class:list={['aspect-[16/9]', !isCard && 'lg:aspect-[4/3] lg:h-full lg:min-h-64']} />
+          <img
+            src={image.src}
+            srcset={image.srcset}
+            sizes={imageSizes}
+            alt=""
+            width="1200"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-200 group-hover/card:scale-[1.03]"
+          />
+        </a>
+      )
+    }
+    <div
+      class:list={[
+        'flex min-w-0 flex-col gap-4 p-5 sm:p-7',
+        isCard && 'flex-1',
+        imageOnEnd && !isCard && image && 'lg:order-1',
+      ]}
+    >
+      <h2 id={headingId} class="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
+        <a
+          href={href}
+          class="text-gray-900 no-underline hover:text-primary hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:text-gray-100 dark:focus:ring-offset-gray-900"
+        >
+          {label}
+        </a>
+      </h2>
+      {
+        Body && (
+          <div class="prose-content [&_p:last-child]:mb-0">
+            <Body />
+          </div>
+        )
+      }
+      <a
+        href={href}
+        class:list={[
+          'inline-flex items-center gap-1 text-sm font-medium text-primary no-underline hover:underline',
+          'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900',
+          isCard && 'mt-auto',
+        ]}
+      >
+        <span>View {label}</span>
+        <span aria-hidden="true" class="transition-transform duration-150 group-hover/card:translate-x-0.5">
+          →
+        </span>
+      </a>
+    </div>
+  </div>
+
+  {
+    blocks.length > 0 && (
+      <div
+        class="space-y-4 border-t border-gray-200 bg-gray-50 p-4 sm:p-6 dark:border-gray-700 dark:bg-black/25"
+        aria-label={`Services in ${label}`}
+      >
+        {blocks.map((block) =>
+          block.type === 'category' ? (
+            <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
+              <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-primary/15 bg-primary/5 px-4 py-3 dark:border-primary/25 dark:bg-primary/10">
+                <h3 class="font-heading text-lg font-semibold tracking-tight">
+                  <a
+                    href={block.href}
+                    class="inline-flex items-center gap-2 text-gray-900 no-underline hover:text-primary hover:no-underline focus:rounded-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:text-gray-100 dark:focus:ring-offset-gray-900"
+                  >
+                    <span class="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                    <span>{block.label}</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </h3>
+                <p class="subheading text-xs text-gray-500 dark:text-gray-400">
+                  {block.items.length} {block.items.length === 1 ? 'service' : 'services'}
+                </p>
+              </div>
+              <ul class={`${gridClass} p-3 sm:p-4`}>
+                {block.items.map((item) => (
+                  <li>
+                    <a href={item.href} class={chipClass}>
+                      <span>{item.label}</span>
+                      <span
+                        aria-hidden="true"
+                        class="shrink-0 text-gray-400 transition-transform duration-150 group-hover/chip:translate-x-0.5 group-hover/chip:text-primary dark:text-gray-500"
+                      >
+                        →
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
+              <div class="flex items-center justify-end border-b border-primary/15 bg-primary/5 px-4 py-3 dark:border-primary/25 dark:bg-primary/10">
+                <p class="subheading text-xs text-gray-500 dark:text-gray-400">
+                  {block.items.length} {block.items.length === 1 ? 'service' : 'services'}
+                </p>
+              </div>
+              <ul class={`${gridClass} p-3 sm:p-4`}>
+                {block.items.map((item) => (
+                  <li>
+                    <a href={item.href} class={chipClass}>
+                      <span>{item.label}</span>
+                      <span
+                        aria-hidden="true"
+                        class="shrink-0 text-gray-400 transition-transform duration-150 group-hover/chip:translate-x-0.5 group-hover/chip:text-primary dark:text-gray-500"
+                      >
+                        →
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        )}
+      </div>
+    )
+  }
+</section>
