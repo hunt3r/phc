@@ -22,15 +22,15 @@ const OUTPUT = join(ROOT, "public", "_redirects");
 const ROOT_HUB = { portfolio: "/portfolio", services: "/services" };
 const ROOT_LEAF_BASE = { portfolio: "/portfolio", services: "/services" };
 // Where to send a tag URL when the tag/root can't be resolved.
-const TAG_FALLBACK = "/portfolio/";
+const TAG_FALLBACK = "/portfolio";
 
 const PAGE_REDIRECTS = {
-  "about-us": "/about/",
-  "our-portfolio": "/portfolio/",
+  "about-us": "/about",
+  "our-portfolio": "/portfolio",
   "welcome-to-phc": "/",
-  "contact-us": "/contact/",
-  "our-services": "/services/",
-  "project-sectors": "/portfolio/",
+  "contact-us": "/contact",
+  "our-services": "/services",
+  "project-sectors": "/portfolio",
   video: "/",
 };
 
@@ -66,8 +66,14 @@ function slugify(value) {
     .replace(/^-|-$/g, "");
 }
 
+/** Slashless public URL. The site root stays `/`. */
+function canonicalTarget(to) {
+  if (!to || to === "/") return "/";
+  return to.replace(/\/+$/, "") || "/";
+}
+
 function addRule(rules, from, to) {
-  const normalizedTo = to.endsWith("/") || to === "/" ? to : `${to}/`;
+  const normalizedTo = canonicalTarget(to);
   for (const variant of [from, from.endsWith("/") ? from.slice(0, -1) : `${from}/`]) {
     const key = `${variant} -> ${normalizedTo}`;
     rules.set(key, `${variant} ${normalizedTo} 301!`);
@@ -131,10 +137,10 @@ async function loadTagHierarchy() {
   }
 
   function tagUrl(slug) {
-    if (ROOT_HUB[slug]) return `${ROOT_HUB[slug]}/`.replace(/\/+$/, "/");
+    if (ROOT_HUB[slug]) return ROOT_HUB[slug];
     if (!slugs.has(slug)) return TAG_FALLBACK;
     const base = ROOT_LEAF_BASE[rootAncestor(slug)];
-    return base ? `${base}/${slug}/` : TAG_FALLBACK;
+    return base ? `${base}/${slug}` : TAG_FALLBACK;
   }
 
   return { slugs, tagUrl };
@@ -157,7 +163,7 @@ async function main() {
   for (const entry of manifest) {
     if (entry.type !== "post") continue;
     const overviewTag = OVERVIEW_TO_TAG[entry.slug];
-    const target = overviewTag ? tagUrl(overviewTag) : `/portfolio/${entry.slug}/`;
+    const target = overviewTag ? tagUrl(overviewTag) : `/portfolio/${entry.slug}`;
     addRule(rules, `/${entry.slug}`, target);
   }
 
@@ -177,10 +183,10 @@ async function main() {
     if (ROOT_HUB[slug]) continue; // root tags never had a /tags/<slug> URL
     addRule(rules, `/tags/${slug}`, tagUrl(slug));
   }
-  addRule(rules, "/tags", "/portfolio/");
+  addRule(rules, "/tags", "/portfolio");
 
   for (const author of authors) {
-    addRule(rules, `/author/${author.slug}`, "/about/");
+    addRule(rules, `/author/${author.slug}`, "/about");
   }
 
   const lines = [

@@ -17,8 +17,8 @@ function canonicalPath(page) {
 }
 
 /**
- * Match `BaseLayout` canonicals: no trailing slash. With `trailingSlash: 'ignore'`
- * the sitemap integration can emit both slash forms; keep the first and drop the rest.
+ * Match `BaseLayout` canonicals: no trailing slash. The sitemap integration can
+ * emit both slash forms; keep the first and drop the rest.
  * The homepage is rewritten after the file is written: `new URL` always
  * serializes the root as `https://www.phandc.net/`.
  */
@@ -47,7 +47,12 @@ const seenSitemapPaths = new Set();
 
 export default defineConfig({
   site,
-  trailingSlash: 'ignore',
+  // Pages are HTML files (`about.html`). Netlify Pretty URLs then serve `/about`
+  // and 301 `/about/` to it, matching the slashless canonicals and internal links.
+  trailingSlash: 'never',
+  build: {
+    format: 'file',
+  },
   server: {
     host: true,
   },

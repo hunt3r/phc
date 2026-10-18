@@ -77,6 +77,21 @@ export function toAbsoluteUrl(value: string, site: string): string {
   return new URL(value, site).href;
 }
 
+/**
+ * The public address for a request path. File builds expose `page.html` and
+ * `index.html` internally; the published URL has neither suffix nor a trailing
+ * slash. The site root is the origin with no slash.
+ */
+export function toCanonicalUrl(pathname: string, site: string): string {
+  let path = pathname;
+  if (path.endsWith("/index.html")) path = path.slice(0, -"/index.html".length) || "/";
+  else if (path.endsWith(".html")) path = path.slice(0, -".html".length);
+  if (path !== "/" && path.endsWith("/")) path = path.slice(0, -1);
+  if (!path) path = "/";
+  const href = new URL(path, site).href;
+  return path === "/" ? href.replace(/\/$/, "") || site : href;
+}
+
 export function createOrganizationSchema(site: string, options?: { logoPath?: string }): JsonLdNode {
   const logo = toAbsoluteUrl(options?.logoPath ?? "/images/logo-color.png", site);
   return compact({

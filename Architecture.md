@@ -40,7 +40,7 @@ Local names for those env vars are listed in [.env.example](.env.example). `PUBL
 
 ## Runtime
 
-[astro.config.mjs](astro.config.mjs) sets `output: 'static'`, `site: 'https://www.phandc.net'`, `trailingSlash: 'ignore'`, the Netlify adapter, the Tina integration, and `@astrojs/sitemap`. Tailwind 4 is a Vite plugin and styles the pages. It has no content or deploy role.
+[astro.config.mjs](astro.config.mjs) sets `output: 'static'`, `site: 'https://www.phandc.net'`, `build.format: 'file'`, `trailingSlash: 'never'`, the Netlify adapter, the Tina integration, and `@astrojs/sitemap`. Pages are emitted as HTML files. Netlify serves each one without `.html` and without a trailing slash, and the canonicals match that public URL. Tailwind 4 is a Vite plugin and styles the pages. It has no content or deploy role.
 
 [netlify.toml](netlify.toml) runs `npm run build:admin && npm run build`. The adapter publishes the static files and turns each `prerender = false` route into a Netlify Function. Two routes opt out of prerender:
 

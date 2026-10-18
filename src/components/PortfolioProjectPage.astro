@@ -17,6 +17,7 @@ import {
   createBreadcrumbListSchema,
   createPortfolioCreativeWorkSchema,
   toAbsoluteUrl,
+  toCanonicalUrl,
 } from '@/lib/seo/jsonld';
 
 interface Props {
@@ -47,7 +48,7 @@ const galleryImages =
 
 const ogDescription = entry.data.description ? entry.data.description.slice(0, 160).trim() : undefined;
 const site = Astro.url.origin || import.meta.env.SITE || "https://www.phandc.net";
-const pageUrl = Astro.url.href;
+const pageUrl = toCanonicalUrl(Astro.url.pathname, site);
 const breadcrumbs = [
   { name: "Home", path: "/" },
   { name: "Portfolio", path: "/portfolio" },

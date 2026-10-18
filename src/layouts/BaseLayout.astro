@@ -8,6 +8,7 @@ import {
   createWebPageSchema,
   createWebSiteSchema,
   toAbsoluteUrl,
+  toCanonicalUrl,
   type BreadcrumbItem,
 } from "@/lib/seo/jsonld";
 import { getImageUrl } from "@/lib/cloudinary";
@@ -60,7 +61,7 @@ import '../styles/global.css';
 
 const displayTitle = title.startsWith('PH&C - ') || title.startsWith('PH&C – ') ? title : `PH&C - ${title}`;
 const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
-const canonicalUrl = new URL(Astro.url.pathname, site).href.replace(/\/$/, '') || site;
+const canonicalUrl = toCanonicalUrl(Astro.url.pathname, site);
 const ogImageSource = image
   ? getImageUrl(image, { width: 1200, height: 630, crop: 'fill', quality: 'auto:eco' })
   : '/images/logo-color.png';
@@ -72,7 +73,7 @@ const baseJsonLd = createGraphSchema([
   createWebSiteSchema(site),
   createWebPageSchema({
     site,
-    url: Astro.url.href,
+    url: canonicalUrl,
     name: displayTitle,
     description,
     image: absoluteImageUrl,
