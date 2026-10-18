@@ -38,11 +38,7 @@ const entries = portfolioEntriesForTagTree(entry.id, portfolio, tagMap).sort(
 
 const videos = toVideoViews(entry.data.videos, `service-${entry.id}`);
 
-const rawDescription = entry.data.description?.trim();
-const ogDescription =
-  rawDescription && rawDescription.length > 160
-    ? `${rawDescription.slice(0, 157).replace(/\s+\S*$/, '')}…`
-    : rawDescription || undefined;
+const ogDescription = entry.data.description?.trim() || undefined;
 const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const breadcrumbs = tagBreadcrumbItems(entry.id, tagMap);
 const jsonLdNodes = [

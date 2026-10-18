@@ -19,6 +19,8 @@ interface Props {
   /** Island name for the editable content-cards region. */
   cardsIsland?: string;
   breadcrumbLabel?: string;
+  /** Search-result description used when the page has no visible description. */
+  metaDescription?: string;
   jsonLdNodes?: Record<string, unknown>[];
 }
 
@@ -29,6 +31,7 @@ const {
   bodyIsland = 'page',
   cardsIsland = 'pageCards',
   breadcrumbLabel,
+  metaDescription,
   jsonLdNodes: extraJsonLdNodes = [],
 } = Astro.props;
 
@@ -43,9 +46,7 @@ const videos = toVideoViews(entry.data.videos, `page-${entryId}`);
 // title, description, and featured image.
 const heroBackgroundImage = entry.data.featuredImage;
 const label = breadcrumbLabel ?? entry.data.title;
-const ogDescription =
-  entry.data.description ??
-  `${label} — PH&C construction and real estate development consulting.`;
+const ogDescription = entry.data.description?.trim() || metaDescription;
 const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const breadcrumbs = [
   { name: 'Home', path: '/' },

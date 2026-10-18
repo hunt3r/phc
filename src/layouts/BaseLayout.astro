@@ -13,6 +13,7 @@ import {
 } from "@/lib/seo/jsonld";
 import { BRAND_LOGO_URL, getImageSrcSet, getImageUrl } from "@/lib/cloudinary";
 import { metaDescription } from "@/lib/seo/metaDescription";
+import { seoTitle } from "@/lib/seo/pageTitle";
 import { HERO_SIZES } from "@/lib/hero-image";
 import { getEntry } from "astro:content";
 
@@ -32,6 +33,8 @@ const headerLinks = siteSettings?.data?.headerLinks?.length
 interface Props {
   title?: string;
   description?: string;
+  /** Sentence written for this kind of page, used when `description` has no whole sentences that fit. */
+  descriptionFallback?: string;
   image?: string;
   jsonLdNodes?: Record<string, unknown>[];
   breadcrumbs?: BreadcrumbItem[];
@@ -48,6 +51,7 @@ interface Props {
 const {
   title = "PH&C",
   description,
+  descriptionFallback,
   image,
   jsonLdNodes = [],
   breadcrumbs,
@@ -61,7 +65,8 @@ const {
 import '../styles/global.css';
 
 const displayTitle = title.startsWith('PH&C - ') || title.startsWith('PH&C – ') ? title : `PH&C - ${title}`;
-const metaDescriptionText = metaDescription(description, displayTitle);
+const pageTitle = seoTitle(displayTitle, Astro.url.pathname);
+const metaDescriptionText = metaDescription(description, displayTitle, descriptionFallback);
 const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const canonicalUrl = toCanonicalUrl(Astro.url.pathname, site);
 const ogImageSource = image
@@ -78,7 +83,7 @@ const baseJsonLd = createGraphSchema([
   createWebPageSchema({
     site,
     url: canonicalUrl,
-    name: displayTitle,
+    name: pageTitle,
     description: metaDescriptionText,
     image: absoluteImageUrl,
     datePublished,
@@ -115,7 +120,7 @@ const baseJsonLd = createGraphSchema([
     {robots && <meta name="robots" content={robots} />}
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:site_name" content="PH&C" />
-    <meta property="og:title" content={displayTitle} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={absoluteImageUrl} />
@@ -129,7 +134,7 @@ const baseJsonLd = createGraphSchema([
       <meta property="article:modified_time" content={dateModified} />
     )}
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={displayTitle} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={metaDescriptionText} />
     <meta name="twitter:image" content={absoluteImageUrl} />
     <link rel="preload" href="/fonts/Italian Old Style MT Std Regular.otf" as="font" type="font/otf" crossorigin />
@@ -162,7 +167,7 @@ const baseJsonLd = createGraphSchema([
         </script>
       </>
     )}
-    <title>{displayTitle}</title>
+    <title>{pageTitle}</title>
     {baseJsonLd && <JsonLd nodes={[baseJsonLd]} />}
     <script is:inline>
       (function() {

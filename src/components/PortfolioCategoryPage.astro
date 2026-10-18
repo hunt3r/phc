@@ -35,9 +35,7 @@ const childTags = childrenOf(entry.id, tagMap);
 
 const videos = toVideoViews(entry.data.videos, `sector-${entry.id}`);
 
-const ogDescription = entry.data.description
-  ? entry.data.description.slice(0, 160).trim()
-  : undefined;
+const ogDescription = entry.data.description?.trim() || undefined;
 const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const breadcrumbs = tagBreadcrumbItems(entry.id, tagMap);
 const jsonLdNodes = [

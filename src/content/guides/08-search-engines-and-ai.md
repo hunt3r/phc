@@ -9,9 +9,9 @@ Search engines can list the public site, and AI tools can read a clear summary o
 
 ## What a search result uses
 
-The name in the browser tab and in search results is the page title, with PH&C in front. A page titled Retail is shown as PH&C - Retail.
+The name in the browser tab and in search results is the page title, with PH&C in front. A page titled Retail is shown as PH&C - Retail. Short names get a few plain words added after them, such as PH&C - Retail | Project Portfolio, so the search name is long enough to be useful. The heading on the page does not change.
 
-The short text under that name is the page's description. On a project or a tag, the search result uses about the first 160 characters. The full description still appears on the page.
+The short text under that name is the page's description. The search result uses whole sentences from the description, up to about 155 characters, so it never stops in the middle of a sentence. If the first sentence is too long, or the description is only a list of facts, the site writes a short sentence from the page name instead. If the text runs under 120 characters, the site adds a short line about the Wayne office. The full description still appears on the page, so put the most important sentence first and end it with a period.
 
 When someone shares a link, the preview uses that same name, description, and a photo. The photo is the page's main image. If the page has no image, the preview uses the PH&C logo. See **Photos, videos, and content cards**.
 
@@ -27,12 +27,12 @@ Each public page has one official address, and search engines are pointed at tha
 
 **Portfolio**
 
-- On a project, **Title** is the search name and **Description** is the summary. **Hero / cover image** is the share photo. **Location**, **Client**, **Date (e.g. 2020)**, and the checked **Sectors** and **Services** are included in the project summary search engines read. If Description is blank, that search result has no summary sentence. See **Portfolio projects**.
+- On a project, **Title** is the search name and **Description** is the summary. **Hero / cover image** is the share photo. **Location**, **Client**, **Date (e.g. 2020)**, and the checked **Sectors** and **Services** are included in the project summary search engines read. The search summary is the project name followed by the first sentence of Description when it is a full sentence that fits. If Description is only a list of facts, the summary is the project name, its sector, and a line about PH&C. See **Portfolio projects**.
 - The Portfolio page uses the **Label** of the Portfolio tag as its name, and that tag's **Image** as the share photo. Its search summary is a standard sentence about the portfolio. The tag's **Description** is the banner text visitors see.
 
 **Tags**
 
-- A sector or service page uses **Label** as the search name, **Description** as the summary, and **Image** as the share photo. If Description is blank, that search result has no summary sentence.
+- A sector or service page uses **Label** as the search name, **Description** as the summary, and **Image** as the share photo. If Description is blank, the search summary is a standard sentence about PH&C that includes the page name.
 - The Services page uses the **Description** and **Image** of the Services tag. If that description is blank, the site uses a standard sentence about PH&C's services. The browser name of the Services page stays Services.
 - See **Sectors, services, and tags**.
 
@@ -40,12 +40,12 @@ Each public page has one official address, and search engines are pointed at tha
 
 - **Title** is the search name. **Description** is the summary and the line under the heading. **Featured Image** is the share photo.
 - On About, if Description is blank, search results use a standard sentence about the team, and the line under the heading is left off the page.
-- On Contact and on a page in **Pages**, if Description is blank, search results use a standard sentence that includes the page title.
+- On Contact, search results use a standard sentence about contacting the Wayne office. On a page in **Pages**, if Description is blank, search results use a standard sentence that includes the page title.
 - See **About, staff, and other pages** and **Contact, menus, and footer**.
 
 **Staff**
 
-- A profile uses **Name** as the search name. The first paragraph of **Bio** is the summary. If Bio is blank, the summary is the person's name and **Title**. **Profile Photo**, **Title**, and **Credentials** are included in the summary search engines read for that person.
+- A profile uses **Name** as the search name. The summary is the person's name and **Title** with a line about PH&C. The Bio is not used, because it is long and written in the first person. The Bio still appears on the profile page. **Profile Photo**, **Title**, and **Credentials** are included in the summary search engines read for that person.
 
 The Testimonials page and the Videos page use a fixed name and summary.
 

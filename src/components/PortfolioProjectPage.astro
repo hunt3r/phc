@@ -12,6 +12,7 @@ import VideoGrid from './VideoGrid.astro';
 import ContentCards from './ContentCards.astro';
 import { getTagMap, resolveTags, resolveTagsGrouped } from '@/lib/tags';
 import { getEntityMap, resolveCredits } from '@/lib/entities';
+import { leadingSentences, metaDescription } from '@/lib/seo/metaDescription';
 import { toVideoViews } from '@/lib/videos';
 import {
   createBreadcrumbListSchema,
@@ -46,7 +47,18 @@ const galleryImages =
       ? [{ src: entry.data.image, alt: entry.data.title ?? '' }]
       : [];
 
-const ogDescription = entry.data.description ? entry.data.description.slice(0, 160).trim() : undefined;
+// Spec lists and long narratives make poor search snippets, so the snippet is the
+// project name plus its sector, with a leading sentence from the write-up when one fits.
+const sectorLabel = (entry.data.sectors ?? [])
+  .map((id) => tagMap.get(id)?.data.label)
+  .find(Boolean);
+const projectFallback = `${entry.data.title}: ${sectorLabel ? `${sectorLabel.toLowerCase()} project` : 'project'} with PH&C, an owner's representative and construction management firm.`;
+const leadSentence = leadingSentences(entry.data.description ?? '', 155 - entry.data.title.length - 2);
+const ogDescription = metaDescription(
+  leadSentence.length >= 40 ? `${entry.data.title}: ${leadSentence}` : undefined,
+  entry.data.title,
+  projectFallback
+);
 const site = Astro.url.origin || import.meta.env.SITE || "https://www.phandc.net";
 const pageUrl = toCanonicalUrl(Astro.url.pathname, site);
 const breadcrumbs = [

@@ -129,11 +129,12 @@ const promotedSlides = orderedGroups
   .flatMap((group) => slidesByGroup[group])
   .slice(0, Math.max(0, maxHeroSlides));
 
-const ogDescription = data?.description ?? "PH&C facilitates Real Estate Development as the tri-state area's premiere Owner's Representation, Construction Management, and Fee Development firm.";
+const ogDescription = data?.description;
+const ogDescriptionFallback = "PH&C facilitates Real Estate Development as the tri-state area's premiere Owner's Representation, Construction Management, and Fee Development firm.";
 const ogImage = promotedSlides[0]?.image;
 ---
 
-<BaseLayout title={data?.title ?? 'Home'} description={ogDescription} image={ogImage}>
+<BaseLayout title={data?.title ?? 'Home'} description={ogDescription} descriptionFallback={ogDescriptionFallback} image={ogImage}>
   <TinaIsland name="home" wrapper={islands.home.wrapper} primary>
   {promotedSlides.length > 0 && (
     <HeroCarousel

@@ -31,8 +31,8 @@ interface Props {
 const { member } = Astro.props;
 const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const path = `/about/${member.slug}`;
-const firstParagraph = member.bio.split(/\n\n+/).find(Boolean)?.trim();
-const description = firstParagraph || `${member.name}, ${member.title} at PH&C.`;
+// The bio is long and first-person, so the search snippet is built from the name and role.
+const description = `${member.name}, ${member.title.trim()} at PH&C, an owner's representative and construction management firm in Wayne, PA.`;
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
