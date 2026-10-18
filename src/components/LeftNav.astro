@@ -18,11 +18,17 @@ const allActive = !activeId;
 ---
 
 {/* Mobile: sticky dropdown below header */}
+<div class="absolute lg:hidden" aria-hidden="true" data-leftnav-sentinel></div>
 <div
-  class="sticky top-16 z-40 -mx-4 border-b border-gray-200 bg-white px-4 py-3 dark:border-gray-700 dark:bg-[#0a0a0a] sm:-mx-6 sm:px-6 lg:hidden"
+  class="group sticky top-16 z-40 -mx-4 border-b border-gray-200 bg-white px-4 py-3 dark:border-gray-700 dark:bg-[#0a0a0a] sm:-mx-6 sm:px-6 lg:hidden"
   aria-label={label}
+  data-leftnav-mobile
 >
-  <label for={selectId} class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">{label}:</label>
+  <div class="grid grid-rows-[1fr] transition-[grid-template-rows,opacity] duration-200 ease-out group-data-[stuck]:grid-rows-[0fr] group-data-[stuck]:opacity-0 motion-reduce:transition-none">
+    <div class="min-h-0 overflow-hidden">
+      <label for={selectId} class="block pb-2 text-sm font-medium text-gray-700 dark:text-gray-300">{label}:</label>
+    </div>
+  </div>
   <select
     id={selectId}
     class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-gray-500"
@@ -69,4 +75,17 @@ const allActive = !activeId;
     const target = e.target as HTMLSelectElement;
     if (target?.value) window.location.href = target.value;
   });
+
+  const mobileNav = document.querySelector<HTMLElement>('[data-leftnav-mobile]');
+  const sentinel = document.querySelector('[data-leftnav-sentinel]');
+  if (mobileNav && sentinel) {
+    const stickyTop = parseFloat(getComputedStyle(mobileNav).top) || 0;
+    new IntersectionObserver(
+      ([entry]) => {
+        const stuck = !entry.isIntersecting && entry.boundingClientRect.top < (entry.rootBounds?.top ?? stickyTop);
+        mobileNav.toggleAttribute('data-stuck', stuck);
+      },
+      { rootMargin: `-${stickyTop + 1}px 0px 0px 0px` }
+    ).observe(sentinel);
+  }
 </script>

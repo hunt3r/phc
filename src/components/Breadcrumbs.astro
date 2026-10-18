@@ -7,34 +7,89 @@ interface Props {
 
 const { items = [] } = Astro.props;
 const trail = items.filter((item) => item.name);
-const parent = trail.length >= 2 ? trail[trail.length - 2] : undefined;
 
 const hrefOf = (item: BreadcrumbItem) => item.path ?? item.url;
 ---
 
 {trail.length > 1 && (
-  <nav class="pt-6 text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
-    {parent && hrefOf(parent) && (
-      <a href={hrefOf(parent)} class="inline-flex items-center gap-1.5 transition hover:text-primary md:hidden">
-        <span aria-hidden="true">←</span>
-        {parent.name}
-      </a>
-    )}
-    <ol class="hidden flex-wrap items-center gap-x-1.5 gap-y-1 md:flex">
-      {trail.map((item, index) => {
-        const last = index === trail.length - 1;
-        const href = hrefOf(item);
-        return (
-          <li class="flex min-w-0 items-center gap-1.5">
-            {index > 0 && <span aria-hidden="true">/</span>}
-            {last || !href ? (
-              <span class="truncate text-gray-700 dark:text-gray-300" aria-current={last ? 'page' : undefined}>{item.name}</span>
-            ) : (
-              <a href={href} class="transition hover:text-primary">{item.name}</a>
-            )}
-          </li>
-        );
-      })}
-    </ol>
+  <nav
+    class="relative left-1/2 mb-6 w-screen -translate-x-1/2 border-b border-border bg-surface shadow-[inset_0_1px_0_rgba(215,169,0,0.55)]"
+    aria-label="Breadcrumb"
+    data-breadcrumbs
+  >
+    <div class="breadcrumbs-track mx-auto max-w-8xl px-4 py-2.5 sm:px-6 lg:px-8">
+      <ol
+        class="-ml-3 flex min-w-0 items-center gap-0.5 overflow-x-auto whitespace-nowrap text-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        data-breadcrumbs-list
+      >
+        {trail.map((item, index) => {
+          const first = index === 0;
+          const last = index === trail.length - 1;
+          const href = hrefOf(item);
+          return (
+            <li class="flex shrink-0 items-center gap-0.5">
+              {!first && (
+                <svg class="h-4 w-4 shrink-0 text-gray-300 dark:text-gray-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clip-rule="evenodd" />
+                </svg>
+              )}
+              {last ? (
+                <span
+                  class="inline-flex max-w-[11rem] items-center gap-2 rounded-full bg-brand-olive px-3.5 py-1.5 font-semibold text-white shadow-sm sm:max-w-md"
+                  aria-current="page"
+                  title={item.name}
+                >
+                  <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" aria-hidden="true" />
+                  <span class="truncate">{item.name}</span>
+                </span>
+              ) : href ? (
+                <a
+                  href={href}
+                  class="group inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-medium text-gray-600 no-underline transition-colors hover:bg-primary/10 hover:text-primary hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 focus-visible:ring-offset-bg dark:text-gray-300 dark:hover:bg-primary/15"
+                >
+                  {first && (
+                    <svg class="h-4 w-4 shrink-0 text-primary" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z" clip-rule="evenodd" />
+                    </svg>
+                  )}
+                  <span class={first ? 'sr-only sm:not-sr-only' : undefined}>{item.name}</span>
+                </a>
+              ) : (
+                <span class="px-3 py-1.5 font-medium text-gray-500 dark:text-gray-400">{item.name}</span>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </div>
   </nav>
 )}
+
+<script>
+  const update = (list: HTMLElement) => {
+    const track = list.parentElement;
+    if (!track) return;
+    const max = list.scrollWidth - list.clientWidth;
+    track.toggleAttribute('data-fade-start', list.scrollLeft > 2);
+    track.toggleAttribute('data-fade-end', list.scrollLeft < max - 2);
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-breadcrumbs-list]').forEach((list) => {
+    list.scrollLeft = list.scrollWidth;
+    update(list);
+    list.addEventListener('scroll', () => update(list), { passive: true });
+    window.addEventListener('resize', () => update(list), { passive: true });
+  });
+</script>
+
+<style>
+  .breadcrumbs-track[data-fade-start] ol {
+    mask-image: linear-gradient(to right, transparent, #000 1.5rem);
+  }
+  .breadcrumbs-track[data-fade-end] ol {
+    mask-image: linear-gradient(to left, transparent, #000 1.5rem);
+  }
+  .breadcrumbs-track[data-fade-start][data-fade-end] ol {
+    mask-image: linear-gradient(to right, transparent, #000 1.5rem, #000 calc(100% - 1.5rem), transparent);
+  }
+</style>
