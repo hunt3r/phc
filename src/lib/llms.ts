@@ -1,8 +1,7 @@
 import { getCollection, getEntry } from 'astro:content';
-import { childrenOf, getTagMap } from '@/lib/tags';
+import { getNavTree, getServicesNavTree, type NavNode } from '@/lib/tags';
 import { creditNames, getEntityMap } from '@/lib/entities';
 import {
-  CORE_SERVICES,
   ORG_ADDRESS,
   ORG_AREA_SERVED,
   ORG_DESCRIPTION,
@@ -26,6 +25,40 @@ function normalizeUrl(site: string, path: string): string {
   return new URL(path, site).href.replace(/\/$/, '');
 }
 
+/** `- [Label](url): description` for a tag, omitting the description when blank. */
+function tagLink(site: string, node: NavNode): string {
+  const description = node.entry.data.description?.trim();
+  return `- [${node.entry.data.label}](${normalizeUrl(site, node.href)})${description ? `: ${description}` : ''}`;
+}
+
+/** Nested bullet list of a tag's descendants, each linked to its own page. */
+function pushTagTree(lines: string[], site: string, nodes: NavNode[], depth = 0) {
+  for (const node of nodes) {
+    lines.push(`${'  '.repeat(depth)}${tagLink(site, node)}`);
+    pushTagTree(lines, site, node.children, depth + 1);
+  }
+}
+
+/** Detail block for a top-level tag: heading, URL, body text, then its nested tags. */
+function pushTagDetail(lines: string[], site: string, node: NavNode) {
+  lines.push(`### ${node.entry.data.label}`);
+  lines.push(`URL: ${normalizeUrl(site, node.href)}`);
+  const description = node.entry.data.description?.trim();
+  if (description) {
+    lines.push('');
+    lines.push(description);
+  }
+  if (node.entry.body?.trim()) {
+    lines.push('');
+    lines.push(node.entry.body.trim());
+  }
+  if (node.children.length) {
+    lines.push('');
+    pushTagTree(lines, site, node.children);
+  }
+  lines.push('');
+}
+
 /**
  * Build the contents of /llms.txt (curated map) or /llms-full.txt (map plus
  * inlined page and project text) from the site's content collections.
@@ -38,8 +71,8 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
   const portfolio = [...(await getCollection('portfolio'))].sort(byOrderThenTitle);
   const entityMap = await getEntityMap();
   const about = await getEntry('about', 'index');
-  const tagMap = await getTagMap();
-  const serviceTags = childrenOf('services', tagMap).filter((t) => t.data.order != null);
+  const serviceTree = await getServicesNavTree();
+  const sectorTree = await getNavTree();
 
   const lines: string[] = [];
 
@@ -65,11 +98,18 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
   lines.push(`- [Contact](${normalizeUrl(site, '/contact')}): Get in touch with PH&C.`);
   lines.push('');
 
-  lines.push('## Services');
-  for (const service of CORE_SERVICES) {
-    lines.push(`- ${service.name}: ${service.description}`);
+  // The short map links only the top level; the full file nests everything beneath.
+  if (serviceTree.length) {
+    lines.push('## Services');
+    for (const node of serviceTree) lines.push(tagLink(site, node));
+    lines.push('');
   }
-  lines.push('');
+
+  if (sectorTree.length) {
+    lines.push('## Sectors');
+    for (const node of sectorTree) lines.push(tagLink(site, node));
+    lines.push('');
+  }
 
   lines.push('## Portfolio');
   for (const entry of portfolio) {
@@ -93,34 +133,15 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
       lines.push(about.body.trim());
       lines.push('');
     }
-    if (serviceTags.length) {
+    if (serviceTree.length) {
       lines.push('## Services (detail)');
       lines.push('');
-      for (const service of serviceTags) {
-        lines.push(`### ${service.data.label}`);
-        lines.push(`URL: ${normalizeUrl(site, `/services/${service.id}`)}`);
-        if (service.body?.trim()) {
-          lines.push('');
-          lines.push(service.body.trim());
-        }
-        const children = childrenOf(service.id, tagMap);
-        if (children.length) {
-          lines.push('');
-          for (const child of children) {
-            const grandchildren = childrenOf(child.id, tagMap);
-            if (grandchildren.length) {
-              lines.push(
-                `- ${child.data.label}: ${grandchildren.map((g) => g.data.label).join(', ')}`
-              );
-            } else {
-              lines.push(
-                `- ${child.data.label}${child.data.description ? `: ${child.data.description}` : ''}`
-              );
-            }
-          }
-        }
-        lines.push('');
-      }
+      for (const node of serviceTree) pushTagDetail(lines, site, node);
+    }
+    if (sectorTree.length) {
+      lines.push('## Sectors (detail)');
+      lines.push('');
+      for (const node of sectorTree) pushTagDetail(lines, site, node);
     }
     lines.push('## Projects (detail)');
     lines.push('');

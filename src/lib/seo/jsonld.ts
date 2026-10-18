@@ -213,7 +213,8 @@ export interface ServiceInput {
 
 /**
  * The core services PH&C offers, authored from the Services page content.
- * Shared by the Services page JSON-LD and the llms.txt endpoints.
+ * Used for the Services page JSON-LD. The llms.txt endpoints read the service
+ * tags directly instead.
  */
 export const CORE_SERVICES: ServiceInput[] = [
   {
