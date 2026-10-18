@@ -1,12 +1,12 @@
 ---
 label: Drone Technologies
-description: 'PH&C uses drones at every step of a project, from early site evaluation through closeout. Our own FAA Part 107 licensed pilots, including Lou Harris, fly our DJI drone on job sites. Aerial imagery shows site context before you buy, gives agencies a clear picture during approvals, builds a dated record of construction progress for owners and lenders, and helps measure materials on site. The result is a complete visual history.'
+description: 'PH&C flies its own drone on job sites. FAA Part 107 pilots Lou Harris and Noah Lynch record conditions for owners and lenders.'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788365798/drone-services_yyzdby.jpg'
 parent: src/content/tags/services.md
 order: 5
 ---
 
-PH\&C employs drone aircraft technology at every step of the process to provide insight and a different perspective on a project's overview and possibilities. From the earliest site evaluation through final closeout, aerial imagery reveals context, scale, and detail that cannot be captured from the ground.
+PH&C flies a drone on its own projects for site evaluation, approvals, construction progress, and closeout. Aerial photos show context, scale, and detail a ground walk misses.
 
 ## Licensed pilots on our own team
 
@@ -25,4 +25,4 @@ Lou isn't our only pilot. [Noah Lynch](/about/noah-lynch), our Construction Coor
 * **When questions come up.** Before-and-after aerials show what was there, when, and in what condition. That evidence helps settle questions with contractors, neighbors, and agencies quickly.
 * **At closeout and beyond.** Finished-project aerials give you a record of the site as built, and photography ready for leasing, sales, and marketing.
 
-The result is greater transparency, better communication, and a comprehensive visual history of your project from the ground up.
+The flights leave a dated record of existing conditions, construction progress, and the finished site.

@@ -1,11 +1,32 @@
 ---
 label: Construction Management Services
-description: 'Once a project moves into construction, PH&C manages every activity through to completion. We start with a detailed plan, execute it aggressively, and adapt as changes arise. Our staff works alongside contractors to anticipate issues and solve problems before they occur. As the link between owner and contractor, we give you the expertise to engage contractors on equal footing and avoid the cost and delays that come from miscommunication.'
+description: 'PH&C manages construction for the owner: schedule, budget, inspections, and contractor coordination from the first day of work through occupancy.'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788385212/tags/construction-management-services_pmiz1g.jpg'
 parent: src/content/tags/services.md
 order: 3
 ---
 
-Once a project moves into construction, PH\&C manages every activity to ensure a successful completion. Construction begins with a detailed plan, aggressively executed, and adapts to changes as they inevitably arise. Our experienced staff works alongside contractors to anticipate issues and solve problems before they occur, keeping the project moving and the budget intact.
+Once a project moves into construction, PH&C becomes your presence on the site. The contractor has a superintendent. You have a construction manager who works for you and watches the schedule, the budget, the inspections, and the paperwork that matters if there is ever a dispute.
 
-PH\&C serves as the link between clients and contractors, giving our clients the expertise to engage contractors on equal footing. We understand the intricacies of complex design and construction issues and develop innovative solutions that work for both owner and contractor, avoiding the excess cost and schedule delays that come from miscommunication or adversarial relationships.
+## What PH&C handles
+
+- On-site coordination and supervision of contractors, with daily records, photos, and meeting minutes.
+- Schedule management that shows which activity slipped and whether the completion date moved.
+- Contract and budget management, including change orders, pay applications, and retainage.
+- Requests for information, so field questions reach the designers and come back with an answer and a price.
+- Coordination of testing agencies, utility companies, and government inspectors.
+- Tenant delivery coordination for landlords and retailers.
+- Bank billing and lender inspections.
+- Escrow and letter-of-credit reductions at closeout.
+
+## What you get
+
+- A monthly cost report showing the contract, approved changes, pending changes, and the balance remaining.
+- A schedule update written in plain language.
+- Pay applications reviewed against work in place before they are approved.
+- A documented record of decisions, inspections, and field conditions.
+- One person to call when something changes on site.
+
+## Related services
+
+The pieces are available on their own: [construction coordination and supervision](/services/construction-coordination-supervision), [schedule management](/services/project-schedule-management), and [contract and budget management](/services/contract-budget-management). The work before the contract is signed is [pre-construction](/services/pre-construction-services). If your building is about to start and no one is on your side of the table, [contact PH&C](/contact).
