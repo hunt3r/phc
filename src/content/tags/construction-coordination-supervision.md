@@ -3,6 +3,7 @@ label: 'Construction Coordination, Supervision, and Documentation'
 description: >-
   On-site coordination, supervision, and thorough documentation of construction
   progress.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792328147/tags/harold-jonker-bfxjaKTBrao-unsplash.jpg'
 parent: src/content/tags/construction-management-services.md
 order: 1
 ---

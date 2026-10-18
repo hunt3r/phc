@@ -3,6 +3,7 @@ label: Existing Utility Identification and Assessments
 description: >-
   Identification and assessment of existing utilities to determine available
   capacity and connection needs.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792330763/tags/pixabay-conduit-166802.jpg'
 parent: src/content/tags/site-analysis-feasibility.md
 order: 8
 ---

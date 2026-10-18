@@ -3,6 +3,7 @@ label: Project Schedule
 description: >-
   Building and maintaining a critical-path schedule that keeps design,
   approvals, and procurement on track.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792334166/tags/unsplash-calendar-red-pins-deadline.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 4
 ---

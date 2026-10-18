@@ -3,6 +3,7 @@ label: 'Environmental: Stream Crossing / Sewer Modules'
 description: >-
   Coordinating environmental approvals such as stream crossings and sewer
   planning modules.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792329294/tags/george-pagan-iii-F9h2pD9DIZs-unsplash.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 11
 ---

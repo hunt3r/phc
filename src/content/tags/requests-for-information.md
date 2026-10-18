@@ -1,6 +1,7 @@
 ---
 label: Requests for Information / Design Issue Recommendation / Resolution
 description: Managing RFIs and resolving design issues quickly to keep construction moving.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792334473/tags/pexels-redlined-floor-plan-9052547.jpg'
 parent: src/content/tags/construction-management-services.md
 order: 2
 ---

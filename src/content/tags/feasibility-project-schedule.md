@@ -3,6 +3,7 @@ label: Project Schedule
 description: >-
   A preliminary project schedule that frames the timeline and key milestones
   during feasibility.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792331132/tags/wikimedia-panama-canal-construction-schedule-1938.jpg'
 parent: src/content/tags/site-analysis-feasibility.md
 order: 11
 ---

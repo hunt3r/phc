@@ -241,7 +241,7 @@ export async function getNavTree(): Promise<NavNode[]> {
  * The nested services navigation tree: every descendant of the `services` root,
  * in order, with children attached. The top level is limited to curated
  * services (those carrying an `order`), so legacy portfolio-tag stubs that also
- * live under `services` (e.g. `landscaping`, `signage`) are excluded.
+ * live under `services` (e.g. `landscaping`, `remediation`) are excluded.
  */
 export async function getServicesNavTree(): Promise<NavNode[]> {
   const tagMap = await getTagMap();

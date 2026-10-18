@@ -3,6 +3,7 @@ label: Contract Management / Budget Management
 description: >-
   Administering contracts and managing the budget to control cost through
   completion.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792328225/tags/amina-atar-4mEyvORkbN0-unsplash.jpg'
 parent: src/content/tags/construction-management-services.md
 order: 8
 ---

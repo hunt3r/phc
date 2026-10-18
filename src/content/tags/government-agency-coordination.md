@@ -3,6 +3,7 @@ label: Government Agency Coordination
 description: >-
   Coordinating inspections and approvals with the governing agencies throughout
   construction.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792331507/tags/pexels-inspector-checklist-8293680.jpg'
 parent: src/content/tags/construction-management-services.md
 order: 3
 ---

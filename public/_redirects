@@ -139,8 +139,8 @@
 /tag/retail/ /portfolio/retail/ 301!
 /tag/retailers /portfolio/retail/ 301!
 /tag/retailers/ /portfolio/retail/ 301!
-/tag/signage /services/signage/ 301!
-/tag/signage/ /services/signage/ 301!
+/tag/signage /services/ 301!
+/tag/signage/ /services/ 301!
 /tag/small-business /portfolio/ 301!
 /tag/small-business/ /portfolio/ 301!
 /tag/veteran /portfolio/ 301!
@@ -253,8 +253,8 @@
 /tags/schematic-design-development/ /services/schematic-design-development/ 301!
 /tags/self-storage /portfolio/self-storage/ 301!
 /tags/self-storage/ /portfolio/self-storage/ 301!
-/tags/signage /services/signage/ 301!
-/tags/signage/ /services/signage/ 301!
+/tags/signage /services/ 301!
+/tags/signage/ /services/ 301!
 /tags/site-analysis-feasibility /services/site-analysis-feasibility/ 301!
 /tags/site-analysis-feasibility/ /services/site-analysis-feasibility/ 301!
 /tags/special-construction-design-coordination /services/special-construction-design-coordination/ 301!

@@ -3,6 +3,7 @@ label: Environmental Permitting Requirements
 description: >-
   Early identification of the environmental permits a project will require and
   their impact on schedule.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792328683/tags/eduard-galitskiy-bikTsfsDDR8-unsplash.jpg'
 parent: src/content/tags/site-analysis-feasibility.md
 order: 6
 ---

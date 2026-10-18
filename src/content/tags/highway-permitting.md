@@ -3,6 +3,7 @@ label: Highway Permitting
 description: >-
   Securing highway occupancy and access permits required for site access and
   roadway improvements.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792331925/tags/pexels-road-repair-barrels-12274279.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 9
 ---

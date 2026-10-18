@@ -3,6 +3,7 @@ label: Tenant Delivery / Construction Coordination
 description: >-
   Coordinating tenant delivery requirements and build-out with the construction
   schedule.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792335640/tags/unsplash-retail-space-mid-fit-out.jpg'
 parent: src/content/tags/construction-management-services.md
 order: 6
 ---

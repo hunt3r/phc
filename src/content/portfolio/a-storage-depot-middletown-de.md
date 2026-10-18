@@ -36,7 +36,6 @@ services:
   - project-management
   - project-schedule
   - project-schedule-management
-  - signage
   - utility-coordination
   - utility-service-coordination
 order: 41

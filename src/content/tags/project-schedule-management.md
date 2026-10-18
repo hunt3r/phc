@@ -1,6 +1,7 @@
 ---
 label: Project Schedule Management
 description: Actively managing the construction schedule to keep the project on time.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792333832/tags/pixabay-gantt-schedule-printout-2498323.jpg'
 parent: src/content/tags/construction-management-services.md
 order: 7
 ---

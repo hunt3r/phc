@@ -3,6 +3,7 @@ label: Landlord and Tenant Lease Construction Requirements
 description: >-
   Review of landlord and tenant lease construction obligations to align scope,
   cost, and responsibility.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792332334/tags/pexels-handing-keys-8112184.jpg'
 parent: src/content/tags/site-analysis-feasibility.md
 order: 9
 ---

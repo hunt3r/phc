@@ -3,6 +3,7 @@ label: Land Development Requirements
 description: >-
   Analysis of the land development and zoning requirements that govern what can
   be built on a site.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792332070/tags/pixabay-easement-sketch-1683257.jpg'
 parent: src/content/tags/site-analysis-feasibility.md
 order: 7
 ---

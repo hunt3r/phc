@@ -20,8 +20,6 @@ sectors:
   - healthcare
   - institutional
   - office
-services:
-  - signage
 order: 20
 featured: false
 ---

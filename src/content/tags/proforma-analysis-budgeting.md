@@ -3,6 +3,7 @@ label: Proforma Analysis / Hard & Soft Cost Budgeting
 description: >-
   Developing and testing project budgets, including hard and soft costs, against
   the financial proforma.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792333322/tags/pixabay-budget-worksheet-57284.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 5
 ---

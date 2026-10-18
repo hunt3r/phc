@@ -3,6 +3,7 @@ label: Special Construction Design Coordination
 description: >-
   Coordinating specialty systems and unique design requirements across the
   project's disciplines.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792335509/tags/pexels-engineer-3d-design-model-19895882.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 3
 ---

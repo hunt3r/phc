@@ -3,6 +3,7 @@ label: Detailed Project Estimating and Value Engineering
 description: >-
   Detailed cost estimating and value engineering to control cost and maximize
   value before procurement.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792333652/tags/pexels-comparing-material-samples-6583355.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 6
 ---

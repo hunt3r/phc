@@ -1,6 +1,7 @@
 ---
 label: Escrow & Letter of Credit Reductions
 description: Managing escrow and letter-of-credit reductions as project milestones are met.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792329919/tags/brecht-corbeel-G3J3-k5gOeg-unsplash.jpg'
 parent: src/content/tags/construction-management-services.md
 order: 10
 ---

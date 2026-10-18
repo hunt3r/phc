@@ -3,6 +3,7 @@ label: Cash Flow Analysis
 description: >-
   Projecting and managing project cash flow so funding aligns with the
   construction timeline.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792328066/tags/cht-gsml-q21XvpB7uQU-unsplash.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 7
 ---

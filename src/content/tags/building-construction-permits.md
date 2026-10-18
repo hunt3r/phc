@@ -1,6 +1,7 @@
 ---
 label: Building / Construction Permits
 description: Obtaining building and construction permits from the governing authorities.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792327983/tags/markus-spiske-7PMGUqYQpYc-unsplash.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 13
 ---

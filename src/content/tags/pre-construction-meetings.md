@@ -3,6 +3,7 @@ label: Pre-Construction Meetings
 description: >-
   Leading pre-construction meetings that align the owner, design team, and
   contractors before work begins.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792333164/tags/unsplash-pointing-at-plan.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 14
 ---

@@ -3,6 +3,7 @@ label: RFP Development
 description: >-
   Preparing clear, comprehensive requests for proposals that set expectations
   for bidding contractors.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792334839/tags/pexels-binders-bid-documents-357514.jpg'
 parent: src/content/tags/project-contractor-procurement.md
 order: 1
 ---

@@ -3,6 +3,7 @@ label: Utility Service Coordination
 description: >-
   Coordinating water, sewer, gas, phone, electric, and cable service to the
   site.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792336174/tags/pexels-utility-meters-brick-wall-34581644.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 12
 ---

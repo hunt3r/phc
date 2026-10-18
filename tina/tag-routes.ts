@@ -58,7 +58,6 @@ export const tagRoutes: Record<string, string> = {
   "schematic-design-development": "/services/schematic-design-development",
   "self-storage": "/portfolio/self-storage",
   "services": "/services",
-  "signage": "/services/signage",
   "site-analysis-feasibility": "/services/site-analysis-feasibility",
   "special-construction-design-coordination": "/services/special-construction-design-coordination",
   "tenant-delivery-coordination": "/services/tenant-delivery-coordination",

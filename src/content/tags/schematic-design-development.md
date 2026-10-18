@@ -3,6 +3,7 @@ label: Schematic Design and Design Development Documents
 description: >-
   Guiding the architect and engineers through schematic and design-development
   phases to translate the program into buildable documents.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792335030/tags/pixabay-site-model-landscaping-2645766.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 2
 ---

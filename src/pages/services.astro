@@ -21,7 +21,7 @@ const tagMap = await getTagMap();
 const servicesRoot = tagMap.get('services');
 
 // The curated 1st-level services carry an `order`; legacy portfolio-tag stubs
-// under `services` (landscaping, signage, etc.) do not and are excluded here.
+// under `services` (landscaping, remediation, etc.) do not and are excluded here.
 const serviceTags = childrenOf('services', tagMap).filter((t) => t.data.order != null);
 
 const sections = await Promise.all(

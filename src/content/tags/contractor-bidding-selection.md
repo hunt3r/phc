@@ -3,6 +3,7 @@ label: Contractor Bidding / Clarification / Selection
 description: >-
   Managing competitive bidding, clarifying scope, and selecting the right
   contractor for the project.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792328354/tags/tanja-tepavac-81ikZZG7_AA-unsplash.jpg'
 parent: src/content/tags/project-contractor-procurement.md
 order: 2
 ---

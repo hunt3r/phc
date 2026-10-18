@@ -3,6 +3,7 @@ label: Land Development & Zoning Approvals
 description: >-
   Navigating land development and zoning approvals with municipal authorities to
   secure entitlements.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792332243/tags/wikimedia-philadelphia-city-council-session.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 8
 ---

@@ -3,6 +3,7 @@ label: NPDES Permitting
 description: >-
   Managing NPDES stormwater permitting to keep the project compliant and on
   schedule.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792332878/tags/wikimedia-usda-parking-lot-runoff-swale.jpg'
 parent: src/content/tags/project-planning-coordination.md
 order: 10
 ---

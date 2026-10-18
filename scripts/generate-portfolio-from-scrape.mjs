@@ -66,7 +66,6 @@ function inferTags(title, excerpt, contentText) {
   if (/\b(project management|oversaw|managing)\b/.test(text)) tags.add("project-management");
   if (/\b(retail property development)\b/.test(text)) tags.add("retail-property-development");
   if (/\b(landscaping)\b/.test(text)) tags.add("landscaping");
-  if (/\b(signage)\b/.test(text)) tags.add("signage");
   if (/\b(grant|racp)\b/.test(text)) tags.add("grant");
   if (/\b(small business)\b/.test(text)) tags.add("small-business");
 

@@ -1,6 +1,7 @@
 ---
 label: Contractor Negotiations / Contract Development
 description: Negotiating terms and developing contracts that protect the owner's interests.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792328445/tags/hassan-pasha-7SjEuEF06Zw-unsplash.jpg'
 parent: src/content/tags/project-contractor-procurement.md
 order: 3
 ---

@@ -3,6 +3,7 @@ label: Opinions of Probable Cost / Project Budgeting
 description: >-
   Early opinions of probable cost and project budgeting to test feasibility
   before committing funds.
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792333055/tags/unsplash-calculator-pen-worksheet.jpg'
 parent: src/content/tags/site-analysis-feasibility.md
 order: 10
 ---
