@@ -1,3 +1,5 @@
+import { BRAND_LOGO_URL, getImageUrl } from "@/lib/cloudinary";
+
 type Maybe<T> = T | null | undefined;
 
 export type JsonLdNode = Record<string, unknown>;
@@ -93,7 +95,10 @@ export function toCanonicalUrl(pathname: string, site: string): string {
 }
 
 export function createOrganizationSchema(site: string, options?: { logoPath?: string }): JsonLdNode {
-  const logo = toAbsoluteUrl(options?.logoPath ?? "/images/logo-color.png", site);
+  const logo = toAbsoluteUrl(
+    options?.logoPath ? options.logoPath : getImageUrl(BRAND_LOGO_URL, { width: 512 }),
+    site,
+  );
   return compact({
     "@type": ["Organization", "ProfessionalService"],
     "@id": `${site}${ORG_ID}`,

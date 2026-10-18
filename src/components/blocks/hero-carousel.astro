@@ -98,6 +98,7 @@ const multiple = resolvedSlides.length > 1;
         aria-roledescription="slide"
         aria-label={`${index + 1} of ${resolvedSlides.length}: ${slide.label}`}
         aria-hidden={index === 0 ? 'false' : 'true'}
+        inert={index !== 0}
       >
         {slide.imageUrl && (
           <picture>
@@ -149,9 +150,15 @@ const multiple = resolvedSlides.length > 1;
               </p>
             )}
             {slide.title && (
-              <h1 class={`text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl ${textClassFor(slide.hasImage)} ${slide.design === 'banner' && slide.eyebrow ? 'mt-2' : ''}`}>
-                {slide.title}
-              </h1>
+              index === 0 ? (
+                <h1 class={`text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl ${textClassFor(slide.hasImage)} ${slide.design === 'banner' && slide.eyebrow ? 'mt-2' : ''}`}>
+                  {slide.title}
+                </h1>
+              ) : (
+                <p class={`text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl ${textClassFor(slide.hasImage)} ${slide.design === 'banner' && slide.eyebrow ? 'mt-2' : ''}`}>
+                  {slide.title}
+                </p>
+              )
             )}
             {slide.description && (
               <p class={`mt-4 text-lg max-w-2xl mx-auto ${slide.design === 'slide' ? 'line-clamp-3' : ''} ${mutedClassFor(slide.hasImage)}`}>
@@ -282,6 +289,8 @@ const multiple = resolvedSlides.length > 1;
         slide.classList.toggle('pointer-events-none', !active);
         (slide as HTMLElement).dataset.active = active ? 'true' : 'false';
         slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+        if (active) slide.removeAttribute('inert');
+        else slide.setAttribute('inert', '');
       });
       dots.forEach((dot, i) => {
         const active = i === index;

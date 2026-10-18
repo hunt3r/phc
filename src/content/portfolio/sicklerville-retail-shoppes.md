@@ -8,7 +8,7 @@ gallery:
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 1'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692535/images/portfolio/sicklerville-retail-shoppes/2020-04-09-09.54.08-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 2'
-  - src: /images/portfolio/sicklerville-retail-shoppes/Photo-May-07-9-32-26-AM.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792341891/images/portfolio/sicklerville-retail-shoppes/Photo-May-07-9-32-26-AM.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692536/images/portfolio/sicklerville-retail-shoppes/2020-07-09-11.10.08-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 4'

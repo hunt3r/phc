@@ -1,6 +1,10 @@
 ---
 import { getEntry } from 'astro:content';
 import { renderMarkdown } from '@/lib/markdown';
+import { BRAND_LOGO_URL, getImageSrcSet, getImageUrl } from '@/lib/cloudinary';
+
+const logoSrc = getImageUrl(BRAND_LOGO_URL, { width: 372 });
+const logoSrcSet = getImageSrcSet(BRAND_LOGO_URL, [372]);
 
 const year = new Date().getFullYear();
 
@@ -39,8 +43,8 @@ const contactInfoHtml = renderMarkdown(contactInfo);
       <div class="lg:col-span-2">
         <a href="/" class="inline-flex items-center gap-2" aria-label="PHC Home">
           <img
-            src="/images/logo-color-372.webp"
-            srcset="/images/logo-color-372.webp 372w"
+            src={logoSrc}
+            srcset={logoSrcSet}
             sizes="186px"
             alt="PH&C"
             class="h-10 w-auto"

@@ -28,5 +28,5 @@ sectors:
 *   32,000 sf Two story mixed use Medical Office and Retail Building redevelopment of existing Retail / Office campus
 *   16,000 SF of Retail Building: **[Starbucks](https://www.starbucks.com/store-locator/store/1008806/villanova-775-east-lancaster-avenue-villanova-center-villano), [First Watch](https://www.firstwatch.com/locations/villanova), [Bernie Robbins Jewelry](https://www.bernierobbins.com/stores/villanova), [Bulldog Yoga](https://www.bulldogyoga.com/location/villanova-pa/), Snap Kitchen**
 *   16,000 SF of Class A Office Space
-*   8,000 SF of Medical Offices for [**Bryn Mawr Dermatology**](http://www.brynmawrdermatology.com/bmd-vip/) and [**Cross Plastic Surgery Group**](https://crossplasticsurgery.com/)
+*   8,000 SF of Medical Offices for [**Bryn Mawr Dermatology**](https://www.brynmawrdermatology.com/bmd-vip/) and [**Cross Plastic Surgery Group**](https://crossplasticsurgery.com/)
 *   8,000 SF High tech office space

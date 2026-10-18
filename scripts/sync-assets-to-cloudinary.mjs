@@ -6,11 +6,13 @@
  * Optional: npm run sync:cloudinary -- --dry-run
  */
 
-import { readdir, readFile, writeFile, stat } from "fs/promises";
+import { readdir, readFile, writeFile, stat, mkdtemp, rm } from "fs/promises";
 import { join, relative, dirname } from "path";
+import { tmpdir } from "os";
 import { fileURLToPath } from "url";
 import { v2 as cloudinary } from "cloudinary";
 import matter from "gray-matter";
+import sharp from "sharp";
 
 const CLOUDINARY_MAX_SIZE = 10 * 1024 * 1024; // 10MB
 
@@ -71,6 +73,43 @@ function toPublicId(rel) {
   return withoutExt;
 }
 
+/**
+ * Cloudinary's image upload cap is 10MB. Shrink the longest edge until the
+ * JPEG fits, then upload that file. Delivery still uses f_auto,q_auto:eco.
+ */
+async function fileWithinUploadCap(filePath) {
+  const fileStat = await stat(filePath);
+  if (fileStat.size <= CLOUDINARY_MAX_SIZE) {
+    return { uploadPath: filePath, cleanup: async () => {} };
+  }
+
+  const dir = await mkdtemp(join(tmpdir(), "phc-img-"));
+  const out = join(dir, "upload.jpg");
+  const cleanup = () => rm(dir, { recursive: true, force: true });
+  let edge = 2500;
+  let quality = 82;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    await sharp(filePath)
+      .rotate()
+      .resize({ width: edge, height: edge, fit: "inside", withoutEnlargement: true })
+      .jpeg({ quality, mozjpeg: true })
+      .toFile(out);
+    const outStat = await stat(out);
+    if (outStat.size <= CLOUDINARY_MAX_SIZE) {
+      console.log(
+        "Resized for upload:",
+        filePath,
+        `(${(fileStat.size / 1024 / 1024).toFixed(1)}MB -> ${(outStat.size / 1024 / 1024).toFixed(1)}MB)`
+      );
+      return { uploadPath: out, cleanup };
+    }
+    edge = Math.round(edge * 0.7);
+    quality = 72;
+  }
+  await cleanup();
+  return { uploadPath: null, cleanup: async () => {} };
+}
+
 async function uploadFile(filePath) {
   const rel = relative(PUBLIC_DIR, filePath);
   const contentPath = "/" + rel.replace(/\\/g, "/");
@@ -78,46 +117,53 @@ async function uploadFile(filePath) {
   const folder = dir === "images" ? "images" : dir;
   const publicId = toPublicId(rel);
 
+  let prepared;
+  try {
+    prepared = await fileWithinUploadCap(filePath);
+  } catch (e) {
+    console.warn("Skip (could not prepare):", filePath, e.message);
+    return { contentPath, url: null };
+  }
+  if (!prepared.uploadPath) {
+    console.warn("Skip (still over 10MB after resize):", contentPath);
+    return { contentPath, url: null };
+  }
+
   if (dryRun) {
-    console.log("[dry-run] would upload:", filePath, "-> folder:", folder);
+    console.log("[dry-run] would upload:", prepared.uploadPath, "-> folder:", folder);
+    await prepared.cleanup();
     return { contentPath, url: `https://res.cloudinary.com/placeholder${contentPath}` };
   }
 
   try {
-    const fileStat = await stat(filePath);
-    if (fileStat.size > CLOUDINARY_MAX_SIZE) {
-      console.warn("Skip (file too large, max 10MB):", contentPath, `(${(fileStat.size / 1024 / 1024).toFixed(2)}MB)`);
+    try {
+      const existing = await cloudinary.api.resource(publicId, { resource_type: "image" });
+      if (existing && existing.secure_url) {
+        console.log("Exists:", contentPath, "->", existing.secure_url);
+        return { contentPath, url: existing.secure_url };
+      }
+    } catch (e) {
+      if (e.error?.http_code !== 404 && e.error?.message !== "Not Found") {
+        console.warn("Exists check failed:", contentPath, e.message);
+      }
+    }
+
+    try {
+      const result = await cloudinary.uploader.upload(prepared.uploadPath, {
+        public_id: publicId,
+        use_filename: false,
+        unique_filename: false,
+        overwrite: true,
+        resource_type: "image",
+      });
+      console.log("Uploaded:", contentPath, "->", result.secure_url);
+      return { contentPath, url: result.secure_url };
+    } catch (e) {
+      console.warn("Upload failed:", contentPath, e.message || e.error?.message || e);
       return { contentPath, url: null };
     }
-  } catch (e) {
-    console.warn("Skip (stat failed):", filePath, e.message);
-    return { contentPath, url: null };
-  }
-
-  try {
-    const existing = await cloudinary.api.resource(publicId, { resource_type: "image" });
-    if (existing && existing.secure_url) {
-      console.log("Exists:", contentPath, "->", existing.secure_url);
-      return { contentPath, url: existing.secure_url };
-    }
-  } catch (e) {
-    if (e.error?.http_code !== 404 && e.error?.message !== "Not Found") {
-      console.warn("Exists check failed:", contentPath, e.message);
-    }
-  }
-
-  try {
-    const result = await cloudinary.uploader.upload(filePath, {
-      folder,
-      use_filename: true,
-      unique_filename: false,
-      resource_type: "auto",
-    });
-    console.log("Uploaded:", contentPath, "->", result.secure_url);
-    return { contentPath, url: result.secure_url };
-  } catch (e) {
-    console.warn("Upload failed:", contentPath, e.message || e.error?.message || e);
-    return { contentPath, url: null };
+  } finally {
+    await prepared.cleanup();
   }
 }
 

@@ -20,7 +20,7 @@ gallery:
     alt: 'Wawa - West Whiteland Township (Exton), PA - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692819/images/portfolio/wawa-west-whiteland-exton-pa/2024-03-04-14.16.21-scaled.jpg'
     alt: 'Wawa - West Whiteland Township (Exton), PA - image 4'
-  - src: /images/portfolio/wawa-west-whiteland-exton-pa/2024-03-12-11.29.12.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792341894/images/portfolio/wawa-west-whiteland-exton-pa/2024-03-12-11.29.12.jpg'
     alt: 'Wawa - West Whiteland Township (Exton), PA - image 5'
 sectors:
   - retail

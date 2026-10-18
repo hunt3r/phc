@@ -25,7 +25,7 @@ Development of this former plant nursery, along the busy commercial corridor of 
 *   Major rock removal (drilling and blasting) for site development.
 *   New traffic signal, and road widening to the intersection of Bethlehem Pike (Route 309) and Stump Road in Montgomery Township.
 *   5,585 SF **[Wawa Food Market](https://www.wawa.com/)** with 8 fuel stations
-*   2,566 SF **[Wendy’s Restaurant](http://www.wendys.com)**
+*   2,566 SF **[Wendy’s Restaurant](https://www.wendys.com)**
 *   2,676 SF [**Citadel Bank**](https://www.citadelbanking.com/)
 *   13,400 SF 2-story mixed-use building
 *   6,000 SF retail building

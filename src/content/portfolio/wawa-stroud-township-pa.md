@@ -13,7 +13,7 @@ gallery:
     alt: 'Wawa - Stroud Township, PA - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692799/images/portfolio/wawa-stroud-township-pa/Photo-May-07-2024-10-57-13-AM-scaled.jpg'
     alt: 'Wawa - Stroud Township, PA - image 4'
-  - src: /images/portfolio/wawa-stroud-township-pa/Photo-Mar-20-2024-9-05-19-AM.jpg
+  - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792341892/images/portfolio/wawa-stroud-township-pa/Photo-Mar-20-2024-9-05-19-AM.jpg'
     alt: 'Wawa - Stroud Township, PA - image 5'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692796/images/portfolio/wawa-stroud-township-pa/2023-08-03-10.35.46-scaled.jpg'
     alt: 'Wawa - Stroud Township, PA - image 6'

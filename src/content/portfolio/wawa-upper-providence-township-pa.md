@@ -22,7 +22,7 @@ services:
 ---
 **Key Features:**
 
-*   Asbestos/hazardous material abatement and demolition of 3 structures, including the existing **[Wawa](http://www.wawa.com)** store.
+*   Asbestos/hazardous material abatement and demolition of 3 structures, including the existing **[Wawa](https://www.wawa.com)** store.
 *   5,051 SF Food Market with 10 fuel stations
 *   Improvements to access, parking and blacktop surfaces for neighboring business, _**[QystTire.com Automotive Service Centers](https://www.qysttire.com/)**_.
 *   Landscape improvements and retaining walls for neighboring residences.

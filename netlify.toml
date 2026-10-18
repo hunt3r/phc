@@ -17,3 +17,13 @@
   to = "/sitemap-index.xml"
   status = 301
   force = true
+
+# Report-only CSP so a missing host is visible without blanking the page.
+# Tina, Cloudinary, YouTube, Analytics, and Netlify reCAPTCHA are allowed.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com https://identity.netlify.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://res.cloudinary.com https://i.ytimg.com https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://res.cloudinary.com https://identity.netlify.com https://content.tinajs.io; media-src 'self' https://res.cloudinary.com; object-src 'none'; base-uri 'self'; form-action 'self'"

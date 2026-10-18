@@ -34,4 +34,4 @@ services:
 *   13,200 SF new facility including wood stick frame with wood truss system, EIFS, stone & brick facade, all mechanical equipment installed in attic/roof level, and polished concrete floors
 *   Approximately $3.3 million Project
 
-[www.chesterbrookacademy.com](http://www.chesterbrookacademy.com)
+[www.chesterbrookacademy.com](https://www.chesterbrookacademy.com)

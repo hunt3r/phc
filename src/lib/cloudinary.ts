@@ -6,6 +6,10 @@
 const CLOUDINARY_URL_PATTERN =
   /^https:\/\/res\.cloudinary\.com\/[^/]+\/image\/upload\//;
 
+/** Full-color wordmark. Delivery transforms are applied with getImageUrl. */
+export const BRAND_LOGO_URL =
+  "https://res.cloudinary.com/djkpy86pu/image/upload/v1792341785/images/logo-color.png";
+
 export function isCloudinarySrc(src: string | undefined): boolean {
   if (!src?.trim()) return false;
   const s = src.trim();

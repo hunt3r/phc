@@ -22,6 +22,6 @@ Key Features:
 
 *   5,535 sf [**Wawa Food Market**](https://www.wawa.com/) with 16 fuel stations
 *   8,000 sf Retail Building with Drive-Thru
-    *   [**Smile Exchange**](http://www.smileexchange.com), [**Good Shepherd Penn Partners**](https://www.pennpartners.org/find-a-location/west-norriton) and Shake Shack Retail Fit-Outs
+    *   [**Smile Exchange**](https://www.smileexchange.com), [**Good Shepherd Penn Partners**](https://www.pennpartners.org/find-a-location/west-norriton) and Shake Shack Retail Fit-Outs
 *   3800 sf [**Citadel Bank** w/ 3 Drive Thru Lanes](https://www.citadelbanking.com/citadel-locations/citadel-west-norriton)
 *   PennDOT Signal & Access Improvements
