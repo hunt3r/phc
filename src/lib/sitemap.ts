@@ -1,8 +1,9 @@
 import { getCollection, getEntry } from 'astro:content';
 import { withStaffSlugs } from '@/data/staff';
+import { sitemapOrigin } from '@/lib/sitemap-origin.mjs';
 import { tagsWithRoot } from '@/lib/tags';
 
-const SITE = (import.meta.env.SITE ?? 'https://www.phandc.net').replace(/\/$/, '');
+const SITE = sitemapOrigin();
 
 const STATIC_PATHS = [
   '/',

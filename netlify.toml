@@ -1,6 +1,10 @@
 [build]
   command = "npm run build:admin && npm run build"
 
+# Sitemap locs. Local builds omit this and use http://localhost:4321.
+[build.environment]
+  SITEMAP_SITE = "https://www.phandc.net"
+
 [functions]
   node_bundler = "esbuild"
 
