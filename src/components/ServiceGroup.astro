@@ -16,6 +16,8 @@ interface Props {
     src: string;
     srcset: string;
   };
+  /** Short summary shown instead of `body` when set. */
+  description?: string;
   /** Rendered markdown body for this root service. */
   body?: any;
   /** Place the photo on the right from the lg breakpoint. Banner layout only. */
@@ -33,6 +35,7 @@ const {
   label,
   href,
   image,
+  description,
   body,
   imageOnEnd = false,
   layout = 'banner',
@@ -145,10 +148,16 @@ const gridClass = 'grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-
         </a>
       </h2>
       {
-        Body && (
-          <div class="prose-content [&_p:last-child]:mb-0">
-            <Body />
+        description ? (
+          <div class="prose-content">
+            <p class="mb-0">{description}</p>
           </div>
+        ) : (
+          Body && (
+            <div class="prose-content [&_p:last-child]:mb-0">
+              <Body />
+            </div>
+          )
         )
       }
       <a

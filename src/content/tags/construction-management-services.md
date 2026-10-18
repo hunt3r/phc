@@ -1,6 +1,6 @@
 ---
 label: Construction Management Services
-description: 'Hands-on management of every construction activity to keep your project on schedule, on budget, and built to standard.'
+description: 'Once a project moves into construction, PH&C manages every activity through to completion. We start with a detailed plan, execute it aggressively, and adapt as changes arise. Our staff works alongside contractors to anticipate issues and solve problems before they occur. As the link between owner and contractor, we give you the expertise to engage contractors on equal footing and avoid the cost and delays that come from miscommunication.'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788385212/tags/construction-management-services_pmiz1g.jpg'
 parent: src/content/tags/services.md
 order: 3

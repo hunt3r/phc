@@ -33,7 +33,7 @@ const resolvedImageSrcSet = imageSrc ? getImageSrcSet(imageSrc, CARD_WIDTHS, { q
 >
   <a
     href={href}
-    class="group flex min-h-0 flex-1 flex-col transition-all duration-150 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-xl"
+    class="group flex min-h-0 flex-1 flex-col hover:no-underline transition-all duration-150 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-xl"
   >
     {resolvedImageSrc && (
       <div class="relative aspect-[16/9] w-full shrink-0 overflow-hidden rounded-t-xl bg-gray-100 dark:bg-gray-700">
@@ -64,8 +64,8 @@ const resolvedImageSrcSet = imageSrc ? getImageSrcSet(imageSrc, CARD_WIDTHS, { q
       <p class="text-sm text-gray-600 line-clamp-3 dark:text-gray-400">
         {description || ' '}
       </p>
-      <div class="mt-auto flex items-center gap-1 text-sm font-medium text-primary hover:underline">
-        <span>View project</span>
+      <div class="mt-auto flex items-center gap-1 text-sm font-medium text-primary">
+        <span class="group-hover:underline">View project</span>
         <span
           aria-hidden="true"
           class="transition-transform duration-150 group-hover:translate-x-0.5"

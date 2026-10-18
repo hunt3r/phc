@@ -29,6 +29,7 @@ const sections = await Promise.all(
     id: tag.id,
     label: tag.data.label,
     href: tagHref(tag.id, tagMap),
+    description: tag.data.description?.trim() || undefined,
     Content: (await render(tag)).Content,
     image: tag.data.image
       ? {
@@ -148,6 +149,7 @@ const jsonLdNodes = [
                 label={section.label}
                 href={section.href}
                 image={section.image}
+                description={section.description}
                 body={section.Content}
                 layout="card"
                 children={section.children}
@@ -161,6 +163,7 @@ const jsonLdNodes = [
             href={row.section.href}
             image={row.section.image}
             imageOnEnd={row.imageOnEnd}
+            description={row.section.description}
             body={row.section.Content}
             layout="banner"
             children={row.section.children}

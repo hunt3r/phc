@@ -37,7 +37,7 @@ const HERO_WIDTHS = [640, 768, 960, 1280, 1600, 1920, 2560];
 const clampedOpacity = Math.min(Math.max(overlayOpacity ?? 85, 0), 100);
 const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
 const overlayIsDark = overlayColor === 'dark';
-const controlClass = 'text-white bg-primary hover:bg-primary/90 focus:ring-primary';
+const controlClass = 'text-white bg-brand-olive hover:bg-brand-olive/90 focus:ring-primary';
 const textClassFor = (hasImage: boolean) =>
   hasImage ? (overlayIsDark ? 'text-white' : 'text-gray-900') : 'text-gray-900 dark:text-gray-100';
 const mutedClassFor = (hasImage: boolean) =>

@@ -1,6 +1,6 @@
 ---
 label: 'Site Analysis, Property Assessment & Feasibility Studies'
-description: 'Full site analysis, facility assessment, feasibility studies, and due diligence so owners understand risks and costs before committing project funds.'
+description: 'Developers need to understand a project''s risks and costs before they commit their funds. PH&C leads site analysis, facility assessment, feasibility studies, and due diligence tailored to each project. We guide you through the information needed to judge feasibility one step at a time, so early spending stays focused on the most promising opportunities. You either move forward with confidence or pass on a project that doesn''t meet your criteria.'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788384540/tags/Site-Analysis_-Property-Assessment-Feasibility-Studies_apyrdz.jpg'
 parent: src/content/tags/services.md
 order: 1

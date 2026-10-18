@@ -1,6 +1,6 @@
 ---
 label: Pre-Construction Services
-description: 'Meticulous planning and coordination of design, entitlement, constructability, and cost before ground is broken.'
+description: 'A successful project begins long before ground is broken. PH&C manages the design, entitlement, constructability, and cost processes that set a project up to succeed. We help you assemble the right team from our network of experienced consultants, guide design and approvals against critical-path milestones, and fold cost feedback and value engineering into the design before procurement begins, so budgets and expectations are set before construction starts.'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788384970/tags/courtroom_oin2ov.jpg'
 parent: src/content/tags/services.md
 order: 0

@@ -9,6 +9,8 @@
   /* Primary identity */
   --color-primary: #6a7029;
   --color-secondary: #d7a900;
+  /* Fixed brand olive for solid fills behind white text; primary lightens in dark mode */
+  --color-brand-olive: #6a7029;
   /* Supporting */
   --color-brand-burnt: #a33f1f;
   --color-brand-gray: #988f86;
@@ -31,6 +33,8 @@
 
 /* Dark mode semantic overrides (class on html) */
 .dark {
+  /* #6a7029 is only ~3.7:1 on the dark background; this olive clears 4.5:1 */
+  --color-primary: #a3a93e;
   --color-bg: #0a0a0a;
   --color-surface: #171717;
   --color-text: #f9fafb;
@@ -100,7 +104,7 @@
     @apply prose-li:marker:text-primary;
     /* Emphasis */
     @apply prose-strong:font-semibold prose-strong:text-gray-900 dark:prose-strong:text-gray-100;
-    @apply prose-a:text-primary prose-a:underline prose-a:underline-offset-2 hover:prose-a:no-underline dark:prose-a:text-gray-200;
+    @apply prose-a:text-primary prose-a:underline prose-a:underline-offset-2 hover:prose-a:no-underline;
     /* Block-level spacing */
     @apply prose-blockquote:border-l-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-400;
     @apply prose-hr:border-gray-200 dark:prose-hr:border-gray-700 prose-hr:my-8;
@@ -132,7 +136,7 @@
     @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
   }
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 bg-primary text-white hover:bg-primary/90 focus:ring-primary;
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 bg-brand-olive text-white hover:bg-brand-olive/90 focus:ring-primary;
   }
   .btn-secondary {
     @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 border-2 border-primary text-primary bg-transparent hover:bg-primary/10 focus:ring-primary;

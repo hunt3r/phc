@@ -1,6 +1,6 @@
 ---
 label: Owner's Representation / Project Management Oversight
-description: Complete program management as your agent and point of control - your real estate construction department without the overhead.
+description: 'PH&C acts as the owner''s agent and single point of control, overseeing the entire project or any portion you choose to delegate. We work as if we were the real estate and construction department within your firm. You set the vision, budget, and priorities. We handle the day-to-day management, decisions, and coordination, giving you development, design, and construction expertise without the overhead of in-house staff.'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788385505/tags/handshake_ip2nes.jpg'
 parent: src/content/tags/services.md
 order: 4

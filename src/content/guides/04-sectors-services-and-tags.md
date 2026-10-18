@@ -12,21 +12,21 @@ This guide is kept up to date with the website. It opens for reading. Use **Edit
 Two tags have no parent. Leave them that way.
 
 - **Portfolio** is the top of the sectors. Its label is the title of the Portfolio page, and its image and description are that page's banner. The tags under it are the sectors in the portfolio menu. Each sector has its own page, and that page lists the projects that check it.
-- **Services** is the top of the services. The tags directly under it that have an **Order** number are the sections on the Services page. Each section shows that tag's image, its **Body**, and the services under it, grouped inside the section. A service under the section that itself has services under it is a heading, and those services are grouped beneath that heading. Two sections in a row that have no services under them sit side by side on a wide screen. Each of those tags also has its own page. A tag under Services with no Order is left off the Services page, so set an Order when you want a service to appear there.
+- **Services** is the top of the services. The tags directly under it that have an **Order** number are the sections on the Services page. Each section shows that tag's image, its **Description** (or its **Body** when Description is blank), and the services under it, grouped inside the section. A service under the section that itself has services under it is a heading, and those services are grouped beneath that heading. Two sections in a row that have no services under them sit side by side on a wide screen. Each of those tags also has its own page. A tag under Services with no Order is left off the Services page, so set an Order when you want a service to appear there.
 
 A new sector should use **Portfolio** as its parent, or another sector if it belongs underneath one. A new service should use **Services** as its parent, or a more specific service if it belongs underneath one. Do not leave Parent empty unless you are creating a new top-level group, which is rare and will not automatically get a menu of its own.
 
 ## What each field does
 
 - **Label** is the name visitors see, such as Retail.
-- **Description** is the short text under the title on that tag's page, and on the banner when the tag is used as a page header. Search results and AI summaries use it too. See **Search engines and AI**.
+- **Description** is the text under the title on that tag's page, and on the banner when the tag is used as a page header. Search results and AI summaries use it too. See **Search engines and AI**. For a service directly under **Services**, it is also the summary in that service's section on the Services page, so aim for about 70 words there and keep it in step with the Body when you rewrite one. Search results show only about the first 160 characters, so put the most important point first.
 - **Image** is the photo on the tag's page, on cards that feature it, and in the homepage hero when **Featured** is on.
 - **Parent Tag** decides which group this tag belongs to, as described above.
 - **Order** sorts the tag among its siblings. A smaller number comes first. On the Services page, a missing Order also means the tag is hidden from that page.
 - **Featured** puts the tag in the homepage hero when **Show featured tags** is on under **Hero** on **Home**. It also needs an image. The slide uses the label, description, and image, and links to this tag's page. The button says View, followed by the tag's label.
 - **Hero order** sets where the tag sits among the other featured tags in the homepage hero. A smaller number comes first. Leave it blank to place the tag after every numbered tag. Whether tags come before slides or projects is the **Order** list on **Home**. This does not change **Order** in the menus. See **Home page**.
 - **Videos** and **Content Cards** appear on the tag's page. See **Photos, videos, and content cards**.
-- **Body** is the longer writeup on the tag's own page. For a service directly under **Services**, it also appears in that section on the Services page.
+- **Body** is the longer writeup on the tag's own page. For a service directly under **Services**, it also appears in that section on the Services page when **Description** is blank.
 
 The file name is created from the label. Retail becomes a sector page under the portfolio section. A service becomes a page under the services section. Avoid renaming a tag after it is in use, because the address and the checkboxes on projects follow that name.
 
