@@ -1,0 +1,428 @@
+---
+import type { NavNode } from '@/lib/tags';
+import { navPath } from '@/lib/tags';
+import MobileNavSheetItem from './MobileNavSheetItem.astro';
+
+interface Props {
+  navTree: NavNode[];
+  activeId?: string;
+  label: string;
+  rootHref: string;
+  rootLabel: string;
+  /** Prefix for element ids. */
+  id: string;
+}
+
+const { navTree, activeId, label, rootHref, rootLabel, id } = Astro.props;
+const path = navPath(navTree, activeId);
+const current = path.at(-1);
+const parent = path.at(-2);
+const openIds = new Set(path.map((node) => node.entry.id));
+const allActive = !current;
+const currentLabel = current?.entry.data.label ?? rootLabel;
+const sheetId = `${id}-sheet`;
+const titleId = `${id}-sheet-title`;
+const valueId = `${id}-value`;
+---
+
+<button
+  type="button"
+  id={id}
+  class="flex w-full items-center gap-3 rounded-xl bg-surface px-3 py-2.5 text-left ring-1 ring-border transition hover:ring-primary/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+  aria-haspopup="dialog"
+  aria-expanded="false"
+  aria-controls={sheetId}
+  data-sheet-open
+  data-sheet-inline
+>
+  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20" aria-hidden="true">
+    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75Zm3 5A.75.75 0 0 1 5.75 9h11.5a.75.75 0 0 1 0 1.5H5.75A.75.75 0 0 1 5 9.75Zm3 5a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+    </svg>
+  </span>
+  <span class="min-w-0 flex-1" id={valueId}>
+    <span class="block truncate text-xs text-gray-500 dark:text-gray-400">
+      {label}{parent && <><span aria-hidden="true"> › </span><span class="sr-only">, </span>{parent.entry.data.label}</>}
+    </span>
+    <span class="block truncate text-base font-semibold text-gray-900 dark:text-gray-100">{currentLabel}</span>
+  </span>
+  <svg class="h-5 w-5 shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+  </svg>
+</button>
+
+<button
+  type="button"
+  class="nav-pill fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-40 flex max-w-[calc(100vw-2rem)] items-center gap-2 rounded-full bg-brand-olive py-3 pr-4 pl-3.5 text-sm font-semibold text-white shadow-lg shadow-black/30 ring-1 ring-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary lg:hidden"
+  aria-haspopup="dialog"
+  aria-expanded="false"
+  aria-controls={sheetId}
+  aria-label={`${label}: ${currentLabel}`}
+  inert
+  data-sheet-open
+  data-sheet-pill
+>
+  <svg class="h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75Zm3 5A.75.75 0 0 1 5.75 9h11.5a.75.75 0 0 1 0 1.5H5.75A.75.75 0 0 1 5 9.75Zm3 5a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+  </svg>
+  <span class="truncate">{currentLabel}</span>
+  <svg class="h-4 w-4 shrink-0 opacity-80" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <path fill-rule="evenodd" d="M14.78 11.78a.75.75 0 0 1-1.06 0L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+  </svg>
+</button>
+
+<dialog
+  id={sheetId}
+  class="nav-sheet inset-0 m-0 h-full max-h-none w-full max-w-none overflow-clip overscroll-contain border-0 bg-transparent p-0 outline-none"
+  aria-labelledby={titleId}
+  autofocus
+  data-sheet
+>
+  <div class="nav-sheet-backdrop absolute inset-0 touch-none bg-black/45" data-sheet-backdrop></div>
+  <div
+    class="nav-sheet-panel absolute inset-x-0 bottom-0 flex max-h-[85svh] flex-col overflow-clip rounded-t-2xl border-t border-secondary/80 bg-white text-gray-900 shadow-2xl sm:mx-auto sm:max-w-xl dark:border-[#e8d49a]/60 dark:bg-[#141612] dark:text-gray-100"
+    data-sheet-panel
+  >
+    <div class="shrink-0 cursor-grab touch-none select-none px-4 pt-2 pb-2 active:cursor-grabbing" data-sheet-drag>
+      <div class="mx-auto mb-2 h-1.5 w-10 rounded-full bg-gray-300 dark:bg-gray-600" aria-hidden="true"></div>
+      <div class="flex items-center justify-between gap-3">
+        <h2 id={titleId} class="text-lg font-semibold">{label}</h2>
+        <button
+          type="button"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100"
+          aria-label="Close"
+          data-sheet-close
+        >
+          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav
+      class="min-h-0 flex-1 overflow-y-auto overscroll-contain border-t border-gray-200 px-3 pt-2 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-gray-800"
+      aria-label={label}
+      data-sheet-body
+    >
+      <ul class="space-y-0.5">
+        <li>
+          <a
+            href={rootHref}
+            aria-current={allActive ? 'page' : undefined}
+            data-sheet-active={allActive ? '' : undefined}
+            class={`relative flex min-h-11 items-center gap-2 rounded-lg px-3 py-2 font-heading text-base font-semibold no-underline transition-colors hover:no-underline ${
+              allActive
+                ? 'bg-primary/10 text-primary before:absolute before:inset-y-2 before:left-0 before:w-1 before:rounded-full before:bg-primary dark:bg-primary/20'
+                : 'text-gray-900 hover:bg-gray-100 active:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-800 dark:active:bg-gray-800'
+            }`}
+          >
+            <span class="flex-1">{rootLabel}</span>
+            {allActive && (
+              <svg class="h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+              </svg>
+            )}
+          </a>
+        </li>
+        {navTree.map((node) => (
+          <MobileNavSheetItem node={node} activeId={activeId} openIds={openIds} idPrefix={id} />
+        ))}
+      </ul>
+    </nav>
+  </div>
+</dialog>
+
+<script>
+  const CLOSE_DISTANCE = 80;
+  const CLOSE_VELOCITY = 0.5;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  document.querySelectorAll<HTMLDialogElement>('[data-sheet]').forEach((sheet) => {
+    const triggers = [...document.querySelectorAll<HTMLButtonElement>(`[aria-controls="${sheet.id}"][data-sheet-open]`)];
+    const inline = triggers.find((button) => button.hasAttribute('data-sheet-inline'));
+    const pill = triggers.find((button) => button.hasAttribute('data-sheet-pill'));
+    const panel = sheet.querySelector<HTMLElement>('[data-sheet-panel]');
+    const backdrop = sheet.querySelector<HTMLElement>('[data-sheet-backdrop]');
+    const body = sheet.querySelector<HTMLElement>('[data-sheet-body]');
+    const drag = sheet.querySelector<HTMLElement>('[data-sheet-drag]');
+    if (!inline || !panel || !backdrop || !body || !drag) return;
+
+    let closing = false;
+    let opener: HTMLButtonElement = inline;
+
+    const setExpanded = (expanded: boolean) => {
+      triggers.forEach((button) => button.setAttribute('aria-expanded', String(expanded)));
+    };
+
+    const clearDragStyles = () => {
+      panel.style.transition = '';
+      panel.style.transform = '';
+      backdrop.style.transition = '';
+      backdrop.style.opacity = '';
+    };
+
+    const activeRow = () => body.querySelector<HTMLElement>('[data-sheet-active]');
+
+    const centerActive = () => {
+      const active = activeRow();
+      if (!active) return;
+      const offset = active.getBoundingClientRect().top - body.getBoundingClientRect().top;
+      body.scrollTop += offset - (body.clientHeight - active.offsetHeight) / 2;
+    };
+
+    const open = (event: Event) => {
+      if (sheet.open) return;
+      opener = event.currentTarget as HTMLButtonElement;
+      closing = false;
+      sheet.showModal();
+      setExpanded(true);
+      centerActive();
+      void panel.offsetHeight;
+      requestAnimationFrame(() => {
+        sheet.setAttribute('data-visible', '');
+        activeRow()?.focus({ preventScroll: true });
+      });
+    };
+
+    const finishClose = () => {
+      if (!closing) return;
+      closing = false;
+      sheet.close();
+    };
+
+    const close = (flick = false) => {
+      if (!sheet.open || closing) return;
+      closing = true;
+      clearDragStyles();
+      if (flick) panel.style.transition = 'transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1)';
+      sheet.removeAttribute('data-visible');
+      if (reducedMotion.matches) {
+        finishClose();
+        return;
+      }
+      const onEnd = (event: TransitionEvent) => {
+        if (event.target !== panel || event.propertyName !== 'transform') return;
+        panel.removeEventListener('transitionend', onEnd);
+        finishClose();
+      };
+      panel.addEventListener('transitionend', onEnd);
+      window.setTimeout(finishClose, 400);
+    };
+
+    sheet.addEventListener('close', () => {
+      closing = false;
+      sheet.removeAttribute('data-visible');
+      clearDragStyles();
+      setExpanded(false);
+      (opener.inert ? inline : opener).focus({ preventScroll: true });
+    });
+
+    triggers.forEach((button) => button.addEventListener('click', open));
+    sheet.querySelector('[data-sheet-close]')?.addEventListener('click', () => close());
+    backdrop.addEventListener('click', () => close());
+    backdrop.addEventListener('wheel', (event) => event.preventDefault(), { passive: false });
+
+    sheet.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      close();
+    });
+
+    body.addEventListener('click', (event) => {
+      const toggle = (event.target as Element).closest<HTMLButtonElement>('[data-sheet-toggle]');
+      if (!toggle) return;
+      const group = document.getElementById(toggle.getAttribute('aria-controls') ?? '');
+      if (!group) return;
+      const expanded = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(expanded));
+      group.toggleAttribute('data-open', expanded);
+      group.toggleAttribute('inert', !expanded);
+    });
+
+    let startY = 0;
+    let dragY = 0;
+    let dragging = false;
+    let lastY = 0;
+    let lastTime = 0;
+    let velocity = 0;
+
+    const beginDrag = (y: number) => {
+      if (closing) return;
+      dragging = true;
+      startY = y;
+      dragY = 0;
+      lastY = y;
+      lastTime = performance.now();
+      velocity = 0;
+      panel.style.transition = 'none';
+      backdrop.style.transition = 'none';
+    };
+
+    const moveDrag = (y: number) => {
+      const now = performance.now();
+      velocity = (y - lastY) / Math.max(1, now - lastTime);
+      lastY = y;
+      lastTime = now;
+      dragY = Math.max(0, y - startY);
+      panel.style.transform = `translate3d(0, ${dragY}px, 0)`;
+      backdrop.style.opacity = String(Math.max(0, 1 - dragY / panel.offsetHeight));
+    };
+
+    const endDrag = () => {
+      if (!dragging) return;
+      dragging = false;
+      if (performance.now() - lastTime > 100) velocity = 0;
+      if (dragY > CLOSE_DISTANCE || velocity > CLOSE_VELOCITY) {
+        close(velocity > CLOSE_VELOCITY);
+      } else {
+        clearDragStyles();
+      }
+    };
+
+    drag.addEventListener('pointerdown', (event) => {
+      if ((event.target as Element).closest('button')) return;
+      beginDrag(event.clientY);
+      drag.setPointerCapture(event.pointerId);
+    });
+    drag.addEventListener('pointermove', (event) => {
+      if (dragging) moveDrag(event.clientY);
+    });
+    drag.addEventListener('pointerup', endDrag);
+    drag.addEventListener('pointercancel', endDrag);
+
+    let touchStartY = 0;
+    let prevTouchY = 0;
+    let canPull = false;
+
+    body.addEventListener(
+      'touchstart',
+      (event) => {
+        touchStartY = prevTouchY = event.touches[0].clientY;
+        canPull = body.scrollTop <= 0;
+      },
+      { passive: true }
+    );
+    body.addEventListener(
+      'touchmove',
+      (event) => {
+        const y = event.touches[0].clientY;
+        const movingUp = y < prevTouchY;
+        prevTouchY = y;
+        if (!dragging) {
+          const atBottom = body.scrollTop + body.clientHeight >= body.scrollHeight - 1;
+          if (movingUp && atBottom) {
+            event.preventDefault();
+            return;
+          }
+          if (!canPull || body.scrollTop > 0) return;
+          if (y - touchStartY < 0) {
+            canPull = false;
+            return;
+          }
+          if (y - touchStartY < 6) return;
+          beginDrag(y);
+        }
+        event.preventDefault();
+        moveDrag(y);
+      },
+      { passive: false }
+    );
+    body.addEventListener('touchend', endDrag);
+    body.addEventListener('touchcancel', endDrag);
+
+    if (!pill) return;
+
+    const headerHeight = document.querySelector('header')?.offsetHeight ?? 0;
+    new IntersectionObserver(
+      ([entry]) => {
+        const shown =
+          !entry.isIntersecting && entry.boundingClientRect.top < (entry.rootBounds?.top ?? 0);
+        pill.toggleAttribute('data-shown', shown);
+        pill.inert = !shown;
+      },
+      { rootMargin: `-${headerHeight}px 0px 0px 0px` }
+    ).observe(inline);
+  });
+</script>
+
+<style>
+  .nav-pill {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, calc(100% + 1.5rem));
+    transition:
+      transform 220ms cubic-bezier(0.4, 0, 1, 1),
+      opacity 180ms ease;
+  }
+
+  .nav-pill[data-shown] {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    transition:
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 200ms ease;
+  }
+
+  .nav-pill:active {
+    transform: translate(-50%, 0) scale(0.97);
+  }
+
+  @media (width < 64rem) {
+    :global(body:has([data-sheet-pill]) footer) {
+      padding-bottom: calc(max(1rem, env(safe-area-inset-bottom)) + 4rem);
+    }
+  }
+
+  .nav-sheet::backdrop {
+    background: transparent;
+  }
+
+  .nav-sheet-panel {
+    transform: translate3d(0, calc(100% + 2rem), 0);
+    transition: transform 260ms cubic-bezier(0.4, 0, 1, 1);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  .nav-sheet-backdrop {
+    opacity: 0;
+    transition: opacity 260ms ease;
+  }
+
+  .nav-sheet[data-visible] .nav-sheet-panel {
+    transform: translate3d(0, 0, 0);
+    transition-duration: 480ms;
+    transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .nav-sheet[data-visible] .nav-sheet-backdrop {
+    opacity: 1;
+    transition-duration: 480ms;
+  }
+
+  .nav-sheet :global(.sheet-group) {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+      grid-template-rows 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 180ms ease;
+  }
+
+  .nav-sheet :global(.sheet-group[data-open]) {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-pill,
+    .nav-pill[data-shown],
+    .nav-sheet-panel,
+    .nav-sheet-backdrop,
+    .nav-sheet[data-visible] .nav-sheet-panel,
+    .nav-sheet[data-visible] .nav-sheet-backdrop,
+    .nav-sheet :global(.sheet-group) {
+      transition: none;
+    }
+  }
+</style>

@@ -50,7 +50,7 @@ const jsonLdNodes = [
 ];
 ---
 
-<BaseLayout title={serviceLabel} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs}>
+<BaseLayout title={serviceLabel} description={ogDescription} image={entry.data.image} jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs} breadcrumbsDesktopOnly>
   {entry.data.image && (
     <TinaIsland slot="hero" name="tagHero" wrapper={islands.tagHero.wrapper} params={{ slug: entry.id }} primary>
       <HeroPage

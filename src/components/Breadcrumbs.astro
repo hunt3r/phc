@@ -3,9 +3,10 @@ import type { BreadcrumbItem } from '@/lib/seo/jsonld';
 
 interface Props {
   items?: BreadcrumbItem[];
+  desktopOnly?: boolean;
 }
 
-const { items = [] } = Astro.props;
+const { items = [], desktopOnly = false } = Astro.props;
 const trail = items.filter((item) => item.name);
 
 const hrefOf = (item: BreadcrumbItem) => item.path ?? item.url;
@@ -13,7 +14,10 @@ const hrefOf = (item: BreadcrumbItem) => item.path ?? item.url;
 
 {trail.length > 1 && (
   <nav
-    class="relative left-1/2 mb-6 w-screen -translate-x-1/2 border-b border-border bg-surface shadow-[inset_0_1px_0_rgba(215,169,0,0.55)]"
+    class:list={[
+      'relative left-1/2 mb-6 w-screen -translate-x-1/2 border-b border-border bg-surface shadow-[inset_0_1px_0_rgba(215,169,0,0.55)]',
+      desktopOnly && 'hidden lg:block',
+    ]}
     aria-label="Breadcrumb"
     data-breadcrumbs
   >

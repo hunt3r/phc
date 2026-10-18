@@ -33,6 +33,8 @@ interface Props {
   image?: string;
   jsonLdNodes?: Record<string, unknown>[];
   breadcrumbs?: BreadcrumbItem[];
+  /** Hide the visible breadcrumb below `lg`, where the section picker shows the same path. */
+  breadcrumbsDesktopOnly?: boolean;
   ogType?: string;
   datePublished?: string;
   dateModified?: string;
@@ -47,6 +49,7 @@ const {
   image,
   jsonLdNodes = [],
   breadcrumbs,
+  breadcrumbsDesktopOnly = false,
   ogType = 'website',
   datePublished,
   dateModified,
@@ -244,7 +247,7 @@ const baseJsonLd = createGraphSchema([
     <main class="flex-1">
       <div class="mx-auto max-w-8xl px-4 pt-0 pb-8 sm:px-6 lg:px-8">
         <slot name="hero" />
-        <Breadcrumbs items={breadcrumbs} />
+        <Breadcrumbs items={breadcrumbs} desktopOnly={breadcrumbsDesktopOnly} />
         <slot />
       </div>
     </main>

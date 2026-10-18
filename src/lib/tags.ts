@@ -258,21 +258,18 @@ export async function getServicesNavTree(): Promise<NavNode[]> {
 }
 
 /**
- * Flatten a nav tree into a depth-annotated list in tree order, for rendering
- * the mobile dropdown where nesting is conveyed via indentation.
+ * The chain of nodes from a top-level group down to `activeId` (inclusive),
+ * or an empty list when it is not in the tree. Every node but the last is an
+ * ancestor whose branch the mobile nav opens by default.
  */
-export function flattenNavTree(
-  nodes: NavNode[],
-  depth = 0
-): { node: NavNode; depth: number }[] {
-  const result: { node: NavNode; depth: number }[] = [];
+export function navPath(nodes: NavNode[], activeId?: string): NavNode[] {
+  if (!activeId) return [];
   for (const node of nodes) {
-    result.push({ node, depth });
-    if (node.children.length) {
-      result.push(...flattenNavTree(node.children, depth + 1));
-    }
+    if (node.entry.id === activeId) return [node];
+    const rest = navPath(node.children, activeId);
+    if (rest.length) return [node, ...rest];
   }
-  return result;
+  return [];
 }
 
 /**

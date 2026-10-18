@@ -1,0 +1,73 @@
+---
+import type { NavNode } from '@/lib/tags';
+import Self from './MobileNavSheetItem.astro';
+
+interface Props {
+  node: NavNode;
+  activeId?: string;
+  openIds: Set<string>;
+  idPrefix: string;
+  depth?: number;
+}
+
+const { node, activeId, openIds, idPrefix, depth = 0 } = Astro.props;
+const label = node.entry.data.label;
+const isActive = node.entry.id === activeId;
+const hasChildren = node.children.length > 0;
+const open = openIds.has(node.entry.id);
+const groupId = `${idPrefix}-${node.entry.id.replace(/[^a-z0-9-]/gi, '-')}`;
+
+const depthClass =
+  depth === 0
+    ? 'font-heading text-base font-semibold text-gray-900 dark:text-gray-100'
+    : depth === 1
+      ? 'text-sm font-medium text-gray-700 dark:text-gray-300'
+      : 'text-sm text-gray-500 dark:text-gray-400';
+---
+
+<li>
+  <div class="flex items-center gap-1">
+    <a
+      href={node.href}
+      aria-current={isActive ? 'page' : undefined}
+      data-sheet-active={isActive ? '' : undefined}
+      class={`relative flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-lg px-3 py-2 no-underline transition-colors hover:no-underline ${
+        isActive
+          ? 'bg-primary/10 font-semibold text-primary before:absolute before:inset-y-2 before:left-0 before:w-1 before:rounded-full before:bg-primary dark:bg-primary/20'
+          : `${depthClass} hover:bg-gray-100 active:bg-gray-100 dark:hover:bg-gray-800 dark:active:bg-gray-800`
+      } ${isActive && depth === 0 ? 'font-heading text-base' : isActive ? 'text-sm' : ''}`}
+    >
+      <span class="min-w-0 flex-1">{label}</span>
+      {isActive && (
+        <svg class="h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+        </svg>
+      )}
+    </a>
+    {hasChildren && (
+      <button
+        type="button"
+        class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-gray-100 hover:text-primary dark:text-gray-400 dark:hover:bg-gray-800 [&[aria-expanded=true]>svg]:rotate-180"
+        aria-expanded={open ? 'true' : 'false'}
+        aria-controls={groupId}
+        aria-label={`Show ${label} pages`}
+        data-sheet-toggle
+      >
+        <svg class="h-5 w-5 transition-transform duration-200 ease-out motion-reduce:transition-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    )}
+  </div>
+  {hasChildren && (
+    <div id={groupId} class="sheet-group" data-open={open ? '' : undefined} inert={!open}>
+      <div class="min-h-0 overflow-hidden">
+        <ul class="ml-5 space-y-0.5 border-l border-gray-200 py-0.5 pl-2 dark:border-gray-700">
+          {node.children.map((child) => (
+            <Self node={child} activeId={activeId} openIds={openIds} idPrefix={idPrefix} depth={depth + 1} />
+          ))}
+        </ul>
+      </div>
+    </div>
+  )}
+</li>
