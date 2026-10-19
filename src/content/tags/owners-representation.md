@@ -1,7 +1,7 @@
 ---
 label: Owner's Representation / Project Management Oversight
 description: 'PH&C acts as your owner''s representative, managing the designers, contractors, and agencies against the budget and schedule you set.'
-image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788385505/tags/handshake_ip2nes.jpg'
+image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1792371094/tags/unsplash-business-handshake.jpg'
 parent: src/content/tags/services.md
 order: 4
 featured: true
