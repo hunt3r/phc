@@ -10,13 +10,13 @@ Before an architect draws a line, someone has to decide what the building is for
 
 ## What goes into a program
 
-The details depend on the building. A grocery program covers the sales floor, back-of-house and refrigeration, the loading dock and truck access, and a parking count both the tenant and the township will accept. A medical office needs exam room counts, patient flow, and a clear line between public and staff areas. A residential community starts with unit mix, lot sizes, and amenities.
+The details depend on the building. A grocery store project covers the sales floor, back-of-house and refrigeration, the loading dock and truck access, and a parking count both the tenant and the township will accept. A medical office needs exam room counts, patient flow, and a clear line between public and staff areas. A residential community starts with unit mix, lot sizes, and amenities.
 
-In each case, we turn the owner's business plan into numbers a designer can draw and an estimator can price.
+In each case, we review the owner's business plan, compare to their designer's concept plan, value engineer and generate budgets to develop the land and build the structures.
 
 ## Why it saves money later
 
-Most redesign comes from requirements that shift after drawings are underway. When a new request comes in mid-design, such as more space, a drive-through, or a different tenant, we check it against the program and show ownership what it does to cost and schedule before anyone redraws.
+Most redesign comes from requirements that shift after drawings are underway. When a new request comes in mid-design, such as more space, a drive-through, or a different tenant, we check it against the program and show ownership what it does to cost and schedule before any redesign work.
 
 The program is also the baseline we measure scope, cost, and schedule against through construction.
 
