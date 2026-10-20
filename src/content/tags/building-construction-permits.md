@@ -6,7 +6,7 @@ parent: src/content/tags/project-planning-coordination.md
 order: 13
 ---
 
-The building permit is the municipality's review of the architectural, structural, mechanical, electrical, plumbing, and accessibility drawings. Land development approval does not replace it. PH\&C manages the building permit process so the contractor can mobilize when planned.
+The building permit is the municipality's review of the architectural, structural, mechanical, electrical, plumbing, and accessibility drawings. There are also other permits required such as signage. Land development approval does not address these. PH\&C identifies and manages all the required permits, and gets them in process so the contractor can mobilize when planned and the project can get underway.
 
 ## What PH\&C handles
 
