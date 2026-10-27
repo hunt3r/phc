@@ -6,7 +6,7 @@ parent: src/content/tags/project-planning-coordination.md
 order: 14
 ---
 
-The pre-construction meeting is the last inexpensive chance to settle how the job will run. PH\&C leads it. The owner, the design team, and the contractors review the contract documents, the schedule, and the site rules together before work begins.
+The pre-construction meeting is the last inexpensive chance to settle how the job will run. PH\&C leads it for the owner(s) so the design team and the contractors can review the project processes and discuss the schedule, as well as gather and organize important documents before work begins.
 
 ## What PH\&C handles
 
