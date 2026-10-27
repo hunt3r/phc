@@ -6,23 +6,23 @@ parent: src/content/tags/project-planning-coordination.md
 order: 5
 ---
 
-A pro forma says the project works. A budget says what it will cost to build. PH&C prepares the budget and tests it against your financial model, so you learn about a gap while the design can still change.
+A pro forma confirms that the project works. A budget details what it will cost to build. PH\&C prepares the budget and tests it against your financial model, and has the ability to offer value engineering to reduce project costs if needed while the design can still change.
 
-## What PH&C handles
+## What PH\&C handles
 
-- Hard costs: site work, building construction, and tenant improvements.
-- Soft costs: design and engineering fees, permits and approval fees, legal, insurance, financing, and brokerage.
-- Contingency sized to the stage of design and named for the risks it covers.
-- Comparison of the budget against your return targets, rents, or sale assumptions.
-- Reconciliation each time the design, the program, or the estimate changes.
-- Alternatives that bring cost back in line, with the trade-offs spelled out.
+* Hard costs: site work, building construction, and tenant improvements.
+* Soft costs: design and engineering fees, permits and approval fees, legal, insurance, financing, and brokerage.
+* Contingency sized to the stage of design and named for the risks it covers.
+* Comparison of the budget against your return targets, rents, or sale assumptions.
+* Reconciliation each time the design, the program, or the estimate changes.
+* Alternatives that bring cost back in line, with the trade-offs spelled out.
 
 ## What you get
 
-- A budget organized the same way your lender and your accountants organize the project.
-- Variance reports that flag a change before it is committed.
-- Clear separation of site, building, and tenant scopes, which keeps responsibility and cost easy to follow.
-- A basis for decisions such as reducing scope, changing materials, or phasing the work.
+* A budget organized the same way your lender and your accountants organize the project.
+* Variance reports that flag a change before it is committed.
+* Clear separation of site, building, and tenant scopes, which keeps responsibility and cost easy to follow.
+* A basis for decisions such as reducing scope, changing materials, or phasing the work.
 
 ## How it connects
 
