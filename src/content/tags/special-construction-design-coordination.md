@@ -6,7 +6,7 @@ parent: src/content/tags/project-planning-coordination.md
 order: 3
 ---
 
-Some parts of a building come from specialists rather than the architect's standard drawings. Refrigeration, process equipment, medical systems, specialty structures, and operator or tenant prototypes all arrive with their own engineers and their own requirements. PH\&C coordinates that work with the base building and the site before the field finds the conflict.
+Some parts of a building come from specialists rather than the architect's standard drawings. Refrigeration, process equipment, medical systems, specialty structures, and operator or tenant prototypes all arrive with their own engineers and their own requirements. PH\&C coordinates that work with the sitework and the building teams to anticipate and eliminate potential conflicts and scope gaps.
 
 ## What PH\&C handles
 
