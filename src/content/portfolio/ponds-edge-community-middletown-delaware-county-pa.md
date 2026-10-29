@@ -24,6 +24,24 @@ sectors:
   - residential
   - retail
   - government
+services:
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - geotechnical-investigations
+  - utility-coordination
+  - utility-service-coordination
+  - government-agency-coordination
+  - landscaping
+  - contractor-bidding-selection
+  - site-analysis-feasibility
 ---
 Pond’s Edge is a 197 unit townhouse community on approximately 55 acres in Middletown Township, Delaware County. This residential community project has been a great success, allowing our client to move forward with the opening of the final phase of home construction in late 2023 into 2024. 
 

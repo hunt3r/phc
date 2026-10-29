@@ -19,6 +19,19 @@ order: 34
 sectors:
   - self-storage
   - office
+services:
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - geotechnical-investigations
+  - site-analysis-feasibility
 ---
 This burgeoning suburban area is prime for a Multi-Story Climate Controlled Self Storage facility, A Storage Depot, developed using the latest sustainable stormwater management features, as well as unique construction practices. Stormwater management features were critical at this steep slope location.
 

@@ -21,6 +21,24 @@ services:
   - remediation
   - demolition
   - project-management
+  - owners-representation
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - npdes-permitting
+  - highway-permitting
+  - highway-access
+  - government-agency-coordination
+  - geotechnical-investigations
+  - utility-coordination
+  - utility-service-coordination
+  - contract-budget-management
+  - site-analysis-feasibility
 ---
 Assisting Wawa Corporation fulfill their expansion plans continues with this store in another key market targeted by Wawa and our developer client. As usual, this site had numerous redevelopment challenges including environmental remediation of multiple structures, demolition of said structures, wet and dry utility issues and relocations, storm water, vehicular and pedestrian management, as well as accessibility improvements and accommodating neighboring businesses during demolition and construction. All the while controlling costs and managing a budget while dealing with architects, engineering firms, numerous government agencies, utilities and contractors from geotechnical and underground investigations thru various construction segments. 
 

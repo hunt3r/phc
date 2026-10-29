@@ -32,6 +32,7 @@ services:
   - utility-coordination
   - utility-service-coordination
   - testing-agency-coordination
+  - owners-representation
 order: 53
 ---
 

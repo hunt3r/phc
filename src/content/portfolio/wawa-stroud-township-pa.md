@@ -23,6 +23,24 @@ sectors:
   - government
 services:
   - project-management
+  - owners-representation
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - npdes-permitting
+  - highway-permitting
+  - highway-access
+  - government-agency-coordination
+  - geotechnical-investigations
+  - utility-coordination
+  - utility-service-coordination
+  - contract-budget-management
+  - site-analysis-feasibility
 ---
 We continue our assistance in developing Wawa stores, and our newest opened in April 2025. Our work for a developer on their first ever Wawa store included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction.
 

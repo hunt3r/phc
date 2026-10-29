@@ -25,6 +25,18 @@ sectors:
   - institutional
 services:
   - landscaping
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - utility-coordination
+  - utility-service-coordination
 ---
 **Turnkey Private Preschool Facility**
 

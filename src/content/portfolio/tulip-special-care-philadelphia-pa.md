@@ -16,6 +16,11 @@ order: 63
 sectors:
   - healthcare
   - institutional
+services:
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
 ---
 **Tulip Special Care is a 60 bed Skilled Nursing Facility specializing in the care of ventilator dependent adults.**
 

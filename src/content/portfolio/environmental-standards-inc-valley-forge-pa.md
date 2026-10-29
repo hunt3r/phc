@@ -21,5 +21,9 @@ sectors:
   - office
 services:
   - remediation
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
 ---
 [Locations – Valley Forge, PA](https://www.envstd.com/locations-vf/)

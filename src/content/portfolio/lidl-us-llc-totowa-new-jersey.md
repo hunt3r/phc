@@ -36,6 +36,13 @@ services:
   - project-schedule-management
   - utility-coordination
   - utility-service-coordination
+  - owners-representation
+  - project-estimating-value-engineering
+  - project-contractor-procurement
+  - contractor-bidding-selection
+  - contract-budget-management
+  - project-planning-coordination
+  - pre-construction-services
 order: 3
 featured: true
 heroOrder: 3

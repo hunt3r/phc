@@ -18,6 +18,22 @@ sectors:
   - retail
 services:
   - remediation
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - npdes-permitting
+  - highway-permitting
+  - highway-access
+  - government-agency-coordination
+  - contract-budget-management
+  - site-analysis-feasibility
 ---
 Assisting the Wawa Corporation in fulfilling their expansion plans continued with this store in another key market targeted by Wawa and our developer client. As usual, this Wawa expansion site had numerous redevelopment challenges including environmental remediation, stormwater, vehicular and pedestrian management. As well as accessibility improvements and accommodating neighboring businesses.  All the while controlling costs and budget management.
 

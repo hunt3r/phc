@@ -21,6 +21,14 @@ sectors:
   - retail
 services:
   - project-management
+  - owners-representation
+  - construction-management-services
+  - construction-coordination-supervision
+  - project-estimating-value-engineering
+  - project-contractor-procurement
+  - contractor-bidding-selection
+  - project-planning-coordination
+  - pre-construction-services
 ---
 Owner invested in a needed renovation of this popular suburban shopping center, updating the façade appearance to a more modern design, improving the pedestrian circulation and accessibility, and increasing the lighting levels, and electrical efficiency of the site lighting. PH&C oversaw the project’s execution in this open and operating shopping center, while saving the owner costs by value engineering certain design aspect, and prime contracting of various specialty contractors. 
 

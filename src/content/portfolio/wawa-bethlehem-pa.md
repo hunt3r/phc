@@ -21,6 +21,24 @@ services:
   - remediation
   - demolition
   - project-management
+  - owners-representation
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - npdes-permitting
+  - highway-permitting
+  - highway-access
+  - government-agency-coordination
+  - geotechnical-investigations
+  - utility-coordination
+  - utility-service-coordination
+  - contract-budget-management
+  - site-analysis-feasibility
 ---
 We are proud to continue with our assistance in developing another Wawa store that opened in December 2023. Our work for an individual land owner client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction.
 

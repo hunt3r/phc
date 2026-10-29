@@ -16,6 +16,14 @@ sectors:
 services:
   - remediation
   - demolition
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - geotechnical-investigations
+  - tenant-delivery-coordination
+  - landlord-tenant-lease-requirements
+  - site-analysis-feasibility
 ---
 **Key Features:**
 

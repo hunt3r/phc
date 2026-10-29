@@ -13,6 +13,22 @@ gallery:
     alt: 'Bank of America - Kennett Square, PA - image 3'
 sectors:
   - retail
+services:
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - npdes-permitting
+  - highway-permitting
+  - highway-access
+  - government-agency-coordination
+  - site-analysis-feasibility
 order: 52
 featured: false
 ---

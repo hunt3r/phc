@@ -24,6 +24,19 @@ services:
   - bank-billing-inspection-coordination
   - construction-coordination-supervision
   - project-estimating-value-engineering
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - highway-permitting
+  - highway-access
+  - government-agency-coordination
+  - site-analysis-feasibility
 order: 43
 featured: false
 videos:

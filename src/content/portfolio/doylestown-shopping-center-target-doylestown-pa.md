@@ -59,6 +59,8 @@ services:
   - testing-agency-coordination
   - utility-coordination
   - utility-service-coordination
+  - owners-representation
+  - project-planning-coordination
 order: 8
 featured: true
 heroOrder: 8

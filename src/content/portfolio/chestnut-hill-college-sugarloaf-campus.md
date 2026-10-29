@@ -34,6 +34,19 @@ sectors:
   - government
 services:
   - remediation
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - highway-permitting
+  - highway-access
+  - government-agency-coordination
+  - geotechnical-investigations
+  - utility-coordination
+  - utility-service-coordination
+  - project-planning-coordination
+  - pre-construction-services
+  - site-analysis-feasibility
 order: 21
 featured: false
 ---

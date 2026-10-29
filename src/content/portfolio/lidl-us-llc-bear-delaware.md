@@ -39,6 +39,11 @@ services:
   - pre-construction-meetings
   - project-contractor-procurement
   - tenant-delivery-coordination
+  - project-estimating-value-engineering
+  - project-schedule
+  - project-schedule-management
+  - project-planning-coordination
+  - pre-construction-services
 order: 1
 featured: true
 heroOrder: 1

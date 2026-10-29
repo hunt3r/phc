@@ -12,6 +12,14 @@ sectors:
   - federal-government
 services:
   - project-management
+  - owners-representation
+  - construction-management-services
+  - construction-coordination-supervision
+  - project-schedule
+  - project-schedule-management
+  - contract-budget-management
+  - project-planning-coordination
+  - pre-construction-services
 ---
 **Key Features:**
 

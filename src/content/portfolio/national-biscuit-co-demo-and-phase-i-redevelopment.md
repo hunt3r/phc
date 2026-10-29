@@ -33,6 +33,22 @@ services:
   - project-planning-coordination
   - construction-management-services
   - environmental-permitting
+  - owners-representation
+  - project-management
+  - construction-coordination-supervision
+  - pre-construction-services
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - highway-permitting
+  - highway-access
+  - government-agency-coordination
+  - hazardous-material-surveys
+  - utility-coordination
+  - utility-service-coordination
+  - grant
+  - site-analysis-feasibility
 order: 17
 ---
 

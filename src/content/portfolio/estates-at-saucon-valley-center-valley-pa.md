@@ -21,6 +21,26 @@ gallery:
 order: 18
 sectors:
   - residential
+services:
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - npdes-permitting
+  - geotechnical-investigations
+  - project-estimating-value-engineering
+  - utility-coordination
+  - utility-service-coordination
+  - government-agency-coordination
+  - landscaping
+  - contractor-bidding-selection
+  - site-analysis-feasibility
 ---
 Continuing our expansion into Residential and Multi-Family community projects, we assisted _**[Tuskes Homes](https://www.tuskeshomes.com/new-homes/pa/center-valley/estates-at-saucon-valley/8935/?gclid=CjwKCAjwrranBhAEEiwAzbhNtUTdLHDZlGtNJ6rX3-KfvJNH7ltnZlPaekyzQ6Ies4TVZi2yl2LhIRoC5XYQAvD_BwE)**_ complete this residential community located in the beautiful Saucon Valley of Pennsylvania.
 

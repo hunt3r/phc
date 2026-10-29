@@ -38,6 +38,13 @@ services:
   - drone-technologies
   - government-agency-coordination
   - landlord-tenant-lease-requirements
+  - owners-representation
+  - project-estimating-value-engineering
+  - project-contractor-procurement
+  - project-schedule
+  - project-schedule-management
+  - project-planning-coordination
+  - pre-construction-services
 order: 6
 featured: false
 ---

@@ -44,6 +44,12 @@ services:
   - pre-construction-meetings
   - feasibility-project-schedule
   - project-schedule
+  - project-estimating-value-engineering
+  - project-contractor-procurement
+  - contract-budget-management
+  - project-schedule-management
+  - project-planning-coordination
+  - pre-construction-services
 order: 2
 ---
 

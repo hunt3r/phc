@@ -21,6 +21,17 @@ services:
   - remediation
   - demolition
   - project-management
+  - owners-representation
+  - construction-management-services
+  - construction-coordination-supervision
+  - project-estimating-value-engineering
+  - project-contractor-procurement
+  - contractor-bidding-selection
+  - contract-budget-management
+  - project-schedule
+  - project-schedule-management
+  - project-planning-coordination
+  - pre-construction-services
 order: 5
 ---
 

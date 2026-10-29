@@ -20,6 +20,16 @@ sectors:
 services:
   - remediation
   - demolition
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
 ---
 **Key Features:**
 

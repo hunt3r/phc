@@ -28,6 +28,26 @@ sectors:
   - mixed-use
 services:
   - landscaping
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - highway-permitting
+  - highway-access
+  - government-agency-coordination
+  - utility-coordination
+  - utility-service-coordination
+  - contractor-bidding-selection
+  - tenant-delivery-coordination
+  - landlord-tenant-lease-requirements
+  - grant
+  - site-analysis-feasibility
 ---
 [**Nabisco Plaza**](https://www.costar.com/article/192402005/nabisco-plaza-shows-how-a-factory-can-become-a-destination-for-indoor-golf-retail) in Philadelphia, PA is nearing completion in November 2023!
 

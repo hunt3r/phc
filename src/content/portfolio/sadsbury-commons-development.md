@@ -21,6 +21,21 @@ sectors:
   - retail
   - residential
   - office
+services:
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - pre-construction-services
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - highway-permitting
+  - highway-access
+  - government-agency-coordination
+  - site-analysis-feasibility
 ---
 Sadsbury Commons, a once-rural area located about halfway between Philadelphia and Lancaster has seen robust development in recent years. This project will offer many benefits to the local communities, old and new. A state-of-the-art medical facility anchors the site and improvements to the stormwater management are underway for the up-and-coming retail and residential portions of this project.
 

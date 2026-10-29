@@ -33,6 +33,18 @@ services:
   - site-analysis-feasibility
   - tenant-delivery-coordination
   - utility-coordination
+  - owners-representation
+  - construction-management-services
+  - construction-coordination-supervision
+  - project-planning-coordination
+  - pre-construction-meetings
+  - project-contractor-procurement
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - project-estimating-value-engineering
+  - utility-service-coordination
+  - landscaping
+  - contractor-bidding-selection
 order: 11
 featured: true
 heroOrder: 11

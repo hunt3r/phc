@@ -47,6 +47,12 @@ services:
   - contract-budget-management
   - construction-management-services
   - construction-coordination-supervision
+  - owners-representation
+  - project-planning-coordination
+  - land-development-zoning-approvals
+  - building-construction-permits
+  - remediation
+  - site-analysis-feasibility
 order: 14
 featured: true
 heroOrder: 14

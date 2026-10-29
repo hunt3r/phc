@@ -20,6 +20,14 @@ sectors:
   - healthcare
   - institutional
   - office
+services:
+  - owners-representation
+  - project-management
+  - construction-management-services
+  - construction-coordination-supervision
+  - tenant-delivery-coordination
+  - landlord-tenant-lease-requirements
+  - site-analysis-feasibility
 order: 20
 featured: false
 ---
