@@ -1,5 +1,5 @@
 /**
- * Shared delivery settings for full-bleed page heroes (`HeroPage`).
+ * Shared delivery settings for full-bleed heroes (`HeroPage`, `HeroCarousel`).
  * The `<picture>` and the document-head preload must use the same srcset.
  */
 import { getImageSrcSet, getImageUrl } from "@/lib/cloudinary";

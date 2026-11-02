@@ -1,8 +1,9 @@
 ---
 import { getImageUrl, getImageSrcSet } from "@/lib/cloudinary";
 
-const CARD_WIDTHS = [320, 480, 640, 960, 1280];
+const CARD_WIDTHS = [320, 480, 640, 768, 960, 1280];
 const CARD_SIZES = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
+const CARD_QUALITY = "auto:eco" as const;
 
 interface Props {
   title: string
@@ -24,8 +25,15 @@ const {
   class: className,
 } = Astro.props as Props
 
-const resolvedImageSrc = imageSrc ? getImageUrl(imageSrc, { width: 960, quality: "auto:eco" }) : undefined;
-const resolvedImageSrcSet = imageSrc ? getImageSrcSet(imageSrc, CARD_WIDTHS, { quality: "auto:eco" }) : undefined;
+const resolvedImageSrc = imageSrc
+  ? getImageUrl(imageSrc, { width: 768, quality: CARD_QUALITY, format: "webp" })
+  : undefined;
+const avifSrcSet = imageSrc
+  ? getImageSrcSet(imageSrc, CARD_WIDTHS, { quality: CARD_QUALITY, format: "avif" })
+  : undefined;
+const webpSrcSet = imageSrc
+  ? getImageSrcSet(imageSrc, CARD_WIDTHS, { quality: CARD_QUALITY, format: "webp" })
+  : undefined;
 ---
 
 <div
@@ -37,17 +45,22 @@ const resolvedImageSrcSet = imageSrc ? getImageSrcSet(imageSrc, CARD_WIDTHS, { q
   >
     {resolvedImageSrc && (
       <div class="relative aspect-[16/9] w-full shrink-0 overflow-hidden rounded-t-xl bg-gray-100 dark:bg-gray-700">
-        <img
-          src={resolvedImageSrc}
-          srcset={resolvedImageSrcSet}
-          sizes={CARD_SIZES}
-          alt={imageAlt || title}
-          loading="lazy"
-          decoding="async"
-          class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
-          width="960"
-          height="540"
-        />
+        <picture class="block h-full w-full">
+          {avifSrcSet && <source type="image/avif" srcset={avifSrcSet} sizes={CARD_SIZES} />}
+          {webpSrcSet && <source type="image/webp" srcset={webpSrcSet} sizes={CARD_SIZES} />}
+          <img
+            src={resolvedImageSrc}
+            srcset={webpSrcSet}
+            sizes={CARD_SIZES}
+            alt={imageAlt || title}
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+            class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
+            width="768"
+            height="432"
+          />
+        </picture>
       </div>
     )}
     <div class="flex min-h-0 flex-1 flex-col gap-3 p-5">

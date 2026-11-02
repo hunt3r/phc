@@ -1,5 +1,5 @@
 ---
-import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
+import { HERO_SIZES, resolveHeroImage } from '@/lib/hero-image';
 
 export interface HeroSlide {
   design?: 'slide' | 'banner';
@@ -31,9 +31,6 @@ const {
   autoplayMs = 6000,
 } = Astro.props;
 
-const HERO_QUALITY = 'auto:low' as const;
-const HERO_IMAGE_OPTIONS = { width: 1920, quality: HERO_QUALITY, format: 'webp' as const };
-const HERO_WIDTHS = [640, 768, 960, 1280, 1600, 1920, 2560];
 const clampedOpacity = Math.min(Math.max(overlayOpacity ?? 85, 0), 100);
 const baseColor = overlayColor === 'light' ? '1 0 0' : '0 0 0';
 const overlayIsDark = overlayColor === 'dark';
@@ -57,7 +54,7 @@ const wrapperClass =
 const resolvedSlides = slides.map((slide) => {
   const design = slide.design === 'banner' ? 'banner' : 'slide';
   const image = slide.image?.trim() || undefined;
-  const imageUrl = image ? getImageUrl(image, HERO_IMAGE_OPTIONS) : undefined;
+  const heroImage = resolveHeroImage(image);
   const title = slide.title?.trim() ?? '';
   const primaryText = slide.ctaText?.trim() || (design === 'slide' && title ? `View ${title}` : '');
   const showPrimary = Boolean(slide.href && primaryText);
@@ -66,10 +63,10 @@ const resolvedSlides = slides.map((slide) => {
     ...slide,
     design,
     image,
-    imageUrl,
-    imageAvifSrcSet: image ? getImageSrcSet(image, HERO_WIDTHS, { quality: HERO_QUALITY, format: 'avif' }) : undefined,
-    imageWebpSrcSet: image ? getImageSrcSet(image, HERO_WIDTHS, { quality: HERO_QUALITY, format: 'webp' }) : undefined,
-    hasImage: Boolean(imageUrl),
+    imageUrl: heroImage?.src,
+    imageAvifSrcSet: heroImage?.avifSrcSet,
+    imageWebpSrcSet: heroImage?.webpSrcSet,
+    hasImage: Boolean(heroImage?.src),
     showPrimary,
     primaryText,
     showSecondary,
@@ -90,7 +87,7 @@ const multiple = resolvedSlides.length > 1;
   <div class="relative w-full">
     {resolvedSlides.map((slide, index) => (
       <div
-        class="hero-slide inset-0 overflow-hidden transition-opacity duration-700 motion-reduce:transition-none"
+        class="hero-slide inset-0 overflow-hidden"
         class:list={[index === 0 ? 'relative opacity-100' : 'absolute opacity-0 pointer-events-none']}
         data-hero-slide
         data-active={index === 0 ? 'true' : 'false'}
@@ -101,13 +98,13 @@ const multiple = resolvedSlides.length > 1;
         inert={index !== 0}
       >
         {slide.imageUrl && (
-          <picture>
+          <picture class="absolute inset-0">
             {slide.imageAvifSrcSet && (
               <source
                 type="image/avif"
                 srcset={index === 0 ? slide.imageAvifSrcSet : undefined}
                 data-srcset={slide.imageAvifSrcSet}
-                sizes="100vw"
+                sizes={HERO_SIZES}
               />
             )}
             {slide.imageWebpSrcSet && (
@@ -115,7 +112,7 @@ const multiple = resolvedSlides.length > 1;
                 type="image/webp"
                 srcset={index === 0 ? slide.imageWebpSrcSet : undefined}
                 data-srcset={slide.imageWebpSrcSet}
-                sizes="100vw"
+                sizes={HERO_SIZES}
               />
             )}
             <img
@@ -123,15 +120,15 @@ const multiple = resolvedSlides.length > 1;
               srcset={index === 0 ? slide.imageWebpSrcSet : undefined}
               data-src={slide.imageUrl}
               data-srcset={slide.imageWebpSrcSet}
-              sizes="100vw"
+              sizes={HERO_SIZES}
               alt={slide.title || slide.eyebrow || ""}
               aria-hidden="true"
               width="1920"
               height="1080"
               fetchpriority={index === 0 ? 'high' : undefined}
               loading={index === 0 ? 'eager' : 'lazy'}
-              decoding="async"
-              class="absolute inset-0 h-full w-full object-cover"
+              decoding={index === 0 ? undefined : 'async'}
+              class="h-full w-full object-cover"
             />
           </picture>
         )}
@@ -242,6 +239,7 @@ const multiple = resolvedSlides.length > 1;
     let current = 0;
     let timer: number | undefined;
     let preloadTimer: number | undefined;
+    let fadeArmed = false;
     // Start the upcoming slide just before it fades in. The rest stay unloaded.
     const PRELOAD_LEAD_MS = 1500;
 
@@ -276,9 +274,19 @@ const multiple = resolvedSlides.length > 1;
       preloadTimer = window.setTimeout(() => ensureLoaded(current + 1), delay);
     };
 
+    // The first slide paints with no fade. Arm the opacity transition only
+    // when a later slide is about to show, then flush layout so that change fades.
+    const armFade = () => {
+      if (fadeArmed || reduceMotion) return;
+      fadeArmed = true;
+      root.classList.add('is-fading');
+      void (root as HTMLElement).offsetWidth;
+    };
+
     const show = (next: number) => {
       const total = slides.length;
       const index = ((next % total) + total) % total;
+      armFade();
       ensureLoaded(index);
       slides.forEach((slide, i) => {
         const active = i === index;
@@ -342,3 +350,15 @@ const multiple = resolvedSlides.length > 1;
     start();
   });
 </script>
+
+<style>
+  /* Applied on the first slide change, so the opening paint is not a fade. */
+  .is-fading .hero-slide {
+    transition: opacity 700ms;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .is-fading .hero-slide {
+      transition: none;
+    }
+  }
+</style>
