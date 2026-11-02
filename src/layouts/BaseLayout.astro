@@ -1,5 +1,6 @@
 ---
 import JsonLd from "@/components/seo/JsonLd.astro";
+import CookieNotice from "@/components/CookieNotice.astro";
 import Footer from "@/components/Footer.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import {
@@ -157,15 +158,23 @@ const baseJsonLd = createGraphSchema([
     </style>
     <meta name="generator" content={Astro.generator} />
     {gaMeasurementId && (
-      <>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
-        <script is:inline define:vars={{ gaMeasurementId }}>
+      <script is:inline define:vars={{ gaMeasurementId }}>
+        (function () {
+          var match = document.cookie.match(/(?:^|; )phc_analytics=(granted|denied)(?:;|$)/);
+          var choice = match ? match[1] : '';
+          var gpc = navigator.globalPrivacyControl === true;
+          var allowed = choice === 'granted' || (choice !== 'denied' && !gpc);
+          if (!allowed) return;
           window.dataLayer = window.dataLayer || [];
-          window.gtag = function gtag(){dataLayer.push(arguments);}
+          window.gtag = function gtag(){dataLayer.push(arguments);};
           gtag('js', new Date());
           gtag('config', gaMeasurementId);
-        </script>
-      </>
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaMeasurementId);
+          document.head.appendChild(script);
+        })();
+      </script>
     )}
     <title>{pageTitle}</title>
     {baseJsonLd && <JsonLd nodes={[baseJsonLd]} />}
@@ -262,6 +271,7 @@ const baseJsonLd = createGraphSchema([
       </div>
     </main>
     <Footer />
+    {gaMeasurementId && <CookieNotice measurementId={gaMeasurementId} />}
     <script>
       document.querySelector('[data-mobile-menu-toggle]')?.addEventListener('click', () => {
         const menu = document.querySelector('[data-mobile-menu]');

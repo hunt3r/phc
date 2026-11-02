@@ -236,8 +236,11 @@ const site = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/site' }),
   schema: z.object({
     footerDescription: z.string().optional(),
+    // Tina rich-text. Stored as a markdown string, or as a rich-text object if Tina writes one.
+    cookieNotice: z.any().optional(),
     headerLinks: z.array(navLinkSchema).optional(),
     footerLinks: z.array(navLinkSchema).optional(),
+    footerBarLinks: z.array(navLinkSchema).optional(),
   }),
 });
 

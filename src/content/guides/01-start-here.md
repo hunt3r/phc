@@ -21,7 +21,7 @@ Each item in the left menu is a section of the website:
 - **Contact** is the Contact page, including the address and email that also appear in the footer.
 - **Pages** are extra pages such as the privacy policy. Each one gets its own address on the site.
 - **Staff** is the people shown on the About page. Each person also gets a profile page.
-- **Site Settings** is the header menu, the footer menu, and the short description under the logo in the footer.
+- **Site Settings** is the header menu, the footer menu, the links in the bottom bar of the footer, the short description under the logo in the footer, and the text in the cookie notice.
 - **Home** is the homepage: how many projects, quotes, videos, and hero slides to show, and the hero slideshow.
 
 ## Making a change
@@ -44,7 +44,7 @@ Many sections also open the live page while you edit, so you can click the part 
 - The About writeup: open **About Us**.
 - A person on the team: open **Staff**.
 - The address, phone, or email: open **Contact**.
-- The menus or the footer blurb: open **Site Settings**.
+- The menus, the footer blurb, the cookie notice, or the privacy policy and terms links in the footer: open **Site Settings**.
 - The privacy policy, or a new simple page: open **Pages**.
 - How many projects, quotes, or videos appear on the homepage: open **Home**.
 - A photo, a video, or a promotional card: read **Photos, videos, and content cards**.

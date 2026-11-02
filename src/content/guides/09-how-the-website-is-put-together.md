@@ -17,6 +17,7 @@ Several services work together. Setup for them is handled outside this guide.
 - **Cloudinary** stores the photos you upload. See **Photos, videos, and content cards**.
 - **GoDaddy** holds the phandc.net domain name and points visitors at the site Netlify hosts. Those address settings live in the GoDaddy account.
 - **YouTube** is where videos are hosted. The site embeds them. See **Photos, videos, and content cards**.
+- **Google Analytics** counts which pages visitors open. A visitor can turn that off from the notice on the site, or from **Cookie settings** in the footer. The words in that notice are edited under **Site Settings**, in **Cookie notice**. The visitor's own choice is not.
 
 ## Logins to keep
 

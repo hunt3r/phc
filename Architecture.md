@@ -31,12 +31,12 @@ flowchart LR
 | Tina Cloud | Editor login, the GitHub connection, and the admin at `/admin`. | Tina project. Client id and token are `NEXT_PUBLIC_TINA_CLIENT_ID` and `TINA_TOKEN`. |
 | Netlify | Hosting, the production build, the two on-demand functions, and the contact form. | Site connected to the GitHub repo. Build command is in [netlify.toml](netlify.toml). The same Cloudinary and Tina env vars are set in the Netlify dashboard. |
 | Cloudinary | Uploaded photos. | `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`. |
-| Google Analytics | Page-view measurement for the public site. | `PUBLIC_GOOGLE_ANALYTICS_ID` (`G-YZVS3RE5GW`). Read at build time in [src/layouts/BaseLayout.astro](src/layouts/BaseLayout.astro). Set it in the Netlify dashboard; a change requires a rebuild. Leave it unset to omit the tag. |
+| Google Analytics | Page-view measurement for the public site. The tag loads only when the visitor has not opted out. | `PUBLIC_GOOGLE_ANALYTICS_ID` (`G-YZVS3RE5GW`). An inline script in [src/layouts/BaseLayout.astro](src/layouts/BaseLayout.astro) reads the `phc_analytics` cookie and the browser Global Privacy Control signal before injecting the tag. [src/components/CookieNotice.astro](src/components/CookieNotice.astro) and the footer control in [src/components/Footer.astro](src/components/Footer.astro) store that choice. Set the id in the Netlify dashboard; a change requires a rebuild. Leave it unset to omit the tag and the notice. |
 | GoDaddy | The phandc.net domain and the DNS that points it at Netlify. | The GoDaddy account. Record values are not in this repo. |
 
 Pricing pages, which change independently of this doc: [GitHub](https://github.com/pricing), [Tina](https://tina.io/pricing), [Netlify](https://www.netlify.com/pricing/), [Cloudinary](https://cloudinary.com/pricing), [GoDaddy domains](https://www.godaddy.com/domains). DNS for the domain is part of the domain registration.
 
-Local names for those env vars are listed in [.env.example](.env.example). `PUBLIC_GOOGLE_ANALYTICS_ID` is the GA4 measurement ID and is inlined when the site is built. `TINA_SEARCH_ENABLED=true` turns on Tina Cloud search; leave it unset unless a dedicated search token is configured, because a bad indexer token stalls schema indexing.
+Local names for those env vars are listed in [.env.example](.env.example). `PUBLIC_GOOGLE_ANALYTICS_ID` is the GA4 measurement ID and is inlined when the site is built. The browser loads the tag only when the visitor has not opted out. `TINA_SEARCH_ENABLED=true` turns on Tina Cloud search; leave it unset unless a dedicated search token is configured, because a bad indexer token stalls schema indexing.
 
 ## Runtime
 
@@ -64,7 +64,7 @@ The **How to use this site** articles in `src/content/guides/` are a Tina collec
 | Staff | `src/content/staff` | People listed on `/about`. Each person is `/about/<slug>`, with the slug derived in [src/data/staff.ts](src/data/staff.ts). |
 | Contact | `src/content/contact` | `/contact` |
 | Pages | `src/content/pages` | `/<slug>` via [src/pages/[slug].astro](src/pages/[slug].astro) |
-| Site Settings | `src/content/site` | Header links, footer links, and the footer description. No page of its own. |
+| Site Settings | `src/content/site` | Header links, footer links, footer bar links, the footer description, and the cookie notice. No page of its own. |
 | How to use this site | `src/content/guides` | Admin only. |
 
 Other public routes are assembled from those collections:

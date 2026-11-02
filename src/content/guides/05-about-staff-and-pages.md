@@ -41,4 +41,6 @@ There is a single Staff list. You cannot create a second one.
 - **Videos** and **Content Cards** appear on the page. See **Photos, videos, and content cards**.
 - **Body** is the page content.
 
-You can add a new page from this section. After you save, add it to the header or footer menu if you want visitors to find it. See **Contact, menus, and footer**.
+The words in the notice at the bottom of the site are edited under **Site Settings**, in **Cookie notice**. **Cookie settings** in the footer, and the **Opt out** and **OK** buttons, are part of the website.
+
+You can add a new page from this section. After you save, add it to the header, the footer menu, or **Footer Bar Links** if you want visitors to find it. The privacy policy and terms of use belong in **Footer Bar Links**. See **Contact, menus, and footer**.

@@ -526,6 +526,12 @@ export default defineConfig({
         fields: [
           { type: 'string', name: 'footerDescription', label: 'Footer Description', ui: { component: 'textarea' }, description: 'Short blurb shown under the logo in the footer.' },
           {
+            type: 'rich-text',
+            name: 'cookieNotice',
+            label: 'Cookie notice',
+            description: 'Text in the bar at the bottom of every page. You can add bold text and links. If you leave it blank, the bar says that PH&C uses a cookie to count visits and links to the privacy policy.',
+          },
+          {
             type: 'object',
             name: 'headerLinks',
             label: 'Header Links',
@@ -552,6 +558,21 @@ export default defineConfig({
             fields: [
               { type: 'string', name: 'label', label: 'Label', required: true },
               { type: 'string', name: 'href', label: 'URL', required: true, description: 'Path (e.g. /about) or full URL.' },
+              { type: 'boolean', name: 'newTab', label: 'Open in new tab' },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'footerBarLinks',
+            label: 'Footer Bar Links',
+            list: true,
+            description: 'Links in the bottom bar of the footer, next to Cookie settings. Use this for the privacy policy and terms of use. Drag to reorder. If you leave this list empty, the bar shows Privacy Policy.',
+            ui: {
+              itemProps: (item) => ({ label: item?.label || item?.href || 'Link' }),
+            },
+            fields: [
+              { type: 'string', name: 'label', label: 'Label', required: true },
+              { type: 'string', name: 'href', label: 'URL', required: true, description: 'Path (e.g. /privacy-policy) or full URL.' },
               { type: 'boolean', name: 'newTab', label: 'Open in new tab' },
             ],
           },
