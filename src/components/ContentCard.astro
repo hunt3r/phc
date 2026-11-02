@@ -1,5 +1,6 @@
 ---
 import { getImageUrl, getImageSrcSet } from '@/lib/cloudinary';
+import { deferredImageAttrs } from '@/lib/deferredImage';
 import { BG_CLASS, DARK_BACKGROUNDS, TEXT_SIZE_REM, type ContentCardData } from '@/lib/contentCard';
 import PortfolioGallery from '@/components/PortfolioGallery.astro';
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
@@ -76,7 +77,7 @@ const titleClass = isDarkBg ? 'text-white' : 'text-gray-900 dark:text-gray-100';
 // Full-bleed is only safe when the card is in the centered page container, not
 // inside an offset column (sidebar layouts pass allowFullBleed={false}).
 // Break out with margin, not translate. A transform on the card makes iOS
-// Safari treat lazy images inside it as off-screen, so they never load.
+// Safari treat images inside it as off-screen, so they never load.
 const fullBleed = width === 'full' && allowFullBleed;
 const wrapperClass = fullBleed
   ? `ml-[calc(50%-50vw)] w-screen ${bgClass}`.trim()
@@ -91,12 +92,18 @@ const innerPadClass = fullBleed
     ? 'p-8 md:p-10'
     : '';
 
-// Image sizing. width/height are required so iOS Safari will lazy-load the
-// photo. A real iPhone skips lazy images that have no box yet — which is what
-// happens when the only child of an aspect-ratio frame is position:absolute.
+// Image sizing. width/height give the photo a box before it loads. Without
+// one it never comes near the viewport, which is what happens when the only
+// child of an aspect-ratio frame is position:absolute.
 const IMAGE_WIDTHS = [480, 768, 1024, 1600];
-const imageUrl = hasImage ? getImageUrl(card.image, { width: 1024 }) : undefined;
-const imageSrcSet = hasImage ? getImageSrcSet(card.image, IMAGE_WIDTHS) : undefined;
+const imageAttrs = hasImage
+  ? deferredImageAttrs(
+      getImageUrl(card.image, { width: 1024 }),
+      getImageSrcSet(card.image, IMAGE_WIDTHS),
+      1600,
+      900,
+    )
+  : {};
 
 // Optional image gallery (identical to the portfolio gallery, with lightbox).
 const galleryImages = (card.gallery ?? []).filter((g) => g?.src?.trim());
@@ -119,26 +126,22 @@ const galleryBelow = hasGallery && !galleryInColumn;
               data-tina-field={tf('image')}
             >
               <img
-                src={imageUrl}
-                srcset={imageSrcSet}
+                {...imageAttrs}
                 sizes="(min-width: 768px) 50vw, 100vw"
                 alt={card.title || ""}
                 width="1600"
                 height="900"
-                loading="lazy"
                 decoding="async"
                 class="h-full w-full object-cover object-center md:absolute md:inset-0"
               />
             </div>
           ) : (
             <img
-              src={imageUrl}
-              srcset={imageSrcSet}
+              {...imageAttrs}
               sizes="(min-width: 768px) 50vw, 100vw"
               alt={card.title || ""}
               width="1600"
               height="900"
-              loading="lazy"
               decoding="async"
               class={`w-full rounded-lg object-cover ${imagePosition === 'right' ? 'md:order-2' : ''}`}
               data-tina-field={tf('image')}
@@ -177,13 +180,11 @@ const galleryBelow = hasGallery && !galleryInColumn;
       <div class="flex flex-col gap-8">
         {hasImage && (
           <img
-            src={imageUrl}
-            srcset={imageSrcSet}
+            {...imageAttrs}
             sizes="100vw"
             alt={card.title || ""}
             width="1600"
             height="900"
-            loading="lazy"
             decoding="async"
             class="block aspect-[16/9] w-full rounded-lg object-cover object-center"
             data-tina-field={tf('image')}

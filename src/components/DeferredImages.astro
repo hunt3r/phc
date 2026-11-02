@@ -1,0 +1,57 @@
+<script>
+  const SELECTOR = 'img[data-defer-src]';
+
+  const load = (img: HTMLImageElement) => {
+    const picture = img.parentElement?.tagName === 'PICTURE' ? img.parentElement : null;
+    picture?.querySelectorAll<HTMLSourceElement>('source[data-defer-srcset]').forEach((source) => {
+      source.srcset = source.dataset.deferSrcset ?? '';
+      source.removeAttribute('data-defer-srcset');
+    });
+    if (img.dataset.deferSrcset) img.srcset = img.dataset.deferSrcset;
+    img.src = img.dataset.deferSrc ?? '';
+    img.removeAttribute('data-defer-srcset');
+    img.removeAttribute('data-defer-src');
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        observer.unobserve(entry.target);
+        load(entry.target as HTMLImageElement);
+      }
+    },
+    { rootMargin: '400px 0px' },
+  );
+
+  const watch = (root: ParentNode) => {
+    root.querySelectorAll<HTMLImageElement>(SELECTOR).forEach((img) => observer.observe(img));
+  };
+
+  watch(document);
+
+  // Tina live preview replaces island markup in place.
+  new MutationObserver((records) => {
+    for (const record of records) {
+      if (record.type === 'attributes') {
+        const target = record.target as Element;
+        if (target.matches(SELECTOR)) observer.observe(target);
+        continue;
+      }
+      record.addedNodes.forEach((node) => {
+        if (!(node instanceof Element)) return;
+        if (node.matches(SELECTOR)) observer.observe(node);
+        else watch(node);
+      });
+    }
+  }).observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['data-defer-src'],
+  });
+
+  window.addEventListener('beforeprint', () => {
+    document.querySelectorAll<HTMLImageElement>(SELECTOR).forEach(load);
+  });
+</script>

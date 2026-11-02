@@ -1,5 +1,6 @@
 ---
 import { getImageUrl, getImageSrcSet } from "@/lib/cloudinary";
+import { deferredImageAttrs } from "@/lib/deferredImage";
 
 const CARD_WIDTHS = [320, 480, 640, 768, 960, 1280];
 const CARD_SIZES = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
@@ -46,14 +47,12 @@ const webpSrcSet = imageSrc
     {resolvedImageSrc && (
       <div class="relative aspect-[16/9] w-full shrink-0 overflow-hidden rounded-t-xl bg-gray-100 dark:bg-gray-700">
         <picture class="block h-full w-full">
-          {avifSrcSet && <source type="image/avif" srcset={avifSrcSet} sizes={CARD_SIZES} />}
-          {webpSrcSet && <source type="image/webp" srcset={webpSrcSet} sizes={CARD_SIZES} />}
+          {avifSrcSet && <source type="image/avif" data-defer-srcset={avifSrcSet} sizes={CARD_SIZES} />}
+          {webpSrcSet && <source type="image/webp" data-defer-srcset={webpSrcSet} sizes={CARD_SIZES} />}
           <img
-            src={resolvedImageSrc}
-            srcset={webpSrcSet}
+            {...deferredImageAttrs(resolvedImageSrc, webpSrcSet, 768, 432)}
             sizes={CARD_SIZES}
             alt={imageAlt || title}
-            loading="lazy"
             decoding="async"
             fetchpriority="low"
             class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"

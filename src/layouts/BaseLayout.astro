@@ -1,6 +1,7 @@
 ---
 import JsonLd from "@/components/seo/JsonLd.astro";
 import CookieNotice from "@/components/CookieNotice.astro";
+import DeferredImages from "@/components/DeferredImages.astro";
 import Footer from "@/components/Footer.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import {
@@ -102,18 +103,16 @@ const baseJsonLd = createGraphSchema([
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
     {heroPreloadSrcSet && (
-      <>
-        <link rel="preconnect" href="https://res.cloudinary.com" />
-        <link
-          rel="preload"
-          as="image"
-          type="image/avif"
-          imagesrcset={heroPreloadSrcSet}
-          imagesizes={HERO_SIZES}
-          fetchpriority="high"
-        />
-      </>
+      <link
+        rel="preload"
+        as="image"
+        type="image/avif"
+        imagesrcset={heroPreloadSrcSet}
+        imagesizes={HERO_SIZES}
+        fetchpriority="high"
+      />
     )}
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -141,19 +140,19 @@ const baseJsonLd = createGraphSchema([
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={metaDescriptionText} />
     <meta name="twitter:image" content={absoluteImageUrl} />
-    <link rel="preload" href="/fonts/Italian Old Style MT Std Regular.otf" as="font" type="font/otf" crossorigin />
-    <link rel="preload" href="/fonts/Futura-Book Book.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/Italian Old Style MT Std Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Futura-Book Book.woff2" as="font" type="font/woff2" crossorigin />
     <style is:inline>
       @font-face {
         font-family: 'Italian Old Style MT';
-        src: url('/fonts/Italian Old Style MT Std Regular.otf') format('opentype');
+        src: url('/fonts/Italian Old Style MT Std Regular.woff2') format('woff2');
         font-weight: normal;
         font-style: normal;
         font-display: swap;
       }
       @font-face {
         font-family: 'Futura Book';
-        src: url('/fonts/Futura-Book Book.ttf') format('truetype');
+        src: url('/fonts/Futura-Book Book.woff2') format('woff2');
         font-weight: normal;
         font-style: normal;
         font-display: swap;
@@ -172,10 +171,18 @@ const baseJsonLd = createGraphSchema([
           window.gtag = function gtag(){dataLayer.push(arguments);};
           gtag('js', new Date());
           gtag('config', gaMeasurementId);
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaMeasurementId);
-          document.head.appendChild(script);
+          function load() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaMeasurementId);
+            document.head.appendChild(script);
+          }
+          function loadWhenIdle() {
+            if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 3000 });
+            else setTimeout(load, 1);
+          }
+          if (document.readyState === 'complete') loadWhenIdle();
+          else window.addEventListener('load', loadWhenIdle, { once: true });
         })();
       </script>
     )}
@@ -275,6 +282,7 @@ const baseJsonLd = createGraphSchema([
     </main>
     <Footer />
     {gaMeasurementId && <CookieNotice measurementId={gaMeasurementId} />}
+    <DeferredImages />
     <script>
       document.querySelector('[data-mobile-menu-toggle]')?.addEventListener('click', () => {
         const menu = document.querySelector('[data-mobile-menu]');

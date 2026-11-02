@@ -12,8 +12,6 @@ import { getFeaturedVideos } from '@/lib/videos';
 import { getTagMap, tagHref } from '@/lib/tags';
 import { getEntry, getCollection } from 'astro:content';
 import type { HeroSlide } from '../components/blocks/hero-carousel.astro';
-import { resolveHeroImage } from '@/lib/hero-image';
-
 const homeEntry = await getEntry('home', 'index');
 const data = homeEntry?.data;
 const hero = data?.hero;
@@ -133,10 +131,9 @@ const promotedSlides = orderedGroups
 const ogDescription = data?.description;
 const ogDescriptionFallback = "PH&C facilitates Real Estate Development as the tri-state area's premiere Owner's Representation, Construction Management, and Fee Development firm.";
 const ogImage = promotedSlides[0]?.image;
-const heroLcp = resolveHeroImage(ogImage);
 ---
 
-<BaseLayout title={data?.title ?? 'Home'} description={ogDescription} descriptionFallback={ogDescriptionFallback} image={ogImage} heroPreloadSrcSet={heroLcp?.avifSrcSet}>
+<BaseLayout title={data?.title ?? 'Home'} description={ogDescription} descriptionFallback={ogDescriptionFallback} image={ogImage}>
   <TinaIsland name="home" wrapper={islands.home.wrapper} primary>
   {promotedSlides.length > 0 && (
     <HeroCarousel

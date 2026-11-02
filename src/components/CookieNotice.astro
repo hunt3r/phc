@@ -111,13 +111,14 @@ if (!hasVisibleText(messageHtml)) {
       });
     }
 
-    function syncPadding() {
-      document.body.style.paddingBottom = notice.hidden ? '' : notice.offsetHeight + 'px';
-    }
+    new ResizeObserver(function (entries) {
+      var box = entries[0].borderBoxSize && entries[0].borderBoxSize[0];
+      var height = notice.hidden ? 0 : Math.ceil(box ? box.blockSize : entries[0].contentRect.height);
+      document.body.style.paddingBottom = height ? height + 'px' : '';
+    }).observe(notice);
 
     function hide() {
       notice.hidden = true;
-      syncPadding();
       var opener = document.querySelector('[data-cookie-settings]');
       if (opener && notice.contains(document.activeElement)) opener.focus();
     }
@@ -129,7 +130,6 @@ if (!hasVisibleText(messageHtml)) {
       stateCopy.textContent = analyticsOn() ? 'Analytics cookies are on.' : 'Analytics cookies are off.';
       allowButton.textContent = asking ? 'OK' : 'Allow analytics';
       notice.hidden = false;
-      syncPadding();
       if (!asking) denyButton.focus();
     }
 
@@ -157,8 +157,6 @@ if (!hasVisibleText(messageHtml)) {
       if (!opener) return;
       show('settings');
     });
-    window.addEventListener('resize', syncPadding);
-
     if (!analyticsOn()) clearAnalyticsCookies();
     if (!choice() && !gpc()) show('ask');
   })();
