@@ -28,10 +28,8 @@
     root.querySelectorAll<HTMLImageElement>(SELECTOR).forEach((img) => observer.observe(img));
   };
 
-  watch(document);
-
   // Tina live preview replaces island markup in place.
-  new MutationObserver((records) => {
+  const mutations = new MutationObserver((records) => {
     for (const record of records) {
       if (record.type === 'attributes') {
         const target = record.target as Element;
@@ -44,12 +42,20 @@
         else watch(node);
       });
     }
-  }).observe(document.body, {
-    childList: true,
-    subtree: true,
-    attributes: true,
-    attributeFilter: ['data-defer-src'],
   });
+
+  // Wait for the load event so card photos never compete with the hero image.
+  const start = () => {
+    watch(document);
+    mutations.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['data-defer-src'],
+    });
+  };
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start, { once: true });
 
   window.addEventListener('beforeprint', () => {
     document.querySelectorAll<HTMLImageElement>(SELECTOR).forEach(load);
