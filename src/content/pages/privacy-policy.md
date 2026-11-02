@@ -1,46 +1,123 @@
 ---
 title: Privacy Policy
-description: PH&C values the privacy and security of the information that you share with us.
+description: |-
+  PH&C values the privacy and security of the information that you share with us.
+  Effective Date: November 2, 2026
 featuredImage: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788188361/franck-v-SQ67IUDiZns-unsplash_bpae7u.jpg'
 ---
 
-PH&C values the privacy and security of the information that you share with us. It is important that you understand how we collect, use, and maintain your information. This Privacy Statement explains our online information practices, the choices you may make about how we collect and use your information at this web site, and the ways you may contact us.
+**PH\&C, LLC** ("PH\&C," "we," "us," or "our") operates the website located at **https\://www\.phandc.net/** (the "Website"). This Privacy Policy explains what personal information we collect when you visit the Website, how we use and protect that information, with whom we may share that information, and your choices regarding your information.
 
-We may change this Privacy Statement from time to time. Changes to this Privacy Statement are effective upon posting. Please check back periodically for updates.
+By using the Website, you acknowledge and consent to the collection, use and disclosure of personal information in accordance with this Privacy Policy. If any part of this policy is not acceptable to you, please do not use the Website.
 
-**Definitions**  
-“Personal Information” includes, your name, address information, personal e-mail address and URL, telephone number, account username and password, as well as other, similar information.
+**1.	Personal Information We Collect:** We collect two categories of personal information from visitors to the Website: personal information you provide directly to us, and personal information collected automatically.
 
-“Prospect Information” includes the same information as Personal Information except that Prospect Information is information that is submitted by an individual who is not the subject of the data submitted.
+**Personal Information You Provide Directly:** When you submit an inquiry through our contact form, we collect the following personal information:
 
-“Non-Identifying Personal Information” includes information about you, including, without limitation, your Internet service provider, browser type, domain name, the Web Site that referred you to us, the web pages you request, the date and time of those requests, and entry and exit points.
+•	Full name
 
-**Collection of Personal Information or Prospect Information**  
-PH&C may collect Personal Information from you, but only if you provide it to us voluntarily. We also collect Personal Information that you provide to us so that we can fulfill your order. In addition, in certain situations, such as when a purchaser buys a product as a gift and supplies the recipients’ name and address, we collect Prospect Information.
+•	Email address
 
-**Collection and Use of Non-Identifying Personal Information**  
-During your use of our Web Site, we will collect certain Non-Identifying Personal Information to enhance the functionality of the Web Site and to make your access more convenient and efficient. We retain Non-Identifying Personal Information and use it to establish Web Site activity trends, monitor Web Site performance, improve Web Site design and functionality, fulfill orders, inform current and potential customers and suppliers about our services, and for other business purposes. Our collection of Non-Identifying Personal Information may involve the use of cookies. Among other uses, cookies allow us to deliver content specific to your interests, to save you from re-entering your registration data at each connection, and to provide features such as online customer payment and shopping carts. The Help portion of the toolbar on most browsers will tell you how to configure your web browser to accept cookies, to prevent your browser from accepting new cookies, to have the browser notify you when you receive a new cookie, or to disable cookies altogether. No personal or unencrypted information will be encoded in cookies that are stored on your computer.
+•	Phone number
 
-**Children**  
-PH&C does not sell products for purchase by children, but we do sell children’s products for purchase by adults. We do not knowingly collect, maintain, or use Personal Information or Prospect Information from children under age 13. If you are under age 13, do not share personal information with us.
+•	Company or organization name
 
-**Use of Personal Information**  
-PH&C may use and disclose Personal Information or Prospect Information as described in this document. In addition to the uses described in this document, we may use Personal Information or Prospect Information for purposes that include maintaining the Web Site, order fulfillment and administration, and product surveys, administrative and analytical purposes like accounting, billing and audits, and information system management, and other, similar uses. We may also use Personal Information or Prospect Information to provide current and potential customers and suppliers with information about our services.
+We collect this information only when you choose to submit it. You are not required to complete the contact form in order to browse the Website.
 
-We only collect, use, and disclose Personal Information or Prospect Information for purposes that are reasonable in the circumstances. We use only fair and lawful means to collect Personal Information or Prospect Information.
+**Personal Information Collected Automatically:** When you visit the Website, certain personal information is collected automatically through cookies and similar tracking technologies, primarily through Google Analytics (described in Section 3 below). This may include:
 
-**Protection of PH&C and Others**  
-We may use or disclose Personal Information or Prospect Information without your consent in certain circumstances:
+•	Your IP address (which may be anonymized)
 
-*   If we are required by law or by an order or requirement of a court, administrative agency, or other government entity, or by court rules concerning the production of records;
-*   If we have reasonable grounds to believe that use or disclosure is necessary to protect the rights, privacy, property, or safety of our users or others;
-*   If we have reasonable grounds to believe that the information relates to breach of an agreement or violation of the law that has been, is being, or is about to be committed;
-*   If it is necessary for fraud protection, risk reduction, or the establishment or collection of funds owed to us;
-*   If it is necessary to enforce or apply our Terms of Use and other agreements, to pursue remedies, or to limit damages to our payment processing service(s);
-*   If the information is public;
-*   For other reasons allowed or required by law.
+•	Browser type and version
 
-When we are required or permitted to disclose information without consent, we will not disclose more information than is necessary to fulfill the disclosure purpose.
+•	Device type and operating system
 
-**Links to Other Web Sites**  
-When you click on a link on this Web Site that takes you to a web site operated by another company, you will be subject to that company’s web site privacy policies
+•	Pages visited and time spent on each page
+
+•	Referring website or URL
+
+•	General geographic location (country/region, based on IP address)
+
+•	Date and time of your visit
+
+This information is collected in aggregate and is not used to personally identify individual visitors.
+
+**2.	How We Use Your Personal Information:** We use the information we collect for the following purposes:
+
+•	To respond to inquiries, you submit through the contact form
+
+•	To communicate with you about matters related to your submission
+
+•	To analyze Website traffic and usage patterns in order to improve the Website
+
+•	To understand how visitors find and interact with the Website
+
+•	To comply with applicable legal obligations
+
+We do not use your personal information to send unsolicited marketing or promotional communications unless you have separately consented to receive such communications.
+
+**3.	Google Analytics and Cookies:**
+
+**Google Analytics:** We use Google Analytics, a web analytics service provided by Google LLC ("Google"), to help us understand how visitors use the Website. Google Analytics places cookies on your device to collect standard internet log information and visitor behavior in an anonymous form. The information generated by these cookies — including your IP address (which Google may truncate or anonymize) — is transmitted to and stored by Google on servers in the United States.
+
+Google uses this information to evaluate use of the Website and to compile reports on Website activity for PH\&C. Google may also transfer this information to third parties where required to do so by law, or where such third parties process the information on Google's behalf. Google will not associate your IP address with any other data held by Google. For more information about how Google uses data collected through Google Analytics, please visit: https\://policies.google.com/privacy.
+
+**Cookies:** Cookies are small text files stored on your device by your web browser. The Website uses the following types of cookies:
+
+•	Analytics cookies (Google Analytics): Used to collect anonymous information about how visitors use the Website. These cookies collect information such as the number of visitors, where visitors came from, and the pages they visited.
+
+Most web browsers allow you to control cookies through your browser settings. You can set your browser to refuse cookies, or to alert you when cookies are being sent. However, some features of the Website may not function properly if cookies are disabled.
+
+**Opting Out of Google Analytics:** You may prevent Google Analytics from collecting data about you by installing the Google Analytics Opt-out Browser Add-on, available at https\://tools.google.com/dlpage/gaoptout. This add-on instructs the Google Analytics JavaScript to prohibit sending information to Google Analytics.
+
+**4.	How We Store and Protect Your Information:**
+
+**Storage:** Contact form submissions are delivered to PH\&C by email and may also be retained in a log file on the web server that hosts the Website. Automatically collected analytics data is stored by Google on servers in the United States. We do not store analytics data on our own servers.
+
+**Security:** We take reasonable administrative and technical precautions to protect the personal information you provide against unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
+
+**Retention:** We retain contact form submissions for as long as necessary to respond to your inquiry and for a reasonable period thereafter for business record-keeping purposes. If you would like us to delete your information, please contact us at info\@phandc.net and we will make reasonable efforts to do so in a timely manner.
+
+**5.	Sharing of Your Information:** We do not sell, rent, or trade your personal information to third parties. We may share your information only in the following limited circumstances:
+
+•	Service providers: We may share information with third-party vendors who assist us in operating the Website or conducting our business (such as web hosting providers), subject to confidentiality obligations.
+
+•	Google Analytics: As described in Section 3, visitor data is processed by Google LLC in connection with the Google Analytics service.
+
+•	Legal requirements: We may disclose your information if required to do so by law, court order, or governmental authority, or if we believe in good faith that such disclosure is necessary to protect the rights, property, or safety of PH\&C, our visitors, or others.
+
+•	Business transfers: In the event of a merger, acquisition, or sale of all or substantially all of our assets, your information may be transferred to the acquiring entity, subject to the same privacy protections described in this Policy.
+
+**6.	Third-Party Links:** The Website may contain links to third-party websites. These sites have their own privacy policies, and we are not responsible for their content or practices. We encourage you to review the privacy policies of any third-party sites you visit. The inclusion of a link does not imply PH\&C's endorsement of the linked site.
+
+**7.	Children's Privacy:** The Website is not directed to individuals under the age of 13, and we do not knowingly collect personal information from children under 13. If we become aware that we have inadvertently collected personal information from a child under 13, we will take prompt steps to delete that information. If you believe we have collected information from a child under 13, please contact us at info\@phandc.net.
+
+**8.	Your Choices and Rights:** Depending on your location, you may have certain rights with respect to your personal information, which may include:
+
+•	The right to request access to the personal information we hold about you
+
+•	The right to request correction of inaccurate information
+
+•	The right to request deletion of your personal information
+
+•	The right to opt out of certain data collection practices (such as Google Analytics, as described in Section 3)
+
+To exercise any of these rights, please contact us at info\@phandc.net. We will respond to your request within a reasonable timeframe. Please note that some information may need to be retained for legal or legitimate business purposes.
+
+9\.	**Do Not Track:** Some web browsers transmit "Do Not Track" signals to websites. Because there is currently no industry standard for how websites should respond to these signals, the Website does not currently alter its data collection practices in response to Do Not Track signals. We will revisit this policy if a standard is established in the future.
+
+10\.	**Changes to This Privacy Policy:** We reserve the right to update or modify this Privacy Policy at any time. When we make changes, we will revise the "Effective Date" at the top of this page. Your continued use of the Website after any changes are posted constitutes your acceptance of the updated Privacy Policy. We encourage you to review this page periodically.
+
+**Contact Us**
+
+If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:
+
+PH\&C, LLC
+
+998 Old Eagle School Road
+
+Suite 1211
+
+Wayne, PA 19087
+
+Email: info\@phandc.net
