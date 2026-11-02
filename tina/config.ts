@@ -416,7 +416,7 @@ export default defineConfig({
         fields: [
           { type: 'string', name: 'title', label: 'Title', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
-          { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Upload via Cloudinary (used as hero background if hero background is not set)' },
+          { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Optional. When set, this is the banner behind the title. Leave it blank and the title appears below the breadcrumb, with no banner.' },
           { type: 'rich-text', name: 'contactInfo', label: 'Contact Info (footer)', description: 'Rendered in the site footer contact block and the aside card on the Contact page.' },
           {
             type: 'object',
@@ -452,7 +452,7 @@ export default defineConfig({
         fields: [
           { type: 'string', name: 'title', label: 'Title', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
-          { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Upload via Cloudinary (used as the page header background).' },
+          { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Optional. When set, this is the banner behind the title. Leave it blank and the title appears below the breadcrumb, with no banner.' },
           {
             type: 'object',
             name: 'videos',

@@ -3,10 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TinaIsland from '@tinacms/astro/TinaIsland.astro';
 import { islands } from '@/lib/islands';
 import HeroPage from './blocks/hero-page.astro';
+import PageTitle from './PageTitle.astro';
 import VideoGrid from './VideoGrid.astro';
 import ContentCards from './ContentCards.astro';
 import { getEntry, render } from 'astro:content';
 import { toVideoViews } from '@/lib/videos';
+import { hasFeaturedImage } from '@/lib/page-header';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 
 interface Props {
@@ -14,6 +16,10 @@ interface Props {
   path: string;
   /** Content collection to read from. Defaults to the generic `pages` collection. */
   collection?: 'pages' | 'contact';
+  /** Island name for the banner, shown only when Featured Image is set. */
+  heroIsland?: string;
+  /** Island name for the in-page title, shown only when Featured Image is blank. */
+  headingIsland?: string;
   /** Island name for the editable body region. */
   bodyIsland?: string;
   /** Island name for the editable content-cards region. */
@@ -28,6 +34,8 @@ const {
   entryId,
   path,
   collection = 'pages',
+  heroIsland = 'pageHero',
+  headingIsland = 'pageHeading',
   bodyIsland = 'page',
   cardsIsland = 'pageCards',
   breadcrumbLabel,
@@ -42,11 +50,14 @@ if (!entry) {
 
 const { Content } = await render(entry);
 const videos = toVideoViews(entry.data.videos, `page-${entryId}`);
-// These pages have no editable hero; the header is derived from the page's
-// title, description, and featured image.
-const heroBackgroundImage = entry.data.featuredImage;
+// A blank Featured Image drops the banner. The title then sits in the page,
+// below the breadcrumb. The hero and heading islands follow the same rule.
+const featuredImage = hasFeaturedImage(entry.data.featuredImage)
+  ? entry.data.featuredImage.trim()
+  : undefined;
+const description = entry.data.description?.trim() || undefined;
 const label = breadcrumbLabel ?? entry.data.title;
-const ogDescription = entry.data.description?.trim() || metaDescription;
+const ogDescription = description || metaDescription;
 const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const breadcrumbs = [
   { name: 'Home', path: '/' },
@@ -58,18 +69,27 @@ const jsonLdNodes = [
 ];
 ---
 
-<BaseLayout title={entry.data.title} description={ogDescription} image={heroBackgroundImage} jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs} ogType="article">
-  <HeroPage
-    slot="hero"
-    id={`${entryId}-hero`}
-    size="compact"
-    tagline={entry.data.title}
-    subtitle={entry.data.description}
-    backgroundImage={heroBackgroundImage}
-    overlayOpacity={70}
-    overlayColor="dark"
-  />
+<BaseLayout title={entry.data.title} description={ogDescription} image={featuredImage} jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs} ogType="article">
+  <TinaIsland slot="hero" name={heroIsland} wrapper={islands[heroIsland].wrapper} params={{ slug: entryId }}>
+    {featuredImage && (
+      <HeroPage
+        id={`${entryId}-hero`}
+        size="compact"
+        tagline={entry.data.title}
+        subtitle={description}
+        backgroundImage={featuredImage}
+        overlayOpacity={70}
+        overlayColor="dark"
+      />
+    )}
+  </TinaIsland>
   <article class="pt-8">
+    <TinaIsland name={headingIsland} wrapper={islands[headingIsland].wrapper} params={{ slug: entryId }}>
+      {!featuredImage && (
+        <PageTitle title={entry.data.title} description={description} />
+      )}
+    </TinaIsland>
+
     <slot name="aside" />
 
     <TinaIsland name={bodyIsland} wrapper={islands[bodyIsland].wrapper} params={{ slug: entryId }} primary>

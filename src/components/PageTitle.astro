@@ -1,0 +1,26 @@
+---
+/**
+ * In-page heading for a page with no featured image. Sits below the breadcrumb.
+ * The banner heading is HeroPage and is used only when a featured image is set.
+ */
+interface Props {
+  title: string;
+  description?: string | null;
+  titleField?: string;
+  descriptionField?: string;
+}
+
+const { title, description, titleField, descriptionField } = Astro.props;
+const descriptionText = description?.trim();
+---
+
+<header class="mb-8 space-y-2">
+  <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100" data-tina-field={titleField}>
+    {title}
+  </h1>
+  {descriptionText && (
+    <p class="max-w-3xl text-lg text-gray-600 dark:text-gray-400" data-tina-field={descriptionField}>
+      {descriptionText}
+    </p>
+  )}
+</header>

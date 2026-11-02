@@ -1,9 +1,8 @@
 ---
 /**
- * Editable island renderer for a `pages` collection document (e.g. contact,
- * privacy-policy). The page island wraps only the body `prose-content` section
- * on the page, so this renders just the rich-text body via `<TinaMarkdown>`
- * (the header is rendered separately by the page's hero).
+ * Editable island renderer for a `pages` or `contact` document body. The
+ * banner (`PageHero`) and the in-page title (`PageHeading`) are separate
+ * islands, so this renders only the rich-text body.
  */
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
 import { tinaMarkdownComponents } from '@/lib/tinaMarkdown';

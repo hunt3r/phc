@@ -16,6 +16,12 @@ interface Props {
   overlayColor?: 'dark' | 'light';
   /** Optional extra classes for the wrapper (e.g. a min-height like `min-h-[43vw]`). */
   class?: string;
+  /** `data-tina-field` for the banner photo. Sits on the wrapper so clicks on the image focus it; the title and description fields are closer. */
+  imageField?: string;
+  /** `data-tina-field` for the banner title. */
+  titleField?: string;
+  /** `data-tina-field` for the banner description. */
+  subtitleField?: string;
 }
 
 const {
@@ -32,6 +38,9 @@ const {
   overlayOpacity = 70,
   overlayColor = 'dark',
   class: className,
+  imageField,
+  titleField,
+  subtitleField,
 } = Astro.props;
 
 const heroImage = resolveHeroImage(backgroundImage);
@@ -59,6 +68,7 @@ const wrapperClass =
 <div
   id={id}
   class={`${wrapperClass} w-screen relative left-1/2 -translate-x-1/2${className ? ` ${className}` : ''}`}
+  data-tina-field={imageField}
 >
   {heroImage && (
     <picture class="absolute inset-0">
@@ -97,13 +107,13 @@ const wrapperClass =
           {eyebrow}
         </p>
       )}
-      {tagline && (
-        <h1 class={`mt-2 text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl ${textClass}`}>
+      {(tagline || titleField) && (
+        <h1 class={`mt-2 text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl ${textClass}`} data-tina-field={titleField}>
           {tagline}
         </h1>
       )}
       {subtitle && (
-        <p class={`mt-4 text-lg max-w-2xl mx-auto ${mutedClass}`}>
+        <p class={`mt-4 text-lg max-w-2xl mx-auto ${mutedClass}`} data-tina-field={subtitleField}>
           {subtitle}
         </p>
       )}

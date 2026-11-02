@@ -18,7 +18,7 @@ Where images show up:
 - A project's **Hero / cover image** is the main photo, the card image, and the homepage slide image.
 - A project's **Gallery** is the thumbnail grid lower on the project page.
 - A tag's **Image** is used on that sector or service page.
-- **Featured Image** on About, Contact, and Pages is the banner at the top.
+- **Featured Image** on About is the banner at the top of that page. On Contact and Pages it is optional. When it is set, it is the banner behind the title. When it is left blank, there is no banner and the title appears below the breadcrumb.
 - A **Profile Photo** on a staff member is optional.
 
 The same main photo is the image used when the page is shared. See **Search engines and AI**.

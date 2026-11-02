@@ -30,6 +30,8 @@ import TagBody from '../components/islands/TagBody.astro';
 import TagHero from '../components/islands/TagHero.astro';
 import AboutBody from '../components/islands/AboutBody.astro';
 import PageBody from '../components/islands/PageBody.astro';
+import PageHero from '../components/islands/PageHero.astro';
+import PageHeading from '../components/islands/PageHeading.astro';
 import ContactInfoBody from '../components/islands/ContactInfoBody.astro';
 import HomeBody from '../components/islands/HomeBody.astro';
 import StaffBody from '../components/islands/StaffBody.astro';
@@ -97,11 +99,48 @@ export const islands: IslandRegistry = {
       data: (data as QueryResult<PagesQuery>).data?.pages,
     }),
   },
+  // Banner above the breadcrumb. Empty when Featured Image is blank; the
+  // heading island shows the title in that case. Both stay mounted so the
+  // preview can move the H1 as the image is added or removed.
+  pageHero: {
+    fetch: (_request, params) => getPage(params.get('slug') ?? ''),
+    component: PageHero,
+    wrapper: { tag: 'div' },
+    propsFromData: (data, params) => ({
+      data: (data as QueryResult<PagesQuery>).data?.pages,
+      id: `${params.get('slug') ?? 'page'}-hero`,
+    }),
+  },
+  pageHeading: {
+    fetch: (_request, params) => getPage(params.get('slug') ?? ''),
+    component: PageHeading,
+    wrapper: { tag: 'div' },
+    propsFromData: (data) => ({
+      data: (data as QueryResult<PagesQuery>).data?.pages,
+    }),
+  },
   // The Contact page is its own singleton collection but renders its body the
   // same way a generic page does, so it reuses PageBody.
   contact: {
     fetch: () => getContact(),
     component: PageBody,
+    wrapper: { tag: 'div' },
+    propsFromData: (data) => ({
+      data: (data as QueryResult<ContactQuery>).data?.contact,
+    }),
+  },
+  contactHero: {
+    fetch: () => getContact(),
+    component: PageHero,
+    wrapper: { tag: 'div' },
+    propsFromData: (data, params) => ({
+      data: (data as QueryResult<ContactQuery>).data?.contact,
+      id: `${params.get('slug') ?? 'contact'}-hero`,
+    }),
+  },
+  contactHeading: {
+    fetch: () => getContact(),
+    component: PageHeading,
     wrapper: { tag: 'div' },
     propsFromData: (data) => ({
       data: (data as QueryResult<ContactQuery>).data?.contact,

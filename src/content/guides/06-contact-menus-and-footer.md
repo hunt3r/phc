@@ -10,8 +10,8 @@ This guide is kept up to date with the website. It opens for reading. Use **Edit
 **Contact** in the left menu is the Contact page. There is only one, and it cannot be deleted.
 
 - **Title** is the page heading.
-- **Description** is the line under the heading on the banner, and the preview text when the page is shared. See **Search engines and AI**.
-- **Featured Image** is the photo behind that banner.
+- **Description** is the line under the heading, and the preview text when the page is shared. See **Search engines and AI**.
+- **Featured Image** is optional. When it is set, it is the photo behind the banner, and the title and description sit on that banner. When it is left blank, there is no banner. The title and description appear below the breadcrumb, above the page content.
 - **Contact Info (footer)** is the address block. It appears in the footer on every page and in the contact card on the Contact page. You can use bold text and links, including an email link such as `info@phandc.net`.
 - **Videos** and **Content Cards** appear on the Contact page. See **Photos, videos, and content cards**.
 - **Body** is the message above the form, such as how you'd like people to get in touch.

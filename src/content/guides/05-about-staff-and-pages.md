@@ -36,8 +36,8 @@ There is a single Staff list. You cannot create a second one.
 **Pages** are simple pages that live at the root of the site, such as the privacy policy. When you add one, Tina asks for a file name. That name becomes the address: a file named `privacy-policy` is published at `/privacy-policy`. Use a short, lowercase name with hyphens. The **Title** is the heading visitors see.
 
 - **Title** is the page heading.
-- **Description** is the line under the heading on the banner, and the preview text when the page is shared.
-- **Featured Image** is the photo behind that banner.
+- **Description** is the line under the heading, and the preview text when the page is shared.
+- **Featured Image** is optional. When it is set, it is the photo behind the banner, and the title and description sit on that banner. When it is left blank, there is no banner. The title and description appear below the breadcrumb, above the page content.
 - **Videos** and **Content Cards** appear on the page. See **Photos, videos, and content cards**.
 - **Body** is the page content.
 

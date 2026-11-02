@@ -1,0 +1,26 @@
+---
+/**
+ * Editable in-page title for a Pages or Contact document. Renders only when
+ * Featured Image is blank. When an image is set, the title stays on the banner
+ * rendered by PageHero.
+ */
+import { tinaField } from '@tinacms/astro/tina-field';
+import PageTitle from '../PageTitle.astro';
+import { hasFeaturedImage, type PageHeaderDocument } from '@/lib/page-header';
+
+interface Props {
+  data?: PageHeaderDocument | null;
+}
+
+const { data } = Astro.props;
+const description = data?.description?.trim();
+---
+
+{data && !hasFeaturedImage(data.featuredImage) && (
+  <PageTitle
+    title={data.title ?? ''}
+    description={description}
+    titleField={tinaField(data, 'title')}
+    descriptionField={description ? tinaField(data, 'description') : undefined}
+  />
+)}
