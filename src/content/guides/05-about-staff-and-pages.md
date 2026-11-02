@@ -26,7 +26,7 @@ Open **Staff** to add, remove, or reorder people. Drag a person to change where 
 - **Title** is their role, shown on the card and the profile.
 - **Credentials** are licenses, degrees, and certifications. Add one per item.
 - **Bio** is the profile writeup. The first paragraph is also used as the short description when the profile is shared. See **Search engines and AI**.
-- **Profile Photo** is optional. Upload it from the media library.
+- **Profile Photo** is optional. Upload it from the media library. When the profile is shared, that photo is framed on the person's face so the wide preview keeps their head in view.
 - **Note** is an optional short line on the profile, such as an in-memoriam note. It is not shown on the About page card.
 
 There is a single Staff list. You cannot create a second one.

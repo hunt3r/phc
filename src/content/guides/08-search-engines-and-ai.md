@@ -45,7 +45,7 @@ Each public page has one official address, and search engines are pointed at tha
 
 **Staff**
 
-- A profile uses **Name** as the search name. The summary is the person's name and **Title** with a line about PH&C. The Bio is not used, because it is long and written in the first person. The Bio still appears on the profile page. **Profile Photo**, **Title**, and **Credentials** are included in the summary search engines read for that person.
+- A profile uses **Name** as the search name. The summary is the person's name and **Title** with a line about PH&C. The Bio is not used, because it is long and written in the first person. The Bio still appears on the profile page. **Profile Photo**, **Title**, and **Credentials** are included in the summary search engines read for that person. The share preview uses the **Profile Photo**, framed on the face so the wide preview keeps the head in view.
 
 The Testimonials page and the Videos page use a fixed name and summary.
 

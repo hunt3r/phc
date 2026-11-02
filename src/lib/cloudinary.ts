@@ -17,6 +17,9 @@ export function isCloudinarySrc(src: string | undefined): boolean {
   return false;
 }
 
+/** Focal point for a fill crop. "center" is the Cloudinary default. */
+export type ImageGravity = "face" | "auto" | "north" | "center";
+
 export interface GetImageUrlOptions {
   width?: number;
   height?: number;
@@ -26,6 +29,8 @@ export interface GetImageUrlOptions {
   quality?: "auto" | "auto:eco" | "auto:low";
   /** Delivery format. Default "auto" (f_auto, chosen from the request Accept header). */
   format?: "auto" | "avif" | "webp";
+  /** Focal point when height sets a fill crop. Omitted for "center". */
+  gravity?: ImageGravity;
 }
 
 function qualityToken(quality: GetImageUrlOptions["quality"]): string {
@@ -45,6 +50,9 @@ function buildTransform(options: GetImageUrlOptions): string {
   if (options.width) parts.push(`w_${options.width}`);
   if (options.height) {
     parts.push(`c_${crop}`, `h_${options.height}`);
+    if (crop === "fill" && options.gravity && options.gravity !== "center") {
+      parts.push(`g_${options.gravity}`);
+    }
   } else if (options.width) {
     parts.push("c_limit");
   }

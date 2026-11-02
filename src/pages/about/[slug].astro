@@ -51,7 +51,7 @@ const jsonLdNodes = [
 ];
 ---
 
-<BaseLayout title={member.name} description={description} image={member.image} jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs}>
+<BaseLayout title={member.name} description={description} image={member.image} imageGravity="face" jsonLdNodes={jsonLdNodes} breadcrumbs={breadcrumbs}>
   <article class="pt-6">
     <TinaIsland name="staffProfile" wrapper={islands.staffProfile.wrapper} params={{ slug: member.slug }} primary>
       <StaffProfile

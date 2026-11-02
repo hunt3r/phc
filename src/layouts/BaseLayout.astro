@@ -12,7 +12,7 @@ import {
   toCanonicalUrl,
   type BreadcrumbItem,
 } from "@/lib/seo/jsonld";
-import { BRAND_LOGO_URL, getImageSrcSet, getImageUrl } from "@/lib/cloudinary";
+import { BRAND_LOGO_URL, getImageSrcSet, getImageUrl, type ImageGravity } from "@/lib/cloudinary";
 import { metaDescription } from "@/lib/seo/metaDescription";
 import { seoTitle } from "@/lib/seo/pageTitle";
 import { HERO_SIZES } from "@/lib/hero-image";
@@ -37,6 +37,8 @@ interface Props {
   /** Sentence written for this kind of page, used when `description` has no whole sentences that fit. */
   descriptionFallback?: string;
   image?: string;
+  /** Focal point for the 1200×630 share crop. Defaults to center. */
+  imageGravity?: ImageGravity;
   jsonLdNodes?: Record<string, unknown>[];
   breadcrumbs?: BreadcrumbItem[];
   /** Hide the visible breadcrumb below `lg`, where the section picker shows the same path. */
@@ -54,6 +56,7 @@ const {
   description,
   descriptionFallback,
   image,
+  imageGravity,
   jsonLdNodes = [],
   breadcrumbs,
   breadcrumbsDesktopOnly = false,
@@ -71,7 +74,7 @@ const metaDescriptionText = metaDescription(description, displayTitle, descripti
 const site = Astro.url.origin || import.meta.env.SITE || 'https://www.phandc.net';
 const canonicalUrl = toCanonicalUrl(Astro.url.pathname, site);
 const ogImageSource = image
-  ? getImageUrl(image, { width: 1200, height: 630, crop: 'fill', quality: 'auto:eco' })
+  ? getImageUrl(image, { width: 1200, height: 630, crop: 'fill', quality: 'auto:eco', gravity: imageGravity })
   : getImageUrl(BRAND_LOGO_URL, { width: 1200 });
 const logoSrc = getImageUrl(BRAND_LOGO_URL, { width: 512 });
 const logoSrcSet = getImageSrcSet(BRAND_LOGO_URL, [372, 512]);
