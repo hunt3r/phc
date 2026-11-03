@@ -1,7 +1,6 @@
 ---
 title: Federal Transit Administration (FTA)
-description: 'Provided project management oversight support Technical reports oversight Reviews and reporting for each project Project cost, schedule, planning, design, construction, operations and quality assurance/quality control documentation, project cost estimates and project schedules'
-location: PH&C
+description: 'PH&C provided project management oversight for the Federal Transit Administration, reviewing cost, schedule, design, construction, and QA/QC records.'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692425/images/portfolio/federal-transit-administration-fta/logo_FTA-copy.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692425/images/portfolio/federal-transit-administration-fta/logo_FTA-copy.jpg'

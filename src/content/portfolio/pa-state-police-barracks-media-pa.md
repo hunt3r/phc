@@ -1,6 +1,6 @@
 ---
 title: 'PA State Police Barracks - Media, PA'
-description: 'Re-development project for the State Police in Delaware County PA, for a larger state-of-the-art facility to replace their old site'
+description: 'A 17,490 SF PA State Police barracks in Media, PA, on the former Franklin Mint site. PH&C managed demolition, remediation, and the new building.'
 location: 'Media, PA'
 size: '17,490 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692485/images/portfolio/pa-state-police-barracks-media-pa/Photo-Aug-27-11-18-42-AM-1-scaled-e1601568328120.jpg'
@@ -57,7 +57,7 @@ featured: true
 heroOrder: 14
 ---
 
-As part of a much larger re-development project in Delaware County PA around the old Franklin Mint property, the State Police required a new building to replace their antiquated building with a larger, state-of-the-art facility.  Site development, remediation and demolition of their old facility was included in the project scope. This project was awarded an $5M RACP grant to offset significant infrastructure costs. 
+As part of a much larger re-development project in Delaware County PA around the old Franklin Mint property, the State Police required a new building to replace their antiquated building with a larger, state-of-the-art facility.  Site development, remediation and demolition of their old facility was included in the project scope. This project was awarded a $5M RACP grant to offset significant infrastructure costs. 
 
 **Key Features:**
 
@@ -66,4 +66,4 @@ As part of a much larger re-development project in Delaware County PA around the
   * (2) Stormwater Management Basins
   * Rock drilling and blasting
 
-Check our their full site **[here](https://www.psp.pa.gov/troop%20directory/Pages/Troop-K.aspx)**. Return back to our **[Office/Warehouse Overview](https://phandc.net/office-overview/)**.
+Check out their full site **[here](https://www.psp.pa.gov/troop%20directory/Pages/Troop-K.aspx)**. Return back to our **[Office/Warehouse Overview](/portfolio/office)**.

@@ -1,6 +1,6 @@
 ---
 title: 'Wawa - Cherry Hill, NJ'
-description: '6,099 sf food market with 12 fuel stations Over 1 million Site & Highway Improvements'
+description: 'PH&C managed the site and highway improvements for a 6,099 SF Wawa food market with 12 fueling positions in Cherry Hill, NJ.'
 location: 'Cherry Hill, NJ'
 size: '6,099 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692769/images/portfolio/wawa-cherry-hill/wawa-cherryhill-1.jpg'

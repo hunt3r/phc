@@ -1,6 +1,6 @@
 ---
 title: 'ShopRite Supermarket - South Brunswick, NJ'
-description: 'Development of a new state-of-the-art ShopRite Supermarket along the busy US-1 corridor benefitting the local community was a much needed improvement for this area of New Jersey. Modern storm water management features were designed and implemented, as well as a pedestrian trail connection adjacent to this busy intersection providing safe alternatives to driving. Our team worked'
+description: 'For a new ShopRite on US-1 in South Brunswick, NJ, PH&C value-engineered the retaining walls and stormwater basins, then managed site construction.'
 location: 'South Brunswick, NJ'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692522/images/portfolio/shoprite-supermarket-south-brunswick-nj/2021-11-03-15.11.04-scaled.jpg'
 gallery:

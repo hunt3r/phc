@@ -1,6 +1,6 @@
 ---
 title: '260 Morehall Road - Malvern, PA'
-description: 'Site development retaining walls: 7500 SF of segmental block 1300 SF cast in place 5,000 SF Chick-Fil-A Restaurant 2,400 SF Starbucks Coffee Over $1.2 million in site & highway improvements'
+description: 'A 5,000 SF Chick-fil-A and 2,400 SF Starbucks on Morehall Road in Malvern, PA. PH&C managed over $1.2 million in site, highway, and retaining wall work.'
 location: 'Malvern, PA'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692361/images/portfolio/260-morehall-road-malvern-pa/2020-09-21-13.13.50-scaled.jpg'
 gallery:
@@ -49,6 +49,6 @@ videos:
 * Site development retaining walls:
   * 7500 SF of segmental block
   * 1300 SF cast in place
-* 5,000 SF **[Chick-Fil-A Restaurant](https://www.chick-fil-a.com/locations/pa/malvern)**
+* 5,000 SF **[Chick-fil-A Restaurant](https://www.chick-fil-a.com/locations/pa/malvern)**
 * 2,400 SF **[Starbucks Coffee](https://www.starbucks.com/store-locator?map=40.054873,-75.528925,10z\&place=Malvern,%20PA,%20USA)**
 * Over $1.2 million in site & highway improvements

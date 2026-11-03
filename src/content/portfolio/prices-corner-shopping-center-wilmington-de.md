@@ -1,6 +1,6 @@
 ---
 title: 'Prices Corner Shopping Center - Wilmington, DE'
-description: We performed environmental remediation and demolished an out-parcel Sears Auto Center making a Chick-Fil-A restaurant and Chase Bank branch. We also performed a complete façade renewal and parking lot enhancements . PH&C oversaw the project’s execution in this open and operating shopping center
+description: 'PH&C turned a two-story Sears into a Target at Prices Corner in Wilmington, DE, and cleared the Sears Auto Center for a Chick-fil-A and Chase Bank.'
 location: 'Wilmington, DE'
 architect:
   - entity: src/content/entities/bignell-watkins-hasser.md
@@ -41,7 +41,7 @@ services:
   - project-planning-coordination
   - pre-construction-services
 ---
-Retail shopping center transformations continue as defunct retailers blossom into new opportunities for the latest and greatest companies. This project had a large 2-story Sears building that we transformed into a state-of-the-art [**Target**](https://www.target.com/sl/wilmington-prices-corner/2875) store with space available on the 2nd floor for offices or more retail stores. We performed environmental remediation and demolished an out-parcel Sears Auto Center making way for a **[Chick-Fil-A](https://www.chick-fil-a.com/)** restaurant and [**Chase Bank**](https://www.chase.com/) branch. We also performed a complete façade renewal and parking lot enhancements improving vehicular and pedestrian circulation, as well as accessibility. PH&C oversaw the project’s execution in this open and operating shopping center, while saving the owner costs by value engineering certain design aspect, and prime contracting of various specialty contractors, ultimately revitalizing this shopping center to benefit the local communities.
+Retail shopping center transformations continue as defunct retailers blossom into new opportunities for the latest and greatest companies. This project had a large 2-story Sears building that we transformed into a state-of-the-art [**Target**](https://www.target.com/sl/wilmington-prices-corner/2875) store with space available on the 2nd floor for offices or more retail stores. We performed environmental remediation and demolished an out-parcel Sears Auto Center making way for a **[Chick-fil-A](https://www.chick-fil-a.com/)** restaurant and [**Chase Bank**](https://www.chase.com/) branch. We also performed a complete façade renewal and parking lot enhancements improving vehicular and pedestrian circulation, as well as accessibility. PH&C oversaw the project’s execution in this open and operating shopping center, while saving the owner costs by value engineering certain design aspect, and prime contracting of various specialty contractors, ultimately revitalizing this shopping center to benefit the local communities.
 
 **Key Features:**
 

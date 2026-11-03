@@ -1,6 +1,6 @@
 ---
 title: 'Wawa - Feasterville, PA'
-description: 'Assisting Wawa Corporation fulfill their expansion plans continues with this store in another key market targeted by Wawa and our developer client. As usual, this site had numerous redevelopment challenges including environmental remediation of multiple structures, demolition of said structures, wet and dry utility issues and relocations, storm water, vehicular and pedestrian management, as well'
+description: 'PH&C managed remediation, demolition, and utility relocations for a developer client''s 4,736 SF Wawa with 6 fuel positions in Feasterville, PA.'
 location: 'Feasterville, PA'
 size: '4,736 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692817/images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.05.21-scaled.jpg'

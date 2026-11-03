@@ -1,6 +1,6 @@
 ---
 title: 'Doylestown Shopping Center Target - Doylestown, PA'
-description: We performed environmental remediation and demolished an out-parcel Sears Auto Center making a Chick-Fil-A restaurant and Chase Bank branch. We also performed a complete façade renewal and parking lot enhancements . PH&C oversaw the project’s execution in this open and operating shopping center
+description: 'PH&C combined three spaces at the Doylestown Shopping Center into a Target store, with remediation and a flood wall. The store opened in July 2024.'
 location: 'Doylestown, PA'
 client:
   - entity: src/content/entities/the-robbins-companies.md
@@ -65,7 +65,7 @@ featured: true
 heroOrder: 8
 ---
 
-Retail shopping center transformations continue as defunct retailers blossom into new opportunities for the latest and greatest companies. We assisted our client, the shopping center owner, to consolidate 3 separate spaces and transform them into a state-of-the-art **[Target](https://www.target.com/sl/doylestown/3453)** store that opened it doors for business in July 2024.
+Retail shopping center transformations continue as defunct retailers blossom into new opportunities for the latest and greatest companies. We assisted our client, the shopping center owner, to consolidate 3 separate spaces and transform them into a state-of-the-art **[Target](https://www.target.com/sl/doylestown/3453)** store that opened its doors for business in July 2024.
 
 We performed environmental remediation of the spaces and demolished the demising walls making way for Target’s GC to perform their fit-out. We also managed a completely unique flood wall protection system in the front of the store since this space is in a flood area and has flooded in the past. 
 

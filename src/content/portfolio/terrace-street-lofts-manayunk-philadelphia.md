@@ -1,7 +1,7 @@
 ---
 title: Terrace Street Lofts - Manayunk Philadelphia
-description: '32 Unit / 40,500 SF / 4 Story Residential Complex 40 Space Parking Garage Underground Storm Water Retention Basins'
-location: Manayunk Philadelphia
+description: 'PH&C represented the owner on Terrace Street Lofts, a 32-unit, four-story apartment building in Manayunk, Philadelphia, with a 40-space parking garage.'
+location: 'Manayunk, Philadelphia, PA'
 size: '40,500 SF / 32 units'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692736/images/portfolio/terrace-street-lofts-manayunk-philadelphia/TerraceLofts_HomepageBanner_Carousel_Working_V1-07.jpg'
 gallery:

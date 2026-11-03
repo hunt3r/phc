@@ -1,7 +1,7 @@
 ---
 title: 'Sadsbury Commons - Parkesburg, PA - Development'
-description: The Sadsbury Commons development will offer many benefits to the local communities including a state-of-the-art medical facility anchors the site and more
-location: Development
+description: 'Sadsbury Commons in Parkesburg, PA, is anchored by a two-story, 36,000 SF medical office building. PH&C managed $2.5 million in site and highway work.'
+location: 'Parkesburg, PA'
 size: '36,000 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692516/images/portfolio/sadsbury-commons-development/sadsbury-1.jpg'
 gallery:
@@ -43,4 +43,4 @@ Sadsbury Commons, a once-rural area located about halfway between Philadelphia a
 *   Two-story 36,000 SF Medical Office Building
 *   Site & Highway Improvements totaling $2.5 million
 
-Check out some of our other **[Healthcare Developments](https://phandc.net/healthcare-overview/)**.
+Check out some of our other **[Healthcare Developments](/portfolio/healthcare)**.

@@ -1,6 +1,6 @@
 ---
 title: 'Wawa - Maple Shade, NJ'
-description: 'Assisting the Wawa Corporation in fulfilling their expansion plans including redevelopment, remediation, accessibility, management, and more'
+description: 'In Maple Shade, NJ, PH&C managed cleanup of a former gas station and construction of a 5,585 SF Wawa with 6 fuel positions and 7 Tesla chargers.'
 location: 'Maple Shade, NJ'
 size: '5,585 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692781/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.43.06-scaled.jpg'
@@ -45,4 +45,4 @@ Assisting the Wawa Corporation in fulfilling their expansion plans continued wit
 *   Individual NPDES Permit
 *   NJ DOT & Township access & signal improvements.
 
-Visit their site **[HERE](https://www.wawa.com/)** or check out some of our other **[Retail Developments](https://phandc.net/retail-overview/)**.
+Visit their site **[HERE](https://www.wawa.com/)** or check out some of our other **[Retail Developments](/portfolio/retail)**.

@@ -1,7 +1,7 @@
 ---
 title: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA
-description: Redevelopment of a food production facility into retail and entertainment. An awarded project involving environmental clean-up
-location: Philadelphia PA
+description: 'Demolition of the 27-acre Nabisco plant in Philadelphia, PA, removed 7-story mixing drums and 1,200 LF of rail. PH&C then delivered a pad-ready Wawa site.'
+location: 'Philadelphia, PA'
 size: 27 acres
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692457/images/portfolio/national-biscuit-co-demo-and-phase-i-redevelopment/IMG_2877.jpg'
 gallery:
@@ -61,4 +61,4 @@ Environmental remediation and demolition of the old food production facility are
 * Delivered pad-ready site for new 4,691sf Wawa Food Market with 12 fuel stations, including widening of Byberry Road and traffic signal upgrades.
 * Byberry Road and Bustleton Ave. streetscape features brick piers with cast stone caps, fencing between piers, radius brick walls with stone caps, and a brick and stone veneer clock tower surrounded by a stamped concrete plaza.
 
-Visit their site **[HERE](https://www.wawa.com/)** or check out some of our other **[Retail Developments](https://phandc.net/retail-overview/)**.
+Visit their site **[HERE](https://www.wawa.com/)** or check out some of our other **[Retail Developments](/portfolio/retail)**.

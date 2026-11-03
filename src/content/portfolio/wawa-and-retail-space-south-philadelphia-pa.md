@@ -1,6 +1,6 @@
 ---
 title: 'Wawa and Retail Space - Philadelphia, PA'
-description: 'Existing Industrial Brownfield Demolition and Redevelopment 5,585 sf Wawa Food Market with 8 fuel canopy pump station 11,000 sf Mixed Use Retail: Xfinity Retail Store, Fine Wine and Spirits PennDOT Access Improvements Soil Remediation / Piles & Caissons Individual NPDES Permit'
+description: 'On an industrial brownfield in Philadelphia, PH&C managed remediation and pile foundations for a 5,585 SF Wawa and 11,000 SF of retail for Xfinity.'
 location: 'Philadelphia, PA'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692764/images/portfolio/wawa-and-retail-space-south-philadelphia-pa/South-Philly-pre-wawa.jpg'
 gallery:
@@ -41,7 +41,7 @@ services:
 
 *   Existing Industrial Brownfield Demolition and Redevelopment
 *   5,585 sf [**Wawa Food Market**](https://www.wawa.com) with 8 fuel canopy pump station
-*   11,000 sf Mixed Use Retail: [**Xfinity** Retail Store](https://www.xfinity.com/local/pa/philadelphia/3903-aramingo-avenue.html?CMP=ORG:OTH:BAU:ALL:COM:GEN:INT5446cc3b393b1), [**Fine Wine and Spirits**](https://www.finewineandgoodspirits.com/)
+*   11,000 sf Mixed Use Retail: [**Xfinity** Retail Store](https://www.xfinity.com/local/pa/philadelphia/3903-aramingo-avenue.html), [**Fine Wine and Spirits**](https://www.finewineandgoodspirits.com/)
 *   PennDOT Access Improvements
 *   Soil Remediation / Piles & Caissons
 *   Individual NPDES Permit

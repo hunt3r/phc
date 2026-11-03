@@ -31,6 +31,7 @@ const PAGE_REDIRECTS = {
   "contact-us": "/contact",
   "our-services": "/services",
   "project-sectors": "/portfolio",
+  "retail-overview": "/portfolio/retail",
   video: "/",
 };
 
@@ -53,6 +54,16 @@ const OVERVIEW_TO_TAG = {
   "office-overview-2": "institutional",
   "residential-multi-family-overview": "residential",
   "custom-self-storage-development": "self-storage",
+};
+
+// Portfolio items renamed after launch because the WordPress slug named the
+// wrong project. Old WordPress and /portfolio/ URLs both go to the new slug.
+const PORTFOLIO_RENAMES = {
+  "lidl-us-llc-paramus-new-jersey-2": "lidl-us-llc-freehold-new-jersey",
+  "wawa-upper-providence-township-pa-2-2-2": "wawa-feasterville-pa",
+  "wawa-upper-providence-township-pa-2": "wawa-westhampton-nj",
+  "higher-rock-devlopment-montgomery-twp-pa-2": "atwater-south-malvern-pa",
+  "higher-rock-devlopment-montgomery-twp-pa": "higher-rock-development-montgomery-twp-pa",
 };
 
 function slugify(value) {
@@ -163,8 +174,12 @@ async function main() {
   for (const entry of manifest) {
     if (entry.type !== "post") continue;
     const overviewTag = OVERVIEW_TO_TAG[entry.slug];
-    const target = overviewTag ? tagUrl(overviewTag) : `/portfolio/${entry.slug}`;
+    const target = overviewTag ? tagUrl(overviewTag) : `/portfolio/${PORTFOLIO_RENAMES[entry.slug] ?? entry.slug}`;
     addRule(rules, `/${entry.slug}`, target);
+  }
+
+  for (const [oldSlug, newSlug] of Object.entries(PORTFOLIO_RENAMES)) {
+    addRule(rules, `/portfolio/${oldSlug}`, `/portfolio/${newSlug}`);
   }
 
   for (const tag of tags) {

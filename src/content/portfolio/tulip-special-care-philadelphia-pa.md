@@ -1,6 +1,6 @@
 ---
 title: 'Tulip Special Care - Philadelphia, PA'
-description: 'Tulip Special Care is a 60 bed Skilled Nursing Facility specializing in the care of ventilator dependent adults. Key Features: 20,585 sf Complete Renovation to the 7th floor of the former Medial College of Pennsylvania Building Site Improvements include Exterior Oxygen Pad with tanks and delivery equipment, with O2 and Electrical lines running into building'
+description: 'PH&C managed the 20,585 SF renovation of a floor in Philadelphia''s former Medical College of Pennsylvania building for Tulip Special Care''s 60-bed unit.'
 location: 'Philadelphia, PA'
 projectCost: $3.5 million
 size: '20,585 SF'
@@ -25,7 +25,7 @@ services:
 
 **Key Features:**
 
-*   20,585 sf Complete Renovation to the 7th floor of the former Medial College of Pennsylvania Building
+*   20,585 sf Complete Renovation to the 7th floor of the former Medical College of Pennsylvania Building
 *   Site Improvements include Exterior Oxygen Pad with tanks and delivery equipment, with O2 and Electrical lines running into building and up to 7th floor
 *   Approximately $3.5 million Project
 

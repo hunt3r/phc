@@ -1,6 +1,6 @@
 ---
 title: 'Higher Rock Development - Montgomery Twp, PA'
-description: 'Development of this former plant nursery required rock removal management, benefitting the community with retail food and commercial office space'
+description: 'A Wawa, Wendy''s, and Citadel Bank on a former nursery in Montgomery Twp, PA. PH&C managed rock blasting, an Individual NPDES Permit, and a new signal.'
 location: 'Montgomery Twp, PA'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692430/images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.03.16-scaled.jpg'
 gallery:
@@ -49,4 +49,4 @@ Development of this former plant nursery, along the busy commercial corridor of 
 *   Individual NPDES Permit
 *   PennDOT & Township access & signal improvements.
 
-Check out some of our other **[Retail Developments](https://phandc.net/retail-overview/)**.
+Check out some of our other **[Retail Developments](/portfolio/retail)**.

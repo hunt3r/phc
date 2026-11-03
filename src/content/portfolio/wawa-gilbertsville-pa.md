@@ -1,6 +1,6 @@
 ---
 title: 'Wawa - Gilbertsville, PA'
-description: '5,102 sf Wawa Food Market with 6 fuel canopy pump stations Limited Access ROW Driveway and Public Bypass Roadway RT 100 Highway Improvements'
+description: 'For a 5,102 SF Wawa in Gilbertsville, PA, PH&C managed the Route 100 highway improvements, a limited-access driveway, and a public bypass road.'
 location: 'Gilbertsville, PA'
 size: '5,102 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692783/images/portfolio/wawa-gilbertsville-pa/Wawa-Gilbertsville-11-1024x683.jpg'

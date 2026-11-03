@@ -1,6 +1,6 @@
 ---
 title: 'A Storage Depot - Middletown, DE'
-description: '103,350 SF / 3 story climate controlled self storage facility 6000 square feet of covered parking. Light gauge framing building with standing seam metal roof. Coordination of door and corridor contractor. EIFS, brick and metal panel exterior'
+description: 'For The McKee Group, PH&C managed construction of a 103,350 SF, three-story climate-controlled self-storage facility in Middletown, DE.'
 location: 'Middletown, DE'
 client:
   - entity: src/content/entities/the-mckee-group.md

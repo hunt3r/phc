@@ -39,7 +39,7 @@ export const ORG_FOUNDING_DATE = "2010";
 export const ORG_FOUNDER = "Paul Harris";
 
 export const ORG_ADDRESS = {
-  streetAddress: "998 Old Eagle School Road, Suite 1210",
+  streetAddress: "998 Old Eagle School Road, Suite 1211",
   addressLocality: "Wayne",
   addressRegion: "PA",
   postalCode: "19087",
@@ -57,6 +57,7 @@ export const ORG_AREA_SERVED = [
   "Delaware",
   "Maryland",
   "New York",
+  "Florida",
   "Greater Philadelphia",
 ];
 

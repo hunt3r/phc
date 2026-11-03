@@ -1,6 +1,6 @@
 ---
 title: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ'
-description: 'A environmental remediation construction project for three new retail buildings including Panda Express, Jersey Mikes, and a Vet'
+description: 'PH&C replaced a furniture building in Sicklerville, NJ, with stores for Panda Express, Jersey Mike''s, and THRIVE Vet Care after remediation and demolition.'
 location: 'Sicklerville/ Turnersville, NJ'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692542/images/portfolio/sicklerville-retail-shoppes/2021-01-29-09.49.40.jpg'
 gallery:

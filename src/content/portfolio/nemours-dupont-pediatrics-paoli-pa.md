@@ -1,6 +1,6 @@
 ---
 title: 'Nemours DuPont Pediatrics - Paoli, PA'
-description: '9,000 sf Pediatric Care Facility / Medical Office 6,000 sf Bldg Gut and Renovation and 3,000 SF Expansion Site Improvements include SWM, Pedestrian access improvements, landscaping, lighting'
+description: 'Gut renovation and a 3,000 SF addition turned a 6,000 SF building in Paoli, PA, into a 9,000 SF Nemours pediatric office. PH&C managed the project.'
 location: 'Paoli, PA'
 size: '9,000 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692470/images/portfolio/nemours-dupont-pediatrics-paoli-pa/NEMOURS-1024x683.jpg'

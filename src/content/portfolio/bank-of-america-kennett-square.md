@@ -1,6 +1,6 @@
 ---
 title: 'Bank of America - Kennett Square, PA'
-description: '3,156sf Bank with Drive-Thru Canopy Individual NPDES permit PennDOT Access & Signal Improvements'
+description: 'A 3,156 SF Bank of America branch with a drive-thru canopy in Kennett Square, PA. PH&C handled the individual NPDES permit and PennDOT signal work.'
 location: 'Kennett Square, PA'
 size: '3,156 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692379/images/portfolio/bank-of-america-kennett-square/DSC_5300-copy-for-website.jpg'

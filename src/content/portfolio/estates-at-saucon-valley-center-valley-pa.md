@@ -1,6 +1,6 @@
 ---
 title: 'Estates at Saucon Valley - Center Valley, PA'
-description: 'Continuing our expansion into Residential and Multi-Family community projects, we assisted Tuskes Homes complete this residential community located in the beautiful Saucon Valley of Pennsylvania. Located on the same parcel, we also assisted in delivering lots for another community that is being built by Ryan Homes. Key Features: We procured and managed multiple contractors'
+description: 'For Tuskes Homes, PH&C managed sitework at Estates at Saucon Valley in Center Valley, PA, including 425,000 CY of earthwork and seven retaining walls.'
 location: 'Center Valley, PA'
 contractor:
   - entity: src/content/entities/tuskes-homes.md
@@ -41,9 +41,9 @@ services:
   - contractor-bidding-selection
   - site-analysis-feasibility
 ---
-Continuing our expansion into Residential and Multi-Family community projects, we assisted _**[Tuskes Homes](https://www.tuskeshomes.com/new-homes/pa/center-valley/estates-at-saucon-valley/8935/?gclid=CjwKCAjwrranBhAEEiwAzbhNtUTdLHDZlGtNJ6rX3-KfvJNH7ltnZlPaekyzQ6Ies4TVZi2yl2LhIRoC5XYQAvD_BwE)**_ complete this residential community located in the beautiful Saucon Valley of Pennsylvania.
+Continuing our expansion into Residential and Multi-Family community projects, we assisted _**[Tuskes Homes](https://www.tuskeshomes.com/new-homes/pa/center-valley/estates-at-saucon-valley/8935/)**_ complete this residential community located in the beautiful Saucon Valley of Pennsylvania.
 
-Located on the same parcel, we also assisted in delivering lots for another community that is being built by _**[Ryan Homes](https://www.ryanhomes.com/new-homes/communities/10222120152226/pennsylvania/upper-saucon/sauconvalley?utm_source=google&utm_medium=cpc&utm_term=EstatesatSauconValley&utm_campaign=DVO-PHW-PA-Communities-Branded-In-Market&utm_content=Community-Brand&gclid=CjwKCAjwrranBhAEEiwAzbhNtVb3KQQZAV0g1znRBtoFQ7fgT0jjTKQwslPt9sv42BLlyls9JPTN1RoCjzMQAvD_BwE)**_.
+Located on the same parcel, we also assisted in delivering lots for another community that is being built by _**[Ryan Homes](https://www.ryanhomes.com/new-homes/communities/10222120152226/pennsylvania/upper-saucon/sauconvalley)**_.
 
 **Key Features:**
 

@@ -1,6 +1,6 @@
 ---
 title: 'Wawa/Retail Bldg/Bank - Trooper, PA'
-description: '5,535 sf Wawa Food Market with 16 fuel stations 8,000 sf Retail Building with Drive-Thru Smile Exchange, Good Shepherd Penn Partners and Shake Shack Retail Fit-Outs 3800 sf Citadel Bank w/ 3 Drive Thru Lanes PennDOT Signal & Access Improvements'
+description: 'At Trooper, PA, PH&C delivered a 5,535 SF Wawa, an 8,000 SF retail building with Shake Shack, a Citadel bank branch, and PennDOT signal work.'
 location: 'Trooper, PA'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692793/images/portfolio/wawa-retail-bldg-bank-trooper-pa/DSC_2803-scaled.jpg'
 gallery:

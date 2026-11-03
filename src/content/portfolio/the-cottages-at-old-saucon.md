@@ -1,6 +1,6 @@
 ---
 title: 'The Cottages At Old Saucon - Bethlehem, PA'
-description: 'Continuing our expansion into Residential and Multi-Family community projects, we assisted a team of investors develop this brand new 55+ age-qualified community located in the beautiful Saucon Valley of Pennsylvania. Consisting of eighty classic cottages and a vibrant village center, The Cottages will be composed of simple sophistication for the discerning buyer which you can'
+description: 'For a team of investors, PH&C managed sitework for an 80-cottage 55+ community in Bethlehem, PA, including 425,000 CY of earthwork and a Route 378 signal.'
 location: 'Bethlehem, PA'
 size: 80 cottages
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692736/images/portfolio/the-cottages-at-old-saucon/2023-10-25-10.37.12-scaled.jpg'

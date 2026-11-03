@@ -1,6 +1,6 @@
 ---
 title: 'Wawa - Hatfield, PA'
-description: '4,085 sf food market with 12 fuel stations Site & Highway Improvements totaling $1 million'
+description: 'PH&C managed construction of a 4,085 SF Wawa with 12 fuel positions in Hatfield, PA, along with $1 million in site and highway improvements.'
 location: 'Hatfield, PA'
 projectCost: $1M
 size: '4,085 SF'

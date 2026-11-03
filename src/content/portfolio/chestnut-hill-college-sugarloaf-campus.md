@@ -1,7 +1,7 @@
 ---
 title: Chestnut Hill College - Sugarloaf Campus Philadelphia PA
-description: 'We competitively bid and were awarded a contract to provide construction management and oversight for the new entrance to their Sugarloaf Campus, including a paved pedestrian trail through the beautiful Wissahickon Valley woods connecting to their main campus'
-location: Sugarloaf Campus Philadelphia PA
+description: 'Chestnut Hill College hired PH&C to manage a new Sugarloaf Campus entrance road off Germantown Ave. in Philadelphia, with a trail and rock blasting.'
+location: 'Philadelphia, PA'
 contractor:
   - entity: src/content/entities/benchmark-site-development.md
   - entity: src/content/entities/armor-and-sons-electric.md
@@ -50,10 +50,10 @@ services:
 featured: false
 ---
 
-We competitively bid and were awarded a contract to provide construction management and oversight for the new entrance to their Sugarloaf Campus. A brand new entrance roadway off Germantown Ave., made in alignment with East Hillcrest Ave., was added to make much easier and safer access to this campus. This project also including a paved pedestrian/bicycle trail through the beautiful [Wissahickon Valley Park](https://www.visitphilly.com/things-to-do/attractions/wissahickon-valley-park/) woods connecting to their main campus.
+We competitively bid and were awarded a contract to provide construction management and oversight for the new entrance to their Sugarloaf Campus. A brand new entrance roadway off Germantown Ave., made in alignment with East Hillcrest Ave., was added to make much easier and safer access to this campus. This project also included a paved pedestrian/bicycle trail through the beautiful [Wissahickon Valley Park](https://www.visitphilly.com/things-to-do/attractions/wissahickon-valley-park/) woods connecting to their main campus.
 
 This project included many complex utility relocations for the intersection reconfiguration, and new traffic control equipment. Rock blasting was also needed to make way for the road, and this included cooperation and coordination with multiple government agencies, nearby institutions and residents.
 
-We want to thank [Chestnut Hill College](https://www.chc.edu/) for allowing us to assist them with this project as well as the contractors: [Benchmark Site Development](https://www.benchmarksite.com/), [Armor & Sons Electric](https://www.armourandsons.com/) and [Shearon Environmental Design](https://shearondesign.com/).
+We want to thank [Chestnut Hill College](https://www.chc.edu/) for allowing us to assist them with this project as well as the contractors: [Benchmark Site Development](https://www.benchmarksite.com/), [Armour & Sons Electric](https://www.armourandsons.com/) and [Shearon Environmental Design](https://shearondesign.com/).
 
 This project could not have been possible without the cooperation and assistance from [The Morris Arboretum](https://www.morrisarboretum.org/).

@@ -1,6 +1,6 @@
 ---
 title: '6060 Ridge Ave - Philadelphia, PA'
-description: Complete Facade Renovation Interior Demolition and Redevelopment of existing Bank Branch Office Fit Out/ Medical Office (Vybe Urgent Care)
+description: 'PH&C turned a former bank branch at 6060 Ridge Ave in Philadelphia, PA, into a Vybe Urgent Care for Provco Group, with a full facade renovation.'
 location: 'Philadelphia, PA'
 client:
   - entity: src/content/entities/provco-group.md

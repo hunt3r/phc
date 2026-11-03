@@ -1,6 +1,6 @@
 ---
 title: 'Whitman Plaza - Philadelphia, PA'
-description: '120,000 sqft Retail Building demolition and renovation for new tenants, Burlington Coat Factory & Ross Dress for Less Over $7 million investment Loading dock expansion Façade renovation Deep Foundation system'
+description: 'PH&C managed a $7 million-plus renovation of a 120,000 SF building at Whitman Plaza, Philadelphia, for Burlington Coat Factory and Ross Dress for Less.'
 location: 'Philadelphia, PA'
 projectCost: Over $7 million
 size: '120,000 SF'

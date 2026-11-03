@@ -1,6 +1,6 @@
 ---
 title: 'Wawa - East Norriton, PA'
-description: 'We are proud to continue with our assistance in developing another Wawa store in their core market that opened in October 2023. Our work for a commercial real estate developer client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. As usual, this'
+description: 'For a commercial developer, PH&C delivered a pad for a 5,051 SF Wawa with 16 fueling positions in East Norriton, PA, and repaved access for its neighbors.'
 location: 'East Norriton, PA'
 date: '2023'
 size: '5,051 SF'

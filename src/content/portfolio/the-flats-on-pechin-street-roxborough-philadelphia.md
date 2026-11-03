@@ -1,7 +1,7 @@
 ---
 title: The Flats on Pechin Street - Roxborough Philadelphia
-description: '42 Unit / 40,000 SF / 4 Story Residential Complex 50 space / 2 Story Parking Garage Underground Storm Water Retention Basins'
-location: Roxborough Philadelphia
+description: 'The Flats on Pechin Street added 42 apartments and a 50-space, two-story garage in Roxborough, Philadelphia. PH&C managed construction for the owner.'
+location: 'Roxborough, Philadelphia, PA'
 size: '40,000 SF / 42 units'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692742/images/portfolio/the-flats-on-pechin-street-roxborough-philadelphia/2018-11-26-Pechin-Street-JPEG-scaled.jpg'
 gallery:

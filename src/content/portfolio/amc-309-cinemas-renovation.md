@@ -1,7 +1,7 @@
 ---
 title: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation'
-description: 'A interior and exterior renovation of the AMC 309 Cinemas. Updates include building renovations, site work, signage, and landscaping'
-location: Major Exterior Renovation
+description: 'PH&C managed the AMC 309 Cinemas renovation in North Wales, PA: a new facade and roof, a 3,550 SF lobby addition, and parking and stormwater upgrades.'
+location: 'North Wales, PA'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692379/images/portfolio/amc-309-cinemas-renovation/amc-309-2.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692379/images/portfolio/amc-309-cinemas-renovation/amc-309-2.jpg'
@@ -43,4 +43,4 @@ The antiquated and dilapidated entertainment facility located at the intersectio
 *   Parking lot, storm water management and utility improvements/renovation including highway improvements.
 *   Close coordination and cooperation with complete interior renovation contractors with multiple overlapping systems/issues which were successfully resolved.
 
-Visit their site **[HERE](https://www.amctheatres.com/movie-theatres/philadelphia/amc-309-cinema-9)** or check out some of our other **[Retail Developments](https://phandc.net/retail-overview/)**.
+Visit their site **[HERE](https://www.amctheatres.com/movie-theatres/philadelphia/amc-309-cinema-9)** or check out some of our other **[Retail Developments](/portfolio/retail)**.

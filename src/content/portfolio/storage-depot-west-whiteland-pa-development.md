@@ -1,6 +1,6 @@
 ---
 title: 'A Storage Depot - West Whiteland Twp, PA'
-description: 'A suburban multi-Story Climate Controlled Self Storage depot development, using the latest sustainable stormwater management features'
+description: 'PH&C managed an 88,000 SF, three-story climate-controlled self-storage building for A Storage Depot on a steep slope in West Whiteland Township, PA.'
 location: 'West Whiteland Twp, PA'
 size: '88,000 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692723/images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.08.48-scaled.jpg'
@@ -41,4 +41,4 @@ This burgeoning suburban area is prime for a Multi-Story Climate Controlled Self
 *   Light gauge framing building with standing seam metal roof.
 *   Unique building design: metal panel exterior.
 
-Visit their site **[HERE](https://astoragedepot.com/)** or check out some of our other **[Office and Warehouse Developments](https://phandc.net/office-overview/)**.
+Visit their site **[HERE](https://astoragedepot.com/)** or check out some of our other **[Office and Warehouse Developments](/portfolio/office)**.

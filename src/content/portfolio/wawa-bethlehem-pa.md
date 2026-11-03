@@ -1,6 +1,6 @@
 ---
 title: 'Wawa - Bethlehem, PA'
-description: 'We are proud to continue with our assistance in developing another Wawa store that opened in December 2023. Our work for an individual land owner client included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. This site had the gamut of redevelopment challenges'
+description: 'PH&C delivered the pad for a 5,585 SF, 16-pump Wawa in Bethlehem, PA, working around remediation, a nearby bald eagle nest, and PennDOT highway approvals.'
 location: 'Bethlehem, PA'
 date: '2023'
 size: '5,585 SF'

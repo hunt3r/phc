@@ -1,6 +1,6 @@
 ---
 title: 'PNC Bank - Westtown, PA'
-description: '4,020sf Bank 3 Drive-Thru lanes with canopy PennDOT Access & Signal Improvements'
+description: 'PH&C managed construction of a 4,020 SF PNC Bank branch in Westtown, PA, with three drive-thru lanes and PennDOT access and signal improvements.'
 location: 'Westtown, PA'
 size: '4,020 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692488/images/portfolio/pnc-bank-westtown/DSC_53851.jpg'

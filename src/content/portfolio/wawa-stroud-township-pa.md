@@ -1,6 +1,6 @@
 ---
 title: 'Wawa - Stroud Township, PA'
-description: 'We continue our assistance in developing Wawa stores, and our newest opened in April 2025. Our work for a developer on their first ever Wawa store included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. Our focus was on controlling costs and managing'
+description: 'For a developer''s first Wawa, PH&C delivered a 6,049 SF store with 16 fuel positions in Stroud Township, PA, including rock blasting and PennDOT work.'
 location: 'Stroud Township, PA'
 date: '2025'
 size: '6,049 SF'

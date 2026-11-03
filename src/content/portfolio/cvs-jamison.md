@@ -1,6 +1,6 @@
 ---
 title: 'CVS Pharmacy - Jamison, PA'
-description: 'Site development 14,000sf Retail Pharmacy Over $1.2 million in site & highway improvements'
+description: 'Site development for a 14,000 SF CVS Pharmacy in Jamison, PA, with over $1.2 million in site and highway improvements managed by PH&C.'
 location: 'Jamison, PA'
 size: '14,000 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692405/images/portfolio/cvs-jamison/cvs-jamison-1-1.jpg'
