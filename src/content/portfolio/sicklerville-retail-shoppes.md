@@ -28,7 +28,6 @@ gallery:
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 11'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692542/images/portfolio/sicklerville-retail-shoppes/2021-01-29-09.49.05-scaled.jpg'
     alt: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ - image 12'
-order: 31
 sectors:
   - retail
 services:

@@ -10,7 +10,6 @@ gallery:
     alt: 'Whitman Plaza - Philadelphia, PA - image 1'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692823/images/portfolio/whitman-plaza-burlington-coat-factory-ross-dress-for-less/whitmanplaza-2.jpg'
     alt: 'Whitman Plaza - Philadelphia, PA - image 2'
-order: 46
 sectors:
   - retail
 services:

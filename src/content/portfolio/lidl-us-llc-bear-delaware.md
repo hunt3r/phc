@@ -1,10 +1,10 @@
 ---
 title: 'Lidl Supermarket - Bear, Delaware'
-description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores! On July 11, 2025, we participated in our 5th store grand opening, which occurred in'
+description: 'A Lidl building in Bear, Delaware, was built in 2021 and never opened. PH&C fit it out to the current prototype. It opened July 11, 2025.'
 location: 'Bear, Delaware'
 client:
   - entity: src/content/entities/lidl.md
-date: '2025'
+date: '2025-07-11'
 architect:
   - entity: src/content/entities/cuhaci-peterson.md
 contractor:
@@ -44,16 +44,13 @@ services:
   - project-schedule-management
   - project-planning-coordination
   - pre-construction-services
-order: 1
 featured: true
 heroOrder: 1
 ---
 
-Starting in 2023, PH\&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores!
+A Lidl building in [Bear, Delaware](https://www.lidl.com/stores/US01407) was built in 2021 and never opened. PH\&C fit it out to the current prototype with Cuhaci Peterson and New Age Development Group. The store opened July 11, 2025.
 
-On July 11, 2025, we participated in our 5th store grand opening, which occurred in [Bear, DE](https://www.lidl.com/stores/US01407).
-
-This particular store was built in 2021 but due to market situations, it never opened. Our team worked with the Lidl team, Architect and Engineers to identify the current conditions, value engineer and adapt the designs to meet the current Lidl prototype store.  We functioned as the Owner’s Representative, procuring a General Contractor, managing all budgets, timelines, quality checks, and external/internal professional/partners.
+The team identified the building's condition with Lidl, the architect, and the engineers, then adapted the design to the current Lidl prototype. PH\&C procured the general contractor and managed the budget, schedule, and quality checks.
 
 Key tasks and functions included:
 

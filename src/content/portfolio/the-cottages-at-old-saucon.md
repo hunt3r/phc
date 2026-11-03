@@ -15,7 +15,6 @@ gallery:
     alt: 'The Cottages At Old Saucon - Bethlehem, PA - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692740/images/portfolio/the-cottages-at-old-saucon/2023-10-25-10.42.57-scaled.jpg'
     alt: 'The Cottages At Old Saucon - Bethlehem, PA - image 5'
-order: 13
 sectors:
   - residential
 services:

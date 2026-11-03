@@ -17,7 +17,7 @@ The top of the homepage is a slideshow. It mixes three kinds of slides:
 
 **Order**, under **Hero**, is the sequence of the three groups. Drag a row to move that group. The default is **Slides**, then **Tags**, then **Projects**. A group that is missing from the list is added at the end in that same default order.
 
-Inside a group, **Hero order** sets the sequence. A smaller number comes first. Leave **Hero order** blank on a custom slide to keep the order of the **Slides** list. Leave it blank on a project or a tag to place that item after the numbered ones in its group, then by name. **Hero order** on a project does not change that project's **Order** in the portfolio or in Latest projects. **Hero order** on a tag does not change that tag's **Order** in the menus.
+Inside a group, **Hero order** sets the sequence. A smaller number comes first. Leave **Hero order** blank on a custom slide to keep the order of the **Slides** list. Leave it blank on a project or a tag to place that item after the numbered ones in its group, then by name. **Hero order** on a project does not change that project's **Order** in the portfolio, and it does not change **Latest projects**. **Latest projects** uses **Date**. **Hero order** on a tag does not change that tag's **Order** in the menus.
 
 **Max Hero Slides**, under **Hero**, sets how many slides to show. If you leave it blank, the site shows 5. Slides past that count are left off the end of this order.
 
@@ -46,7 +46,7 @@ If no project, tag, or custom slide qualifies, the homepage has no banner. A **B
 
 **Content Cards** on **Home** are promotional blocks placed directly under the banner, before the project list. See **Photos, videos, and content cards** for how to build one.
 
-**Latest projects** is a grid of project cards. Projects are ordered by the **Order** number on each project, smallest first. A project with no Order is placed last. **Max Latest Projects** sets how many cards to show. If you leave it blank, the site shows 3.
+**Latest projects** is a grid of project cards. It shows projects that have a **Date**, newest first. A full date, such as February 4, 2026, comes before a project dated only with that year. Projects with the same date are sorted by title. A project with no date is left out. **Max Latest Projects** sets how many cards to show. If you leave it blank, the site shows 3. **Order** on a project does not change this list. On the Portfolio page, and on sector and service pages, projects follow **Date** unless that project has an **Order**. See **Portfolio projects**.
 
 **Videos** on the homepage are videos you marked **Promote to home page**, from any project, tag, About, Contact, or other page. **Max Videos** sets how many to show. If you leave it blank, the site shows 8. Every video, featured or not, is also listed on the Videos page.
 

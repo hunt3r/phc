@@ -19,7 +19,6 @@ gallery:
     alt: 'Pond''s Edge - Middletown Twp, PA - image 6'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692495/images/portfolio/ponds-edge-community-middletown-delaware-county-pa/2023-11-10-13.33.46-scaled.jpg'
     alt: 'Pond''s Edge - Middletown Twp, PA - image 7'
-order: 15
 sectors:
   - residential
   - retail

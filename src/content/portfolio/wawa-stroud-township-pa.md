@@ -2,6 +2,7 @@
 title: 'Wawa - Stroud Township, PA'
 description: 'We continue our assistance in developing Wawa stores, and our newest opened in April 2025. Our work for a developer on their first ever Wawa store included delivering a pad site to the Wawa Corporation specifications, and working with their General Contractor to successfully complete the construction. Our focus was on controlling costs and managing'
 location: 'Stroud Township, PA'
+date: '2025'
 size: '6,049 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692797/images/portfolio/wawa-stroud-township-pa/2025-04-10-07.59.37-scaled.jpg'
 gallery:
@@ -17,7 +18,6 @@ gallery:
     alt: 'Wawa - Stroud Township, PA - image 5'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692796/images/portfolio/wawa-stroud-township-pa/2023-08-03-10.35.46-scaled.jpg'
     alt: 'Wawa - Stroud Township, PA - image 6'
-order: 10
 sectors:
   - retail
   - government

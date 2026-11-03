@@ -37,7 +37,6 @@ services:
   - highway-access
   - government-agency-coordination
   - site-analysis-feasibility
-order: 43
 featured: false
 videos:
   - title: '260 Morehall Road - Malvern, PA'

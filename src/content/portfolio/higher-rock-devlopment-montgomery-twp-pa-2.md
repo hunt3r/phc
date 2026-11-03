@@ -16,7 +16,6 @@ gallery:
     alt: 'Atwater South - Malvern, PA - PH&C - Rock Excavation - image 5'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692433/images/portfolio/higher-rock-devlopment-montgomery-twp-pa-2/2021-08-12-14.06.31-1-scaled.jpg'
     alt: 'Atwater South - Malvern, PA - PH&C - Rock Excavation - image 6'
-order: 22
 sectors:
   - retail
   - office

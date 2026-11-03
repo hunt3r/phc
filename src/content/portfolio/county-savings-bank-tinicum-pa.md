@@ -14,7 +14,6 @@ gallery:
     alt: 'County Savings Bank - Tinicum, PA - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692404/images/portfolio/county-savings-bank-tinicum-pa/6-1024x683.jpg'
     alt: 'County Savings Bank - Tinicum, PA - image 5'
-order: 51
 sectors:
   - retail
 services:

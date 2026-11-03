@@ -2,6 +2,7 @@
 title: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023'
 description: Redevelopment of a food production facility into retail and entertainment
 location: PH&C
+date: '2023'
 size: 27 acres
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692466/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2023-10-24-09.48.37-scaled.jpg'
 gallery:
@@ -21,7 +22,6 @@ gallery:
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 7'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692464/images/portfolio/national-biscuit-co-phase-ii-redevelopment/2022-01-14-13.27.58-scaled.jpg'
     alt: 'Redevelopment Project in Philadelphia: Reaching Completion in 2023 - image 8'
-order: 16
 sectors:
   - retail
   - grocery

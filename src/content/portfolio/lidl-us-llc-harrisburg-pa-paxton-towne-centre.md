@@ -1,7 +1,8 @@
 ---
 title: 'Lidl Supermarket - Harrisburg, PA. Paxton Towne Centre'
-description: 'Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. On June 12, 2024, we participated in our FIRST store grand opening, which occurred on Jonestown Road in Harrisburg, PA. Our team worked with the Architect and Engineers'
+description: 'PH&C served as owner representative for Lidl''s first store with the firm, converting a shell on Jonestown Road in Harrisburg. It opened June 12, 2024.'
 location: 'Harrisburg, PA. Paxton Towne Centre'
+date: '2024-06-12'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692441/images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/Photo-Jun-12-2024-7-13-38-AM-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692441/images/portfolio/lidl-us-llc-harrisburg-pa-paxton-towne-centre/Photo-Jun-12-2024-7-13-38-AM-scaled.jpg'
@@ -31,12 +32,10 @@ services:
   - project-schedule-management
   - project-planning-coordination
   - pre-construction-services
-order: 4
+
 ---
 
-Starting in 2023, PH\&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.
-
-On June 12, 2024, we participated in our FIRST store grand opening, which occurred on [Jonestown Road in Harrisburg, PA.](https://www.lidl.com/stores/US01566) 
+PH\&C served as owner representative for Lidl's first store with the firm. The work converted an existing shell at the [Lidl store on Jonestown Road](https://www.lidl.com/stores/US01566) in Harrisburg to the Lidl prototype. The store opened June 12, 2024. 
 
 Our team worked with the Architect and Engineers to value engineer designs for more efficient constructability to help reduce costs. Our role also included expertise oversight and supporting services as required to oversee the complete transition of the existing building shell to a Lidl prototype store functioning as the Owner’s Representative, managing all budgets, timelines, quality checks, and external/internal professional/partners, especially General Contractors.
 

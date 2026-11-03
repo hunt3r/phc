@@ -7,7 +7,6 @@ image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692790/images/por
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692790/images/portfolio/wawa-lower-moreland/PHC-Placeholder.jpg'
     alt: 'Wawa - Lower Moreland, PA - image 1'
-order: 60
 sectors:
   - retail
 services:

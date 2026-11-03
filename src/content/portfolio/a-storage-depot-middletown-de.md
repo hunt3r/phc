@@ -41,7 +41,6 @@ services:
   - owners-representation
   - project-planning-coordination
   - land-development-zoning-approvals
-order: 41
 featured: true
 ---
 

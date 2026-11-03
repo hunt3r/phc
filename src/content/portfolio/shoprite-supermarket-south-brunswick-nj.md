@@ -30,7 +30,6 @@ gallery:
     alt: 'ShopRite Supermarket - South Brunswick, NJ - image 12'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692519/images/portfolio/shoprite-supermarket-south-brunswick-nj/2021-11-03-15.07.41-scaled.jpg'
     alt: 'ShopRite Supermarket - South Brunswick, NJ - image 13'
-order: 28
 sectors:
   - retail
   - office

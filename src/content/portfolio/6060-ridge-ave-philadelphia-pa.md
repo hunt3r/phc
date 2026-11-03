@@ -4,7 +4,7 @@ description: Complete Facade Renovation Interior Demolition and Redevelopment of
 location: 'Philadelphia, PA'
 client:
   - entity: src/content/entities/provco-group.md
-date: '2019'
+date: '2019-03-21'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692369/images/portfolio/6060-ridge-ave-philadelphia-pa/6060-Ridge1-1024x683.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692369/images/portfolio/6060-ridge-ave-philadelphia-pa/6060-Ridge1-1024x683.jpg'
@@ -33,7 +33,7 @@ services:
   - utility-service-coordination
   - testing-agency-coordination
   - owners-representation
-order: 53
+
 ---
 
 **Key Features:**

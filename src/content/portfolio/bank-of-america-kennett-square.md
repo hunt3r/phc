@@ -29,7 +29,6 @@ services:
   - highway-access
   - government-agency-coordination
   - site-analysis-feasibility
-order: 52
 featured: false
 ---
 

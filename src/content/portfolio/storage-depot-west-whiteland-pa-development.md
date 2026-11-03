@@ -15,7 +15,6 @@ gallery:
     alt: 'A Storage Depot - West Whiteland Twp, PA - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692728/images/portfolio/storage-depot-west-whiteland-pa-development/2021-01-12-09.14.53-scaled.jpg'
     alt: 'A Storage Depot - West Whiteland Twp, PA - image 5'
-order: 34
 sectors:
   - self-storage
   - office

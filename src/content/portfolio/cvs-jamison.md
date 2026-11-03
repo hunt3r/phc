@@ -9,7 +9,6 @@ gallery:
     alt: 'CVS Pharmacy - Jamison, PA - image 1'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692406/images/portfolio/cvs-jamison/cvs-jamison-2.jpg'
     alt: 'CVS Pharmacy - Jamison, PA - image 2'
-order: 50
 sectors:
   - retail
 services:

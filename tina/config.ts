@@ -7,6 +7,7 @@ import { TagCheckboxGroup } from './fields/TagCheckboxGroup';
 import { EntityReferenceList, ENTITY_KINDS, entitySlug } from './fields/EntityReferenceList';
 import { keepProjectBackButton } from './entity-back';
 import { GuidePreview } from './fields/GuidePreview';
+import { ProjectDateField } from './fields/ProjectDateField';
 // Precomputed tag slug -> public URL map for the tags collection router.
 // Regenerate with `npm run generate:tag-routes`.
 import { tagRoutes } from './tag-routes';
@@ -191,7 +192,14 @@ export default defineConfig({
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
           { type: 'string', name: 'location', label: 'Location' },
           entityRoleField('client', 'Client'),
-          { type: 'string', name: 'date', label: 'Date (e.g. 2020)' },
+          {
+            type: 'string',
+            name: 'date',
+            label: 'Date',
+            description:
+              'The day the project opened or was completed. Shown on the project page and on project cards. Leave blank to hide the date and leave the project out of Latest projects.',
+            ui: { component: ProjectDateField as any },
+          },
           { type: 'string', name: 'projectCost', label: 'Project Cost', description: 'e.g. $145M' },
           { type: 'string', name: 'size', label: 'Size', description: 'e.g. 166,000 SF' },
           entityRoleField('architect', 'Architect'),
@@ -265,9 +273,15 @@ export default defineConfig({
             ui: { component: TagCheckboxGroup as any },
             description: 'Check all services performed on this project. Create new tags in the Tags collection and they appear here immediately.',
           },
-          { type: 'number', name: 'order', label: 'Order' },
+          {
+            type: 'number',
+            name: 'order',
+            label: 'Order',
+            description:
+              'Optional. Leave blank and the project follows Date, newest first, on the Portfolio page and on sector and service pages. Set a number to place it in that spot instead. 1 is first. This does not change Latest projects.',
+          },
           { type: 'boolean', name: 'featured', label: 'Featured', description: 'Show this project in the homepage hero. It also needs a cover image.' },
-          { type: 'number', name: 'heroOrder', label: 'Hero order', description: 'Where this project sits among other featured projects in the homepage hero. A smaller number comes first. Leave blank to place it after every numbered project. Which group comes first is set by Order on Home. This does not change Order on the portfolio or Latest projects.' },
+          { type: 'number', name: 'heroOrder', label: 'Hero order', description: 'Where this project sits among other featured projects in the homepage hero. A smaller number comes first. Leave blank to place it after every numbered project. Which group comes first is set by Order on Home. This does not change Order on the portfolio. Latest projects uses Date.' },
           {
             type: 'object',
             name: 'videos',
@@ -288,7 +302,7 @@ export default defineConfig({
           contentCardsField,
           { type: 'rich-text', name: 'body', label: 'Body', isBody: true },
         ],
-        defaultItem: () => ({ order: 0 }),
+        defaultItem: () => ({}),
         ui: {
           // Open the project page in the visual editor.
           router: ({ document }) => `/portfolio/${document._sys.filename}`,

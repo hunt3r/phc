@@ -11,7 +11,6 @@ gallery:
     alt: 'PNC Bank - Westtown, PA - image 2'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692486/images/portfolio/pnc-bank-westtown/DSC_53681.jpg'
     alt: 'PNC Bank - Westtown, PA - image 3'
-order: 49
 sectors:
   - retail
 services:

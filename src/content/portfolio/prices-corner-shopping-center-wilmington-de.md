@@ -24,7 +24,6 @@ gallery:
     alt: 'Prices Corner Shopping Center - Wilmington, DE - image 8'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692504/images/portfolio/prices-corner-shopping-center-wilmington-de/2021-11-22-09.18.04-scaled.jpg'
     alt: 'Prices Corner Shopping Center - Wilmington, DE - image 9'
-order: 27
 sectors:
   - retail
 services:

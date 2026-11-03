@@ -1,6 +1,6 @@
 ---
 title: 'Lidl Supermarket - Freehold, New Jersey'
-description: 'On May 9, 2025, we participated in our 4th Lidl Supermarket store grand opening, which occurred in Freehold, NJ.'
+description: 'PH&C managed the conversion of an existing shell in Freehold, New Jersey, into a Lidl store. The fourth opening with Lidl was May 9, 2025.'
 location: 'Freehold, New Jersey'
 client:
   - entity: src/content/entities/lidl.md
@@ -48,11 +48,10 @@ services:
   - project-schedule-management
   - project-planning-coordination
   - pre-construction-services
-order: 6
 featured: false
 ---
 
-On May 9, 2025, we participated in our 4th store grand opening, which occurred in [Freehold, NJ](https://www.lidl.com/stores/US01545).
+PH\&C managed the conversion of an existing shell in Freehold, New Jersey, into a Lidl store. The fourth opening with Lidl was May 9, 2025. See the [Lidl store in Freehold](https://www.lidl.com/stores/US01545).
 
 Our team worked with the Architect and Engineers to value engineer designs for more efficient constructability to help reduce costs. Our role also included expertise oversight and supporting services as required to oversee the complete transition of the existing building shell to a Lidl prototype store functioning as the Owner’s Representative, managing all budgets, timelines, quality checks, and external/internal professional/partners, especially General Contractors.
 

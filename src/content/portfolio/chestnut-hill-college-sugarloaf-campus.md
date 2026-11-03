@@ -47,7 +47,6 @@ services:
   - project-planning-coordination
   - pre-construction-services
   - site-analysis-feasibility
-order: 21
 featured: false
 ---
 

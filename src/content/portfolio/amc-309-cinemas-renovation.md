@@ -14,7 +14,6 @@ gallery:
     alt: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692377/images/portfolio/amc-309-cinemas-renovation/AMC309.jpg'
     alt: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation - image 5'
-order: 32
 sectors:
   - retail
 services:

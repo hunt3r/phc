@@ -18,7 +18,6 @@ gallery:
     alt: 'Estates at Saucon Valley - Center Valley, PA - image 5'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692422/images/portfolio/estates-at-saucon-valley-center-valley-pa/2023-07-20-09.40.31-scaled.jpg'
     alt: 'Estates at Saucon Valley - Center Valley, PA - image 6'
-order: 18
 sectors:
   - residential
 services:

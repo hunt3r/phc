@@ -14,7 +14,6 @@ gallery:
     alt: 'Wawa/Retail Bldg/Bank - Trooper, PA - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692795/images/portfolio/wawa-retail-bldg-bank-trooper-pa/DSC_2816-scaled.jpg'
     alt: 'Wawa/Retail Bldg/Bank - Trooper, PA - image 5'
-order: 47
 sectors:
   - retail
 services:

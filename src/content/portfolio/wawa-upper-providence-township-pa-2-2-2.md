@@ -13,7 +13,6 @@ gallery:
     alt: 'Wawa - Feasterville, PA - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692818/images/portfolio/wawa-upper-providence-township-pa-2-2-2/2021-04-02-12.05.55-scaled.jpg'
     alt: 'Wawa - Feasterville, PA - image 4'
-order: 42
 sectors:
   - retail
   - government

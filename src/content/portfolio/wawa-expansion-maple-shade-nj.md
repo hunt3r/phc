@@ -13,7 +13,6 @@ gallery:
     alt: 'Wawa - Maple Shade, NJ - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692782/images/portfolio/wawa-expansion-maple-shade-nj/2021-04-02-10.46.11-scaled.jpg'
     alt: 'Wawa - Maple Shade, NJ - image 4'
-order: 26
 sectors:
   - retail
 services:

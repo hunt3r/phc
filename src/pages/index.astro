@@ -11,16 +11,17 @@ import { getFeaturedQuotes } from '@/lib/quotes';
 import { getFeaturedVideos } from '@/lib/videos';
 import { getTagMap, tagHref } from '@/lib/tags';
 import { getEntry, getCollection } from 'astro:content';
+import { projectDateSortValue } from '@/lib/project-date';
 import type { HeroSlide } from '../components/blocks/hero-carousel.astro';
 const homeEntry = await getEntry('home', 'index');
 const data = homeEntry?.data;
 const hero = data?.hero;
 const portfolioEntries = await getCollection('portfolio');
 
-const byOrderThenTitle = (a: any, b: any) => {
-  const orderA = (a.data as any).order ?? 999;
-  const orderB = (b.data as any).order ?? 999;
-  if (orderA !== orderB) return orderA - orderB;
+const byDateThenTitle = (a: any, b: any) => {
+  const dateA = projectDateSortValue((a.data as any).date);
+  const dateB = projectDateSortValue((b.data as any).date);
+  if (dateA !== dateB) return dateB - dateA;
   return ((a.data as any).title ?? '').localeCompare((b.data as any).title ?? '');
 };
 
@@ -31,7 +32,10 @@ const maxHeroSlides = hero?.maxHeroSlides ?? 5;
 const showFeaturedProjects = hero?.showFeaturedProjects !== false;
 const showFeaturedTags = hero?.showFeaturedTags !== false;
 
-const latestProjects = [...portfolioEntries].sort(byOrderThenTitle).slice(0, maxProjects);
+const latestProjects = [...portfolioEntries]
+  .filter((entry) => projectDateSortValue((entry.data as any).date) > 0)
+  .sort(byDateThenTitle)
+  .slice(0, maxProjects);
 
 const featuredQuotes = (await getFeaturedQuotes()).slice(0, maxTestimonials);
 const featuredVideos = (await getFeaturedVideos()).slice(0, maxVideos);

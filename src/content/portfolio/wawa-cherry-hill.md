@@ -15,7 +15,6 @@ gallery:
     alt: 'Wawa - Cherry Hill, NJ - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692773/images/portfolio/wawa-cherry-hill/wawa-cherryhill-5.jpg'
     alt: 'Wawa - Cherry Hill, NJ - image 5'
-order: 62
 sectors:
   - retail
 services:

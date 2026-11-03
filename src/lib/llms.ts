@@ -8,18 +8,12 @@ import {
   ORG_EMAIL,
   ORG_FOUNDING_DATE,
 } from '@/lib/seo/jsonld';
+import { formatProjectDate, sortPortfolioEntries } from '@/lib/project-date';
 
 const TAGLINE =
   "PH&C, LLC is an owner's-representation, construction management, and real estate development consulting firm based in Wayne, PA, serving the Greater Philadelphia region and the Mid-Atlantic since " +
   ORG_FOUNDING_DATE +
   '.';
-
-const byOrderThenTitle = (a: { data: Record<string, any> }, b: { data: Record<string, any> }) => {
-  const orderA = a.data.order ?? 999;
-  const orderB = b.data.order ?? 999;
-  if (orderA !== orderB) return orderA - orderB;
-  return (a.data.title ?? '').localeCompare(b.data.title ?? '');
-};
 
 function normalizeUrl(site: string, path: string): string {
   return new URL(path, site).href.replace(/\/$/, '');
@@ -68,7 +62,7 @@ function pushTagDetail(lines: string[], site: string, node: NavNode) {
  */
 export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promise<string> {
   const { full } = opts;
-  const portfolio = [...(await getCollection('portfolio'))].sort(byOrderThenTitle);
+  const portfolio = sortPortfolioEntries(await getCollection('portfolio'));
   const entityMap = await getEntityMap();
   const about = await getEntry('about', 'index');
   const serviceTree = await getServicesNavTree();
@@ -115,7 +109,7 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
   for (const entry of portfolio) {
     const data = entry.data as Record<string, any>;
     const url = `${site}/portfolio/${entry.id}`;
-    const meta = [data.location, creditNames(data.client, entityMap), data.date].filter(Boolean).join(' - ');
+    const meta = [data.location, creditNames(data.client, entityMap), formatProjectDate(data.date)].filter(Boolean).join(' - ');
     const summary = [meta, data.description].filter(Boolean).join(' - ');
     lines.push(`- [${data.title}](${url})${summary ? `: ${summary}` : ''}`);
   }
@@ -157,7 +151,8 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
       const engineer = creditNames(data.engineer, entityMap);
       const contractor = creditNames(data.contractor, entityMap);
       if (client) facts.push(`Client: ${client}`);
-      if (data.date) facts.push(`Date: ${data.date}`);
+      const projectDate = formatProjectDate(data.date);
+      if (projectDate) facts.push(`Date: ${projectDate}`);
       if (data.size) facts.push(`Size: ${data.size}`);
       if (data.projectCost) facts.push(`Project cost: ${data.projectCost}`);
       if (architect) facts.push(`Architect: ${architect}`);

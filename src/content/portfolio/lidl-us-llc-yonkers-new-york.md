@@ -1,10 +1,10 @@
 ---
 title: 'Lidl Supermarket - Yonkers, New York'
-description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. In 2025 they asked us to expand our reach into New York state and we were excited to accept this opportunity! On October 22, 2025, we participated in'
+description: 'Lidl asked PH&C to open stores in New York. The Yonkers store, the firm''s seventh Lidl opening, opened October 22, 2025.'
 location: 'Yonkers, New York'
 client:
   - entity: src/content/entities/lidl.md
-date: '2025'
+date: '2025-10-22'
 architect:
   - entity: src/content/entities/norr.md
 contractor:
@@ -50,14 +50,10 @@ services:
   - project-schedule-management
   - project-planning-coordination
   - pre-construction-services
-order: 2
+
 ---
 
-Starting in 2023, PH\&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.
-
-In 2025 they asked us to expand our reach into **New York state** and we were excited to accept this opportunity!
-
-On October 22, 2025, we participated in our **7th** store grand opening, which occurred in [Yonkers, NY](https://www.lidl.com/stores/US01567).
+Lidl asked PH\&C to open stores in New York. The [Lidl store in Yonkers](https://www.lidl.com/stores/US01567), the firm's seventh Lidl opening, opened October 22, 2025. NORR was the architect and ENF Construction was the contractor.
 
 Our team worked with the Architect and Engineers to value engineer designs for more efficient constructability to help reduce costs. Our role also included expertise oversight and supporting services as required to oversee the complete transition of the existing building shell to a Lidl prototype store functioning as the Owner’s Representative, managing all budgets, timelines, quality checks, and external/internal professional/partners, especially General Contractors.
 

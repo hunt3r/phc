@@ -1,4 +1,5 @@
 import { BRAND_LOGO_URL, getImageUrl } from "@/lib/cloudinary";
+import { projectDateIso } from "@/lib/project-date";
 
 type Maybe<T> = T | null | undefined;
 
@@ -318,6 +319,8 @@ function sourceOrganizations(site: string, clients: Maybe<PortfolioParty[]>): Js
 }
 
 function parseDateOrUndefined(value: Maybe<string>): string | undefined {
+  const projectDate = projectDateIso(value);
+  if (projectDate) return projectDate;
   if (!value) return undefined;
   const asDate = new Date(value);
   if (Number.isNaN(asDate.getTime())) return undefined;

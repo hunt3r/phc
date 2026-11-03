@@ -20,7 +20,6 @@ gallery:
     alt: 'Chesterbrook Academy Private Preschool - Malvern, PA - image 6'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692387/images/portfolio/chesterbrook-academy-private-preschool/Photo-Apr-17-10-58-46-AM.jpg'
     alt: 'Chesterbrook Academy Private Preschool - Malvern, PA - image 7'
-order: 37
 sectors:
   - institutional
 services:

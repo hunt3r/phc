@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { parseProjectDate } from './lib/project-date';
 
 /**
  * An inline video, embedded on a portfolio item, tag, or page. Rendered as a
@@ -59,7 +60,12 @@ const portfolio = defineCollection({
       description: z.string().optional(),
       location: z.string().optional(),
       client: z.array(z.object({ entity: z.string() })).optional(),
-      date: z.string().optional(),
+      date: z
+        .string()
+        .optional()
+        .refine((value) => value == null || value === '' || parseProjectDate(value) != null, {
+          message: 'Date must be a year (2026) or YYYY-MM-DD',
+        }),
       projectCost: z.string().optional(),
       size: z.string().optional(),
       architect: z.array(z.object({ entity: z.string() })).optional(),

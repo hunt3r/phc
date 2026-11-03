@@ -13,7 +13,6 @@ gallery:
     alt: 'Wawa - Upper Providence Township, PA - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692811/images/portfolio/wawa-upper-providence-township-pa/2020-10-01-09.53.08-scaled.jpg'
     alt: 'Wawa - Upper Providence Township, PA - image 4'
-order: 44
 sectors:
   - retail
 services:

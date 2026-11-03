@@ -1,10 +1,10 @@
 ---
 title: 'Lidl Supermarket - Totowa, New Jersey'
-description: 'Starting in 2023, PH&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores! On February 4, 2026, we participated in another store grand opening, which occurred in Totowa'
+description: 'PH&C converted a shell in Totowa, New Jersey, to a Lidl store with Progressive Companies and Speedwell Contracting. It opened February 4, 2026.'
 location: 'Totowa, New Jersey'
 client:
   - entity: src/content/entities/lidl.md
-date: '2026'
+date: '2026-02-04'
 architect:
   - entity: src/content/entities/progressive-companies.md
 contractor:
@@ -43,14 +43,11 @@ services:
   - contract-budget-management
   - project-planning-coordination
   - pre-construction-services
-order: 3
 featured: true
 heroOrder: 3
 ---
 
-Starting in 2023, PH\&C began assisting the Lidl US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. We have continued to perform for Lidl and assist in opening new stores!
-
-On February 4, 2026, we participated in another store grand opening, which occurred in [Totowa, NJ](https://mediacenter.lidl.com/pressreleases/2026/lidl-us-opening-a-fresh-new-store-in-totowa).
+PH\&C converted a shell in Totowa, New Jersey, to a Lidl store with Progressive Companies and Speedwell Contracting. The store opened February 4, 2026. See the [Lidl opening in Totowa](https://mediacenter.lidl.com/pressreleases/2026/lidl-us-opening-a-fresh-new-store-in-totowa).
 
 Our team worked with the Architect and Engineers to value engineer designs for more efficient constructability to help reduce costs. Our role also included expertise oversight and supporting services as required to oversee the complete transition of the existing building shell to a Lidl prototype store functioning as the Owner’s Representative, managing all budgets, timelines, quality checks, and external/internal professional/partners, especially General Contractors.
 

@@ -53,7 +53,6 @@ services:
   - building-construction-permits
   - remediation
   - site-analysis-feasibility
-order: 14
 featured: true
 heroOrder: 14
 ---

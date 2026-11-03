@@ -45,7 +45,6 @@ services:
   - utility-service-coordination
   - landscaping
   - contractor-bidding-selection
-order: 11
 featured: true
 heroOrder: 11
 videos:

@@ -12,7 +12,6 @@ gallery:
     alt: 'Tulip Special Care - Philadelphia, PA - image 2'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692751/images/portfolio/tulip-special-care-philadelphia-pa/Photo-May-23-3-10-43-PM-1280x962.jpg'
     alt: 'Tulip Special Care - Philadelphia, PA - image 3'
-order: 63
 sectors:
   - healthcare
   - institutional

@@ -17,6 +17,7 @@ import {
 } from '@/lib/tags';
 import { toVideoViews } from '@/lib/videos';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
+import { sortPortfolioEntries } from '@/lib/project-date';
 
 interface Props {
   entry: CollectionEntry<'tags'>;
@@ -28,9 +29,7 @@ const tagLabel = entry.data.label;
 
 const portfolio = await getCollection('portfolio');
 const tagMap = await getTagMap();
-const entries = portfolioEntriesForTagTree(entry.id, portfolio, tagMap).sort(
-  (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)
-);
+const entries = sortPortfolioEntries(portfolioEntriesForTagTree(entry.id, portfolio, tagMap));
 const childTags = childrenOf(entry.id, tagMap);
 
 const videos = toVideoViews(entry.data.videos, `sector-${entry.id}`);

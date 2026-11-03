@@ -14,7 +14,6 @@ gallery:
     alt: 'Wawa and Retail Space - Philadelphia, PA - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692762/images/portfolio/wawa-and-retail-space-south-philadelphia-pa/2021-08-11-11.59.31-scaled.jpg'
     alt: 'Wawa and Retail Space - Philadelphia, PA - image 5'
-order: 38
 sectors:
   - retail
   - mixed-use

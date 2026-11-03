@@ -13,7 +13,6 @@ gallery:
     alt: 'Wawa - Westhampton, NJ - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692812/images/portfolio/wawa-upper-providence-township-pa-2/2021-04-02-11.09.56-scaled.jpg'
     alt: 'Wawa - Westhampton, NJ - image 4'
-order: 25
 sectors:
   - retail
 services:

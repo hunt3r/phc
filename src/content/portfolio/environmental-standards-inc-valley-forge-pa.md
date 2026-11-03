@@ -16,7 +16,6 @@ gallery:
     alt: 'Environmental Standards Inc - Valley Forge, PA - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692415/images/portfolio/environmental-standards-inc-valley-forge-pa/20130409-6-scaled-e1600803374748.jpg'
     alt: 'Environmental Standards Inc - Valley Forge, PA - image 5'
-order: 45
 sectors:
   - office
 services:

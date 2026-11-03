@@ -1,7 +1,8 @@
 ---
 title: 'Lidl Supermarket - Paramus, New Jersey'
-description: 'Starting in 2023, PH&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager. On February 12, 2025, we participated in our 3rd store grand opening, which occurred in Paramus, NJ. Our team worked with the Architect and Engineers to value engineer'
+description: 'PH&C converted an existing shell in Paramus, New Jersey, into a Lidl store. This was the firm''s third Lidl opening, on February 12, 2025.'
 location: 'Paramus, New Jersey'
+date: '2025-02-12'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692445/images/portfolio/lidl-us-llc-paramus-new-jersey/Photo-Feb-07-2025-11-21-31-AM-scaled.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692445/images/portfolio/lidl-us-llc-paramus-new-jersey/Photo-Feb-07-2025-11-21-31-AM-scaled.jpg'
@@ -32,12 +33,10 @@ services:
   - project-schedule-management
   - project-planning-coordination
   - pre-construction-services
-order: 5
+
 ---
 
-Starting in 2023, PH\&C began assisting the LiDL US team with their store development projects in the PA, NJ and DE markets as an External Construction Manager.
-
-On February 12, 2025, we participated in our 3rd store grand opening, which occurred in [Paramus, NJ.](https://www.lidl.com/stores/US01571) 
+PH\&C converted an existing shell in Paramus, New Jersey, into a Lidl store. This was the firm's third Lidl opening, on February 12, 2025. See the [Lidl store in Paramus](https://www.lidl.com/stores/US01571). 
 
 Our team worked with the Architect and Engineers to value engineer designs for more efficient constructability to help reduce costs. Our role also included expertise oversight and supporting services as required to oversee the complete transition of the existing building shell to a Lidl prototype store functioning as the Owner’s Representative, managing all budgets, timelines, quality checks, and external/internal professional/partners, especially General Contractors.
 

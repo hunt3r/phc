@@ -15,7 +15,6 @@ gallery:
     alt: 'Sadsbury Commons - Parkesburg, PA - Development - image 4'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692518/images/portfolio/sadsbury-commons-development/sadsbury-4.jpg'
     alt: 'Sadsbury Commons - Parkesburg, PA - Development - image 5'
-order: 30
 sectors:
   - healthcare
   - retail

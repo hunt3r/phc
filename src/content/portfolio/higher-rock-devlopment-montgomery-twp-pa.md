@@ -12,7 +12,6 @@ gallery:
     alt: 'Higher Rock Development - Montgomery Twp, PA - image 3'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692431/images/portfolio/higher-rock-devlopment-montgomery-twp-pa/2020-09-09-11.06.48-scaled.jpg'
     alt: 'Higher Rock Development - Montgomery Twp, PA - image 4'
-order: 29
 sectors:
   - retail
   - office

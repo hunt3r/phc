@@ -67,7 +67,6 @@ services:
   - utility-coordination
   - utility-service-coordination
   - contract-budget-management
-order: 9
 featured: true
 heroOrder: 9
 ---

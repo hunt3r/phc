@@ -1,6 +1,7 @@
 ---
 import { getImageUrl } from '@/lib/cloudinary';
 import type { EntityCredit } from '@/lib/entities';
+import { formatProjectDate } from '@/lib/project-date';
 
 interface Props {
   location?: string | null;
@@ -38,10 +39,12 @@ const {
   fields,
 } = Astro.props as Props;
 
+const displayDate = formatProjectDate(date);
+
 const specs = [
   { label: 'Location', text: location, credits: undefined as EntityCredit[] | undefined, field: fields?.location },
   { label: 'Client', text: undefined as string | null | undefined, credits: client ?? undefined, field: fields?.client },
-  { label: 'Date', text: date, credits: undefined as EntityCredit[] | undefined, field: fields?.date },
+  { label: 'Date', text: displayDate, credits: undefined as EntityCredit[] | undefined, field: fields?.date },
   { label: 'Project Cost', text: projectCost, credits: undefined as EntityCredit[] | undefined, field: fields?.projectCost },
   { label: 'Size', text: size, credits: undefined as EntityCredit[] | undefined, field: fields?.size },
   { label: 'Architect', text: undefined as string | null | undefined, credits: architect ?? undefined, field: fields?.architect },

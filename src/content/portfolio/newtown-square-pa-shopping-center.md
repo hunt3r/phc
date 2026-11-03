@@ -16,7 +16,6 @@ gallery:
     alt: 'Newton Square Shopping Center Renovations, Newton, PA - image 5'
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692479/images/portfolio/newtown-square-pa-shopping-center/2020-09-18-11.42.56-scaled.jpg'
     alt: 'Newton Square Shopping Center Renovations, Newton, PA - image 6'
-order: 33
 sectors:
   - retail
 services:
