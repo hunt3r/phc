@@ -13,6 +13,8 @@ const STATIC_PATHS = [
   '/services',
   '/testimonials',
   '/videos',
+  '/llms.txt',
+  '/llms-full.txt',
 ];
 
 /**

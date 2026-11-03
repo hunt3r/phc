@@ -110,6 +110,8 @@ export default defineConfig({
   integrations: [
     tina(),
     sitemap({
+      // Endpoints are not crawled by the integration, so the llms.txt files are added by hand.
+      customPages: [`${site}/llms.txt`, `${site}/llms-full.txt`],
       filter(page) {
         const path = canonicalPath(page);
         if (path === '/contact/success') return false;

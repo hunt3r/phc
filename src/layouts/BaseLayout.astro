@@ -122,6 +122,8 @@ const baseJsonLd = createGraphSchema([
     <meta name="description" content={metaDescriptionText} />
     {robots && <meta name="robots" content={robots} />}
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM site map" />
+    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM full content" />
     <meta property="og:site_name" content="PH&C" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:type" content={ogType} />
