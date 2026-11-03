@@ -114,6 +114,7 @@ const jsonLdNodes = [
                   imageSrc={portfolioEntry.data.image}
                   imageAlt={portfolioEntry.data.title ?? ''}
                   date={portfolioEntry.data.date}
+                  pinned={typeof portfolioEntry.data.order === 'number'}
                 />
               </li>
             ))}

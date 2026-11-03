@@ -2,6 +2,7 @@
 title: 'Wawa - Hatfield, PA'
 description: '4,085 sf food market with 12 fuel stations Site & Highway Improvements totaling $1 million'
 location: 'Hatfield, PA'
+projectCost: $1M
 size: '4,085 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692787/images/portfolio/wawa-hatfield/PHC-Placeholder.jpg'
 gallery:
@@ -25,7 +26,8 @@ services:
   - government-agency-coordination
   - site-analysis-feasibility
 ---
+
 **Key Features:**
 
-*   4,085 sf food market with 12 fuel stations
-*   Site & Highway Improvements totaling $1 million
+* 4,085 sf food market with 12 fuel stations
+* Site & Highway Improvements totaling $1 million

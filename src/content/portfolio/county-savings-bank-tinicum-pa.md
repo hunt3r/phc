@@ -30,9 +30,10 @@ services:
   - land-development-zoning-approvals
   - building-construction-permits
 ---
+
 **Key Features:**
 
-*   Demolition/Re-Construction of Retail Bank
-*   Drive Thru lane
+* Demolition/Re-Construction of Retail Bank
+* Drive Thru lane
 
 [https://www.countysavingsbank.com/](https://www.countysavingsbank.com/)

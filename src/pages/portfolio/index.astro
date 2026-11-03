@@ -75,6 +75,7 @@ const jsonLdNodes = [
               imageSrc={entry.data.image}
               imageAlt={entry.data.title ?? ''}
               date={entry.data.date}
+              pinned={typeof entry.data.order === 'number'}
             />
           </li>
         ))}
