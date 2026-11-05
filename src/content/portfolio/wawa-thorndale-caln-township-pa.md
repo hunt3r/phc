@@ -2,6 +2,7 @@
 title: 'Wawa - Thorndale/Caln Township, PA'
 description: 'PH&C managed a 5,051 SF Wawa with 12 fuel positions in Thorndale, Caln Township, PA, with an Individual NPDES Permit and PennDOT signal work.'
 location: 'Thorndale/Caln Township, PA'
+date: '2017-08-14'
 size: '5,051 SF'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692800/images/portfolio/wawa-thorndale-caln-township-pa/2020-10-02-14.13.48-scaled.jpg'
 gallery:
@@ -30,10 +31,11 @@ services:
   - government-agency-coordination
   - site-analysis-feasibility
 ---
+
 **Key Features:**
 
-*   5,051 SF Food Market with 12 fuel stations
-*   Individual NPDES Permit
-*   PennDOT & Township Access & Signal Improvements
+* 5,051 SF Food Market with 12 fuel stations
+* Individual NPDES Permit
+* PennDOT & Township Access & Signal Improvements
 
 [https://www.wawa.com/](https://www.wawa.com/)
