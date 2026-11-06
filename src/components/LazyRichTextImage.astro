@@ -1,5 +1,6 @@
 ---
 import { sanitizeImageSrc } from '@tinacms/astro/sanitize';
+import { getImageSrcSet, getImageUrl } from '@/lib/cloudinary';
 
 interface Props {
   url?: string;
@@ -8,7 +9,18 @@ interface Props {
 }
 
 const { url, alt } = Astro.props;
-const src = sanitizeImageSrc(url);
+const raw = sanitizeImageSrc(url);
+const src = raw ? getImageUrl(raw, { width: 1600 }) : '';
+const srcset = raw ? getImageSrcSet(raw, [640, 960, 1280, 1600]) : undefined;
 ---
 
-{src && <img src={src} alt={alt ?? ''} loading="lazy" decoding="async" />}
+{src && (
+  <img
+    src={src}
+    srcset={srcset}
+    sizes="(min-width: 90rem) 86rem, 100vw"
+    alt={alt ?? ''}
+    loading="lazy"
+    decoding="async"
+  />
+)}

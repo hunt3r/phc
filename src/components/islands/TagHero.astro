@@ -7,6 +7,7 @@
  * tag form loads on those pages.
  */
 import { tinaField } from '@tinacms/astro/tina-field';
+import { getImageSrcSet, getImageUrl } from '@/lib/cloudinary';
 import type { TagsQuery } from '../../../tina/__generated__/types';
 
 interface Props {
@@ -14,14 +15,21 @@ interface Props {
 }
 
 const { data } = Astro.props;
+const heroImage = data?.image?.trim();
+const heroSrc = heroImage ? getImageUrl(heroImage, { width: 1600 }) : undefined;
+const heroSrcSet = heroImage ? getImageSrcSet(heroImage, [640, 960, 1280, 1600, 1920]) : undefined;
 ---
 
 {data && (
   <section class="space-y-4">
-    {data.image && (
+    {heroSrc && (
       <img
-        src={data.image}
+        src={heroSrc}
+        srcset={heroSrcSet}
+        sizes="(min-width: 90rem) 86rem, 100vw"
         alt={data.label}
+        width="1600"
+        height="686"
         class="aspect-[21/9] w-full rounded-lg object-cover"
         data-tina-field={tinaField(data, 'image')}
       />

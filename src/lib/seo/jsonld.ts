@@ -154,6 +154,16 @@ export function createWebSiteSchema(site: string): JsonLdNode {
   });
 }
 
+/**
+ * Crawlers request the image URL in structured data directly. Keep it on the
+ * compressed delivery path so that fetch does not pull the original upload.
+ */
+function schemaImage(src: string | undefined, width = 1200): string | undefined {
+  const trimmed = src?.trim();
+  if (!trimmed) return undefined;
+  return getImageUrl(trimmed, { width, height: width, crop: "limit" });
+}
+
 export function createWebPageSchema(input: {
   site: string;
   url: string;
@@ -176,7 +186,7 @@ export function createWebPageSchema(input: {
     primaryImageOfPage: input.image
       ? {
           "@type": "ImageObject",
-          url: input.image,
+          url: schemaImage(input.image),
         }
       : undefined,
   });
@@ -198,7 +208,7 @@ export function createPersonSchema(site: string, input: PersonSchemaInput): Json
     name: input.name,
     jobTitle: input.jobTitle,
     description: input.bio,
-    image: input.image,
+    image: schemaImage(input.image),
     url: input.url,
     hasCredential: credentials?.map((name) => ({
       "@type": "EducationalOccupationalCredential",
@@ -311,7 +321,7 @@ function sourceOrganizations(site: string, clients: Maybe<PortfolioParty[]>): Js
         "@type": party.kind === "person" ? "Person" : "Organization",
         name: party.name,
         url: party.url ? toAbsoluteUrl(party.url, site) : undefined,
-        logo: party.logo ? toAbsoluteUrl(party.logo, site) : undefined,
+        logo: party.logo ? toAbsoluteUrl(schemaImage(party.logo, 400) ?? party.logo, site) : undefined,
       })
     )
     .filter((party) => typeof party.name === "string" && party.name.length > 0);
@@ -337,7 +347,7 @@ export function createPortfolioCreativeWorkSchema(site: string, input: Portfolio
     name: input.name,
     headline: input.name,
     description: input.description,
-    image: input.image ? [input.image] : undefined,
+    image: input.image ? [schemaImage(input.image)] : undefined,
     datePublished,
     keywords: input.tags,
     contentLocation: input.location

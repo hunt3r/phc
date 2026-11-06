@@ -5,6 +5,7 @@
  * projects and tags are edited on those documents.
  */
 import { tinaField } from '@tinacms/astro/tina-field';
+import { getImageUrl } from '@/lib/cloudinary';
 import type { HomeQuery } from '../../../tina/__generated__/types';
 
 interface Props {
@@ -42,7 +43,7 @@ const slides = (hero?.slides ?? []).filter((slide) => slide != null);
           )}
           {slide.image && (
             <img
-              src={slide.image}
+              src={getImageUrl(slide.image, { width: 1280 })}
               alt=""
               class="mx-auto max-h-48 w-full object-cover"
               data-tina-field={tinaField(slide, 'image')}

@@ -7,7 +7,10 @@
  * accepts either and returns an HTML string.
  */
 import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import { getImageSrcSet, getImageUrl } from '@/lib/cloudinary';
 import { rehypeLazyImages } from './rehypeLazyImages';
+
+const CONTENT_WIDTHS = [640, 960, 1280, 1600];
 
 export interface ContentCardData {
   title?: string;
@@ -125,8 +128,15 @@ function serializeRichText(node: any): string {
       return `<a href="${escapeHtml(node.url ?? '#')}"${
         node.title ? ` title="${escapeHtml(node.title)}"` : ''
       }>${children}</a>`;
-    case 'img':
-      return `<img src="${escapeHtml(node.url ?? '')}" alt="${escapeHtml(node.alt ?? '')}" loading="lazy" decoding="async" />`;
+    case 'img': {
+      const raw = node.url ?? '';
+      const src = getImageUrl(raw, { width: 1600 });
+      const srcset = getImageSrcSet(raw, CONTENT_WIDTHS);
+      const srcsetAttr = srcset
+        ? ` srcset="${escapeHtml(srcset)}" sizes="(min-width: 90rem) 86rem, 100vw"`
+        : '';
+      return `<img src="${escapeHtml(src)}" alt="${escapeHtml(node.alt ?? '')}"${srcsetAttr} loading="lazy" decoding="async" />`;
+    }
     case 'code_block':
       return `<pre><code>${escapeHtml(node.value ?? '')}</code></pre>`;
     case 'hr':

@@ -9,6 +9,7 @@ import ContentCards from '../components/ContentCards.astro';
 import { toVideoViews } from '@/lib/videos';
 import { withStaffSlugs } from '@/data/staff';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
+import { getImageSrcSet, getImageUrl } from '@/lib/cloudinary';
 
 const entry = await getEntry('about', 'index');
 if (!entry) {
@@ -22,6 +23,9 @@ const people = withStaffSlugs(staffEntry?.data?.staff ?? []);
 const videos = toVideoViews(entry.data.videos, 'about');
 
 const ogImage = entry.data.featuredImage;
+const aboutImage = ogImage?.trim();
+const aboutImageSrc = aboutImage ? getImageUrl(aboutImage, { width: 1600 }) : undefined;
+const aboutImageSrcSet = aboutImage ? getImageSrcSet(aboutImage, [640, 960, 1280, 1600, 1920]) : undefined;
 const ogDescription = entry.data.description ?? 'Our team, our values, and our commitment to delivering quality construction and development services.';
 const site = Astro.url.origin || import.meta.env.SITE || "https://www.phandc.net";
 const breadcrumbs = [
@@ -37,10 +41,14 @@ const jsonLdNodes = [
   <article class="pt-8 space-y-8">
     <TinaIsland name="about" wrapper={islands.about.wrapper} primary>
       <section class="space-y-4">
-        {entry.data.featuredImage && (
+        {aboutImageSrc && (
           <img
-            src={entry.data.featuredImage}
+            src={aboutImageSrc}
+            srcset={aboutImageSrcSet}
+            sizes="(min-width: 90rem) 86rem, 100vw"
             alt={entry.data.title}
+            width="1600"
+            height="686"
             class="aspect-[21/9] w-full rounded-lg object-cover"
           />
         )}

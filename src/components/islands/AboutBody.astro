@@ -8,6 +8,7 @@
 import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
 import { tinaMarkdownComponents } from '@/lib/tinaMarkdown';
 import { tinaField } from '@tinacms/astro/tina-field';
+import { getImageSrcSet, getImageUrl } from '@/lib/cloudinary';
 import type { AboutQuery } from '../../../tina/__generated__/types';
 
 interface Props {
@@ -15,15 +16,22 @@ interface Props {
 }
 
 const { data } = Astro.props;
+const aboutImage = data?.featuredImage?.trim();
+const aboutImageSrc = aboutImage ? getImageUrl(aboutImage, { width: 1600 }) : undefined;
+const aboutImageSrcSet = aboutImage ? getImageSrcSet(aboutImage, [640, 960, 1280, 1600, 1920]) : undefined;
 ---
 
 {data && (
   <div class="space-y-8">
     <section class="space-y-4">
-      {data.featuredImage && (
+      {aboutImageSrc && (
         <img
-          src={data.featuredImage}
+          src={aboutImageSrc}
+          srcset={aboutImageSrcSet}
+          sizes="(min-width: 90rem) 86rem, 100vw"
           alt={data.title}
+          width="1600"
+          height="686"
           class="aspect-[21/9] w-full rounded-lg object-cover"
           data-tina-field={tinaField(data, 'featuredImage')}
         />
