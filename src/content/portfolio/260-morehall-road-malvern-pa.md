@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: '260 Morehall Road - Malvern, PA'
 description: 'A 5,000 SF Chick-fil-A and 2,400 SF Starbucks on Morehall Road in Malvern, PA. PH&C managed over $1.2 million in site, highway, and retaining wall work.'
 location: 'Malvern, PA'
