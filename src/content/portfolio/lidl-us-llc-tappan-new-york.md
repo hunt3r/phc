@@ -12,6 +12,7 @@ architect:
   - entity: src/content/entities/norr.md
 engineer:
   - entity: src/content/entities/bohler.md
+  - entity: src/content/entities/whitestone-associates.md
 contractor:
   - entity: src/content/entities/b-tait-builders-llc.md
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1795103707/images/portfolio/lidl-us-llc-tappan-new-york/lidl-tappan-ny-aerial-front-01.jpg'
@@ -48,6 +49,7 @@ services:
   - project-schedule-management
   - testing-agency-coordination
   - utility-service-coordination
+featured: true
 ---
 
 Lidl asked PH\&C to manage construction of its new store on Route 303 in Tappan, New York. NORR was the architect, Bohler was the civil engineer and B. Tait Builders was the contractor.
