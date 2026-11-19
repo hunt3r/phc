@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Lidl Supermarket - Tappan, New York'
 description: |+
   PH&C assisted Lidl manage construction of its new ground-up store on Route 303 in Tappan, New York. 
@@ -50,6 +51,10 @@ services:
   - testing-agency-coordination
   - utility-service-coordination
   - building-construction-permits
+  - contractor-bidding-selection
+  - contractor-negotiations-contracts
+  - project-estimating-value-engineering
+  - government-agency-coordination
 featured: true
 ---
 
