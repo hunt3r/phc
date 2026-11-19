@@ -57,24 +57,16 @@ PH\&C served as Lidl's Owner Representative assisting Lidl manage construction o
 
 Our team served as Lidl's construction manager, representing the owner's interests throughout the entire project. We worked with the Architect and Engineers to value engineer designs for more efficient constructability to help reduce costs. Our role also included expertise oversight and supporting services as required to oversee the sitework development and complete construction of a new building into a Lidl prototype Supermarket.
 
-&#x20;as the Owner’s Representative, managing all budgets, timelines, quality checks, and external/internal professional/partners, especially General Contractors.
-
 Key tasks and functions included:
 
-Manage demolition bidding process following LiDL US protocols, negotiate GC bids and prepare Award Recommendation to provide to the LiDL regional responsible party for review and execution.
-
-Manage, coordinate, and administer all aspects of demolition project and contract administration to LiDL process standards.
-
-Routinely maintain and update LiDL’s project management system and programs.
-
-Communicate schedule updates, project milestones and timeline changes to the Lidl regional responsible party on a weekly basis.
-
-Manage all activities and communications between general contractors, stakeholders, and consultants to deliver stores within scheduled timeframes and budgets.
-
-Complete quality assurance steps throughout the construction phase utilizing LiDL standard Checklists.
-
-Conduct final punch inspections, coordinate design team punch items and assemble one consolidated punch list. Manage punch closeout to completion.
-
-Complete project closeout. Assemble and review contractor warranties, O\&M manuals and as-built drawings as required in the project specifications. Complete LiDL final acceptance and closeout documentation.
+* Manage General Contractor bidding process following LiDL US protocols, negotiate GC bids and prepare Award Recommendation to provide to the LiDL regional responsible party for review and execution.
+* Managed all budgets, timelines, quality checks, and external/internal professional/partners, especially General Contractors.
+* Manage, coordinate, and administer all aspects of construction project and contract administration to LiDL process standards.
+* Routinely maintain and update LiDL’s project management system and programs.
+* Communicate schedule updates, project milestones and timeline changes to the Lidl regional responsible party on a weekly basis.
+* Manage all activities and communications between general contractors, stakeholders, and consultants to deliver stores within scheduled timeframes and budgets.
+* Complete quality assurance steps throughout the construction phase utilizing LiDL standard Checklists.
+* Conduct final punch inspections, coordinate design team punch items and assemble one consolidated punch list. Manage punch closeout to completion.
+* Complete project closeout. Assemble and review contractor warranties, O\&M manuals and as-built drawings as required in the project specifications. Complete LiDL final acceptance and closeout documentation.
 
 We’re working hard on many more new store projects, so stay tuned for the next grand opening!
