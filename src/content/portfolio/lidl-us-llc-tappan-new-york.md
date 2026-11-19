@@ -49,6 +49,7 @@ services:
   - project-schedule-management
   - testing-agency-coordination
   - utility-service-coordination
+  - building-construction-permits
 featured: true
 ---
 
