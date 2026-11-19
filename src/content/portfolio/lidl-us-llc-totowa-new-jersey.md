@@ -48,7 +48,7 @@ featured: true
 heroOrder: 3
 ---
 
-PH\&C converted a shell in Totowa, New Jersey, to a Lidl store with Progressive Companies and Speedwell Contracting. The store opened February 4, 2026. See the [Lidl opening in Totowa](https://mediacenter.lidl.com/pressreleases/2026/lidl-us-opening-a-fresh-new-store-in-totowa).
+PH\&C converted an existing building shell in Totowa, New Jersey, to a Lidl store that opened February 4, 2026. See the [Lidl opening in Totowa](https://mediacenter.lidl.com/pressreleases/2026/lidl-us-opening-a-fresh-new-store-in-totowa).
 
 Our team worked with the Architect and Engineers to value engineer designs for more efficient constructability to help reduce costs. Our role also included expertise oversight and supporting services as required to oversee the complete transition of the existing building shell to a Lidl prototype store functioning as the Owner’s Representative, managing all budgets, timelines, quality checks, and external/internal professional/partners, especially General Contractors.
 
