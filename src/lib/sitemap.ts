@@ -1,5 +1,6 @@
 import { getCollection, getEntry } from 'astro:content';
 import { withStaffSlugs } from '@/data/staff';
+import { isPublished, publishedOnly } from '@/lib/published';
 import { sitemapOrigin } from '@/lib/sitemap-origin.mjs';
 import { tagsWithRoot } from '@/lib/tags';
 
@@ -22,20 +23,21 @@ const STATIC_PATHS = [
  * `/contact/success` is a form receipt and is omitted.
  */
 export async function publicSitemapPaths(): Promise<string[]> {
-  const [pages, portfolio, tags, staffEntry] = await Promise.all([
+  const [pages, portfolio, tags, staffEntry, about] = await Promise.all([
     getCollection('pages'),
     getCollection('portfolio'),
     getCollection('tags'),
     getEntry('staff', 'index'),
+    getEntry('about', 'index'),
   ]);
   const tagMap = new Map(tags.map((entry) => [entry.id, entry]));
-  const staff = withStaffSlugs(staffEntry?.data?.staff ?? []);
+  const staff = publishedOnly(withStaffSlugs(staffEntry?.data?.staff ?? []));
 
   const paths = [
-    ...STATIC_PATHS,
-    ...pages.map((entry) => `/${entry.id}`),
+    ...STATIC_PATHS.filter((path) => path !== '/about' || isPublished(about?.data)),
+    ...pages.filter((entry) => isPublished(entry.data)).map((entry) => `/${entry.id}`),
     ...staff.map((member) => `/about/${member.slug}`),
-    ...portfolio.map((entry) => `/portfolio/${entry.id}`),
+    ...portfolio.filter((entry) => isPublished(entry.data)).map((entry) => `/portfolio/${entry.id}`),
     ...tagsWithRoot('portfolio', tagMap).map((entry) => `/portfolio/${entry.id}`),
     ...tagsWithRoot('services', tagMap).map((entry) => `/services/${entry.id}`),
   ];

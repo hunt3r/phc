@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Westhampton, NJ'
 description: 'PH&C managed a 5,585 SF Wawa with a drive-thru in Westhampton, NJ, plus NJDOT signal work and new sidewalk and trail links along Rancocas Road.'
 location: 'Westhampton, NJ'

@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Nabisco Plaza Phase II Redevelopment - Philadelphia, PA'
 description: 'PH&C secured a PA DCED grant for Nabisco Plaza Phase II in Philadelphia, PA, and delivered pad-ready sites for Topgolf, ALDI, and Chick-fil-A.'
 location: 'Philadelphia, PA'

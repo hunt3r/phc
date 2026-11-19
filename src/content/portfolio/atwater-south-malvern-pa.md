@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Atwater South - Malvern, PA'
 description: 'PH&C developed a former quarry at Route 29 and the PA Turnpike in Malvern, PA, for Wawa, TruMark Financial, and Chesterbrook Academy, with rock blasting.'
 location: 'Malvern, PA'

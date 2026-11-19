@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Nemours DuPont Pediatrics - Paoli, PA'
 description: 'Gut renovation and a 3,000 SF addition turned a 6,000 SF building in Paoli, PA, into a 9,000 SF Nemours pediatric office. PH&C managed the project.'
 location: 'Paoli, PA'

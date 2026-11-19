@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Hatfield, PA'
 description: 'PH&C managed construction of a 4,085 SF Wawa with 12 fuel positions in Hatfield, PA, along with $1 million in site and highway improvements.'
 location: 'Hatfield, PA'

@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Lidl Supermarket - Freehold, New Jersey'
 description: 'PH&C managed the conversion of an existing shell in Freehold, New Jersey, into a Lidl store. The fourth opening with Lidl was May 9, 2025.'
 location: 'Freehold, New Jersey'

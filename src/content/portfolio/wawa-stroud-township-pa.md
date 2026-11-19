@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Stroud Township, PA'
 description: 'For a developer''s first Wawa, PH&C delivered a 6,049 SF store with 16 fuel positions in Stroud Township, PA, including rock blasting and PennDOT work.'
 location: 'Stroud Township, PA'

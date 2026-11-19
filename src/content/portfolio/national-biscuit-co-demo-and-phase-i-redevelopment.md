@@ -1,4 +1,5 @@
 ---
+published: true
 title: National Biscuit Co. Demo and Phase I Redevelopment - Philadelphia PA
 description: 'Demolition of the 27-acre Nabisco plant in Philadelphia, PA, removed 7-story mixing drums and 1,200 LF of rail. PH&C then delivered a pad-ready Wawa site.'
 location: 'Philadelphia, PA'

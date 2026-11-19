@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'The Cottages At Old Saucon - Bethlehem, PA'
 description: 'For a team of investors, PH&C managed sitework for an 80-cottage 55+ community in Bethlehem, PA, including 425,000 CY of earthwork and a Route 378 signal.'
 location: 'Bethlehem, PA'

@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'AMC 309 Cinemas - North Wales, PA - Major Exterior Renovation'
 description: 'PH&C managed the AMC 309 Cinemas renovation in North Wales, PA: a new facade and roof, a 3,550 SF lobby addition, and parking and stormwater upgrades.'
 location: 'North Wales, PA'

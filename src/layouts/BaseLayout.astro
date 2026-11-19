@@ -18,6 +18,7 @@ import { metaDescription } from "@/lib/seo/metaDescription";
 import { seoTitle } from "@/lib/seo/pageTitle";
 import { HERO_SIZES } from "@/lib/hero-image";
 import { getEntry } from "astro:content";
+import { omitUnpublishedLinks } from "@/lib/published";
 
 const DEFAULT_HEADER_LINKS = [
   { label: 'Home', href: '/' },
@@ -28,9 +29,9 @@ const DEFAULT_HEADER_LINKS = [
 ];
 
 const siteSettings = await getEntry('site', 'index');
-const headerLinks = siteSettings?.data?.headerLinks?.length
-  ? siteSettings.data.headerLinks
-  : DEFAULT_HEADER_LINKS;
+const headerLinks = await omitUnpublishedLinks(
+  siteSettings?.data?.headerLinks?.length ? siteSettings.data.headerLinks : DEFAULT_HEADER_LINKS,
+);
 
 interface Props {
   title?: string;

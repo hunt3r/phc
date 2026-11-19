@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Cherry Hill, NJ'
 description: 'PH&C managed the site and highway improvements for a 6,099 SF Wawa food market with 12 fueling positions in Cherry Hill, NJ.'
 location: 'Cherry Hill, NJ'

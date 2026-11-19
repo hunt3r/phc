@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'A Storage Depot - Middletown, DE'
 description: 'For The McKee Group, PH&C managed construction of a 103,350 SF, three-story climate-controlled self-storage facility in Middletown, DE.'
 location: 'Middletown, DE'

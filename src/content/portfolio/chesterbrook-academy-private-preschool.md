@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Chesterbrook Academy Private Preschool - Malvern, PA'
 description: 'PH&C delivered a turnkey 13,200 SF Chesterbrook Academy preschool in Malvern, PA, a $3.3 million project with playgrounds and stormwater systems.'
 location: 'Malvern, PA'

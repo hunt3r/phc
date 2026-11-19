@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Upper Providence Township, PA'
 description: 'PH&C managed abatement and demolition of three structures, including the old Wawa, to build a 5,051 SF store in Upper Providence Township, PA.'
 location: 'Upper Providence Township, PA'

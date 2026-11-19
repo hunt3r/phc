@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Pond''s Edge - Middletown Twp, PA'
 description: 'Pond''s Edge is a 197-unit townhouse community on about 55 acres in Middletown Twp, PA. PH&C managed blasting, earthwork, and a sewer pump station.'
 location: 'Middletown Twp, PA'

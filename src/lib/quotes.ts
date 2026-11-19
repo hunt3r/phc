@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content';
+import { isPublished } from '@/lib/published';
 
 export interface Quote {
   quote: string;
@@ -18,6 +19,7 @@ export async function getAllQuotes(): Promise<Quote[]> {
   const quotes: Quote[] = [];
 
   for (const entry of portfolio) {
+    if (!isPublished(entry.data)) continue;
     const entryQuotes = (entry.data as { quotes?: Omit<Quote, 'projectTitle' | 'projectHref'>[] }).quotes;
     if (!Array.isArray(entryQuotes)) continue;
 

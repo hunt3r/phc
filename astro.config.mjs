@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, unlink, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
@@ -31,19 +31,41 @@ function sitemapLoc(page) {
   return path === '/' ? sitemapSite : `${sitemapSite}${path}`;
 }
 
+/** About is a fixed route, so an unpublished page still emits `about.html` until this removes it. */
+async function aboutPageIsPublished() {
+  const raw = await readFile(new URL('./src/content/about/index.md', import.meta.url), 'utf8');
+  const frontmatter = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  return frontmatter != null && /^published:\s*true\s*$/m.test(frontmatter[1]);
+}
+
+function stripSitemapLoc(xml, loc) {
+  const escaped = loc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return xml.replace(new RegExp(`<url>[\\s\\S]*?<loc>${escaped}</loc>[\\s\\S]*?</url>\\s*`, 'g'), '');
+}
+
 /** Point sitemap locs at `sitemapSite`, and drop the trailing slash on the homepage. */
 function canonicalizeSitemapHome() {
   return {
     name: 'sitemap-canonical-home',
     hooks: {
       'astro:build:done': async ({ dir }) => {
+        const aboutPublished = await aboutPageIsPublished();
         for (const name of ['sitemap-0.xml', 'sitemap-index.xml']) {
           const path = fileURLToPath(new URL(name, dir));
           const xml = await readFile(path, 'utf8');
-          const next = xml
+          let next = xml
             .replace(/<loc>https?:\/\/[^/<]+/g, `<loc>${sitemapSite}`)
             .replace(`<loc>${sitemapSite}/</loc>`, `<loc>${sitemapSite}</loc>`);
+          if (!aboutPublished && name === 'sitemap-0.xml') {
+            next = stripSitemapLoc(next, `${sitemapSite}/about`);
+          }
           if (next !== xml) await writeFile(path, next);
+        }
+        if (!aboutPublished) {
+          const aboutPath = fileURLToPath(new URL('about.html', dir));
+          await unlink(aboutPath).catch((error) => {
+            if (error?.code !== 'ENOENT') throw error;
+          });
         }
         const robotsPath = fileURLToPath(new URL('robots.txt', dir));
         const robots = await readFile(robotsPath, 'utf8');

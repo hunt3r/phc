@@ -5,11 +5,12 @@ import { islands } from '@/lib/islands';
 import StaffProfile from '../../components/StaffProfile.astro';
 import { getEntry } from 'astro:content';
 import { withStaffSlugs } from '@/data/staff';
+import { editorEntries, isPublished } from '@/lib/published';
 import { createBreadcrumbListSchema, createPersonSchema } from '@/lib/seo/jsonld';
 
 export async function getStaticPaths() {
   const staffEntry = await getEntry('staff', 'index');
-  const people = withStaffSlugs(staffEntry?.data?.staff ?? []);
+  const people = editorEntries(withStaffSlugs(staffEntry?.data?.staff ?? []), (member) => isPublished(member));
   return people.map((member) => ({
     params: { slug: member.slug },
     props: { member },

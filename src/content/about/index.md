@@ -1,4 +1,5 @@
 ---
+published: true
 title: About Us
 description: 'Our team, our values, and our commitment to delivering quality construction and development services.'
 featuredImage: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773698882/nate-johnston-DowtEyavqsY-unsplash_r18ynk.jpg'

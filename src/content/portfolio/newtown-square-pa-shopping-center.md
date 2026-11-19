@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Newtown Square Shopping Center Renovations, Newtown Square, PA'
 description: 'At an open shopping center in Newtown Square, PA, PH&C managed façade renovations on five buildings, new roof canopies, and site lighting upgrades.'
 location: 'Newtown Square, PA'

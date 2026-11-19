@@ -1,4 +1,5 @@
 ---
+published: true
 title: Chestnut Hill College - Sugarloaf Campus Philadelphia PA
 description: 'Chestnut Hill College hired PH&C to manage a new Sugarloaf Campus entrance road off Germantown Ave. in Philadelphia, with a trail and rock blasting.'
 location: 'Philadelphia, PA'

@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'CARDIOLOGY CONSULTANTS OF PHILADELPHIA - Springfield, PA'
 description: 'For Cardiology Consultants of Philadelphia, PH&C managed a 10,200 SF medical fit-out with a cardiac PET/CT room in an occupied Springfield, PA, building.'
 location: 'Springfield, PA'

@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa/Retail Bldg/Bank - Trooper, PA'
 description: 'At Trooper, PA, PH&C delivered a 5,535 SF Wawa, an 8,000 SF retail building with Shake Shack, a Citadel bank branch, and PennDOT signal work.'
 location: 'Trooper, PA'

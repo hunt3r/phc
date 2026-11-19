@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - West Whiteland Township (Exton), PA'
 description: 'For landowner Whitford Property, PH&C cleared a gas station, its underground tanks, and an office building to deliver a 5,585 SF Wawa in Exton, PA.'
 location: 'West Whiteland Township (Exton), PA'

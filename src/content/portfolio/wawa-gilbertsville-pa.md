@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Gilbertsville, PA'
 description: 'For a 5,102 SF Wawa in Gilbertsville, PA, PH&C managed the Route 100 highway improvements, a limited-access driveway, and a public bypass road.'
 location: 'Gilbertsville, PA'

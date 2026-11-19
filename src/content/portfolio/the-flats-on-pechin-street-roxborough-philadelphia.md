@@ -1,4 +1,5 @@
 ---
+published: true
 title: The Flats on Pechin Street - Roxborough Philadelphia
 description: 'The Flats on Pechin Street added 42 apartments and a 50-space, two-story garage in Roxborough, Philadelphia. PH&C managed construction for the owner.'
 location: 'Roxborough, Philadelphia, PA'

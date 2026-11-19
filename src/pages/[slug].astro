@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { editorEntries, isPublished } from '@/lib/published';
 import ContentPageSection from '../components/ContentPageSection.astro';
 
 // Generic content pages live in the `pages` collection and render at the site
@@ -7,7 +8,7 @@ import ContentPageSection from '../components/ContentPageSection.astro';
 // new pages in Tina without a bespoke Astro route per page.
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
-  return pages.map((entry) => ({
+  return editorEntries(pages, (entry) => isPublished(entry.data)).map((entry) => ({
     params: { slug: entry.id },
     props: { entryId: entry.id },
   }));

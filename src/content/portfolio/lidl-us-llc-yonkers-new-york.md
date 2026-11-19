@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Lidl Supermarket - Yonkers, New York'
 description: 'Lidl asked PH&C to open stores in New York. The Yonkers store, the firm''s seventh Lidl opening, opened October 22, 2025.'
 location: 'Yonkers, New York'

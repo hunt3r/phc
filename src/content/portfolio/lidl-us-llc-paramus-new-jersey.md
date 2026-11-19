@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Lidl Supermarket - Paramus, New Jersey'
 description: 'PH&C converted an existing shell in Paramus, New Jersey, into a Lidl store. This was the firm''s third Lidl opening, on February 12, 2025.'
 location: 'Paramus, New Jersey'

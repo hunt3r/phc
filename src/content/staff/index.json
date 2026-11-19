@@ -1,6 +1,7 @@
 {
   "staff": [
     {
+      "published": true,
       "name": "Paul Harris",
       "title": "President",
       "credentials": [
@@ -10,11 +11,13 @@
       "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791393837/staff/Paul_ajo5gx.jpg"
     },
     {
+      "published": true,
       "name": "Stephanie Harris",
       "title": "Treasurer / Secretary",
       "bio": "Stephanie is the Treasurer / Secretary responsible for reviewing financial data, managing account payables, receivables, preparing budgets and monitoring expenditures & costs. She has over 20 years experience in construction and real estate. Before joining PH&C, she had served five years at Regency Centers as the Office Manager/ Executive Assistant. Mrs. Harris earned a Bachelor of Science degree in Business from Pennsylvania State University."
     },
     {
+      "published": true,
       "name": "Jeffrey McClintock, PE",
       "title": "Development Manager – Construction",
       "credentials": [
@@ -26,6 +29,7 @@
       "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791396653/staff/Jeff_hzq2np.jpg"
     },
     {
+      "published": true,
       "name": "Shaun Barot",
       "title": "Senior Construction Manager",
       "credentials": [
@@ -35,6 +39,7 @@
       "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791395722/staff/Shaun_w0pjmk.jpg"
     },
     {
+      "published": true,
       "name": "Louis Harris",
       "title": "Business Development/Marketing Manager",
       "credentials": [
@@ -45,6 +50,7 @@
       "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791395593/staff/Lou_n5apee.jpg"
     },
     {
+      "published": true,
       "name": "Rob Raquet",
       "title": "Senior Construction Manager",
       "credentials": [
@@ -54,6 +60,7 @@
       "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791397259/staff/Rob-Raquet_wcd3le.jpg"
     },
     {
+      "published": true,
       "name": "Derek Clouser",
       "title": "Senior Construction Manager",
       "credentials": [
@@ -63,6 +70,7 @@
       "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791396895/staff/Derek_kjc3q6.jpg"
     },
     {
+      "published": true,
       "name": "Alexa Karakitsios",
       "title": "Construction Manager",
       "credentials": [
@@ -72,6 +80,7 @@
       "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791397110/staff/Alexa_hwpc7p.jpg"
     },
     {
+      "published": true,
       "name": "Noah Lynch",
       "title": "Construction Coordinator ",
       "credentials": [
@@ -81,6 +90,7 @@
       "image": "https://res.cloudinary.com/djkpy86pu/image/upload/v1791394057/staff/Noah_zpdsh5.jpg"
     },
     {
+      "published": true,
       "name": "Virginia Gonzalez",
       "title": "Project Coordinator",
       "credentials": [

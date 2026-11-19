@@ -117,6 +117,29 @@ const contentCardFields: any[] = [
   },
 ];
 
+/**
+ * Open the visual editor when the page is on the site. When it is not, Tina
+ * opens the document form instead, so an unpublished item stays editable
+ * after the public page is gone.
+ */
+async function visualPath(path: string): Promise<string | undefined> {
+  if (typeof window === 'undefined') return path;
+  try {
+    const response = await fetch(path);
+    return response.status === 404 ? undefined : path;
+  } catch {
+    return path;
+  }
+}
+
+const publishedField = {
+  type: 'boolean' as const,
+  name: 'published',
+  label: 'Published',
+  description:
+    'Checked items are on the public site. Uncheck and save to take this off the site without deleting it. You can still open it and edit it. A new item stays off the site until this is checked. The live site updates after the rebuild.',
+};
+
 const entityRoleField = (name: string, label: string) => ({
   type: 'object' as const,
   name,
@@ -188,6 +211,7 @@ export default defineConfig({
         path: 'src/content/portfolio',
         format: 'md',
         fields: [
+          publishedField,
           { type: 'string', name: 'title', label: 'Title', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
           { type: 'string', name: 'location', label: 'Location' },
@@ -305,7 +329,7 @@ export default defineConfig({
         defaultItem: () => ({}),
         ui: {
           // Open the project page in the visual editor.
-          router: ({ document }) => `/portfolio/${document._sys.filename}`,
+          router: ({ document }) => visualPath(`/portfolio/${document._sys.filename}`),
         },
       },
       {
@@ -394,8 +418,9 @@ export default defineConfig({
         path: 'src/content/about',
         match: { include: 'index' },
         format: 'md',
-        ui: { allowedActions: { create: false, delete: false }, router: () => '/about' },
+        ui: { allowedActions: { create: false, delete: false }, router: () => visualPath('/about') },
         fields: [
+          publishedField,
           { type: 'string', name: 'title', label: 'Title', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' }, description: 'Shown under the title in the page header.' },
           { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Header banner image. Upload via Cloudinary.' },
@@ -462,8 +487,9 @@ export default defineConfig({
         // via the dynamic src/pages/[slug].astro route. Create/delete stay enabled
         // so the collection shows its document list (Tina auto-opens single-document
         // collections that disable both actions) and editors can add new pages.
-        ui: { router: ({ document }) => `/${document._sys.filename}` },
+        ui: { router: ({ document }) => visualPath(`/${document._sys.filename}`) },
         fields: [
+          publishedField,
           { type: 'string', name: 'title', label: 'Title', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
           { type: 'image', name: 'featuredImage', label: 'Featured Image', description: 'Optional. When set, this is the banner behind the title. Leave it blank and the title appears below the breadcrumb, with no banner.' },
@@ -510,6 +536,7 @@ export default defineConfig({
               itemProps: (item) => ({ label: item?.name || 'New person' }),
             },
             fields: [
+              publishedField,
               { type: 'string', name: 'name', label: 'Name', required: true },
               { type: 'string', name: 'title', label: 'Title', required: true },
               {

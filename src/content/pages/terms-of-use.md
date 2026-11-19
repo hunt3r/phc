@@ -1,4 +1,5 @@
 ---
+published: true
 title: Terms of Use
 description: 'Effective Date: November 2, 2026'
 featuredImage: ''

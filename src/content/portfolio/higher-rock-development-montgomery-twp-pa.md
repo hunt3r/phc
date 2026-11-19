@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Higher Rock Development - Montgomery Twp, PA'
 description: 'A Wawa, Wendy''s, and Citadel Bank on a former nursery in Montgomery Twp, PA. PH&C managed rock blasting, an Individual NPDES Permit, and a new signal.'
 location: 'Montgomery Twp, PA'

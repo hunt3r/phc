@@ -2,6 +2,8 @@ import { slugify } from '@/lib/slug';
 
 /** Type for staff members (data lives in src/content/staff/index.json, editable via Tina). */
 export interface StaffMember {
+  /** On the public site only when true. A missing flag stays off the site. */
+  published?: boolean;
   name: string;
   title: string;
   bio: string;

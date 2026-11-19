@@ -31,7 +31,9 @@ Each item in the left menu is a section of the website:
 3. Edit the fields. The names on the form are the same names used in the rest of this guide.
 4. Click **Save**.
 
-Saving publishes the change. The live website updates after a short rebuild, usually within a minute or two. Refresh the public page if you do not see it yet.
+Saving stores the change. The live website updates after a short rebuild, usually within a minute or two. Refresh the public page if you do not see it yet.
+
+**Published** is the first field on a project, a page, About Us, and each person in Staff. Checked items are on the public site. A new project, page, or person stays off the site until **Published** is checked. Uncheck it and save to take that item off the site without deleting it. You can still open it from the left menu and edit it. Visitors see it again after **Published** is checked and the rebuild finishes.
 
 Many sections also open the live page while you edit, so you can click the part of the page you want to change. **Staff** and **Site Settings** open the form instead.
 

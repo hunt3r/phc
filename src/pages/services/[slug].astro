@@ -17,6 +17,7 @@ import {
 import { toVideoViews } from '@/lib/videos';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 import { sortPortfolioEntries } from '@/lib/project-date';
+import { isPublished } from '@/lib/published';
 
 export async function getStaticPaths() {
   const tags = await getCollection('tags');
@@ -31,7 +32,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const serviceLabel = entry.data.label;
 
-const portfolio = await getCollection('portfolio');
+const portfolio = (await getCollection('portfolio')).filter((entry) => isPublished(entry.data));
 const tagMap = await getTagMap();
 const entries = sortPortfolioEntries(portfolioEntriesForTagTree(entry.id, portfolio, tagMap));
 

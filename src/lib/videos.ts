@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import { getImageUrl } from '@/lib/cloudinary';
+import { isPublished } from '@/lib/published';
 
 /**
  * The raw inline video shape as stored on a portfolio item, tag, or page.
@@ -129,6 +130,7 @@ export async function getAllVideos(): Promise<VideoView[]> {
   for (const name of VIDEO_COLLECTIONS) {
     const entries = await getCollection(name);
     for (const entry of entries) {
+      if ((name === 'portfolio' || name === 'about' || name === 'pages') && !isPublished(entry.data)) continue;
       const list = (entry.data as { videos?: InlineVideo[] }).videos;
       if (!Array.isArray(list)) continue;
       list.forEach((video, index) => {

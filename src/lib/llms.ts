@@ -11,6 +11,7 @@ import {
 import { formatProjectDate, sortPortfolioEntries } from '@/lib/project-date';
 import { getAllQuotes } from '@/lib/quotes';
 import { withStaffSlugs } from '@/data/staff';
+import { isPublished, publishedOnly } from '@/lib/published';
 
 const TAGLINE =
   "PH&C, LLC is an owner's-representation, construction management, and real estate development consulting firm based in Wayne, PA, serving the Greater Philadelphia region and the Mid-Atlantic since " +
@@ -115,11 +116,14 @@ function demoteHeadings(markdown: string): string {
  */
 export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promise<string> {
   const { full } = opts;
-  const portfolio = sortPortfolioEntries(await getCollection('portfolio'));
+  const portfolio = sortPortfolioEntries(
+    (await getCollection('portfolio')).filter((entry) => isPublished(entry.data)),
+  );
   const entityMap = await getEntityMap();
   const about = await getEntry('about', 'index');
+  const aboutPublished = isPublished(about?.data);
   const contact = await getEntry('contact', 'contact');
-  const staff = withStaffSlugs((await getEntry('staff', 'index'))?.data?.staff ?? []);
+  const staff = publishedOnly(withStaffSlugs((await getEntry('staff', 'index'))?.data?.staff ?? []));
   const quotes = await getAllQuotes();
   const serviceTree = await getServicesNavTree();
   const sectorTree = await getNavTree();
@@ -146,7 +150,9 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
   lines.push('');
 
   lines.push('## Key pages');
-  lines.push(`- [About](${normalizeUrl(site, '/about')}): Company history, mission, values, and key personnel.`);
+  if (aboutPublished) {
+    lines.push(`- [About](${normalizeUrl(site, '/about')}): Company history, mission, values, and key personnel.`);
+  }
   lines.push(`- [Services](${normalizeUrl(site, '/services')}): Full range of consulting and construction management services.`);
   lines.push(`- [Portfolio](${normalizeUrl(site, '/portfolio')}): Completed and in-progress projects.`);
   lines.push(`- [Testimonials](${normalizeUrl(site, '/testimonials')}): Client feedback.`);
@@ -187,7 +193,7 @@ export async function buildLlmsTxt(site: string, opts: { full: boolean }): Promi
     lines.push('# Full content');
     lines.push('');
 
-    if (about?.body) {
+    if (aboutPublished && about?.body) {
       lines.push('## About PH&C');
       lines.push(`URL: ${normalizeUrl(site, '/about')}`);
       lines.push('');

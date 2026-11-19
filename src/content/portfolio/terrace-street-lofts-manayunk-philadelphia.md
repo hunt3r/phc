@@ -1,4 +1,5 @@
 ---
+published: true
 title: Terrace Street Lofts - Manayunk Philadelphia
 description: 'PH&C represented the owner on Terrace Street Lofts, a 32-unit, four-story apartment building in Manayunk, Philadelphia, with a 40-space parking garage.'
 location: 'Manayunk, Philadelphia, PA'

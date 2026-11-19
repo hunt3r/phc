@@ -11,7 +11,7 @@ The homepage is built from **Home** in the left menu, plus the projects, tags, q
 
 The top of the homepage is a slideshow. It mixes three kinds of slides:
 
-- A project marked **Featured** that has a cover image, when **Show featured projects** is on. The slide uses that project's title, short description, and cover image, and links to the project. The button says View project.
+- A project marked **Published** and **Featured** that has a cover image, when **Show featured projects** is on. The slide uses that project's title, short description, and cover image, and links to the project. The button says View project. A project with **Published** turned off is left out of the slideshow.
 - A tag marked **Featured** that has an image, when **Show featured tags** is on. The slide uses that tag's label, description, and image, and links to the tag's page. The button says View, followed by the tag's label. See **Sectors, services, and tags**.
 - A custom slide you add on **Home**, under **Hero**, in **Slides**.
 
@@ -46,11 +46,11 @@ If no project, tag, or custom slide qualifies, the homepage has no banner. A **B
 
 **Content Cards** on **Home** are promotional blocks placed directly under the banner, before the project list. See **Photos, videos, and content cards** for how to build one.
 
-**Latest projects** is a grid of project cards. It shows projects that have a **Date**, newest first. A full date, such as February 4, 2026, comes before a project dated only with that year. Projects with the same date are sorted by title. A project with no date is left out. **Max Latest Projects** sets how many cards to show. If you leave it blank, the site shows 3. **Order** on a project does not change this list. On the Portfolio page, and on sector and service pages, projects follow **Date** unless that project has an **Order**. See **Portfolio projects**.
+**Latest projects** is a grid of project cards. It shows published projects that have a **Date**, newest first. A project with **Published** turned off is left out. A full date, such as February 4, 2026, comes before a project dated only with that year. Projects with the same date are sorted by title. A project with no date is left out. **Max Latest Projects** sets how many cards to show. If you leave it blank, the site shows 3. **Order** on a project does not change this list. On the Portfolio page, and on sector and service pages, projects follow **Date** unless that project has an **Order**. See **Portfolio projects**.
 
-**Videos** on the homepage are videos you marked **Promote to home page**, from any project, tag, About, Contact, or other page. **Max Videos** sets how many to show. If you leave it blank, the site shows 8. Every video, featured or not, is also listed on the Videos page.
+**Videos** on the homepage are videos you marked **Promote to home page**, from any published project, tag, About, Contact, or other published page. **Max Videos** sets how many to show. If you leave it blank, the site shows 8. Every video from those published pages, featured or not, is also listed on the Videos page. A project, the About page, or a page with **Published** turned off is left out, including its videos.
 
-**What our clients say** uses quotes you marked **Promote to home page** on a project. **Max Testimonials** sets how many to show. If you leave it blank, the site shows 8. Every quote, featured or not, is also listed on the Testimonials page.
+**What our clients say** uses quotes you marked **Promote to home page** on a published project. **Max Testimonials** sets how many to show. If you leave it blank, the site shows 8. Every quote on a published project, featured or not, is also listed on the Testimonials page. A project with **Published** turned off is left out, including its quotes.
 
 ## Page Title
 

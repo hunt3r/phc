@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Upper Moreland, PA'
 description: 'Alongside a 5,585 SF Wawa in Upper Moreland, PA, PH&C delivered a 10,000 SF retail building, stream bank restoration, and SEPTA station walkways.'
 location: 'Upper Moreland, PA'

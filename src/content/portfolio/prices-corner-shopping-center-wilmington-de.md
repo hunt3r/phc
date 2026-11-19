@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Prices Corner Shopping Center - Wilmington, DE'
 description: 'PH&C turned a two-story Sears into a Target at Prices Corner in Wilmington, DE, and cleared the Sears Auto Center for a Chick-fil-A and Chase Bank.'
 location: 'Wilmington, DE'

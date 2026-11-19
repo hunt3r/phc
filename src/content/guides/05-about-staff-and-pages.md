@@ -9,6 +9,7 @@ This guide is kept up to date with the website. It opens for reading. Use **Edit
 
 **About Us** in the left menu is the About page. There is only one, and it cannot be deleted.
 
+- **Published** puts the About page on the site. Uncheck it and save to take the page off the site without deleting it. The team grid, the About videos, and a header or footer link to `/about` are left off with it. Staff profile pages stay up for people who are still published. You can still open **About Us** and edit it. Visitors see the page again after you check **Published** and the site rebuilds.
 - **Title** is the page heading.
 - **Description** is the sentence under the title.
 - **Featured Image** is the wide photo at the top of the page.
@@ -20,9 +21,10 @@ The team grid is not edited here. It comes from **Staff**.
 
 ## Staff
 
-Open **Staff** to add, remove, or reorder people. Drag a person to change where they appear. The list is shown on the About page under **Key Personnel**, and each person has a profile page.
+Open **Staff** to add, remove, or reorder people. Drag a person to change where they appear. The list is shown on the About page under **Key Personnel**, and each published person has a profile page.
 
-- **Name** is required. It is also used for their profile address. "Paul Harris" becomes a page at `/about/paul-harris`. If two people would get the same address, the second one gets a `-2` on the end.
+- **Published** puts that person on the site. A new person stays off the site until this is checked. Uncheck it and save to take them off the About page and off their profile page without deleting them. Their address does not change, and it does not change anyone else's. A header or footer link to that profile is left off too. You can still edit them in the Staff list. Visitors see them again after you check **Published** and the site rebuilds.
+- **Name** is required. It is also used for their profile address. "Paul Harris" becomes a page at `/about/paul-harris`. If two people would get the same address, the second one gets a `-2` on the end. Hiding a person does not change those addresses.
 - **Title** is their role, shown on the card and the profile.
 - **Credentials** are licenses, degrees, and certifications. Add one per item.
 - **Bio** is the profile writeup. The first paragraph is also used as the short description when the profile is shared. See **Search engines and AI**.
@@ -33,8 +35,9 @@ There is a single Staff list. You cannot create a second one.
 
 ## Pages
 
-**Pages** are simple pages that live at the root of the site, such as the privacy policy. When you add one, Tina asks for a file name. That name becomes the address: a file named `privacy-policy` is published at `/privacy-policy`. Use a short, lowercase name with hyphens. The **Title** is the heading visitors see.
+**Pages** are simple pages that live at the root of the site, such as the privacy policy. When you add one, Tina asks for a file name. That name becomes the address: a file named `privacy-policy` is at `/privacy-policy` once **Published** is checked. Use a short, lowercase name with hyphens. The **Title** is the heading visitors see.
 
+- **Published** puts the page on the site. A new page stays off the site until this is checked. Uncheck it and save to take the page off the site without deleting it. Its videos are left off the Videos page. A header or footer link that points at that page is left off too. You can still open the page from the Pages list and edit it. Visitors see it again after you check **Published** and the site rebuilds.
 - **Title** is the page heading.
 - **Description** is the line under the heading, and the preview text when the page is shared.
 - **Featured Image** is optional. When it is set, it is the photo behind the banner, and the title and description sit on that banner. When it is left blank, there is no banner. The title and description appear below the breadcrumb, above the page content.

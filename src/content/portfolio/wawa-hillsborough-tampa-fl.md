@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Hillsborough, Tampa FL'
 description: 'FDOT highway improvements came with this 5,537 SF Wawa with 16 fuel positions in Hillsborough, Tampa, FL, which PH&C managed through construction.'
 location: 'Hillsborough, Tampa FL'

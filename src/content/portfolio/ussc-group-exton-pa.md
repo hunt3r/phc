@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'USSC Group - Exton, PA'
 description: 'As tenant representative, PH&C oversaw USSC Group''s 183,952 SF pre-engineered warehouse in Exton, PA, with a forklift connection to its existing building.'
 location: 'Exton, PA'

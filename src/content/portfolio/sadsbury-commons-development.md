@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Sadsbury Commons - Parkesburg, PA - Development'
 description: 'Sadsbury Commons in Parkesburg, PA, is anchored by a two-story, 36,000 SF medical office building. PH&C managed $2.5 million in site and highway work.'
 location: 'Parkesburg, PA'

@@ -18,6 +18,7 @@ import {
 import { toVideoViews } from '@/lib/videos';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 import { sortPortfolioEntries } from '@/lib/project-date';
+import { isPublished } from '@/lib/published';
 
 interface Props {
   entry: CollectionEntry<'tags'>;
@@ -27,7 +28,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const tagLabel = entry.data.label;
 
-const portfolio = await getCollection('portfolio');
+const portfolio = (await getCollection('portfolio')).filter((entry) => isPublished(entry.data));
 const tagMap = await getTagMap();
 const entries = sortPortfolioEntries(portfolioEntriesForTagTree(entry.id, portfolio, tagMap));
 const childTags = childrenOf(entry.id, tagMap);

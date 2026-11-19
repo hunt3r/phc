@@ -52,10 +52,22 @@ const contentCardSchema = z.object({
 
 const contentCardsSchema = z.array(contentCardSchema).optional();
 
+/**
+ * Public only when this is `true`. A missing flag, false, or a blank Tina
+ * value stays off the site. Do not default it to true: existing files are
+ * migrated to `published: true`, and a new file stays unpublished until an
+ * editor checks Published.
+ */
+const publishedFlag = z.preprocess(
+  (v) => (v === '' || v == null ? undefined : v),
+  z.boolean().optional(),
+);
+
 const portfolio = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/portfolio' }),
   schema: () =>
     z.object({
+      published: publishedFlag,
       title: z.string(),
       description: z.string().optional(),
       location: z.string().optional(),
@@ -179,6 +191,7 @@ const about = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/about' }),
   schema: () =>
     z.object({
+      published: publishedFlag,
       title: z.string(),
       description: z.string().optional(),
       featuredImage: z.string().optional(),
@@ -191,6 +204,7 @@ const pages = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
   schema: () =>
     z.object({
+      published: publishedFlag,
       title: z.string(),
       description: z.string().optional(),
       featuredImage: z.string().optional(),
@@ -221,6 +235,7 @@ const staff = defineCollection({
   schema: z.object({
     staff: z.array(
       z.object({
+        published: publishedFlag,
         name: z.string(),
         title: z.string(),
         bio: z.string(),

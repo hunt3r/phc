@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Doylestown Shopping Center Target - Doylestown, PA'
 description: 'PH&C combined three spaces at the Doylestown Shopping Center into a Target store, with remediation and a flood wall. The store opened in July 2024.'
 location: 'Doylestown, PA'

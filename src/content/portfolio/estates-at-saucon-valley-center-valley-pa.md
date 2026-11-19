@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Estates at Saucon Valley - Center Valley, PA'
 description: 'For Tuskes Homes, PH&C managed sitework at Estates at Saucon Valley in Center Valley, PA, including 425,000 CY of earthwork and seven retaining walls.'
 location: 'Center Valley, PA'

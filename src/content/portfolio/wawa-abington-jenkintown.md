@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Abington/Jenkintown, PA'
 description: 'PH&C managed a 4,691 SF Wawa with 12 fueling positions, a drive-thru bank, PennDOT signal work, and SEPTA station upgrades in Abington/Jenkintown, PA.'
 location: 'Abington/Jenkintown, PA'

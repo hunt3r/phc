@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Maple Shade, NJ'
 description: 'In Maple Shade, NJ, PH&C managed cleanup of a former gas station and construction of a 5,585 SF Wawa with 6 fuel positions and 7 Tesla chargers.'
 location: 'Maple Shade, NJ'

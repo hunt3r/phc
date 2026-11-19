@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'County Savings Bank - Tinicum, PA'
 description: 'PH&C managed the demolition and reconstruction of a County Savings Bank branch, including its drive-thru lane, in Tinicum, PA.'
 location: 'Tinicum, PA'

@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Lower Moreland, PA'
 description: 'PH&C managed over $2 million in site and highway work for a 4,085 SF Wawa in Lower Moreland, PA, including a pedestrian bridge and a floodplain basin.'
 location: 'Lower Moreland, PA'

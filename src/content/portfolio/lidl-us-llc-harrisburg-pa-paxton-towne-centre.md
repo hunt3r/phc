@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Lidl Supermarket - Harrisburg, PA. Paxton Towne Centre'
 description: 'PH&C served as owner representative for Lidl''s first store with the firm, converting a shell on Jonestown Road in Harrisburg. It opened June 12, 2024.'
 location: 'Harrisburg, PA'

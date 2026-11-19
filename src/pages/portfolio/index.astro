@@ -10,8 +10,9 @@ import HeroPage from '../../components/blocks/hero-page.astro';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 import { resolveHeroImage } from '@/lib/hero-image';
 import { sortPortfolioEntries } from '@/lib/project-date';
+import { isPublished } from '@/lib/published';
 
-const portfolio = await getCollection('portfolio');
+const portfolio = (await getCollection('portfolio')).filter((entry) => isPublished(entry.data));
 const sorted = sortPortfolioEntries(portfolio);
 const portfolioTag = await getEntry('tags', 'portfolio');
 // Portfolio is a root tag; use its label as the page title.

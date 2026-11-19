@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { tagsWithRoot } from '@/lib/tags';
+import { editorEntries, isPublished } from '@/lib/published';
 import PortfolioProjectPage from '../../components/PortfolioProjectPage.astro';
 import PortfolioCategoryPage from '../../components/PortfolioCategoryPage.astro';
 
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
     params: { slug: entry.id },
     props: { kind: 'category' as const, entry },
   }));
-  const projectPaths = portfolio.map((entry) => ({
+  const projectPaths = editorEntries(portfolio, (entry) => isPublished(entry.data)).map((entry) => ({
     params: { slug: entry.id },
     props: { kind: 'project' as const, entry },
   }));

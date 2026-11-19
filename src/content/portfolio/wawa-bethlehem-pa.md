@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Bethlehem, PA'
 description: 'PH&C delivered the pad for a 5,585 SF, 16-pump Wawa in Bethlehem, PA, working around remediation, a nearby bald eagle nest, and PennDOT highway approvals.'
 location: 'Bethlehem, PA'

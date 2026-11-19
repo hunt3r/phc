@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Lidl Supermarket - Totowa, New Jersey'
 description: 'PH&C converted a shell in Totowa, New Jersey, to a Lidl store with Progressive Companies and Speedwell Contracting. It opened February 4, 2026.'
 location: 'Totowa, New Jersey'

@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Environmental Standards Inc - Valley Forge, PA'
 description: 'PH&C managed a $1.8 million, 9,000 SF office addition for Environmental Standards in Valley Forge, PA, built in 8.5 months while the building stayed open.'
 location: 'Valley Forge, PA'

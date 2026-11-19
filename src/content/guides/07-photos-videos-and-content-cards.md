@@ -32,7 +32,7 @@ A video field asks for a **YouTube Video URL**. Paste the full YouTube link, or 
 - **Thumbnail Override** is optional. Upload a photo to replace the picture YouTube provides.
 - **Promote to home page** also places the video in the homepage Videos section, up to the **Max Videos** number on **Home**.
 
-A video always appears on the page where you added it: a project, a tag, About, Contact, or another page. Every video from all of those places is also collected on the Videos page, whether or not it is promoted.
+A video appears on the page where you added it: a project, a tag, About, Contact, or another page. That page has to be on the site. Every video from published projects, tags, About, Contact, and other published pages is also collected on the Videos page, whether or not it is promoted. A project, the About page, or a page with **Published** turned off is left out, including videos marked **Promote to home page**.
 
 Drag videos to reorder them. The homepage uses promoted videos from across the site, not a separate homepage list.
 

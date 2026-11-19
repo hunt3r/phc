@@ -1,4 +1,5 @@
 ---
+published: true
 title: Privacy Policy
 description: 'PH&C values the privacy and security of the information that you share with us. Effective Date: November 2, 2026'
 featuredImage: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788188361/franck-v-SQ67IUDiZns-unsplash_bpae7u.jpg'

@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'CVS Pharmacy - Jamison, PA'
 description: 'Site development for a 14,000 SF CVS Pharmacy in Jamison, PA, with over $1.2 million in site and highway improvements managed by PH&C.'
 location: 'Jamison, PA'

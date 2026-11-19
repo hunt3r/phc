@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - East Norriton, PA'
 description: 'For a commercial developer, PH&C delivered a pad for a 5,051 SF Wawa with 16 fueling positions in East Norriton, PA, and repaved access for its neighbors.'
 location: 'East Norriton, PA'

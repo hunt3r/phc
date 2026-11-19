@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa and Retail Space - Philadelphia, PA'
 description: 'On an industrial brownfield in Philadelphia, PH&C managed remediation and pile foundations for a 5,585 SF Wawa and 11,000 SF of retail for Xfinity.'
 location: 'Philadelphia, PA'

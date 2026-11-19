@@ -8,6 +8,7 @@ import VideoGrid from '../components/VideoGrid.astro';
 import ContentCards from '../components/ContentCards.astro';
 import { toVideoViews } from '@/lib/videos';
 import { withStaffSlugs } from '@/data/staff';
+import { isPublished, publishedOnly } from '@/lib/published';
 import { createBreadcrumbListSchema } from '@/lib/seo/jsonld';
 import { getImageSrcSet, getImageUrl } from '@/lib/cloudinary';
 
@@ -15,10 +16,16 @@ const entry = await getEntry('about', 'index');
 if (!entry) {
   throw new Error('About content not found. Run: npm run generate:about');
 }
+// The dev server still renders About so Tina can edit it while it is off the
+// public site. The production build responds 404, and the build hook removes
+// about.html so the deployed URL is gone.
+if (!isPublished(entry.data) && !import.meta.env.DEV) {
+  return new Response('Not Found', { status: 404, statusText: 'Not Found' });
+}
 const { Content } = await render(entry);
 
 const staffEntry = await getEntry('staff', 'index');
-const people = withStaffSlugs(staffEntry?.data?.staff ?? []);
+const people = publishedOnly(withStaffSlugs(staffEntry?.data?.staff ?? []));
 
 const videos = toVideoViews(entry.data.videos, 'about');
 
@@ -68,23 +75,25 @@ const jsonLdNodes = [
       <ContentCards cards={entry.data.contentCards} sectionId="about-card" />
     </TinaIsland>
 
-    <TinaIsland name="staff" wrapper={islands.staff.wrapper}>
-      <section class="pt-4">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Key Personnel</h2>
-        <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {people.map((member) => (
-            <li>
-              <PersonnelCard
-                name={member.name}
-                title={member.title}
-                image={member.image}
-                href={`/about/${member.slug}`}
-              />
-            </li>
-          ))}
-        </ul>
-      </section>
-    </TinaIsland>
+    {people.length > 0 && (
+      <TinaIsland name="staff" wrapper={islands.staff.wrapper}>
+        <section class="pt-4">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Key Personnel</h2>
+          <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {people.map((member) => (
+              <li>
+                <PersonnelCard
+                  name={member.name}
+                  title={member.title}
+                  image={member.image}
+                  href={`/about/${member.slug}`}
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      </TinaIsland>
+    )}
 
     {videos.length > 0 && (
       <section class="pt-4 space-y-6">

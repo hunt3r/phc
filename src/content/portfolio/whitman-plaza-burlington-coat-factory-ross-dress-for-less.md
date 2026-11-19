@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Whitman Plaza - Philadelphia, PA'
 description: 'PH&C managed a $7 million-plus renovation of a 120,000 SF building at Whitman Plaza, Philadelphia, for Burlington Coat Factory and Ross Dress for Less.'
 location: 'Philadelphia, PA'

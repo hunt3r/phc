@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Thorndale/Caln Township, PA'
 description: 'PH&C managed a 5,051 SF Wawa with 12 fuel positions in Thorndale, Caln Township, PA, with an Individual NPDES Permit and PennDOT signal work.'
 location: 'Thorndale/Caln Township, PA'

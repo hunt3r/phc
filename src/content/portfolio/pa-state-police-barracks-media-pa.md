@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'PA State Police Barracks - Media, PA'
 description: 'A 17,490 SF PA State Police barracks in Media, PA, on the former Franklin Mint site. PH&C managed demolition, remediation, and the new building.'
 location: 'Media, PA'

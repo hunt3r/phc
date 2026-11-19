@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'A Storage Depot - West Whiteland Twp, PA'
 description: 'PH&C managed an 88,000 SF, three-story climate-controlled self-storage building for A Storage Depot on a steep slope in West Whiteland Township, PA.'
 location: 'West Whiteland Twp, PA'

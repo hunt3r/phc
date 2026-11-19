@@ -1,5 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
+import { omitUnpublishedLinks } from '@/lib/published';
 import { renderMarkdown } from '@/lib/markdown';
 import { BRAND_LOGO_URL, getImageSrcSet, getImageUrl } from '@/lib/cloudinary';
 
@@ -27,13 +28,13 @@ const DEFAULT_FOOTER_BAR_LINKS = [
 
 const siteEntry = await getEntry('site', 'index');
 
-const navLinks = siteEntry?.data?.footerLinks?.length
-  ? siteEntry.data.footerLinks
-  : DEFAULT_FOOTER_LINKS;
+const navLinks = await omitUnpublishedLinks(
+  siteEntry?.data?.footerLinks?.length ? siteEntry.data.footerLinks : DEFAULT_FOOTER_LINKS,
+);
 
-const footerBarLinks = siteEntry?.data?.footerBarLinks?.length
-  ? siteEntry.data.footerBarLinks
-  : DEFAULT_FOOTER_BAR_LINKS;
+const footerBarLinks = await omitUnpublishedLinks(
+  siteEntry?.data?.footerBarLinks?.length ? siteEntry.data.footerBarLinks : DEFAULT_FOOTER_BAR_LINKS,
+);
 
 const footerDescription =
   siteEntry?.data?.footerDescription ??

@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Shops of Villanova - Villanova, PA'
 description: 'PH&C managed the 32,000 SF two-story redevelopment of a Villanova, PA, campus, with retail for Starbucks and First Watch plus office and medical space.'
 location: 'Villanova, PA'

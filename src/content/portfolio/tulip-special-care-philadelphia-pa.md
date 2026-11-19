@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Tulip Special Care - Philadelphia, PA'
 description: 'PH&C managed the 20,585 SF renovation of a floor in Philadelphia''s former Medical College of Pennsylvania building for Tulip Special Care''s 60-bed unit.'
 location: 'Philadelphia, PA'

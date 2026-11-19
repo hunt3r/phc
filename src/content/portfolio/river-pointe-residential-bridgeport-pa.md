@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'River Pointe Residential - Bridgeport, PA'
 description: 'River Pointe is a 250-unit Lennar community on the Schuylkill River in Bridgeport, PA. PH&C helped manage eight contractors and 625,000 CY of earthwork.'
 location: 'Bridgeport, PA'

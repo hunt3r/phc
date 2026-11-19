@@ -1,4 +1,5 @@
 ---
+published: true
 title: '6060 Ridge Ave - Philadelphia, PA'
 description: 'PH&C turned a former bank branch at 6060 Ridge Ave in Philadelphia, PA, into a Vybe Urgent Care for Provco Group, with a full facade renovation.'
 location: 'Philadelphia, PA'

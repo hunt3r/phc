@@ -1,4 +1,5 @@
 ---
+published: true
 title: Federal Transit Administration (FTA)
 description: 'PH&C provided project management oversight for the Federal Transit Administration, reviewing cost, schedule, design, construction, and QA/QC records.'
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1773692425/images/portfolio/federal-transit-administration-fta/logo_FTA-copy.jpg'

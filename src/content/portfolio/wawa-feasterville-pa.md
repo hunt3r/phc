@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Wawa - Feasterville, PA'
 description: 'PH&C managed remediation, demolition, and utility relocations for a developer client''s 4,736 SF Wawa with 6 fuel positions in Feasterville, PA.'
 location: 'Feasterville, PA'

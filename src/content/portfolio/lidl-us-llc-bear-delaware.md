@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Lidl Supermarket - Bear, Delaware'
 description: 'A Lidl building in Bear, Delaware, was built in 2021 and never opened. PH&C fit it out to the current prototype. It opened July 11, 2025.'
 location: 'Bear, Delaware'

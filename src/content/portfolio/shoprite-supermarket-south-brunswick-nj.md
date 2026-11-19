@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'ShopRite Supermarket - South Brunswick, NJ'
 description: 'For a new ShopRite on US-1 in South Brunswick, NJ, PH&C value-engineered the retaining walls and stormwater basins, then managed site construction.'
 location: 'South Brunswick, NJ'

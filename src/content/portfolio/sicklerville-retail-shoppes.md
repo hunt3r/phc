@@ -1,4 +1,5 @@
 ---
+published: true
 title: 'Sicklerville Shoppes - Sicklerville/ Turnersville, NJ'
 description: 'PH&C replaced a furniture building in Sicklerville, NJ, with stores for Panda Express, Jersey Mike''s, and THRIVE Vet Care after remediation and demolition.'
 location: 'Sicklerville/ Turnersville, NJ'

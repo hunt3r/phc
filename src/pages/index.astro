@@ -12,11 +12,12 @@ import { getFeaturedVideos } from '@/lib/videos';
 import { getTagMap, tagHref } from '@/lib/tags';
 import { getEntry, getCollection } from 'astro:content';
 import { projectDateSortValue } from '@/lib/project-date';
+import { isPublished } from '@/lib/published';
 import type { HeroSlide } from '../components/blocks/hero-carousel.astro';
 const homeEntry = await getEntry('home', 'index');
 const data = homeEntry?.data;
 const hero = data?.hero;
-const portfolioEntries = await getCollection('portfolio');
+const portfolioEntries = (await getCollection('portfolio')).filter((entry) => isPublished(entry.data));
 
 const byDateThenTitle = (a: any, b: any) => {
   const dateA = projectDateSortValue((a.data as any).date);
