@@ -9,6 +9,8 @@ architect:
   - entity: src/content/entities/norr.md
 engineer:
   - entity: src/content/entities/bohler.md
+contractor:
+  - entity: src/content/entities/b-tait-builders-llc.md
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1795103707/images/portfolio/lidl-us-llc-tappan-new-york/lidl-tappan-ny-aerial-front-01.jpg'
 gallery:
   - src: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1795103711/images/portfolio/lidl-us-llc-tappan-new-york/lidl-tappan-ny-aerial-parking-lot-02.jpg'
