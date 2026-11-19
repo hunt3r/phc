@@ -1,7 +1,7 @@
 ---
 published: true
 title: 'Lidl Supermarket - Bear, Delaware'
-description: 'PH&C assisted Lidl close out stormwater features on their property and complete a fit-out to a brand new building in Bear, DE to their current prototype. This store had it''s grand opening on July 11, 2025.'
+description: 'PH&C assisted Lidl modify and close out stormwater features on their property and complete a fit-out to a brand new building in Bear, DE to their current prototype. This store had it''s grand opening on July 11, 2025.'
 location: 'Bear, Delaware'
 client:
   - entity: src/content/entities/lidl.md
@@ -49,7 +49,7 @@ featured: true
 heroOrder: 1
 ---
 
-PH\&C assisted Lidl close out stormwater features on their property and complete a fit-out to a brand new building in Bear, DE to their current prototype. This store had it's grand opening on July 11, 2025.
+PH\&C assisted Lidl modify and close out stormwater features on their property and complete a fit-out to a brand new building in Bear, DE to their current prototype. This store had it's grand opening on July 11, 2025.
 
 Our team identified the building's condition with Lidl, the architect, and the engineers, then adapted the design to the current Lidl prototype. PH\&C procured the general contractor and managed the budget, schedule, and quality checks.
 
