@@ -1,7 +1,7 @@
 ---
 published: true
 title: 'Lidl Supermarket - Bear, Delaware'
-description: 'A Lidl building in Bear, Delaware, was built in 2021 and never opened. PH&C fit it out to the current prototype and had it''s grand opening on July 11, 2025.'
+description: 'PH&C assisted Lidl fit-out a brand new building in Bear, DE to their current prototype and had it''s grand opening on July 11, 2025.'
 location: 'Bear, Delaware'
 client:
   - entity: src/content/entities/lidl.md
@@ -48,8 +48,6 @@ services:
 featured: true
 heroOrder: 1
 ---
-
-A Lidl building in [Bear, Delaware](https://www.lidl.com/stores/US01407) was built in 2021 and never opened. PH\&C fit it out to the current prototype with Cuhaci Peterson and New Age Development Group. The store opened July 11, 2025.
 
 The team identified the building's condition with Lidl, the architect, and the engineers, then adapted the design to the current Lidl prototype. PH\&C procured the general contractor and managed the budget, schedule, and quality checks.
 
