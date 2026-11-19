@@ -53,7 +53,7 @@ services:
 featured: true
 ---
 
-Lidl asked PH\&C to manage construction of its new store on Route 303 in Tappan, New York. NORR was the architect, Bohler was the civil engineer and B. Tait Builders was the contractor.
+PH\&C served as owner representative assisting Lidl manage construction of its brand-new ground-up store on Route 303 in Tappan, New York. This was our 2nd store grand opening in New York State with more to come! This store opened for business on September 17, 2026. 
 
 PH\&C served as Lidl's construction manager on the project, representing the owner's interests throughout construction.
 
