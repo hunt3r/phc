@@ -4,6 +4,7 @@ description: 'Lidl asked PH&C to manage construction of its new ground-up store 
 location: 'Tappan, New York'
 client:
   - entity: src/content/entities/lidl.md
+date: '2026-09-01'
 size: '25,650 SF'
 architect:
   - entity: src/content/entities/norr.md
