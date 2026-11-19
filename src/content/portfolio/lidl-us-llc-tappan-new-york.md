@@ -53,13 +53,14 @@ services:
 featured: true
 ---
 
-PH\&C served as Lidl's Owner Representative assisting Lidl manage construction of its brand-new ground-up store on Route 303 in Tappan, New York. This was our 2nd store grand opening in New York State with more to come! This store opened for business on September 17, 2026. 
+PH\&C served as Lidl's Owner Representative assisting Lidl manage construction of its brand-new ground-up store on Route 303 in Tappan, New York. This was our 2nd store grand opening in New York State with more to come! This store opened for business on September 17, 2026.
 
-Our team served as Lidl's construction manager, representing the owner's interests throughout the entire project. We worked with the Architect and Engineers to value engineer designs for more efficient constructability to help reduce costs. Our role also included expertise oversight and supporting services as required to oversee the sitework development and complete construction of a new building into a Lidl prototype Supermarket.
+Our team served as Lidl's construction manager, representing the owner's interests throughout the entire project. We worked with the Architect and Engineers to value engineer designs for more efficient constructability to help reduce costs. Our role also included expertise oversight and supporting services as required to oversee and complete construction of a new building into a Lidl prototype Supermarket.
 
 Key tasks and functions included:
 
 * Manage General Contractor bidding process following LiDL US protocols, negotiate GC bids and prepare Award Recommendation to provide to the LiDL regional responsible party for review and execution.
+* Manage Lidl direct vendor procurement and coordination of Lidl direct vendors.
 * Managed all budgets, timelines, quality checks, and external/internal professional/partners, especially General Contractors.
 * Manage, coordinate, and administer all aspects of construction project and contract administration to LiDL process standards.
 * Routinely maintain and update LiDL’s project management system and programs.
