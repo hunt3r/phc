@@ -6,7 +6,7 @@ parent: src/content/tags/services.md
 order: 5
 ---
 
-PH\&C utilizes our drones for site evaluation, approvals, construction progress, and closeout. Aerial photos show context, scale, and detail a ground walk misses.
+PH\&C utilizes our drones for site evaluation, approvals, construction progress, and closeout. Aerial photos and videos show context, scale, and detail a ground walk misses.
 
 ## Licensed pilots on our own team
 
