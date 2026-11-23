@@ -6,15 +6,13 @@ parent: src/content/tags/services.md
 order: 5
 ---
 
-PH\&C flies a drone on its own projects for site evaluation, approvals, construction progress, and closeout. Aerial photos show context, scale, and detail a ground walk misses.
+PH\&C utilizes our drones for site evaluation, approvals, construction progress, and closeout. Aerial photos show context, scale, and detail a ground walk misses.
 
 ## Licensed pilots on our own team
 
-We don't hire out our drone work. [Lou Harris](/about/louis-harris), our Business Development and Marketing Manager, is an FAA Part 107 licensed remote pilot. He flies our DJI drone on PH\&C job sites, capturing aerial photos and video at each stage of a project.
+We don't hire out our drone work. We employ (2) FAA Part 107 licensed remote pilots. They are skilled at capturing aerial photos and video at each stage of a project.
 
 A Part 107 license means passing the FAA's aeronautical knowledge test and keeping current with recurrent training every 24 months. Licensed pilots fly within the FAA's operating rules, which require airspace authorization near airports, and they know when and where a flight is allowed. Lou also holds OSHA 30-hour certification and is a competent person on active construction sites, so he can work safely around crews and equipment.
-
-Lou isn't our only pilot. [Noah Lynch](/about/noah-lynch), our Construction Coordinator, is also Part 107 licensed. He adds 3D imaging that helps us quantify materials on site.
 
 ## How drones add value to a project
 
