@@ -12,7 +12,7 @@ PH\&C utilizes our drones for site evaluation, approvals, construction progress,
 
 We don't hire out our drone work. We employ (2) FAA Part 107 licensed remote pilots. They are skilled at capturing aerial photos and video at each stage of a project.
 
-A Part 107 license means passing the FAA's aeronautical knowledge test and keeping current with recurrent training every 24 months. Licensed pilots fly within the FAA's operating rules, which require airspace authorization near airports, and they know when and where a flight is allowed. Lou also holds OSHA 30-hour certification and is a competent person on active construction sites, so he can work safely around crews and equipment.
+A Part 107 license means passing the FAA's aeronautical knowledge test and keeping current with recurrent training every 24 months. Licensed pilots fly within the FAA's operating rules, which require airspace authorization near airports, and they know when and where a flight is allowed. Our drone pilots also hold OSHA 30-hour certification and are a competent person on active construction sites.
 
 ## How drones add value to a project
 
