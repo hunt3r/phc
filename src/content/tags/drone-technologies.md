@@ -1,6 +1,6 @@
 ---
 label: Drone Technologies
-description: 'PH&C flies our own fleet of drones to monitor and document our project sites. We have (2) FAA Part 107 pilots. '
+description: 'PH&C flies our own fleet of drones to monitor and document our project sites. We have (2) FAA Part 107 licensed pilots. '
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788365798/drone-services_yyzdby.jpg'
 parent: src/content/tags/services.md
 order: 5
