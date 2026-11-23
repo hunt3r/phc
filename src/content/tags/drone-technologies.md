@@ -1,12 +1,12 @@
 ---
 label: Drone Technologies
-description: 'PH&C flies its own drone on job sites. FAA Part 107 pilots Lou Harris and Noah Lynch record conditions for owners and lenders.'
+description: 'PH&C flies our own fleet of drones to monitor and document our project sites. We have (2) FAA Part 107 pilots. '
 image: 'https://res.cloudinary.com/djkpy86pu/image/upload/v1788365798/drone-services_yyzdby.jpg'
 parent: src/content/tags/services.md
 order: 5
 ---
 
-PH&C flies a drone on its own projects for site evaluation, approvals, construction progress, and closeout. Aerial photos show context, scale, and detail a ground walk misses.
+PH\&C flies a drone on its own projects for site evaluation, approvals, construction progress, and closeout. Aerial photos show context, scale, and detail a ground walk misses.
 
 ## Licensed pilots on our own team
 
