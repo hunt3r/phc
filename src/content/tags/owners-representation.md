@@ -21,15 +21,15 @@ PH\&C's owner's representative service puts an experienced development and const
 ## Our Clients:
 
 * Owners and developers without an in-house construction team.
-* Owners whose teams are already stretched across several projects.
+* Owners whose teams are already stretched thin across several projects.
 * Landowners delivering a pad or building to a tenant's requirements.
 * Retailers, institutions, and businesses opening or renovating locations.
 
-## What you get
+## Value We Deliver:
 
-* One accountable point of contact for the entire project, or for any portion you choose to delegate.
+* One accountable point of contact for the entire project, or for any tasks our clients choose to delegate.
 * Development, design, and construction expertise without the overhead of in-house staff.
-* Recommendations with prices and schedule effects attached.
+* Multiple recommendations for solutions when issues arise, including cost and schedule implications.
 * Your approval before contingency is spent or a change is accepted.
 
 ## Choose the scope
