@@ -6,9 +6,9 @@ parent: src/content/tags/services.md
 order: 3
 ---
 
-Once a project moves into construction, PH\&C becomes your presence on the site. The contractor has a superintendent. You have a construction manager who works for you and watches the schedule, the budget, the inspections, and the paperwork that matters if there is ever a dispute.
+Once a project moves into construction, PH\&C becomes the oversight presence. The contractor has a superintendent. We are a construction manager who works for you and watches the schedule, the budget, the inspections, and the paperwork that matters if there is ever a dispute.
 
-## What PH\&C handles
+## Services PH\&C offers:
 
 * On-site coordination and supervision of contractors, with daily records, photos, and meeting minutes.
 * Schedule management that shows which activity slipped and whether the completion date moved.
@@ -19,7 +19,7 @@ Once a project moves into construction, PH\&C becomes your presence on the site.
 * Bank billing and lender inspections.
 * Escrow and letter-of-credit reductions at closeout.
 
-## What you get
+## What PH\&C provides:
 
 * A monthly cost report showing the contract, approved changes, pending changes, and the balance remaining.
 * A schedule update written in plain language.
