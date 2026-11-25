@@ -30,8 +30,8 @@ PH\&C's owner's representative service puts an experienced development and const
 * One accountable point of contact for the entire project, or for any tasks our clients choose to delegate.
 * Development, design, and construction expertise without the overhead of in-house staff.
 * Multiple recommendations for solutions when issues arise, including cost and schedule implications.
-* Your approval before contingency is spent or a change is accepted.
+* Vetted documentation shared with our Clients for approval before a change is accepted or contingency is spent.
 
-## Choose the scope
+## Clients Choose Our Scope:
 
 We can manage the whole assignment or one phase. See [pre-construction services](/services/pre-construction-services), [construction management](/services/construction-management-services), and [project management](/services/project-management). [Tell us what you are building](/contact) and we will recommend a scope.
