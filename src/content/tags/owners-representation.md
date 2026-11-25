@@ -7,30 +7,30 @@ order: 4
 featured: true
 ---
 
-PH&C's owner's representative service puts an experienced development and construction manager on your side of the table. You keep the decisions that belong to you: the vision, the budget, and the priorities. We handle the day-to-day management, coordination, and follow-through. We work as if we were the real estate and construction department inside your company.
+PH\&C's owner's representative service puts an experienced development and construction manager on your side of the table. You keep the decisions that belong to you: the vision, the budget, and the priorities. We handle the day-to-day management, coordination, and follow-through. We work as if we were the real estate and construction department inside your company.
 
-## What PH&C handles
+## PH\&C Available Services:
 
-- Managing the architect, engineers, and consultants against your program and budget.
-- Representing you with municipalities, utilities, and state agencies.
-- Bidding and contracting the construction work on terms that protect your interests.
-- Tracking cost, schedule, and change orders from the first estimate through closeout.
-- Administering contractor pay applications and lender requirements.
-- Reporting to ownership, lenders, and tenants on a regular schedule.
+* Managing the architect, engineers, and consultants against the program and budget.
+* Owner's Representative with municipalities, utilities, and state agencies.
+* Managing the Procurement and Contracting processes the on our clients terms; protecting their interests.
+* Tracking cost, schedule, and change orders from the first estimate through closeout.
+* Administering contractor pay applications and lender requirements.
+* Reporting to ownership, lenders, and tenants on a regular schedule.
 
-## Who hires us
+## Our Clients:
 
-- Owners and developers without an in-house construction team.
-- Owners whose teams are already stretched across several projects.
-- Landowners delivering a pad or building to a tenant's requirements.
-- Retailers, institutions, and businesses opening or renovating locations.
+* Owners and developers without an in-house construction team.
+* Owners whose teams are already stretched across several projects.
+* Landowners delivering a pad or building to a tenant's requirements.
+* Retailers, institutions, and businesses opening or renovating locations.
 
 ## What you get
 
-- One accountable point of contact for the entire project, or for any portion you choose to delegate.
-- Development, design, and construction expertise without the overhead of in-house staff.
-- Recommendations with prices and schedule effects attached.
-- Your approval before contingency is spent or a change is accepted.
+* One accountable point of contact for the entire project, or for any portion you choose to delegate.
+* Development, design, and construction expertise without the overhead of in-house staff.
+* Recommendations with prices and schedule effects attached.
+* Your approval before contingency is spent or a change is accepted.
 
 ## Choose the scope
 
